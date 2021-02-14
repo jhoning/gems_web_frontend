@@ -1,0 +1,42 @@
+{
+    "Header": {
+        "plans_pricing": "Plans & Pricing",
+        "help": "Help",
+        "sign_in": "Sign in",
+        "sign_up": "Sign up",
+        "logeo": "Sing in to T-board",
+        "email": "Email",
+        "password": "Password",
+        "submitt": "Submit",
+        "example": "Example123@gmail.com"
+    },
+    "HeaderT": {
+
+        "log_out": "Log Out",
+        "projects": "Projects",
+        "projectsM": "Master Projects",
+        "projectsS": "Support Projects",
+        "projectsNews": "New Project",
+        "search_projects": "Search projects",
+        "Terms": "Terms",
+        "Privacy": "Privacy",
+        "Blog": "Blog",
+        "ContactUs": "ContactUs"
+    },
+    "userS": {
+        "userS": "User Settings",
+        "companyI": "Company information",
+        "emailA": "Email address",
+        "company": "Company",
+        "updateU": "Update user settings",
+        "firstN": "First name",
+        "lastN": "Last name",
+        "address": "Address",
+        "professionalID": "Professional ID",
+        "country": "Country",
+        "phone": "Phone",
+        "changeE": "Change Email",
+        "changeP": "Change Password",
+        "update": "Update"
+    }
+}

@@ -1,0 +1,14 @@
+.sideBar {
+    border-radius: 5px;
+}
+
+.altoCompleto {
+    border-radius: 5px;
+    min-height: 65vh;
+}
+
+.list-group {
+    max-height: 65vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}

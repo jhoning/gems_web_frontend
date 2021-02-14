@@ -1,0 +1,42 @@
+{
+    "Header": {
+        "plans_pricing": "Planes & Precios",
+        "help": "Ayuda",
+        "sign_in": "Iniciar sesion",
+        "sign_up": "Registrarse",
+        "logeo": "Logearse a T-board",
+        "email": "Correo",
+        "password": "Clave",
+        "submitt": "Enviar",
+        "example": "Ejemplo123@gmail.com"
+    },
+    "HeaderT": {
+
+        "log_out": "Cerrar sesion",
+        "projects": "Proyectos",
+        "projectsM": "Proyectos Maestros",
+        "projectsS": "Soporte de Proyectos",
+        "projectsNews": "Nuevo Proyecto",
+        "search_projects": "Buscar proyectos",
+        "Terms": "Terminos",
+        "Privacy": "Privacidad",
+        "Blog": "Blog",
+        "ContactUs": "Contactanos"
+    },
+    "userS": {
+        "userS": "Configuraciones de usuario",
+        "companyI": "Informacion de compania",
+        "emailA": "Direccion de email",
+        "company": "Compania",
+        "updateU": "Actualizar datos de usuario",
+        "firstN": "Primer nombre",
+        "lastN": "Apellido",
+        "address": "Direccion",
+        "professionalID": "ID profecional",
+        "country": "Pais",
+        "phone": "Telefono",
+        "changeE": "Cambiar Correo",
+        "changeP": "Cambiar Contrasena",
+        "update": "Actualizar"
+    }
+}
