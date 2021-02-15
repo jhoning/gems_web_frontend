@@ -3,11 +3,8 @@ import { useTranslation } from 'react-i18next';
 import axios from 'axios'
 const Header_tboard = ({handledHeaderT}) => {
     
-    const token = localStorage.getItem('token').split('.')[1];
-    const tokenData = JSON.parse(
-                          Buffer.from(token,'base64')
-                          .toString()
-    )
+
+  
     const [t,i18n] = useTranslation("global")
     
     const handleClick = lang => {
@@ -40,12 +37,13 @@ const Header_tboard = ({handledHeaderT}) => {
         
     }   
     
-    const deslogear = async() => {
+    const deslogear = () => {
         /* http://localhost:3000/user */
-        await axios.post('http://localhost:4000/auth/logout')
-       .then(console.log()
-       )
-       .catch(console.log())
+       axios.post('http://localhost:4000/auth/logout')
+      
+       localStorage.clear()
+       alert("Se ha deslogeado de forma exitosa")
+       window.location.href="./"
     } 
     
     return (
@@ -53,10 +51,10 @@ const Header_tboard = ({handledHeaderT}) => {
             <h5 className="my-0 mr-md-auto">T-board</h5>
             <nav className="my-2 my-md-0 mr-md-3">
             <button className="btn btn-primary mx-1" id="id_es" onClick={()=> {handleClick('es');handledHeaderT(e);}}>es</button>
-            <button className="btn btn-primary" id="id_es" onClick={()=> {handleClick('en');handledHeaderT(e)}} >en</button>
+            <a className="btn btn-primary" id="id_es" onClick={()=> {handleClick('en');handledHeaderT(e)}} >en</a>
                 <a className="p-2 text-dark" href="">{t("Header.help")}</a>
             </nav>
-            <a className="btn btn-outline-primary mx-1" href="" onClick={()=>{deslogear()}}>{ t("HeaderT.log_out")}</a>
+            <a className="btn btn-outline-primary mx-1"  onClick={()=>{deslogear()}}>{ t("HeaderT.log_out")}</a>
             <a className="btn btn-outline-primary mr-2" href="/user_settings">{t("userS.userS")}</a>
         </div>
     );

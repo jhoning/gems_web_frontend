@@ -125,7 +125,7 @@ export default class UserSettings extends Component {
                             <div className="col-6">
                                 <div className="form-group">
                                     <label htmlFor="professional">{this.state.translate.professionalID}</label>
-                                    <input type="text" name="profesionalID" className="form-control" placeholder={this.state.data.ProfessionalID} onChange={this.handledChange} />
+                                    <input type="text" name="profesionalID" className="form-control" placeholder={this.state.data.profesionalID} onChange={this.handledChange} />
                                  </div>
                             </div>
                             <div className="col-6">

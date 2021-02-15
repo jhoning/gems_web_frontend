@@ -16,7 +16,7 @@ const Header = ({handledHeader}) => {
         submit: t("Header.submitt"),
         
     }
-    console.log(traduc);
+  
     return (
         <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
             <h5 className="my-0 mr-md-auto">T-board</h5>
@@ -26,7 +26,7 @@ const Header = ({handledHeader}) => {
             </nav>
             <button className="btn btn-primary  mx-1" id="id_es" onClick={()=> {handleClick('es');handledHeader(traduc);}}
 onMouseDown={()=> {handleClick('es');handledHeader(traduc);}}>es</button>
-            <button className="btn btn-primary " id="id_es" onClick={()=> {handleClick('en');handledHeader(traduc)}} mouseUp={()=> {alert("hola")}}>en</button>
+            <button className="btn btn-primary " id="id_es" onClick={()=> {handleClick('en');handledHeader(traduc)}}>en</button>
             <a className="btn btn-outline-primary  mx-1" href="http://localhost:8002/register">{t("Header.sign_up")}</a>
             <button className="btn btn-outline-primary " href="http://localhost:8002/">{t("Header.sign_in")}</button>
          </div>
