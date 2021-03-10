@@ -1,28 +1,25 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Login from '../pages/Login'
-import T_board from '../pages/T_board';
-import Register from '../pages/Register'
-import UserSettings from '../pages/UserSettings'
-import calculo from '../pages/calculo'
-import '../css/Main.css'
+
+import { LoginForm } from '../containers/LoginForm';
+import Register from '../components/Register';
+import Home_tboard from '../containers/Home_tboard';
+import UserSettings from '../components/UserSettings';
+import Calculate from '../containers/Calculate';
 
 
 
-import i18n from '../i18n';
+
 export default function Routes() {
-    return (
-       
-            <BrowserRouter>
-                <Switch>
-                    <Route exact path="/" component={Login}/>
-                    <Route exact path="/t-board" component={T_board}/>
-                    <Route exact path="/register" component={Register}/>
-                    <Route exact path="/user_settings" component={UserSettings}/>
-                    <Route exact path="/calculo" component={calculo}/>
-                </Switch>
-            </BrowserRouter>
-        
-    );  
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={LoginForm}/>
+        <Route exact path="/register" component={Register}/>
+        <Route exact path="/t_board" component={Home_tboard}/>
+        <Route exact path="/user_settings" component={UserSettings}/>
+        <Route exact path="/calculate" component={Calculate}/>
+     </Switch>
+    </BrowserRouter>
+  );  
 }

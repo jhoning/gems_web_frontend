@@ -159,6 +159,14 @@ body {
     padding: 0px;
 }
 
-calculoAlto {
-    min-height: 65vh;
+.calculoAlto {
+    max-height: 75vh;
+}
+
+.calculoAltoMin {
+    min-height: 75vh;
+}
+
+.scrollInputs {
+    overflow-y: scroll;
 }

@@ -1,3 +1,20 @@
-anchoButton {
-    width: 200px;
+.anchoButton {
+    padding: 5px;
+    width: 120px;
+}
+
+.anchoButtonSettings {
+    padding: 1px, 5px;
+    width: 215px;
+    white-space: nowrap;
+}
+
+.anchoButtonLogout {
+    width: 120px;
+    white-space: nowrap;
+}
+
+.anchoHelp {
+    display: inline-block;
+    width: 50px;
 }

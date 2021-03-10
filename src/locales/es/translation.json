@@ -6,9 +6,12 @@
         "sign_up": "Registrarse",
         "logeo": "Logearse a T-board",
         "email": "Correo",
+        "username": "Usuario",
         "password": "Clave",
         "submitt": "Enviar",
-        "example": "Ejemplo123@gmail.com"
+        "example": "Ejemplo123@gmail.com",
+        "ryc": "Registra tu cuenta",
+        "register": "Registrar"
     },
     "HeaderT": {
 
