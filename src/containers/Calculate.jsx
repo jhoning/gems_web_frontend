@@ -19,7 +19,6 @@ const Calculate = () => {
             <div className="jumbotron p-2 mb-0 calculoAltoMin">
 
               
-              
             </div>
           </div>
         </div>

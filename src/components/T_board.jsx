@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import {useState,useEffect} from 'react'
-import axios from 'axios'
+import {useState,useEffect} from 'react';
+import axios from 'axios';
 import "../css/t-board_estilos.css"
 const T_board = () => {
   

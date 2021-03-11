@@ -4,7 +4,7 @@ import i18next from 'i18next';
 import '../css/btn.css';
 import '../css/Main.css';
 import es from '../css/espana.svg';
-import en from '../css/estados-unidos.svg';
+import en from '../css/estados-unidos.svg'
 const Header = () => {
   const [t] = useTranslation("global")
 

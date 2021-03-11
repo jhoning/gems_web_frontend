@@ -28,8 +28,6 @@ const Header = () => {
     <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 shadow-sm fondo">
       <h5 className="my-0 mr-md-auto text-light ml-md-4">T-board</h5>
       <nav className="my-2 my-md-0 mr-md-1">
-        {/* <button className="btn btn-primary mx-1" id="id_es" onClick={() => handleClick('es')}>es</button>
-        <a className="btn btn-primary" id="id_es" onClick={() => handleClick('en')} >en</a> */}
         <ul class="navbar-nav idioma mr-md-1">
       <li class="nav-item dropdown language-dropdown">
         <a class="nav-link dropdown-toggle d-flex align-items-center leng text-light" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">

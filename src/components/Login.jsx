@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import '../css/login_estilos.css'
 import { useTranslation } from 'react-i18next';
-import {useHistory} from 'react-router'
+import {useHistory} from 'react-router';
 
 const Login = () => {
 

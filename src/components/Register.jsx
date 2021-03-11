@@ -4,7 +4,7 @@ import {useHistory} from 'react-router'
 import { useTranslation } from 'react-i18next';
 import Header from './Header';
 import '../css/Register.css'
-import Footer from './Footer';
+import Footer from './Footer'
 const Register = () => {
   const [t] = useTranslation("global")
   const history = useHistory()
