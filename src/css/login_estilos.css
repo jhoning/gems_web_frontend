@@ -1,6 +1,6 @@
 /* BASIC */
 
-body {
+#root {
     background: url("fondoa.jpg");
     background-color: #56baed;
     background-repeat: no-repeat;
@@ -9,11 +9,6 @@ body {
     background-size: cover; 
     height: 100vh;
 }
-
-
-/* .completo {
-    height: 100vh;
-} */
 
 label {
     display: inline-block;

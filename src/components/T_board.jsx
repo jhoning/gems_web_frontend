@@ -31,9 +31,9 @@ const T_board = () => {
     await authAxios.post('/project',{name:nameProject}).then(resp => {alert("proyecto agregado con exito");setBandera(bandera?false:true);setNameProject("")}).catch(err => alert("ha ocurrido un error"))
   }
   return (
-  <div className="container-fluid p-0">
+  <div className="container-fluid tbo">
     <div className="container-fluid mb-3">
-        <div className="row mx-1" >
+        <div className="row mx-1" > 
             <nav className="col-2 col-md-2 col-sm-2  bg-dark sidebar altoCompleto mx-0 p-1">
                 <div className="sidebar-sticky sideBar text-center" >
                     <ul className="nav flex-column text-left">

@@ -8,3 +8,7 @@
     bottom: 0;
     height: 57px;
 }
+
+.line, .check {
+    padding: 3px 0.75rem !important;
+}
