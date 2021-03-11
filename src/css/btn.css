@@ -22,3 +22,12 @@
 .fondo {
     background: #1d262d !important;
 }
+
+.ban {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.idioma a {
+    cursor: pointer;
+}
