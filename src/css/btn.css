@@ -18,3 +18,7 @@
     display: inline-block;
     width: 50px;
 }
+
+.fondo {
+    background: #1d262d !important;
+}
