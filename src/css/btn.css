@@ -19,8 +19,8 @@
     width: 50px;
 }
 
-.fondo {
-    background: #1d262d !important;
+.anchoButton {
+    width: 200px;
 }
 
 .ban {
@@ -28,6 +28,49 @@
     margin-right: 10px;
 }
 
-.idioma a {
+.leng {
+    padding-right: 20px !important;
+}
+
+.dropdown-menu-left {
+    background: rgb(29, 38, 45);
+    color: white;
+}
+
+.dropdown-item:hover {
+    background: #151b1f;
+}
+
+.check {
+    background: #444857 !important;
+    border: 1px solid #444857 !important;
+    color: white;
+    border: transparent;
+}
+.line:hover, .line:focus {
+    background: #444857 !important;
+    border: 1px solid #444857 !important;
+    color: white;
+    border: transparent;
+}
+
+.check:hover, .check:focus {
+    background: transparent !important;
+    border: 1px solid white !important;
+    color: white;
+    border: transparent;
+}
+.anchoButton {
+    width: 200px;
+}
+
+.dropdown-menu-left {
+    background: rgb(29, 38, 45) !important;
+    color: white !important;
     cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background: rgb(18, 23, 27) !important;
+    color: white;
 }

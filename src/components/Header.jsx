@@ -2,6 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import '../css/btn.css';
+import '../css/Main.css';
 import es from '../css/espana.svg';
 import en from '../css/estados-unidos.svg';
 const Header = () => {
@@ -21,7 +22,7 @@ const Header = () => {
 
     <ul class="navbar-nav idioma mr-md-1">
       <li class="nav-item dropdown language-dropdown">
-        <a class="nav-link dropdown-toggle px-2 d-flex align-items-center leng text-light" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle d-flex align-items-center leng text-light" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
           <div class="d-inline-flex mr-0 mr-md-3">
             <div class="flag-icon-holder"><i class="flag-icon flag-icon-us"></i>
             </div>
@@ -44,12 +45,9 @@ const Header = () => {
           </a>
         </div>
       </li>
-      </ul>  
-      {/* <button className="btn btn-primary mx-1" id="id_es" onClick={() => handleClick('es')}
-      >es</button>
-      <button className="btn btn-primary" id="id_es" onClick={() => handleClick('en')}>en</button> */}
-      <a className="btn btn-outline-primary anchoButton mx-1" href="/register">{t("Header.sign_up")}</a>
-      <a className="btn btn-outline-primary anchoButton" href="/">{t("Header.sign_in")}</a>
+      </ul>
+      <a className="btn btn-outline-light text-light mx-1 mr-md-3 line" href="/register">{t("Header.sign_up")}</a>
+      <a className="btn btn-outline-light mr-md-4 check text-light" href="/">{t("Header.sign_in")}</a>
     </div>
   )
 }

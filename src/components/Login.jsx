@@ -32,13 +32,13 @@ const Login = () => {
 
   return (
     <div className="app">
-      <div className="card mx-auto my-5 loginCard">
+      <div className="card mx-auto my-5 formContent wrapper fadeInDown">
         <div className="card-body ">
           <div id="login-row" className="row justify-content-center align-items-center">
             <div id="login-column" className="col-md-12">
               <div id="login-box" className="col-md-12">
                 <form onSubmit={submitHandler}>
-                  <h3 className="text-center mb-5">{t("Header.logeo")}</h3>
+                  <h3 className="text-center mb-4">{t("Header.logeo")}</h3>
                   <div className="form-group">
                     <label htmlFor="email" className="">{t("Header.email")}</label>
                     <input type="text" name="email" id="email" placeholder={t("Header.example")} className="form-control" onChange={ e => setLogin({...login,email: e.target.value}) } value={login.name}/>
