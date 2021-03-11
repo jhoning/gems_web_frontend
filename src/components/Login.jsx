@@ -47,8 +47,8 @@ const Login = () => {
                     <label htmlFor="password" className="">{t("Header.password")}</label>
                     <input type="password" name="password" id="password" placeholder='***************' className="form-control" onChange={ e => setLogin({...login,password: e.target.value}) }/>
                   </div>
-                  <div className="form-group text-center mt-4">
-                    <input type="submit" className="btn btn-outline-primary btn-lg btn-block" value={t("Header.submitt")} onClick={()=>logear()}/>
+                  <div className="form-group text-center mt-3">
+                    <input type="submit" className="boton btn btn-primary" value={t("Header.submitt")} onClick={()=>logear()}/>
                   </div>
                 </form>
               </div>

@@ -30,36 +30,41 @@ const Register = () => {
   return (
     <div className="app">
       <Header />
-      <div className="card mx-auto mt-5 registerUser">
+      <div className="card mx-auto mt-5 formContentReg wrapper fadeInDown">
         <div className="row justify-content-center align-items-center">
           <div className="col-md-12">
-            <h3 className="text-center mb-4">{t("Header.ryc")}</h3>
+            <h3 className="text-center mb-3">{t("Header.ryc")}</h3>
             <form onSubmit={submitHandler}>
-              <div className="form-group">
-                <label htmlFor="Username" className="form-label">{t("Header.username")}</label>
-                <input className="form-control" name="username" type="text" /* placeholder="Enter Username" */ onChange={ e => setForm({...form,username: e.target.value})} />
+
+            <div className="col-md-12 p display">
+              <div className="form-group col-md-6 p margen">
+                <input className="form-control" name="username" type="text" placeholder="Username" onChange={ e => setForm({...form,username: e.target.value})} />
               </div>
-              <div className="form-group">
-                <label htmlFor="Email" className="form-label">{t("Header.email")}</label>
-                <input className="form-control" name="email" type="email" /* placeholder="Enter Email" */ onChange={ e => setForm({...form,email: e.target.value})} />
+              <div className="form-group col-md-6 p ">
+                <input className="form-control" name="email" type="email" placeholder="Email" onChange={ e => setForm({...form,email: e.target.value})} />
               </div>
-              <div className="form-group">
-                <label htmlFor="Password" className="form-label">{t("Header.password")}</label>
-                <input className="form-control" name="password" type="password" /* placeholder="Enter Password" */ onChange={ e => setForm({...form,password: e.target.value})}  />
+            </div>
+            
+            <div className="col-md-12 p display">
+            <div className="form-group col-md-6 p margen">
+                <input className="form-control" name="password" type="password" placeholder="Password" onChange={ e => setForm({...form,password: e.target.value})}  />
               </div>
-              <div className="form-group">
-                <label htmlFor="First name" className="form-label">{t("userS.firstN")}</label>
-                <input className="form-control" name="first_name" type="text"/*  placeholder="Enter First name" */ onChange={ e => setForm({...form,first_name: e.target.value})}  />
+              <div className="form-group col-md-6 p ">
+                <input className="form-control" name="first_name" type="text" placeholder="First name" onChange={ e => setForm({...form,first_name: e.target.value})}  />
               </div>
-              <div className="form-group">
-                <label htmlFor="last name" className="form-label">{t("userS.lastN")}</label>
-                <input className="form-control" name="last_name" type="text" /* placeholder="Enter Last name" */ onChange={ e => setForm({...form,last_name: e.target.value})} />
+            </div>
+              
+            <div className="col-md-12 p display">
+              <div className="form-group col-md-6 p margen">
+                <input className="form-control" name="last_name" type="text" placeholder="Last name" onChange={ e => setForm({...form,last_name: e.target.value})} />
               </div>
-              <div className="form-group">
-                <label htmlFor="professional ID" className="form-label">{t("userS.professionalID")}</label>
-                <input className="form-control" name="profesionalID" type="text" /* placeholder="Enter Profesional ID" */ onChange={ e => setForm({...form,profesionalID: e.target.value})} />
+              <div className="form-group col-md-6 p ">
+                <input className="form-control" name="profesionalID" type="text" placeholder="Your Profesional ID" onChange={ e => setForm({...form,profesionalID: e.target.value})} />
               </div>
-              <input type="submit" className="btn btn-outline-primary btn-lg btn-block" value={t("Header.register")} onClick={()=>registrar()}/>
+            </div>
+              
+
+              <input type="submit" className="botonReg btn btn-primary" value={t("Header.register")} onClick={()=>registrar()}/>
               <small className="form-text text-muted">
                 By creating a account, you agree to the <a href="">Terms of Service.</a>
                          For more information about T-board's privacity terms,

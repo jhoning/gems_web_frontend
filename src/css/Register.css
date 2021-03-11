@@ -1,16 +1,62 @@
-.registerUser {
-    
-    width: 30%;
-    margin: auto;
-    margin-top: 20px;
-    background: white;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
+.formContentReg {
+    width: 450px;
+    border-radius: 10px 10px 10px 10px !important;
+    background: #fff;
+    padding: 25px 25px 25px !important;
+    position: relative !important;
+    box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
 }
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 0 !important;
+}
+
+.app {
+    background: url("fondoa.jpg");
+    background-color: #56baed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+}
+
+.p {
+    padding: 1px 0 !important;
+}
+
+.margen {
+    padding-right: 9px !important;
+}
+
+.display {
+    display: inline-flex;
+}
+
+.botonReg {
+    background-color: #39ace7;
+    border: none;
+    color: white;
+    width: 100%;
+    font-weight: 600 !important;
+    padding: 8px 70px !important;
+    text-align: center;
+    text-decoration: none !important;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px !important;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border: transparent !important;
+    margin-top: 12px !important;
+  }
+
+  .botonReg:hover {
+    background-color: #053a55 !important;
+    color: white;
+  }

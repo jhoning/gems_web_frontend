@@ -1,3 +1,10 @@
 .fondo {
     background: #1d262d !important;
 }
+
+.container-fluid {
+    background: #1d262d !important;
+    position: fixed;
+    bottom: 0;
+    height: 57px;
+}

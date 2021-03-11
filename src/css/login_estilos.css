@@ -17,22 +17,22 @@ body {
 
 label {
     display: inline-block;
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
 }
 
 .formContent {
     width: 350px;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px !important;
     background: #fff;
     padding: 40px 25px 45px !important;
-    position: relative;
+    position: relative !important;
     box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
 }
 
 .card-body {
     flex: 1 1 auto;
     min-height: 1px;
-    padding: 0;
+    padding: 0 !important;
 }
 
 .mail {
@@ -63,16 +63,16 @@ label {
 }
 
 .boton {
-  /* background-color: #39ace7; */
+  background-color: #39ace7;
   border: none;
   color: white;
-  font-weight: 600;
-  padding: 8px 70px;
+  font-weight: 600 !important;
+  padding: 8px 70px !important;
   text-align: center;
   text-decoration: none !important;
   display: inline-block;
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 13px !important;
   -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
   box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
   -webkit-border-radius: 5px 5px 5px 5px;
@@ -83,10 +83,11 @@ label {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
+  border: transparent !important;
 }
 
 .boton:hover {
-  background-color: #053a55;
+  background-color: #053a55 !important;
   color: white;
 }
 
@@ -120,14 +121,13 @@ input[type=text], input[type=email], input[type=password] {
 
 input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
   background-color: #fff;
-  border-bottom: 2px solid #5fbae9 !important;
   border: transparent;
   box-shadow: transparent !important;
   color: black;
 }
 
 .form-group {
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
 }
 
 .idioma a {
