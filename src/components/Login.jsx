@@ -4,7 +4,7 @@ import '../css/login_estilos.css'
 import { useTranslation } from 'react-i18next';
 import {useHistory} from 'react-router';
 
-const Login = () => {
+const Login = () => { 
 
   const history = useHistory();
   const [login, setLogin] = useState({email:"",password:""});

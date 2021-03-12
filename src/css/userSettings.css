@@ -1,3 +1,7 @@
 .bordeColor {
     border-bottom: 2px solid #007bff;
 }
+
+body {
+    background: blue !important;
+}

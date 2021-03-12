@@ -40,10 +40,10 @@ const UserSettings = () => {
       <div className="container">
         <div className="col-12 altoCompleto">
           <div className="jumbotron p-2 mb-0 bg-light">
-            <div className="col-12 bordeColor text-left px-0">
-              <h3 className="mb-4 mx-0">{t("userS.userS")}</h3>
+            <div className="col-12 bordeColor text-left px-3 ml-3">
+              <h3 className="mb-2 mx-0">{t("userS.userS")}</h3>
             </div>
-            <h5 className="mb-4 mt-3 ">{t("userS.companyI")}</h5>
+            <h5 className="mb-4 mt-3 ml-3">{t("userS.companyI")}</h5>
             <div className="row mx-3 mt-4">
               <div className="col-6">
                 <div class="form-group">

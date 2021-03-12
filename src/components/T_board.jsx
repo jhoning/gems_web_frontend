@@ -32,9 +32,9 @@ const T_board = () => {
   }
   return (
   <div className="container-fluid tbo">
-    <div className="container-fluid mb-3">
-        <div className="row mx-1" > 
-            <nav className="col-2 col-md-2 col-sm-2  bg-dark sidebar altoCompleto mx-0 p-1">
+    <div className=" mb-3">
+        <div className="row" > 
+            <nav className="col-2 col-md-2 col-sm-2 gris sidebar altoCompleto mx-0">
                 <div className="sidebar-sticky sideBar text-center" >
                     <ul className="nav flex-column text-left">
                     
@@ -43,11 +43,11 @@ const T_board = () => {
                     <li className="nav-item"><a href="" className="nav-link text-white">{t("HeaderT.projectsS")}</a></li>
                    
                     </ul>
-                    <input type="text" name="text" placeholder="aqui pasa el id proyecto existen" className="form-control" value={nameProject} onChange={ e => { setNameProject(e.target.value)} }/>
-                     <button className="btn btn-primary mt-3" onClick={()=> crearProject()}>{t("HeaderT.projectsNews")}</button>
+                    <input type="text" name="text" placeholder="Indique el id proyecto" className="form-control" value={nameProject} onChange={ e => { setNameProject(e.target.value)} }/>
+                     <button className="btn btn-primary mt-3 new" onClick={()=> crearProject()}>{t("HeaderT.projectsNews")}</button>
                 </div>
             </nav>
-            <div className="col-10 altoCompleto">
+            <div className="col-10 altoCompleto vt">
                 <div className="jumbotron p-2 mb-0">
                     <div className="container mb-1">
                         <div className="row">

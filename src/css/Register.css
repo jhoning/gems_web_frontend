@@ -14,14 +14,6 @@
     padding: 0 !important;
 }
 
-.app {
-    background: url("fondoa.jpg");
-    background-color: #56baed;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; 
-}
-
 .p {
     padding: 1px 0 !important;
 }

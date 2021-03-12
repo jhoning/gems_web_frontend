@@ -15,7 +15,34 @@
 }
 
 .tbo {
-    padding-top: 20px !important;
     background: #fdfdfd;
     height: 100vh;
+    padding: 0 !important;
 }
+
+.gris {
+    background-color: #27333c!important;
+    width: 230px;
+    position: relative !important;
+    border-radius: 0;
+    transition: .600s;
+    height: 100vh;
+    touch-action: none;
+    padding: 20px !important;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .vt {
+    padding-left: 0px !important;
+  }
+
+  .container-fluid {
+      overflow-y: hidden;
+  }
+
+  .new {
+    background: #525769 !important;
+    border-color: transparent !important;
+  }
