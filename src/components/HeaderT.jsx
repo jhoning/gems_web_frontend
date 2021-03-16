@@ -5,22 +5,31 @@ import i18next from 'i18next';
 import '../css/btn.css';
 import '../css/Main.css';
 import es from '../css/espana.svg';
-import en from '../css/estados-unidos.svg'
+import en from '../css/estados-unidos.svg';
+import {useHistory} from 'react-router';
 
+
+const token = localStorage.getItem('token')
+  const authAxios = axios.create({
+    baseURL: 'http://localhost:4000',
+    headers: {
+      "auth-token": `${token}`
+    }
+  })  
 
 const Header = () => {
+  const history = useHistory();
   const [t] = useTranslation("global")
 
   const handleClick = lang => {
     i18next.changeLanguage(lang)
   }
-  const deslogear = async() => {
-    await axios.post('http://localhost:4000/auth/logout').then((result) => {
-      localStorage.clear()
+  const deslogear = () => {
+
+     
       alert("Se ha deslogeado de forma exitosa")
-    }).catch((err) => {
-      alert("ia del lado del backed tambien, porque responde co un error 404")
-    });
+      localStorage.clear()
+      history.push("/")
       
     
   }
@@ -59,7 +68,7 @@ const Header = () => {
 
       <a className="btn btn-outline-light text-light mx-1 mr-md-3 line" href="/user_settings">{t("userS.userS")}</a>
       <a className="btn btn-outline-light text-light mx-1 mr-md-3 line" href="/calculate">Calculate</a>
-      <a className="btn btn-outline-light mr-md-4 check text-light"  onClick={()=>{deslogear()}}>{ t("HeaderT.log_out")}</a>
+      <a className="btn btn-outline-light mr-md-4 check text-light"  onClick={()=>deslogear()}>{ t("HeaderT.log_out")}</a>
         
     </div>
   )

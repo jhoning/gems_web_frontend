@@ -4,8 +4,21 @@ import Header from '../components/HeaderT'
 import InputsCalculate from '../components/InputsCalculate'
 import MenuTree from '../components/MenuTree'
 import '../css/calculo.css'
+import { useState,useEffect} from 'react'
 
 const Calculate = () => {
+  
+  const [values,setValues] = useState({
+    current:"",
+    cable_width:"",
+    pipe_diameter:"", 
+    protection_device:"",
+    voltaje_drop:"",
+    circuit:{},
+    
+  })
+
+  const [arr,setArr] = useState([1])
   return (
     <div>
       <Header />
@@ -14,27 +27,18 @@ const Calculate = () => {
           <div className="col-3">
             <MenuTree />
           </div>
-          <InputsCalculate />
+          <InputsCalculate values={values} setValues={setValues} setArr={setArr} arr={arr}/>
           <div className="col-5 p-0">
             <div className="jumbotron p-0 mb-0 calculoAltoMin mr-0">
             <h2 className="text-center">Report</h2>
-              <table class="table table-bordered">
+              <table border="1"class="table table-bordered table-sm">
                 <thead>
                   <tr>
-                    <th scope="col" >Project:</th>
-                    <td scope="col" colspan="3"></td>
+                    <th scope="col-4" >Project:</th>
+              
                   </tr>
                   <tr>
-                    <th scope="col">Board:</th>
-                    <td scope="col" colspan="3"></td>
-                  </tr>
-                  <tr>
-                    <th scope="col">Board code:</th>
-                    <td scope="col" colspan="3"></td>
-                  </tr>
-                  <tr>
-                    <th scope="col">Board location:</th>
-                    <td scope="col" colspan="3"></td>
+                
                   </tr>
                 </thead>
                 <br />
@@ -44,7 +48,7 @@ const Calculate = () => {
                 </tbody>
               </table>
               <h2 className="text-center">Branch Circuits</h2>
-              <table class="table table-bordered mx-0">
+              <table class="table table-bordered mx-0 table-sm">
                 <thead>
                   <tr>
                     <th scope="col" className="px-2">Branch</th>
@@ -57,24 +61,21 @@ const Calculate = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
+                 
+                   
+                    {arr.map((item)=>{return   <tr>
+                    <th scope="col" className="px-2">{parseInt(Math.random()*155)}</th>
+                    <th scope="col" className="px-2">{parseInt(Math.random()*155)}</th>
+                    <th scope="col" className="px-2">{parseInt(Math.random()*155)}</th>
+                    <th scope="col" className="px-2">{parseInt(Math.random()*155)}</th>
+                    <th scope="col" className="px-2">{parseInt(Math.random()*155)}</th>
+                    <th scope="col" className="px-2">{parseInt(Math.random()*155)}</th>
+                    <th scope="col" className="px-2">{parseInt(Math.random()*155)}</th>
+                 
+                 
+                  </tr>})}
+                 
+              
                 
                 </tbody>
               </table>
