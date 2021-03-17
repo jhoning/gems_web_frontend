@@ -28,7 +28,7 @@ const Header = () => {
 
      
       alert("Se ha deslogeado de forma exitosa")
-      localStorage.clear()
+      localStorage.removeItem('token');
       history.push("/")
       
     

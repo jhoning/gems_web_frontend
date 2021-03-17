@@ -18,7 +18,7 @@ const Calculate = () => {
     
   })
 
-  const [arr,setArr] = useState([1])
+  const [arr,setArr] = useState([])
   return (
     <div>
       <Header />
@@ -64,13 +64,13 @@ const Calculate = () => {
                  
                    
                     {arr.map((item)=>{return   <tr>
-                    <th scope="col" className="px-2">{parseInt(Math.random()*155)}</th>
-                    <th scope="col" className="px-2">{parseInt(Math.random()*155)}</th>
-                    <th scope="col" className="px-2">{parseInt(Math.random()*155)}</th>
-                    <th scope="col" className="px-2">{parseInt(Math.random()*155)}</th>
-                    <th scope="col" className="px-2">{parseInt(Math.random()*155)}</th>
-                    <th scope="col" className="px-2">{parseInt(Math.random()*155)}</th>
-                    <th scope="col" className="px-2">{parseInt(Math.random()*155)}</th>
+                    <th scope="col" className="px-2">{parseInt(item.cable_width+2)}</th>
+                    <th scope="col" className="px-2">{parseInt(item.current*5)}</th>
+                    <th scope="col" className="px-2">{parseInt(item.pipe_diameter*22)}</th>
+                    <th scope="col" className="px-2">{parseInt(item.protection_device+8)}</th>
+                    <th scope="col" className="px-2">{parseInt(item.voltaje_drop+14)}</th>
+                    <th scope="col" className="px-2">{parseInt(item.id+9)}</th>
+                    <th scope="col" className="px-2">{parseInt(item.current+8)}</th>
                  
                  
                   </tr>})}
