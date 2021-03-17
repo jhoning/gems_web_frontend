@@ -4,11 +4,11 @@ import '../css/userSettings.css'
 
 const InputsCalculate = () => {
   return (
-    <div className="col-4 my-0 overflow-auto calculoAlto mb-1 ">
+    <div className="col-5 my-0 overflow-auto calculoAlto mb-1 ">
       <div className="container mb-1 ">
-        <h3 className="text-center mb-0 p-0">Special appliance 1</h3>
+        <h3 className="text-center mb-0 p-0 mt-2">Special appliance 1</h3>
          <hr />
-        <h3 className="text-left mb-4 mt-0 bordeColor p-1">Circuit settings</h3>
+        <h4 className="text-left mb-3 mt-0 bordeColor">Circuit settings</h4>
         <div className="form-group row my-1">
           <label for="inputEmail3" class="col-sm-4 col-form-label">Load type</label>
           <div class="col-sm-8">

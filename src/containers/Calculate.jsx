@@ -11,13 +11,13 @@ const Calculate = () => {
       <Header />
       <div className="container-fluid tbo">
         <div className="row ">
-          <div className="col-3">
+          <div className="col-2 gb">
             <MenuTree />
           </div>
           <InputsCalculate />
           <div className="col-5 p-0">
             <div className="jumbotron p-0 mb-0 calculoAltoMin mr-0">
-            <h2 className="text-center">Report</h2>
+            <h3 className="text-center">Report</h3>
               <table class="table table-bordered">
                 <thead>
                   <tr>
@@ -43,7 +43,7 @@ const Calculate = () => {
 
                 </tbody>
               </table>
-              <h2 className="text-center">Branch Circuits</h2>
+              <h3 className="text-center">Branch Circuits</h3>
               <table class="table table-bordered mx-0">
                 <thead>
                   <tr>

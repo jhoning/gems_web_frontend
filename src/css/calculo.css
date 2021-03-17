@@ -171,3 +171,13 @@ body {
 .scrollInputs {
     overflow-y: scroll;
 }
+
+.gb {
+    background: #27333c;
+    height: 100vh;
+    padding-right: 0 !important;
+}
+
+.rstm-tree-item {
+    color: white !important;
+}
