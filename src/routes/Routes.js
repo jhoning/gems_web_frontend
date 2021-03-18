@@ -18,7 +18,7 @@ export default function Routes() {
         <Route exact path="/register" component={Register}/>
         <Route exact path="/t_board" component={Home_tboard}/>
         <Route exact path="/user_settings" component={UserSettings}/>
-        <Route exact path="/calculate" component={Calculate}/>
+        <Route path="/calculate/:id" children={<Calculate />} />
      </Switch>
     </BrowserRouter>
   );  
