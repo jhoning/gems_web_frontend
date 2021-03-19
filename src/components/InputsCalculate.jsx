@@ -11,14 +11,20 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
       "auth-token": `${token}`
     }
   })  
+  
   useEffect(() => {
-    
-  }, [arr]);
-  const reportGenerate = /* async */() => {
+    obtenerReportes();
+  }, []);
+
+  const obtenerReportes = async() => {
+    await authAxios.get('/report').then((resp)=>setArr(resp.data));
+  } 
+
+  const reportGenerate =  async() => {
     setArr([...arr,1])
     console.log(values)
     console.log(arr)
-    /* await authAxios.post('/report',values).then(res => alert("generado el reporte exitosamente")).catch(err => console.log(err)) */
+     await authAxios.post('/report',values).then(res => alert("generado el reporte exitosamente")).catch(err => console.log(err)) 
   }
 
   return (
@@ -82,7 +88,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-          <div className="col-4"><button className="btn btn-primary mt-2">Compute</button></div>
+          <div className="col-4"><button className="btn btn-primary mt-2" onClick={()=>console.log(arr)}>Compute</button></div>
         </div>
         <hr />
         <h3 className="text-left mb-4 bordeColor p-1">Results:</h3>
