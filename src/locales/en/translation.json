@@ -25,7 +25,8 @@
         "Terms": "Terms",
         "Privacy": "Privacy",
         "Blog": "Blog",
-        "ContactUs": "ContactUs"
+        "ContactUs": "ContactUs",
+        "idPass": "Name of the new project"
     },
     "userS": {
         "userS": "Settings",
