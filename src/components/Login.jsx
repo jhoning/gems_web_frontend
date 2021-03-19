@@ -21,7 +21,7 @@ const Login = () => {
     // alert("Usuario logeado de forma exitosa")
     history.push("/t_board")})
    
-    .catch(Response=>console.log("no loegado"))
+    .catch(Response=>alert("Usuario no logeado"))
    
   }
   

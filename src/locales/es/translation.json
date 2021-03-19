@@ -1,10 +1,10 @@
 {
     "Header": {
-        "plans_pricing": "Planes & Precios",
+        "plans_pricing": "Planes & Costos",
         "help": "Ayuda",
-        "sign_in": "Iniciar sesion",
-        "sign_up": "Registrarse",
-        "logeo": "Logearse a T-board",
+        "sign_in": "Iniciar sesión",
+        "sign_up": "Registro",
+        "logeo": "Iniciar sesión",
         "email": "Correo",
         "username": "Usuario",
         "password": "Clave",
@@ -15,7 +15,7 @@
     },
     "HeaderT": {
 
-        "log_out": "Cerrar sesion",
+        "log_out": "Cerrar sesión",
         "projects": "Proyectos",
         "projectsM": "Proyectos Maestros",
         "projectsS": "Soporte de Proyectos",
