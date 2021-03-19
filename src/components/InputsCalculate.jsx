@@ -15,16 +15,24 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
   useEffect(() => {
     obtenerReportes();
   }, []);
+  const [report,setReport] = useState({
+    current: "",
+    cable_width: "",
+    pipe_diameter: "",
+    protection_device: "",
+    voltaje_drop: "",
+    circuit: {},
 
+  })
   const obtenerReportes = async() => {
     await authAxios.get('/report').then((resp)=>setArr(resp.data));
   } 
 
   const reportGenerate =  async() => {
-    setArr([...arr,1])
+    setArr([...arr,report])
     console.log(values)
     console.log(arr)
-     await authAxios.post('/report',values).then(res => alert("generado el reporte exitosamente")).catch(err => console.log(err)) 
+     await authAxios.post('/report',report).then(res => alert("generado el reporte exitosamente")).catch(err => console.log(err)) 
   }
 
   return (
@@ -88,38 +96,46 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-          <div className="col-4"><button className="btn btn-primary gray mt-2" onClick={()=>console.log(arr)}>Compute</button></div>
+          <div className="col-4"><button className="btn btn-primary mt-2" onClick={()=>{setReport({
+             current:parseInt( Math.random()*99),
+             cable_width:parseInt( Math.random()*99),
+             pipe_diameter:parseInt( Math.random()*99),
+             protection_device:parseInt( Math.random()*99),
+             voltaje_drop:parseInt( Math.random()*99),
+             circuit: {}
+          })}}>Compute</button></div>
+          <button onClick={()=>console.log(report)}>algo</button>
         </div>
         <hr />
         <h3 className="text-left mb-1 bordeColor p-1 color">Results:</h3>
         <div class="form-group row my-1">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mt-2 " >Current (A)</label>
-          <div class="col-sm-7 mx-0">
-            <input type="email" class="form-control text-right mt-2" id="inputEmail3" placeholder="0"  autocomplete="off" onChange={ e => setValues({...values,current: e.target.value}) } value={values.current}/>
+          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2 " >Current (A)</label>
+          <div class="col-sm-8 mx-0">
+            <input type="email" class="form-control text-right mt-2" id="inputEmail3" placeholder="0"  autocomplete="off" onChange={ e => setValues({...values,current: e.target.value}) } value={report.current}/>
           </div>
         </div>
-        <div class="form-group row ">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mt-2" >Cable width</label>
-          <div class="col-sm-7 mx-0">
-            <input type="email" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,cable_width: e.target.value}) } value={values.cable_width}/>
-          </div>
-        </div>
-        <div class="form-group row my-0">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">Pipe diameter (inch)</label>
-          <div class="col-sm-7 mx-0">
-            <input type="email" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,pipe_diameter: e.target.value}) } value={values.pipe_diameter}/>
+        <div class="form-group row my-3">
+          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2" >Cable width</label>
+          <div class="col-sm-8 mx-0">
+            <input type="email" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,cable_width: e.target.value}) } value={report.cable_width}/>
           </div>
         </div>
         <div class="form-group row my-0">
-          <label for="inputEmail3" class="col-sm-5 col-form-label my-0">Protection device (A)</label>
-          <div class="col-sm-7 my-0">
-            <input type="email" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,protection_device: e.target.value}) } value={values.protection_device}/>
+          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0">Pipe diameter (inch)</label>
+          <div class="col-sm-8 mx-0">
+            <input type="email" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,pipe_diameter: e.target.value}) } value={report.pipe_diameter}/>
+          </div>
+        </div>
+        <div class="form-group row my-0">
+          <label for="inputEmail3" class="col-sm-4 col-form-label my-0">Protection device (A)</label>
+          <div class="col-sm-8 my-0">
+            <input type="email" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,protection_device: e.target.value}) } value={report.voltaje_drop}/>
           </div>
         </div>
         <div class="form-group row my-1">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">Voltaje drop</label>
-          <div class="col-sm-7 mx-0">
-            <input type="email" class="form-control text-right" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,voltaje_drop: e.target.value}) } value={values.voltaje_drop}/>
+          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0">Voltaje drop</label>
+          <div class="col-sm-8 mx-0">
+            <input type="email" class="form-control text-right" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,voltaje_drop: e.target.value}) } value={report.protection_device}/>
           </div>
         </div>
         <div className="row mx-1">
