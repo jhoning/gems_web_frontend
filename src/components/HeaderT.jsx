@@ -67,7 +67,7 @@ const Header = () => {
       <a className="p-2 text-light anchoHelp mr-md-3" href="">{t("Header.help")}</a>
 
       <a className="btn btn-outline-light text-light mx-1 mr-md-3 line" href="/user_settings">{t("userS.userS")}</a>
-      <a className="btn btn-outline-light text-light mx-1 mr-md-3 line" href="/calculate">Calculate</a>
+      <a className="btn btn-outline-light text-light mx-1 mr-md-3 line" href="/calculate">{t("Header.calculate")}</a>
       <a className="btn btn-outline-light mr-md-4 check text-light"  onClick={()=>deslogear()}>{ t("HeaderT.log_out")}</a>
         
     </div>

@@ -11,7 +11,8 @@
         "submitt": "Login",
         "example": "Example123@gmail.com",
         "ryc": "Register your account",
-        "register": "Register"
+        "register": "Register",
+        "calculate": "Calculate"
     },
     "HeaderT": {
 
@@ -27,7 +28,7 @@
         "ContactUs": "ContactUs"
     },
     "userS": {
-        "userS": "User Settings",
+        "userS": "Settings",
         "companyI": "Company information",
         "emailA": "Email address",
         "company": "Company",

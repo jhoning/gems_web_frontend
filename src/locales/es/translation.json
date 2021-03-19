@@ -11,7 +11,8 @@
         "submitt": "Enviar",
         "example": "Ejemplo123@gmail.com",
         "ryc": "Registra tu cuenta",
-        "register": "Registrar"
+        "register": "Registrar",
+        "calculate": "Calcular"
     },
     "HeaderT": {
 
@@ -27,7 +28,7 @@
         "ContactUs": "Contactanos"
     },
     "userS": {
-        "userS": "Configuraciones de usuario",
+        "userS": "Configuración",
         "companyI": "Informacion de compania",
         "emailA": "Direccion de email",
         "company": "Compania",
