@@ -96,7 +96,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-          <div className="col-4"><button className="btn btn-primary mt-2" onClick={()=>{setReport({
+          <div className="col-4"><button className="btn btn-primary mt-2 gray" onClick={()=>{setReport({
              current:parseInt( Math.random()*99),
              cable_width:parseInt( Math.random()*99),
              pipe_diameter:parseInt( Math.random()*99),
@@ -104,8 +104,10 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
              voltaje_drop:parseInt( Math.random()*99),
              circuit: {}
           })}}>Compute</button></div>
-          <button onClick={()=>console.log(report)}>algo</button>
         </div>
+        <div className="col-4">
+            <button className="btn btn-primary mt-2 gray" onClick={()=>console.log(report)}>algo</button>
+          </div>
         <hr />
         <h3 className="text-left mb-1 bordeColor p-1 color">Results:</h3>
         <div class="form-group row my-1">

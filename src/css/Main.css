@@ -11,7 +11,8 @@
     padding-bottom: 10px !important;
     position: fixed;
     bottom: 0;
-    height: 57px;
+    line-height: 31px !important;
+    height: 35px !important;
 }
 
 .line, .check {

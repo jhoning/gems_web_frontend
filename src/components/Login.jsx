@@ -18,10 +18,10 @@ const Login = () => {
     console.log(resolve)
     const token = resolve.data.token
     localStorage.setItem('token', token);
-    alert("Usuario logeado de forma exitosa")
+    // alert("Usuario logeado de forma exitosa")
     history.push("/t_board")})
    
-    .catch(Response=>console.log("no loegado"))
+    .catch(Response=>alert("Usuario no logeado"))
    
   }
   
@@ -39,15 +39,10 @@ const Login = () => {
               <div id="login-box" className="col-md-12">
                 <h3 className="text-center mb-4">{t("Header.logeo")}</h3>
                 <form onSubmit={submitHandler}>
-                
                   <div class="form-group">
-                  <i class="fa fa-user"></i>
-                    <input type="text" class="form-control" placeholder={t("Header.example")} required="required" onChange={ e => setLogin({...login,email: e.target.value}) } value={login.name}/>
+                    <i class="fa fa-user"></i>
+                    <input type="text" name="email" id="email" placeholder={t("Header.example")} className="form-control" onChange={ e => setLogin({...login,email: e.target.value}) } value={login.name}/>
                   </div>
-                  {/* <div className="form-group">
-                    <label htmlFor="password" className="">{t("Header.password")}</label>
-                    <input type="password" name="password" id="password" placeholder='***************' className="form-control" onChange={ e => setLogin({...login,password: e.target.value}) }/>
-                  </div> */}
                   <div className="form-group">
                     <i class="fa fa-lock"></i>
                     <input type="password" name="password" id="password" placeholder='***************' className="form-control" onChange={ e => setLogin({...login,password: e.target.value}) }/>

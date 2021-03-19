@@ -1,21 +1,22 @@
 {
     "Header": {
-        "plans_pricing": "Planes & Precios",
+        "plans_pricing": "Planes & Costos",
         "help": "Ayuda",
-        "sign_in": "Iniciar sesion",
-        "sign_up": "Registrarse",
-        "logeo": "Logearse a T-board",
+        "sign_in": "Iniciar sesión",
+        "sign_up": "Registro",
+        "logeo": "Iniciar sesión",
         "email": "Correo",
         "username": "Usuario",
         "password": "Clave",
         "submitt": "Enviar",
         "example": "Ejemplo123@gmail.com",
         "ryc": "Registra tu cuenta",
-        "register": "Registrar"
+        "register": "Registrar",
+        "calculate": "Calcular"
     },
     "HeaderT": {
 
-        "log_out": "Cerrar sesion",
+        "log_out": "Cerrar sesión",
         "projects": "Proyectos",
         "projectsM": "Proyectos Maestros",
         "projectsS": "Soporte de Proyectos",
@@ -24,10 +25,11 @@
         "Terms": "Terminos",
         "Privacy": "Privacidad",
         "Blog": "Blog",
-        "ContactUs": "Contactanos"
+        "ContactUs": "Contactanos",
+        "idPass": "Nombre del nuevo proyecto"
     },
     "userS": {
-        "userS": "Configuraciones de usuario",
+        "userS": "Configuración",
         "companyI": "Informacion de compania",
         "emailA": "Direccion de email",
         "company": "Compania",

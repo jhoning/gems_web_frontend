@@ -74,7 +74,7 @@ const MenuTree = ({idCircuits}) => {
   const arr1 = [];
   return (
   <div>
-    <input type="text" onChange={ e => setName1(e.target.value)} value={name1} placeholder="introducir nombre"/>
+    <input className="ingris" type="text" onChange={ e => setName1(e.target.value)} value={name1} placeholder="introducir nombre"/>
     <button className="btn btn-primary" onClick={()=>{agregarBoard(name1);setName1("");bandera?setBandera(false):setBandera(true)}}>Agregar board</button>
    {/*  <button onClick={()=>console.log(name2)}>nueva</button> */}
     <Tree value={boards} />

@@ -53,12 +53,3 @@
     background-color: #053a55 !important;
     color: white;
   }
-
-  .foot {
-    background: #1d262d  !important;
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-    position: fixed;
-    bottom: 0;
-    height: 57px;
-}

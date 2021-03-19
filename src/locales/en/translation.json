@@ -8,10 +8,11 @@
         "email": "Email",
         "username": "Username",
         "password": "Password",
-        "submitt": "Submit",
+        "submitt": "Login",
         "example": "Example123@gmail.com",
         "ryc": "Register your account",
-        "register": "Register"
+        "register": "Register",
+        "calculate": "Calculate"
     },
     "HeaderT": {
 
@@ -24,10 +25,11 @@
         "Terms": "Terms",
         "Privacy": "Privacy",
         "Blog": "Blog",
-        "ContactUs": "ContactUs"
+        "ContactUs": "ContactUs",
+        "idPass": "Name of the new project"
     },
     "userS": {
-        "userS": "User Settings",
+        "userS": "Settings",
         "companyI": "Company information",
         "emailA": "Email address",
         "company": "Company",
