@@ -15,7 +15,13 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
   useEffect(() => {
     obtenerReportes();
   }, []);
-
+  const [report,setReport] = useState({
+    valor1:"",
+    valor2:"",
+    valor3:"",
+    valor4:"",
+    valor5:"",
+  })
   const obtenerReportes = async() => {
     await authAxios.get('/report').then((resp)=>setArr(resp.data));
   } 
@@ -88,38 +94,44 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-          <div className="col-4"><button className="btn btn-primary mt-2" onClick={()=>console.log(arr)}>Compute</button></div>
+          <div className="col-4"><button className="btn btn-primary mt-2" onClick={()=>setReport({
+             valor1:parseInt( Math.random()*99),
+             valor2:parseInt( Math.random()*99),
+             valor3:parseInt( Math.random()*99),
+             valor4:parseInt( Math.random()*99),
+             valor5:parseInt( Math.random()*99),
+          })}>Compute</button></div>
         </div>
         <hr />
         <h3 className="text-left mb-4 bordeColor p-1">Results:</h3>
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2 " >Current (A)</label>
           <div class="col-sm-8 mx-0">
-            <input type="email" class="form-control text-right mt-2" id="inputEmail3" placeholder="0"  autocomplete="off" onChange={ e => setValues({...values,current: e.target.value}) } value={values.current}/>
+            <input type="email" class="form-control text-right mt-2" id="inputEmail3" placeholder="0"  autocomplete="off" onChange={ e => setValues({...values,current: e.target.value}) } value={report.valor1}/>
           </div>
         </div>
         <div class="form-group row my-3">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2" >Cable width</label>
           <div class="col-sm-8 mx-0">
-            <input type="email" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,cable_width: e.target.value}) } value={values.cable_width}/>
+            <input type="email" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,cable_width: e.target.value}) } value={report.valor2}/>
           </div>
         </div>
         <div class="form-group row my-0">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0">Pipe diameter (inch)</label>
           <div class="col-sm-8 mx-0">
-            <input type="email" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,pipe_diameter: e.target.value}) } value={values.pipe_diameter}/>
+            <input type="email" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,pipe_diameter: e.target.value}) } value={report.valor3}/>
           </div>
         </div>
         <div class="form-group row my-0">
           <label for="inputEmail3" class="col-sm-4 col-form-label my-0">Protection device (A)</label>
           <div class="col-sm-8 my-0">
-            <input type="email" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,protection_device: e.target.value}) } value={values.protection_device}/>
+            <input type="email" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,protection_device: e.target.value}) } value={report.valor4}/>
           </div>
         </div>
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0">Voltaje drop</label>
           <div class="col-sm-8 mx-0">
-            <input type="email" class="form-control text-right" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,voltaje_drop: e.target.value}) } value={values.voltaje_drop}/>
+            <input type="email" class="form-control text-right" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,voltaje_drop: e.target.value}) } value={report.valor5}/>
           </div>
         </div>
         <div className="row mx-1">

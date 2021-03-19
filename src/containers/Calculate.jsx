@@ -28,7 +28,7 @@ const Calculate = () => {
       <div className="container-fluid tbo">
         <div className="row ">
           <div className="col-3">
-            <MenuTree />
+            <MenuTree idCircuits={id} />
           </div>
           <InputsCalculate values={values} setValues={setValues} setArr={setArr} arr={arr} />
           <div className="col-5 p-0">
