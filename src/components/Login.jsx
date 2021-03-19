@@ -18,7 +18,7 @@ const Login = () => {
     console.log(resolve)
     const token = resolve.data.token
     localStorage.setItem('token', token);
-    alert("Usuario logeado de forma exitosa")
+    // alert("Usuario logeado de forma exitosa")
     history.push("/t_board")})
    
     .catch(Response=>console.log("no loegado"))
@@ -45,7 +45,7 @@ const Login = () => {
                   </div> */}
                   <div class="form-group">
                     <i class="fa fa-user"></i>
-                    <input type="text" class="form-control" placeholder={t("Header.example")} required="required"/>
+                    <input type="text" name="email" id="email" placeholder={t("Header.example")} className="form-control" onChange={ e => setLogin({...login,email: e.target.value}) } value={login.name}/>
                   </div>
                   {/* <div className="form-group">
                     <label htmlFor="password" className="">{t("Header.password")}</label>
