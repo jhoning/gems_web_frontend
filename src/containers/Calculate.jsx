@@ -31,14 +31,13 @@ const Calculate = () => {
             <MenuTree idCircuits={id} />
           </div>
           <InputsCalculate values={values} setValues={setValues} setArr={setArr} arr={arr} />
-          <div className="col-5 p-0">
-            <div className="jumbotron p-0 mb-0 calculoAltoMin mr-0">
-              <h2 className="text-center">Report</h2>
-              <table border="1" class="table table-bordered table-sm">
-                <thead>
+          <div className="col-5 p-0 report">
+            <div className="jumbotron calculoAltoMin ">
+              <h2 className="text-center color">Report</h2>
+              <table border="1" class="table table-bordered table-sm table-striped">
+                <thead class="table-secondary">
                   <tr>
                     <th scope="col-4" >Project:</th>
-
                   </tr>
                   <tr>
 
@@ -50,9 +49,9 @@ const Calculate = () => {
 
                 </tbody>
               </table>
-              <h2 className="text-center">Branch Circuits</h2>
+              <h2 className="text-center color">Branch Circuits</h2>
               <table class="table table-bordered mx-0 table-sm">
-                <thead>
+                <thead class="table-secondary">
                   <tr>
                     <th scope="col" className="px-2">Branch</th>
                     <th scope="col" className="px-2">Branc Type</th>
@@ -86,7 +85,7 @@ const Calculate = () => {
               </table>
 
               <table class="table table-bordered mx-0">
-                <thead>
+                <thead class="table-secondary">
                   <tr>
                     <th scope="col" colspan="1" className="px-2">Branch</th>
                     <th scope="col" colspan="3"></th>

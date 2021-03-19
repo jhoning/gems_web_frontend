@@ -23,6 +23,7 @@ const MenuTree = ({idCircuits}) => {
   const [idproject,setIdproject] = useState([]);
   const [name1,setName1] = useState([]);
   const [name2,setName2] = useState();
+  const [bandera,setBandera] = useState(true)
   useEffect( () => {
    /*  obtenerArrBoards() */
    obteneralgo()
@@ -30,7 +31,7 @@ const MenuTree = ({idCircuits}) => {
     
   } 
 
-  ,[boards])
+  ,[bandera])
 
   const obtenerIdProyecto = async() => {
     const algo3 = []
@@ -74,7 +75,7 @@ const MenuTree = ({idCircuits}) => {
   return (
   <div>
     <input type="text" onChange={ e => setName1(e.target.value)} value={name1} placeholder="introducir nombre"/>
-    <button className="btn btn-primary" onClick={()=>{agregarBoard(name1);setName1("")}}>Agregar board</button>
+    <button className="btn btn-primary" onClick={()=>{agregarBoard(name1);setName1("");bandera?setBandera(false):setBandera(true)}}>Agregar board</button>
    {/*  <button onClick={()=>console.log(name2)}>nueva</button> */}
     <Tree value={boards} />
   </div>

@@ -55,6 +55,10 @@
     border: transparent;
 }
 
+.line {
+    border: 1px solid #dddddd !important;
+}
+
 .check:hover, .check:focus {
     background: transparent !important;
     border: 1px solid white !important;

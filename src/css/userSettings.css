@@ -1,7 +1,41 @@
-.bordeColor {
+/* .bordeColor {
     border-bottom: 2px solid #007bff;
+} */
+
+.alto {
+    position: relative;
+    padding: 20px;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: 0 0.1px 0px rgb(0 0 0 / 0%), 0 0.2px 0px rgb(0 0 0 / 0%), 0 0.4px 0px rgb(0 0 0 / 0%), 0 0.6px 0px rgb(0 0 0 / 0%), 0 0.9px 0px rgb(0 0 0 / 1%), 0 1.2px 0px rgb(0 0 0 / 1%), 0 1.8px 0px rgb(0 0 0 / 1%), 0 2.6px 0px rgb(0 0 0 / 1%), 0 3.9px 0px rgb(0 0 0 / 1%), 0 7px 0px rgb(0 0 0 / 1%);
 }
 
-body {
-    background: blue !important;
+.widget-heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.con {
+    border-radius: .7rem;
+    padding: 30px !important;
+}
+
+.p {
+    font-size: 17.5px;
+    font-weight: 500;
+}
+
+.ml {
+    margin-left: 0px !important;
+}
+
+.in {
+    background-color: #e9ecef;
+    border: 1px solid #dadada;
+    opacity: 1;
+}
+
+.ml .col-6 {
+    padding-left: 0;
 }
