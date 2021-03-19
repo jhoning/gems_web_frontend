@@ -62,7 +62,7 @@ const T_board = () => {
                         {
                             name1.map((item)=>{
                                 return   <li className="list-group-item d-flex justify-content-between align-items-center">
-                              <a href={`http://localhost:3002/calculate/${item.id}`}>{item.name}</a> 
+                              <a href={`http://localhost:3004/calculate/${item.id}`}>{item.name}</a> 
                                <button className="btn btn-primary mx-0 text-right">edit</button>
                               
                             </li>

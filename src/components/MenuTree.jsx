@@ -58,7 +58,7 @@ const MenuTree = ({idCircuits}) => {
     await authAxios.get(`/project/${id}`).then(res => console.log(se))
   } */
   const agregarBoard = async(name1) => {
-    await authAxios.post('/board',{name:name1,project:name2}).then(res => alert("eses")).catch(err =>console.log(err))
+    await authAxios.post('/board',{name:name1,project:name2}).then(res => alert("board agregada!")).catch(err =>console.log(err))
   }
 
   const obtenerArrBoardsall = async() => {
