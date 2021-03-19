@@ -16,8 +16,10 @@
 
 .tbo {
     background: #fdfdfd;
-    height: 100vh;
+    /* height: 100vh; */
     padding: 0 !important;
+    overflow-y: hidden !important;
+    overflow-x: hidden;
 }
 
 .gris {
