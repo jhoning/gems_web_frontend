@@ -53,7 +53,7 @@ const T_board = () => {
                         <div className="row">
                           <div className="col-3"></div>
                             <div className="col-6">
-                              <input className="form-control mr-sm-2" type="text" placeholder={t("HeaderT.search_projects")}></input>
+                              <input className="form-control wh" type="text" placeholder={t("HeaderT.search_projects")}></input>
                               </div>
                           <div className="col-3"></div>
                         </div>

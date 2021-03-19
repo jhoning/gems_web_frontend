@@ -1,10 +1,14 @@
-.fondo 
-{
-    background: #1d262d !important;
+.fondo {
+    width: 100%;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    background: #1d262d  !important;
 }
 
 .foot {
-    background: #1d262d !important;
+    background: #1d262d  !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
     position: fixed;
     bottom: 0;
     height: 57px;
@@ -12,4 +16,7 @@
 
 .line, .check {
     padding: 3px 0.75rem !important;
+}
+.btn-outline-light {
+    border-color: #e3e3e3;
 }

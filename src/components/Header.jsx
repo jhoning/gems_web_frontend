@@ -12,7 +12,7 @@ const Header = () => {
     i18next.changeLanguage(lang)
   }
   return (
-    <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 shadow-sm fondo">
+    <div className="d-flex flex-column flex-md-row align-items-center px-md-4 shadow-sm fondo">
       <h5 className="my-0 mr-md-auto text-light ml-md-4">T-board</h5>
       
       <nav className="my-2 my-md-0 mr-md-1">
