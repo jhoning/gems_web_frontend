@@ -21,8 +21,9 @@ const MenuTree = ({idCircuits}) => {
   
   const [boards,setBoards] = useState([]);
   const [idproject,setIdproject] = useState([]);
-  const [name1,setName1] = useState([]);
+  const [name1,setName1] = useState([]); 
   const [name2,setName2] = useState();
+  const [name3,setName3] = useState();
   const [bandera,setBandera] = useState(true)
   useEffect( () => {
    /*  obtenerArrBoards() */
@@ -35,7 +36,7 @@ const MenuTree = ({idCircuits}) => {
 
   const obtenerIdProyecto = async() => {
     const algo3 = []
-    const algo2 = await authAxios.get('/project/'+id).then(res=> res.data.boards)
+    const algo2 = await authAxios.get('/project/'+idCircuits).then(res=> res.data.boards)
     algo2.forEach((item)=>algo3.push( {
       "key": item.id,
       "label": item.name,
@@ -57,8 +58,8 @@ const MenuTree = ({idCircuits}) => {
   /* const obtenerArrBoards = async() => {
     await authAxios.get(`/project/${id}`).then(res => console.log(se))
   } */
-  const agregarBoard = async(name1) => {
-    await authAxios.post('/board',{name:name1,project:name2}).then(res => alert("board agregada!")).catch(err =>console.log(err))
+  const agregarBoard = async() => {
+    await authAxios.post('/board',{name:name3,project:name2}).then(res => alert("board agregada!")).catch(err =>console.log(err))
   }
 
   const obtenerArrBoardsall = async() => {
@@ -69,13 +70,13 @@ const MenuTree = ({idCircuits}) => {
     idproject.forEach((item, i) => setBoards([...boards,1]))
   }
   const obteneralgo = async() => {
-    await authAxios.get('/project/'+idCircuits).then(res => setName2(res.data))
+    await authAxios.get('/project/'+id).then(res => setName2(res.data)).catch(err => console.log(err))
   }
   const arr1 = [];
   return (
   <div>
-    <input className="ingris" type="text" onChange={ e => setName1(e.target.value)} value={name1} placeholder="introducir nombre"/>
-    <button className="btn btn-primary" onClick={()=>{agregarBoard(name1);setName1("");bandera?setBandera(false):setBandera(true)}}>Agregar board</button>
+    <input className="ingris" type="text" onChange={ e => setName3(e.target.value)} value={name3} placeholder="introducir nombre"/>
+    <button className="btn btn-primary" onClick={()=>{agregarBoard(name1);setName3("");bandera?setBandera(false):setBandera(true);console.log(name1)}}>Agregar board</button>
    {/*  <button onClick={()=>console.log(name2)}>nueva</button> */}
     <Tree value={boards} />
   </div>

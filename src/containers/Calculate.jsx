@@ -72,7 +72,7 @@ const Calculate = () => {
                       <th scope="col" className="px-2">{parseInt(item.pipe_diameter * 22)}</th>
                       <th scope="col" className="px-2">{parseInt(item.protection_device + 8)}</th>
                       <th scope="col" className="px-2">{parseInt(item.voltaje_drop + 14)}</th>
-                      <th scope="col" className="px-2">{parseInt(item.id + 9)}</th>
+                      <th scope="col" className="px-2">{parseInt(item.voltaje_drop + 9)}</th>
                       <th scope="col" className="px-2">{parseInt(item.current + 8)}</th>
 
 
