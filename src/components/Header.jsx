@@ -7,7 +7,7 @@ import es from '../css/espana.svg';
 import en from '../css/estados-unidos.svg'
 const Header = () => {
   const [t] = useTranslation("global")
-
+  const URLactual = window.location;
   const handleClick = lang => {
     i18next.changeLanguage(lang)
   }
@@ -46,8 +46,10 @@ const Header = () => {
         </div>
       </li>
       </ul>
-      <a className="btn btn-outline-light text-light mx-1 mr-md-3 line" href="/register">{t("Header.sign_up")}</a>
-      <a className="btn btn-outline-light mr-md-4 check text-light" href="/">{t("Header.sign_in")}</a>
+      {
+        URLactual.href == "http://localhost:3004/"?<a className="btn btn-outline-light text-light mx-1 mr-md-3 line" href="/register">{t("Header.sign_up")}</a>:  <a className="btn btn-outline-light mr-md-4 check text-light" href="/">{t("Header.sign_in")}</a>
+      }
+      
     </div>
   )
 }

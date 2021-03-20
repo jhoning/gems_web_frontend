@@ -106,7 +106,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
           })}}>Compute</button></div>
         </div>
         <div className="col-4">
-            <button className="btn btn-primary mt-2 gray" onClick={()=>console.log(report)}>algo</button>
+            {/* <button className="btn btn-primary mt-2 gray" onClick={()=>console.log(report)}>algo</button> */}
           </div>
         <hr />
         <h3 className="text-left mb-1 bordeColor p-1 color">Results:</h3>
