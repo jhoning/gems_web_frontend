@@ -24,13 +24,13 @@
 
 .gris {
     background-color: #27333c!important;
-    width: 230px;
+    width: 220px;
     position: relative !important;
     border-radius: 0;
     transition: .600s;
     height: 100vh;
     touch-action: none;
-    padding: 20px !important;
+    padding: 15px !important;
     user-select: none;
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -51,4 +51,8 @@
 
   .wh {
       background-color: white !important;
+  }
+
+  .list-group {
+      overflow-x: hidden;
   }
