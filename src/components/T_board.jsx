@@ -62,9 +62,11 @@ const T_board = () => {
                         {
                             name1.map((item)=>{
                                 return   <li className="list-group-item d-flex justify-content-between align-items-center">
-                              <a href={`http://localhost:3004/calculate/${item.id}`}>{item.name}</a> 
-                               <button className="btn btn-primary mx-0 text-right">edit</button>
-                              
+                              <a class="col-md-10" href={`http://localhost:3004/calculate/${item.id}`}>{item.name}</a> 
+                              <div class="col-md-3">
+                                <button className="btn btn-primary mx-0 text-right mr-2 ml-3">edit</button>
+                                <button className="btn btn-danger mx-0 text-right">delete</button>
+                              </div>
                             </li>
                             })
                         }
