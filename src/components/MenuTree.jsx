@@ -59,7 +59,7 @@ const MenuTree = ({idCircuits}) => {
     await authAxios.get(`/project/${id}`).then(res => console.log(se))
   } */
   const agregarBoard = async() => {
-    await authAxios.post('/board',{name:name3,project:name2}).then(res => alert("board agregada!")).catch(err =>console.log(err))
+    await authAxios.post('/board',{name:name3,project:name2}).then(res => bandera?setBandera(false):setBandera(true)).catch(err =>console.log(err))
   }
 
   const obtenerArrBoardsall = async() => {
@@ -76,7 +76,7 @@ const MenuTree = ({idCircuits}) => {
   return (
   <div>
     <input className="ingris" type="text" onChange={ e => setName3(e.target.value)} value={name3} placeholder="introducir nombre"/>
-    <button className="btn btn-primary" onClick={()=>{agregarBoard(name1);setName3("");bandera?setBandera(false):setBandera(true);console.log(name1)}}>Agregar board</button>
+    <button className="btn btn-primary" onClick={()=>{agregarBoard(name1);setName3("");console.log(name1)}}>Agregar board</button>
    {/*  <button onClick={()=>console.log(name2)}>nueva</button> */}
     <Tree value={boards} />
   </div>
