@@ -27,8 +27,10 @@ const MenuTree = ({idCircuits}) => {
   const [bandera,setBandera] = useState(true)
   useEffect( () => {
    /*  obtenerArrBoards() */
+  
    obteneralgo()
   obtenerIdProyecto()
+ 
     
   } 
 
@@ -49,8 +51,16 @@ const MenuTree = ({idCircuits}) => {
     console.log(algo3)
     setBoards(algo3)
     return algo3
-   
- 
+  }
+  const selectElementosNav = ()=>{
+    const arr = document.querySelectorAll('div.p-treenode-content');
+    const elemt = document.createElement("button");
+    elemt.innerHTML = "+"
+    arr.forEach((item,i) => {
+      item.append(elemt)
+    })
+    console.log(arr)
+    console.log(arr)
   }
   const crearProject = async(algo) => {
      console.log(boards)
@@ -72,13 +82,25 @@ const MenuTree = ({idCircuits}) => {
   const obteneralgo = async() => {
     await authAxios.get('/project/'+id).then(res => setName2(res.data)).catch(err => console.log(err))
   }
+  const nodeTemplate = (node) => {
+    if (node.label) {
+        return (
+          <div>
+            <a href={node.label}>{node.label}</a>
+            <button className="btn btn-primary btn-sm">+</button>
+            <button className="btn btn-primary btn-sm">edit</button>
+          </div>
+            
+        )
+    }
+}
   const arr1 = [];
   return (
   <div>
     <input className="ingris" type="text" onChange={ e => setName3(e.target.value)} value={name3} placeholder="introducir nombre"/>
     <button className="btn btn-primary" onClick={()=>{agregarBoard(name1);setName3("");console.log(name1)}}>Agregar board</button>
    {/*  <button onClick={()=>console.log(name2)}>nueva</button> */}
-    <Tree value={boards} />
+    <Tree value={boards} nodeTemplate={nodeTemplate} className="mx-0"/>
   </div>
   )
 }
