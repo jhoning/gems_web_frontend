@@ -36,6 +36,18 @@ const MenuTree = ({idCircuits}) => {
 
   ,[bandera])
 
+/*   const recorrerAnidados = (arr) => {
+    arr.forEach((item,i) => {
+      if(!(item.children.length === 0)){
+        if(1){
+          
+        }
+        recorrerAnidados(item.children);
+      }
+    })
+  
+  } */
+
   const obtenerIdProyecto = async() => {
     const algo3 = []
     const algo2 = await authAxios.get('/project/'+idCircuits).then(res=> res.data.boards)
@@ -44,11 +56,15 @@ const MenuTree = ({idCircuits}) => {
       "label": item.name,
       "data": item.name,
       "icon": "pi pi-fw pi-inbox",
-      "children": []
+      "children": [{"key": item.id,
+      "label": item.name,
+      "data": item.name,
+      "icon": "pi pi-fw pi-inbox",
+      "children": []}]
     }
 
     ))
-    console.log(algo3)
+    console.log(algo2)
     setBoards(algo3)
     return algo3
   }
@@ -82,23 +98,47 @@ const MenuTree = ({idCircuits}) => {
   const obteneralgo = async() => {
     await authAxios.get('/project/'+id).then(res => setName2(res.data)).catch(err => console.log(err))
   }
+  
+  const recorre = (arr,id) => {
+    arr.forEach((item,i)=>{
+      if(item.key == id){
+        item.children.push({
+          "key": item.id,
+          "label": "nuevo",
+          "data": "nuevos",
+          "icon": "pi pi-fw pi-inbox",
+          "children": []
+        })
+      }
+     /*  if(item.children.length != 0){
+        recorre(item.children,id);
+      }else {
+        return 0
+      } */
+    })
+  }
+
   const nodeTemplate = (node) => {
     if (node.label) {
-        return (
-          <div>
-            <a href={node.label}>{node.label}</a>
-            <button className="btn btn-primary btn-sm">+</button>
-            <button className="btn btn-primary btn-sm">edit</button>
-          </div>
+      return (
+        <div>
+          <a href={node.label}>{node.label}</a>
+          <button className="btn btn-primary btn-sm ml-4" onClick={()=>{
             
-        )
+              recorre(boards,node.key)
+              agregarBoard("nuebva")
+           
+          }}>+</button>
+        </div>
+          
+      )
     }
 }
   const arr1 = [];
   return (
   <div>
-    <input className="ingris" type="text" onChange={ e => setName3(e.target.value)} value={name3} placeholder="introducir nombre"/>
-    <button className="btn btn-primary" onClick={()=>{agregarBoard(name1);setName3("");console.log(name1)}}>Agregar board</button>
+    <input className="ingris" type="text" onChange={ e => setName3(e.target.value)} value={name3} placeholder="introducir nombre de tabla"/>
+    <button className="btn btn-primary" onClick={()=>{agregarBoard(name1);setName3("");console.log(name1)}}>Agregar tabla</button>
    {/*  <button onClick={()=>console.log(name2)}>nueva</button> */}
     <Tree value={boards} nodeTemplate={nodeTemplate} className="mx-0"/>
   </div>

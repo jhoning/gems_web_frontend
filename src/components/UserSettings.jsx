@@ -3,18 +3,20 @@ import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import HeaderT from './HeaderT'
 import '../css/userSettings.css'
-import {useGetUser} from '../hooks/useGetUser'
+import { useGetUser } from '../hooks/useGetUser'
 
 const UserSettings = () => {
 
   const [t] = useTranslation("global")
-  const [datos, setDatos] = useState({ username: "", email: "", first_name: "", last_name: "", phone: "", address: "", profesionalID: "", country: "", tokenID: ""});
+  const [paises, setPaises] = useState([]);
+  const [datos, setDatos] = useState({ username: "", email: "", first_name: "", last_name: "", phone: "", address: "", profesionalID: "", country: "", tokenID: "" });
   useEffect(() => {
     peticion()
+    countrys()
   }, [])
 
-  
-  const peticion = async() => {
+
+  const peticion = async () => {
     const token = localStorage.getItem('token').split('.')[1];
     const tokenData = JSON.parse(
       Buffer.from(token, 'base64')
@@ -29,11 +31,13 @@ const UserSettings = () => {
 
   const update = async () => {
     console.log(datos)
-    await axios.patch(`http://localhost:4000/user/${datos.tokenID}`, { username: datos.username, email: datos.email, first_name: datos.first_name, last_name: datos.last_name, phone: datos.phone, address: datos.address, profesionalID: datos.profesionalID, country: datos.country})
-    .then(resolve => alert("Datos actualizados de forma exitosa")).catch(Response => console.log(Response))  
-    
-  }
+    await axios.patch(`http://localhost:4000/user/${datos.tokenID}`, { username: datos.username, email: datos.email, first_name: datos.first_name, last_name: datos.last_name, phone: datos.phone, address: datos.address, profesionalID: datos.profesionalID, country: datos.country })
+      .then(resolve => alert("Datos actualizados de forma exitosa")).catch(Response => console.log(Response))
 
+  }
+  const countrys = async () => {
+    await axios.get(`http://localhost:4000/country`).then(res => setPaises(res.data))
+  }
   return (
     <div>
       <HeaderT />
@@ -49,16 +53,16 @@ const UserSettings = () => {
                 <div class="form-group">
                   <fieldset disabled="">
                     <label class="control-label bordeColor p-1 " for="disabledInput">{t("userS.emailA")}</label>
-                    <input class="form-control in" id="disabledInput" type="text" placeholder={datos.email} disabled="true"/>
+                    <input class="form-control in" id="disabledInput" type="text" placeholder={datos.email} disabled="true" />
                   </fieldset>
                 </div>
               </div>
               <div className="col-6">
-               
+
                 <div class="form-group">
                   <fieldset disabled="">
                     <label class="control-label bordeColor p-1 " for="disabledInput">{t("userS.company")}</label>
-                    <input class="form-control in" id="disabledInput" type="text" defaultValue="Personal" disabled="true"/>
+                    <input class="form-control in" id="disabledInput" type="text" defaultValue="Personal" disabled="true" />
                   </fieldset>
                 </div>
               </div>
@@ -68,37 +72,46 @@ const UserSettings = () => {
               <div className="col-6">
                 <div className="form-group">
                   <label htmlFor="FirstName">{t("userS.firstN")}</label>
-                  <input type="text" name="first_name" className="form-control in" placeholder={datos.first_name} onChange={ e => setDatos({...datos,first_name: e.target.value}) } />
+                  <input type="text" name="first_name" className="form-control in" placeholder={datos.first_name} onChange={e => setDatos({ ...datos, first_name: e.target.value })} />
                 </div>
               </div>
               <div className="col-6">
                 <div className="form-group">
                   <label htmlFor="LastName">{t("userS.lastN")}</label>
-                  <input type="text" name="last_name" className="form-control in" placeholder={datos.last_name} onChange={ e => setDatos({...datos,last_name: e.target.value}) } />
+                  <input type="text" name="last_name" className="form-control in" placeholder={datos.last_name} onChange={e => setDatos({ ...datos, last_name: e.target.value })} />
                 </div>
               </div>
               <div className="col-6">
                 <div className="form-group">
                   <label htmlFor="Address">{t("userS.address")}</label>
-                  <input type="text" name="address" className="form-control in" placeholder={datos.address} onChange={ e => setDatos({...datos,address: e.target.value}) }/>
+                  <input type="text" name="address" className="form-control in" placeholder={datos.address} onChange={e => setDatos({ ...datos, address: e.target.value })} />
                 </div>
               </div>
               <div className="col-6">
                 <div className="form-group">
                   <label htmlFor="professional">{t("userS.professionalID")}</label>
-                  <input type="text" name="profesionalID" className="form-control in" placeholder={datos.profesionalID} onChange={ e => setDatos({...datos,profesionalID: e.target.value}) } />
+                  <input type="text" name="profesionalID" className="form-control in" placeholder={datos.profesionalID} onChange={e => setDatos({ ...datos, profesionalID: e.target.value })} />
                 </div>
               </div>
               <div className="col-6">
                 <div className="form-group">
                   <label htmlFor="Country">{t("userS.country")}</label>
-                  <input type="text" name="country" className="form-control in" placeholder={datos.country}  onChange={ e => setDatos({...datos,country: e.target.value}) } />
+                  {/* <input type="text" name="country" className="form-control in" placeholder={datos.country}  onChange={ e => setDatos({...datos,country: e.target.value}) } /> */}
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected  onChange={ e => setDatos({...datos,country: e.target.value}) }>Open this select menu</option>
+                   {/*  <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option> */}
+                    {paises.map(item => {
+                      return  <option value={item.name}>{item.name}</option>
+                    })}
+                  </select>
                 </div>
               </div>
               <div className="col-6">
                 <div className="form-group">
                   <label htmlFor="Phone">{t("userS.phone")}</label>
-                  <input type="text" name="phone" className="form-control in" placeholder={datos.phone}  onChange={ e => setDatos({...datos,phone: e.target.value}) }/>
+                  <input type="text" name="phone" className="form-control in" placeholder={datos.phone} onChange={e => setDatos({ ...datos, phone: e.target.value })} />
                 </div>
               </div>
               <div className="col-6">
