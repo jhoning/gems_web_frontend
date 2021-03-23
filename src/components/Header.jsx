@@ -23,12 +23,8 @@ const Header = () => {
     <ul class="navbar-nav idioma mr-md-1">
       <li class="nav-item dropdown language-dropdown">
         <a class="nav-link dropdown-toggle d-flex align-items-center leng text-dark" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-          <div class="d-inline-flex mr-0 mr-md-3">
-            <div class="flag-icon-holder"><i class="flag-icon flag-icon-us"></i>
-            </div>
-          </div>
-            <img class="ban" src={en} />
-            <span class="profile-text font-weight-medium d-none d-md-block">English</span>
+             <img class="ban" src={en} />
+            <span class="profile-text font-weight-medium d-none d-md-block">{t("Header.en")}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-left navbar-dropdown py-2" aria-labelledby="LanguageDropdown">
           <a class="dropdown-item" id="id_es" onClick={() => handleClick('es')}>

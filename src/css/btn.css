@@ -34,12 +34,12 @@
 }
 
 .dropdown-menu-left {
-    background: rgb(29, 38, 45);
+    background: rgb(231 231 231) !important;
     color: white;
 }
 
 .dropdown-item:hover {
-    background: #151b1f;
+    background: #343a40;
 }
 
 .line {
@@ -50,12 +50,12 @@
 }
 
 .dropdown-menu-left {
-    background: rgb(29, 38, 45) !important;
+    background: rgb(231 231 231) !important;
     color: white !important;
     cursor: pointer;
 }
 
 .dropdown-item:hover {
-    background: rgb(18, 23, 27) !important;
+    background: #c2c2c2 !important;
     color: white;
 }
