@@ -33,7 +33,7 @@ const Header = () => {
                 <span class="text-dark">{t("Header.es")}</span>
             </div>
           </a>
-          <a class="dropdown-item" id="id_es" onClick={() => handleClick('en')}>
+          <a class="dropdown-item" id="id_en" onClick={() => handleClick('en')}>
             <div class="flag-icon-holder">
                 <img class="ban" src={en} />
                 <span class="text-dark">{t("Header.en")}</span>
