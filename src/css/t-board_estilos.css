@@ -16,19 +16,18 @@
 
 .tbo {
     background: #fdfdfd;
-    /* height: 100vh; */
     padding: 0 !important;
     overflow-y: hidden !important;
     overflow-x: hidden;
 }
 
 .gris {
-    background-color: #27333c!important;
+    background-color: #0c7bb3 !important;
     width: 220px;
     position: relative !important;
     border-radius: 0;
     transition: .600s;
-    height: 100vh;
+    height: 90vh;
     touch-action: none;
     padding: 15px !important;
     user-select: none;

@@ -12,7 +12,9 @@
         "example": "Example123@gmail.com",
         "ryc": "Register your account",
         "register": "Register",
-        "calculate": "Calculate"
+        "calculate": "Calculate",
+        "es": "Spanish",
+        "en": "English"
     },
     "HeaderT": {
 

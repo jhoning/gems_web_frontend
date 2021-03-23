@@ -1,12 +1,14 @@
 .fondo {
     width: 100%;
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-    background: #1d262d  !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    /* background: #1d262d  !important; */
+    background: #caf6f6  !important;
 }
 
 .foot {
-    background: #1d262d  !important;
+    /* background: #1d262d  !important; */
+    background: #caf6f6 !important;
     padding-top: 10px !important;
     padding-bottom: 10px !important;
     position: fixed;
@@ -20,4 +22,8 @@
 }
 .btn-outline-light {
     border-color: #e3e3e3;
+}
+
+.foot a {
+    cursor: pointer;
 }

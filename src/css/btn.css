@@ -25,7 +25,7 @@
 }
 
 .ban {
-    width: 30px;
+    width: 25px;
     margin-right: 10px;
 }
 
@@ -42,28 +42,8 @@
     background: #151b1f;
 }
 
-.check {
-    background: #444857 !important;
-    border: 1px solid #444857 !important;
-    color: white;
-    border: transparent;
-}
-.line:hover, .line:focus {
-    background: #444857 !important;
-    border: 1px solid #444857 !important;
-    color: white;
-    border: transparent;
-}
-
 .line {
-    border: 1px solid #dddddd !important;
-}
-
-.check:hover, .check:focus {
-    background: transparent !important;
-    border: 1px solid white !important;
-    color: white;
-    border: transparent;
+    border: 1px solid #343a40 !important;
 }
 .anchoButton {
     width: 200px;

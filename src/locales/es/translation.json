@@ -12,7 +12,9 @@
         "example": "Ejemplo123@gmail.com",
         "ryc": "Registra tu cuenta",
         "register": "Registrar",
-        "calculate": "Calcular"
+        "calculate": "Calcular",
+        "es": "Español",
+        "en": "Inglés"
     },
     "HeaderT": {
 
@@ -30,18 +32,18 @@
     },
     "userS": {
         "userS": "Editar perfil",
-        "companyI": "Informacion de compania",
+        "companyI": "Informacion de compañía",
         "emailA": "Direccion de email",
         "company": "Compania",
         "updateU": "Actualizar datos de usuario",
         "firstN": "Primer nombre",
         "lastN": "Apellido",
-        "address": "Direccion",
-        "professionalID": "ID profecional",
+        "address": "Dirección",
+        "professionalID": "ID profesional",
         "country": "Pais",
         "phone": "Telefono",
         "changeE": "Cambiar Correo",
-        "changeP": "Cambiar Contrasena",
+        "changeP": "Cambiar Contraseña",
         "update": "Actualizar"
     }
 }
