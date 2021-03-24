@@ -56,7 +56,7 @@
         "fases": "Fases",
         "ground": "Tierra",
         "breaker": "Interruptor",
-        "power": "Energía"
+        "power": "Potencia"
     },
     "InputsC": {
         "sAppliance": "Dispositivo especial 1",
@@ -66,7 +66,7 @@
         "kitchen": "Cocina",
         "bedroom": "Cuarto",
         "washroom": "Baño",
-        "powerW": "Energía (W)",
+        "powerW": "Potencia (W)",
         "distance": "Distancia (M)",
         "powerF": "Factor de potencia",
         "voltaje": "Caída de voltaje",
@@ -80,7 +80,7 @@
         "protectionD": "Dispositivo de protección (A)"
     },
     "MenuTree": {
-        "tableN": "Ingrese nombre de la tabla",
-        "addT": "Agregar tabla"
+        "tableN": "Ingrese nombre del tablero",
+        "addT": "Agregar tablero"
     }
 }
