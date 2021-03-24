@@ -45,5 +45,38 @@
         "changeE": "Change Email",
         "changeP": "Change Password",
         "update": "Update"
+    },
+    "Calculate": {
+        "report": "Report",
+        "project": "Project",
+        "bCircuits": "Branch Circuits",
+        "branch": "Branch",
+        "bType": "Branch Type",
+        "canalization": "Canalization",
+        "fases": "Fases",
+        "ground": "Ground",
+        "breaker": "Breaker",
+        "power": "Power"
+    },
+    "InputsC": {
+        "sAppliance": "Special appliance 1",
+        "cSettings": "Circuit settings",
+        "loadT": "Load type",
+        "choose": "Choose",
+        "kitchen": "Kitchen",
+        "bedroom": "Bedroom",
+        "washroom": "Washroom",
+        "powerW": "Power (W)",
+        "distance": "Distance (M)",
+        "powerF": "Power factor",
+        "voltaje": "Voltaje drop",
+        "aisolation": "Aisolation",
+        "temperature": "Temperature",
+        "compute": "Compute",
+        "results": "Results",
+        "current": "Current (A)",
+        "cable": "Cable width",
+        "pipeD": "Pipe diameter (inch)",
+        "protectionD": "Protection device (A)"
     }
 }

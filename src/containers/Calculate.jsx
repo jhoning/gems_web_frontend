@@ -1,6 +1,7 @@
 import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/HeaderT'
+import { useTranslation } from 'react-i18next';
 import InputsCalculate from '../components/InputsCalculate'
 import MenuTree from '../components/MenuTree'
 import '../css/calculo.css'
@@ -8,7 +9,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from "react-router";
 
 const Calculate = () => {
-
+  const [t] = useTranslation("global")
   const [values, setValues] = useState({
     current: "",
     cable_width: "",
@@ -17,7 +18,7 @@ const Calculate = () => {
     voltaje_drop: "",
     circuit: {},
 
-  })
+  }) 
 
   let { id } = useParams();
   console.log(id)
@@ -33,11 +34,11 @@ const Calculate = () => {
           <InputsCalculate values={values} setValues={setValues} setArr={setArr} arr={arr} />
           <div className="col-5 p-0 report">
             <div className="jumbotron calculoAltoMin ">
-              <h2 className="text-center color">Report</h2>
+              <h2 className="text-center color">{t("Calculate.report")}</h2>
               <table border="1" class="table table-bordered table-sm table-striped">
                 <thead class="table-secondary">
                   <tr>
-                    <th scope="col-4" >Project:</th>
+                    <th scope="col-4" >{t("Calculate.project")}</th>
                   </tr>
                   <tr>
 
@@ -49,17 +50,17 @@ const Calculate = () => {
 
                 </tbody>
               </table>
-              <h2 className="text-center color">Branch Circuits</h2>
+              <h2 className="text-center color">{t("Calculate.bCircuits")}</h2>
               <table class="table table-bordered mx-0 table-sm">
                 <thead class="table-secondary">
                   <tr>
-                    <th scope="col" className="px-2">Branch</th>
-                    <th scope="col" className="px-2">Branc Type</th>
-                    <th scope="col" className="px-2">Canalization</th>
-                    <th scope="col" className="px-2">Fases</th>
-                    <th scope="col" className="px-2">Ground</th>
-                    <th scope="col" className="px-2">Breaker</th>
-                    <th scope="col" className="px-2">Power</th>
+                    <th scope="col" className="px-2">{t("Calculate.branch")}</th>
+                    <th scope="col" className="px-2">{t("Calculate.bType")}</th>
+                    <th scope="col" className="px-2">{t("Calculate.canalization")}</th>
+                    <th scope="col" className="px-2">{t("Calculate.fases")}</th>
+                    <th scope="col" className="px-2">{t("Calculate.ground")}</th>
+                    <th scope="col" className="px-2">{t("Calculate.breaker")}</th>
+                    <th scope="col" className="px-2">{t("Calculate.power")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -87,7 +88,7 @@ const Calculate = () => {
               <table class="table table-bordered mx-0">
                 <thead class="table-secondary">
                   <tr>
-                    <th scope="col" colspan="1" className="px-2">Branch</th>
+                    <th scope="col" colspan="1" className="px-2">{t("Calculate.branch")}</th>
                     <th scope="col" colspan="3"></th>
                   </tr>
                 </thead>

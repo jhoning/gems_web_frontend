@@ -138,7 +138,7 @@ const MenuTree = ({idCircuits}) => {
   return (
   <div>
     <input className="ingris" type="text" onChange={ e => setName3(e.target.value)} value={name3} placeholder="introducir nombre de tabla"/>
-    <button className="btn btn-primary" onClick={()=>{agregarBoard(name1);setName3("");console.log(name1)}}>Agregar tabla</button>
+    <button className="btn btn-primary mt-2 mb-3" onClick={()=>{agregarBoard(name1);setName3("");console.log(name1)}}>Agregar tabla</button>
    {/*  <button onClick={()=>console.log(name2)}>nueva</button> */}
     <Tree value={boards} nodeTemplate={nodeTemplate} className="mx-0"/>
   </div>

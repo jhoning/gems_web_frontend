@@ -45,5 +45,38 @@
         "changeE": "Cambiar Correo",
         "changeP": "Cambiar Contraseña",
         "update": "Actualizar"
+    },
+    "Calculate": {
+        "report": "Reporte",
+        "project": "Projecto",
+        "bCircuits": "Circuitos derivados",
+        "branch": "Rama",
+        "bType": "Tipo de rama",
+        "canalization": "Canalización",
+        "fases": "Fases",
+        "ground": "Tierra",
+        "breaker": "Interruptor",
+        "power": "Energía"
+    },
+    "InputsC": {
+        "sAppliance": "Dispositivo especial 1",
+        "cSettings": "Configuraciones de circuito",
+        "loadT": "Tipo de carga",
+        "choose": "Seleccionar",
+        "kitchen": "Cocina",
+        "bedroom": "Cuarto",
+        "washroom": "Baño",
+        "powerW": "Energía (W)",
+        "distance": "Distancia (M)",
+        "powerF": "Factor de potencia",
+        "voltaje": "Caída de voltaje",
+        "aisolation": "Aislamiento",
+        "temperature": "Temperatura",
+        "compute": "Calcular",
+        "results": "Resultados",
+        "current": "Corriente (A)",
+        "cable": "Ancho de cable",
+        "pipeD": "Diámetro de la tubería (pulgada)",
+        "protectionD": "Dispositivo de protección (A)"
     }
 }
