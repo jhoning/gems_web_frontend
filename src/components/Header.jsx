@@ -20,7 +20,7 @@ const Header = () => {
         <a className="p-2 text-dark" href="">{t("Header.help")}</a>
       </nav>
 
-    <ul class="navbar-nav idioma mr-md-1">
+      <ul class="navbar-nav idioma mr-md-1">
       <li class="nav-item dropdown language-dropdown">
         <a class="nav-link dropdown-toggle d-flex align-items-center leng text-dark" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
              <img class="ban" src={en} />

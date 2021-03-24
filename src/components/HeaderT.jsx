@@ -43,7 +43,7 @@ const Header = () => {
             </div>
           </div>
             <img class="ban" src={en} />
-            <span class="profile-text font-weight-medium d-none d-md-block">English</span>
+            <span class="profile-text font-weight-medium d-none d-md-block">{t("Header.en")}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-left navbar-dropdown py-2" aria-labelledby="LanguageDropdown">
           <a class="dropdown-item" id="id_es" onClick={() => handleClick('es')}>
