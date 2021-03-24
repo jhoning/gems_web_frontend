@@ -1,6 +1,7 @@
 import React from 'react'
 import Tab from './Tab'
 import TreeMenu from 'react-simple-tree-menu';
+import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import BoardMenu from './BoardMenu'
@@ -19,6 +20,8 @@ const authAxios = axios.create({
 const MenuTree = ({idCircuits}) => {
   const id = idCircuits
   
+  const [t] = useTranslation("global")
+
   const [boards,setBoards] = useState([]);
   const [idproject,setIdproject] = useState([]);
   const [name1,setName1] = useState([]); 
@@ -137,8 +140,8 @@ const MenuTree = ({idCircuits}) => {
   const arr1 = [];
   return (
   <div>
-    <input className="ingris" type="text" onChange={ e => setName3(e.target.value)} value={name3} placeholder="introducir nombre de tabla"/>
-    <button className="btn btn-primary mt-2 mb-3" onClick={()=>{agregarBoard(name1);setName3("");console.log(name1)}}>Agregar tabla</button>
+    <input className="ingris" type="text" onChange={ e => setName3(e.target.value)} value={name3} placeholder={t("MenuTree.tableN")}/>
+    <button className="btn btn-primary mt-1 mb-2 text" onClick={()=>{agregarBoard(name1);setName3("");console.log(name1)}}>{t("MenuTree.addT")}</button>
    {/*  <button onClick={()=>console.log(name2)}>nueva</button> */}
     <Tree value={boards} nodeTemplate={nodeTemplate} className="mx-0"/>
   </div>

@@ -78,5 +78,9 @@
         "cable": "Cable width",
         "pipeD": "Pipe diameter (inch)",
         "protectionD": "Protection device (A)"
+    },
+    "MenuTree": {
+        "tableN": "Enter table name",
+        "addT": "Add Table"
     }
 }

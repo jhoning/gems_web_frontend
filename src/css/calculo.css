@@ -226,6 +226,13 @@ hr {
 .gray {
     background: #434756 !important;
     border: 1px solid #434756 !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+}
+
+.text {
+    font-size: 14px !important;
+    font-weight: 500 !important;
 }
 
 .se {

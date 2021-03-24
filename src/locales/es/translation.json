@@ -78,5 +78,9 @@
         "cable": "Ancho de cable",
         "pipeD": "Diámetro de la tubería (pulgada)",
         "protectionD": "Dispositivo de protección (A)"
+    },
+    "MenuTree": {
+        "tableN": "Ingrese nombre de la tabla",
+        "addT": "Agregar tabla"
     }
 }
