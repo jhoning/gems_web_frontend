@@ -59,7 +59,7 @@
         "power": "Potencia"
     },
     "InputsC": {
-        "sAppliance": "Dispositivo especial 1",
+        "sAppliance": "Tomacorriente especial 1",
         "cSettings": "Configuraciones de circuito",
         "loadT": "Tipo de carga",
         "choose": "Seleccionar",
