@@ -74,7 +74,7 @@ const T_board = () => {
 
 
                       <div class="col-md-3">
-                        <button className="btn btn-primary mx-0 text-right mr-2 ml-3" onClick={() => document.getElementById(item.id).disabled? document.getElementById(item.id).disabled = false:document.getElementById(item.id).disabled = true} /* onBlur={()=>document.getElementById(item.id).disabled = true} */>edit</button>
+                        <button className="btn btn-primary mx-0 text-right mr-2 ml-3" onClick={() => {document.getElementById(item.id).disabled? document.getElementById(item.id).disabled = false:document.getElementById(item.id).disabled = true;document.getElementById(item.id).focus()}}   >edit</button>
                         <button className="btn btn-danger mx-0 text-right">delete</button>
                       </div>
                     </li>
