@@ -4,9 +4,9 @@ import {useState,useEffect} from 'react';
 import axios from 'axios';
 import "../css/t-board_estilos.css"
 const T_board = () => {
-  const [inputActivo, setInputActivo] = useState(false)
+  const [inputActivo, setInputActivo] = useState(true)
   const handleClickInput = async ()=> {
-    setInputActivo(true);
+    setInputActivo(false);
   }
 
   const [t] = useTranslation("global")
@@ -68,12 +68,12 @@ const T_board = () => {
                                 return   <li className="list-group-item d-flex justify-content-between align-items-center">
                               {/* <a class="col-md-10" href={`http://localhost:3004/calculate/${item.id}`}>{item.name}</a>  */}
                               <form id="project"> 
-                                <input type="text" id="name" disabled={!inputActivo} placeholder={item.name}/> 
+                                <input type="text" id="name" disabled={inputActivo} placeholder={item.name}/> 
                               </form>
 
 
                               <div class="col-md-3">
-                                <button className="btn btn-primary mx-0 text-right mr-2 ml-3" onChange={handleClickInput}>edit</button>
+                                <button className="btn btn-primary mx-0 text-right mr-2 ml-3" onClick={handleClickInput}>edit</button>
                                 <button className="btn btn-danger mx-0 text-right">delete</button>
                               </div>
                             </li>
