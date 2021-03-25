@@ -59,3 +59,7 @@
   #project {
       position: absolute;
   }
+
+.cpan {
+    overflow-y: hidden;
+}
