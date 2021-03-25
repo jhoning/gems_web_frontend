@@ -44,7 +44,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
          <hr />
         <h4 className="text-left mb-3 mt-0 bordeColor color">{t("InputsC.cSettings")}</h4>
         <div className="form-group row my-1 se">
-          <label for="inputEmail3" class="col-sm-5 col-form-label">{t("InputsC.loadT")}</label>
+          <label for="inputEmail3" class="col-sm-5 col-form-label">{t("InputsC.loadType")}</label>
           <div class="col-sm-7">
             <select class="custom-select custom-select"  autocomplete="off">
               <option selected>{t("InputsC.choose")}</option>
@@ -56,6 +56,18 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         </div>
         <div class="form-group row my-0">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.powerW")}</label>
+          <div class="col-sm-7 mx-0">
+            <input type="email" class="form-control" id="inputEmail3" autocomplete="off" />
+          </div>
+        </div>
+        <div class="form-group row my-0">
+          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.loadP")}</label>
+          <div class="col-sm-7 mx-0">
+            <input type="email" class="form-control" id="inputEmail3" autocomplete="off" />
+          </div>
+        </div>
+        <div class="form-group row my-0">
+          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.cablesP")}</label>
           <div class="col-sm-7 mx-0">
             <input type="email" class="form-control" id="inputEmail3" autocomplete="off" />
           </div>

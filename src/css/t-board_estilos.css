@@ -55,3 +55,7 @@
   .list-group {
       overflow-x: hidden;
   }
+
+  #project {
+      position: absolute;
+  }

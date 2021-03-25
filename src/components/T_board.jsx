@@ -66,7 +66,8 @@ const T_board = () => {
                         {
                             name1.map((item)=>{
                                 return   <li className="list-group-item d-flex justify-content-between align-items-center">
-                              {/* <a class="col-md-10" href={`http://localhost:3004/calculate/${item.id}`}>{item.name}</a>  */}
+                              <a class="col-md-7" href={`http://localhost:3004/calculate/${item.id}`}>{item.name}</a> 
+                              
                               <form id="project"> 
                                 <input type="text" id="name" disabled={inputActivo} placeholder={item.name}/> 
                               </form>

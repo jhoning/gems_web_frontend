@@ -17,7 +17,6 @@
         "en": "English"
     },
     "HeaderT": {
-
         "log_out": "Log Out", 
         "projects": "Projects",
         "projectsM": "Master Projects",
@@ -61,7 +60,7 @@
     "InputsC": {
         "sAppliance": "Special appliance 1",
         "cSettings": "Circuit settings",
-        "loadT": "Load type",
+        "loadType": "Load type",
         "choose": "Choose",
         "kitchen": "Kitchen",
         "bedroom": "Bedroom",
@@ -74,10 +73,12 @@
         "temperature": "Temperature",
         "compute": "Compute",
         "results": "Results",
-        "current": "Current (A)",
+        "current": "Current (A)", 
         "cable": "Cable width",
         "pipeD": "Pipe diameter (inch)",
-        "protectionD": "Protection device (A)"
+        "protectionD": "Protection device (A)",
+        "loadP": "Load phases",
+        "cablesP": "Cables per phase"
     },
     "MenuTree": {
         "tableN": "Enter table name",
