@@ -6,6 +6,7 @@ import $ from 'jquery';
 import "../css/t-board_estilos.css"
 const T_board = () => {
   const [inputActivo, setInputActivo] = useState(false)
+  const [aux,setAux] = useState({name3: ""})
   const handleClickInput = async () => {
     setInputActivo(true);
   }
@@ -14,6 +15,7 @@ const T_board = () => {
   const [name1, setName1] = useState([])
   const [nameProject, setNameProject] = useState()
   const [bandera, setBandera] = useState(false)
+  const [bandera1, setBandera1] = useState(false)
   const token = localStorage.getItem('token')
   const authAxios = axios.create({
     baseURL: 'http://localhost:4000',
@@ -26,7 +28,7 @@ const T_board = () => {
     getProjectByID()
 
 
-  }, [bandera])
+  }, [bandera,bandera1])
   const getProjectByID = async () => {
 
     const algo = await authAxios.get(`/project`).then(resolve => setName1(resolve.data));
@@ -34,6 +36,16 @@ const T_board = () => {
   }
   const crearProject = async () => {
     await authAxios.post('/project', { name: nameProject }).then(resp => { alert("proyecto agregado con exito"); setBandera(bandera ? false : true); setNameProject("") }).catch(err => alert("ha ocurrido un error"))
+  }
+
+  const cambiarNombre = async(id,value)=>{
+    await authAxios.patch('/project/'+id,value).then(res => {alert("nombre cambiado"); setBandera(bandera? false:true)})
+   
+  }
+  
+  const delete1 = async(id)=>{
+    console.log(id)
+     await authAxios.delete('/project/'+id).then(res =>  {alert("eliminado");setBandera(bandera? false:true)});
   }
   return (
     <div className="container-fluid tbo">
@@ -48,7 +60,7 @@ const T_board = () => {
                 <li className="nav-item"><a href="" className="nav-link text-white">{t("HeaderT.projectsS")}</a></li>
 
               </ul>
-              <input type="text" name="text" placeholder={t("HeaderT.idPass")} className="form-control" value={nameProject} onChange={e => { setNameProject(e.target.value) }} />
+              <input type="text" name="text" placeholder={t("HeaderT.idPass")} className="form-control" value={nameProject} onChange={e => { setNameProject(e.target.value) }}  />
               <button className="btn btn-primary mt-3" onClick={() => crearProject()}>{t("HeaderT.projectsNews")}</button>
             </div>
           </nav>
@@ -69,13 +81,13 @@ const T_board = () => {
                     return <li className="list-group-item d-flex justify-content-between align-items-center">
                       {/* <a class="col-md-10" href={`http://localhost:3004/calculate/${item.id}`}>{item.name}</a>  */}
                       <form id="project">
-                        <input type="text" id={item.id} disabled="false" placeholder={item.name} />
+                        <input type="text" id={item.id} disabled="false" value={item.name} onChange={ e => item.name = e.target.value } onBlur={()=> cambiarNombre(item.id,document.getElementById(item.id).value)}/>
                       </form>
 
 
                       <div class="col-md-3">
                         <button className="btn btn-primary mx-0 text-right mr-2 ml-3" onClick={() => {document.getElementById(item.id).disabled? document.getElementById(item.id).disabled = false:document.getElementById(item.id).disabled = true;document.getElementById(item.id).focus()}}   >edit</button>
-                        <button className="btn btn-danger mx-0 text-right">delete</button>
+                        <button className="btn btn-danger mx-0 text-right" onClick={() => {delete1(item.id)}}>delete</button>
                       </div>
                     </li>
                   })
