@@ -75,11 +75,11 @@ const T_board = () => {
                   <div className="col-3"></div>
                 </div>
               </div>
-              <ul className="list-group mx-3">
+              <ul className="list-group mx-3 cpan">
                 {
                   name1.map((item) => {
                     return <li className="list-group-item d-flex justify-content-between align-items-center">
-                      {/* <a class="col-md-10" href={`http://localhost:3004/calculate/${item.id}`}>{item.name}</a>  */}
+                      <a class="col-md-10" href={`http://localhost:3004/calculate/${item.id}`}>{item.name}</a> 
                       <form id="project">
                         <input type="text" id={item.id} disabled="false" value={item.name} onChange={ e => item.name = e.target.value } onBlur={()=> cambiarNombre(item.id,document.getElementById(item.id).value)}/>
                       </form>

@@ -17,7 +17,6 @@
         "en": "Inglés"
     },
     "HeaderT": {
-
         "log_out": "Cerrar sesión",
         "projects": "Proyectos",
         "projectsM": "Proyectos Maestros",
@@ -59,9 +58,9 @@
         "power": "Potencia"
     },
     "InputsC": {
-        "sAppliance": "Tomacorriente especial 1",
+        "sAppliance": "Toma corriente especial 1",
         "cSettings": "Configuraciones de circuito",
-        "loadT": "Tipo de carga",
+        "loadType": "Tipo de carga",
         "choose": "Seleccionar",
         "kitchen": "Cocina",
         "bedroom": "Cuarto",
@@ -77,7 +76,9 @@
         "current": "Corriente (A)",
         "cable": "Ancho de cable",
         "pipeD": "Diámetro de la tubería (pulgada)",
-        "protectionD": "Dispositivo de protección (A)"
+        "protectionD": "Dispositivo de protección (A)",
+        "loadP": "Nro de fases de la carga",
+        "cablesP": "Conductores por fase"
     },
     "MenuTree": {
         "tableN": "Ingrese nombre del tablero",

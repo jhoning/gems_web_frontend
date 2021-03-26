@@ -55,3 +55,11 @@
   .list-group {
       overflow-x: hidden;
   }
+
+  #project {
+      position: absolute;
+  }
+
+.cpan {
+    overflow-y: hidden;
+}
