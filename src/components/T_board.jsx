@@ -15,7 +15,7 @@ const T_board = () => {
   const [name1, setName1] = useState([])
   const [nameProject, setNameProject] = useState()
   const [bandera, setBandera] = useState(false)
-  const [bandera1, setBandera1] = useState(false)
+  const [bandera1, setBandera1] = useState(true)
   const token = localStorage.getItem('token')
   const authAxios = axios.create({
     baseURL: 'http://localhost:4000',
@@ -24,9 +24,9 @@ const T_board = () => {
     }
   })
   useEffect(() => {
-
+   
     getProjectByID()
-
+   
 
   }, [bandera,bandera1])
   const getProjectByID = async () => {
@@ -45,8 +45,9 @@ const T_board = () => {
   
   const delete1 = async(id)=>{
     console.log(id)
-     await authAxios.delete('/project/'+id).then(res =>  {alert("eliminado");setBandera(bandera? false:true)});
-  }
+     await authAxios.delete('/project/'+id).then(res =>  {alert("eliminado");setBandera1(bandera1? false:true); console.log(name1)});
+
+    }
   return (
     <div className="container-fluid tbo">
       <div className=" mb-3">

@@ -21,7 +21,7 @@ export default function Routes() {
         <Route exact path="/change" component={ChangePassword}/>
         <Route exact path="/t_board" component={Home_tboard}/>
         <Route exact path="/user_settings" component={UserSettings}/>
-        <Route path="/calculate/:id" children={<Calculate />} />
+        <Route path="/calculate/:id" children={Calculate} />
      </Switch>
     </BrowserRouter>
   );  
