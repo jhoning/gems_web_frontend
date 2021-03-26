@@ -14,7 +14,8 @@
         "register": "Register",
         "calculate": "Calculate",
         "es": "Spanish",
-        "en": "English"
+        "en": "English",
+        "forgotP": "Forgot Password"
     },
     "HeaderT": {
         "log_out": "Log Out", 

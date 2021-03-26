@@ -33,7 +33,7 @@ const Login = () => {
   return (
     <div className="app">
       <div className="card mx-auto my-8 formContent wrapper fadeInDown">
-        <div className="card-body ">
+        <div className="card-body pg">
           <div id="login-row" className="row justify-content-center align-items-center">
             <div id="login-column" className="col-md-12">
               <div id="login-box" className="col-md-12">
@@ -53,10 +53,16 @@ const Login = () => {
                 </form>
               </div>
             </div>
+            
           </div>
         </div>
+        <div id="formFooter">
+          <a class="underlineHover" href="#">{t("Header.forgotP")}?</a>
+        </div>
       </div>
+
     </div>
+    
   )
 }
 export default Login

@@ -33,19 +33,33 @@ label {
   pointer-events: auto;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid rgba(0,0,0,.2);
-  border-radius: .3rem !important;
   outline: 0;
-  padding: 40px 18px 45px !important;
-  position: relative !important;
-  border-top: 3px solid #08678C !important;
+  padding: 40px 0px 0px !important;
+  border-top: 3px solid #28a745 !important;
   margin-top: 4rem;
+  border-radius: 0 0 10px 10px;
+}
+
+#formFooter {
+  background-color: #f6f6f6;
+  border-top: 1px solid #dce8f1;
+  padding: 10px 10px 10px;
+  text-align: center;
+  position: inherit;
+  border-radius: 0 0 10px 10px;
 }
 
 .card-body {
     flex: 1 1 auto;
     min-height: 1px;
-    padding: 0 !important;
+}
+
+a.underlineHover {
+  color: #0052b4;
+}
+
+.pg {
+  padding: 0 16px 25px !important;
 }
 
 .mail {
@@ -171,4 +185,31 @@ h5 {
   padding-left: 40px;
   min-height: 40px;
   border-radius: 3px;
+}
+
+
+.mensaje {
+  text-align: center;
+  color: gray;
+}
+
+.formRecover {
+  width: auto;
+  max-width: 450px;
+  background: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  outline: 0;
+  padding: 40px 0px 0px !important;
+  border-top: 3px solid #28a745 !important;
+  margin-top: 4rem;
+  border-radius: 0 0 10px 10px;
+}
+
+.clave input {
+  background-color: #ffffbd;
 }

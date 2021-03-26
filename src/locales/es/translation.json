@@ -14,7 +14,8 @@
         "register": "Registrar",
         "calculate": "Calcular",
         "es": "Español",
-        "en": "Inglés"
+        "en": "Inglés",
+        "forgotP": "Olvidó su contraseña"
     },
     "HeaderT": {
         "log_out": "Cerrar sesión",
@@ -58,7 +59,7 @@
         "power": "Potencia"
     },
     "InputsC": {
-        "sAppliance": "Toma corriente especial 1",
+        "sAppliance": "Toma corriente especial",
         "cSettings": "Configuraciones de circuito",
         "loadType": "Tipo de carga",
         "choose": "Seleccionar",
