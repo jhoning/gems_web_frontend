@@ -10,7 +10,7 @@ const Recover = () => {
     await axios.put('http://localhost:4000/auth/forgot-password',
       email
   
-  ).then((res)=>console.log("bueno")).catch(err => console.log("error"))
+  ).then((res)=>alert("Se ha enviado correo de verificacion")).catch(err => alert("este correo no esta registrado"))
   }
   return (
     <div className="app">
@@ -21,14 +21,14 @@ const Recover = () => {
               <div id="recovern-box" className="col-md-12">
                 <h3 className="text-center mb-4">Ingresa tu correo</h3>
                 <p class="mensaje">Por favor ingrese su correo electrónico para recuperar su contraseña</p>
-                <form >
+              
                   <div class="form-group clave">
                     <input type="text" name="email" id="email" placeholder="ingrese correo" className="form-control"  onChange={ e => setEmail({email: e.target.value}) }/>
                   </div>
                   <div className="form-group text-center mt-3">
-                    <button  className="boton btn btn-primary" onClick={()=>{changePassword()}}> enviar</button>
+                    <button  className="boton btn btn-primary" onClick={()=>{changePassword();console.log(email)}}> enviar</button>
                   </div>
-                </form>
+             
               </div>
             </div>
           </div> 
