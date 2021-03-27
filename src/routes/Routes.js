@@ -7,7 +7,7 @@ import Home_tboard from '../containers/Home_tboard';
 import UserSettings from '../components/UserSettings';
 import Calculate from '../containers/Calculate';
 import Recover from '../components/Recover';
-import ChangePassword from '../components/ChangePassword';
+import ChangePassword from '../containers/ChangePassword';
 
 
 export default function Routes() {
@@ -17,7 +17,7 @@ export default function Routes() {
         <Route exact path="/" component={LoginForm}/>
         <Route exact path="/register" component={Register}/>
         <Route exact path="/recover" component={Recover}/>
-        <Route exact path="/change" component={ChangePassword}/>
+        <Route path="/change/:token" children={ChangePassword}/>
         <Route exact path="/t_board" component={Home_tboard}/>
         <Route exact path="/user_settings" component={UserSettings}/>
         <Route path="/calculate/:id" children={Calculate} />
