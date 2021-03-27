@@ -57,7 +57,7 @@ const Login = () => {
           </div>
         </div>
         <div id="formFooter">
-          <a class="underlineHover" href="#">{t("Header.forgotP")}?</a>
+          <a class="underlineHover" href="/Recover">{t("Header.forgotP")}?</a>
         </div>
       </div>
 
