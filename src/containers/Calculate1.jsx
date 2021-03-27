@@ -1,18 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { useState, useEffect } from 'react'
+import { useParams } from "react-router";
 import Footer from '../components/Footer'
 import Header from '../components/HeaderT'
 import { useTranslation } from 'react-i18next';
 import InputsCalculate from '../components/InputsCalculate'
 import MenuTree from '../components/MenuTree'
-import '../css/calculo.css'
-import { useState, useEffect } from 'react'
-import { useParams } from "react-router";
 
-const Calculate = () => {
- 
-  
-  let {id} = useParams();
-  console.log(id)
+const Calculate1 = () => {
+  let { id1 } = useParams();
+  console.log(id1)
   const [t] = useTranslation("global")
   const [values, setValues] = useState({
     current: "",
@@ -21,9 +18,7 @@ const Calculate = () => {
     protection_device: "",
     voltaje_drop: "",
     circuit: {},
-
   });
-  useEffect(()=>{},[])
   const [arr, setArr] = useState([])
   return (
     <div>
@@ -31,7 +26,7 @@ const Calculate = () => {
       <div className="container-fluid tbo">
         <div className="row ">
           <div className="col-2 gb">
-            <MenuTree idCircuits={id} />
+            <MenuTree idCircuits={id1} />
           </div>
           <InputsCalculate values={values} setValues={setValues} setArr={setArr} arr={arr} />
           <div className="col-5 p-0 report">
@@ -110,4 +105,4 @@ const Calculate = () => {
   )
 }
 
-export default Calculate
+export default Calculate1
