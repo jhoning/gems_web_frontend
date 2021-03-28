@@ -6,7 +6,7 @@
         "sign_up": "Registro",
         "logeo": "Iniciar sesión",
         "email": "Correo",
-        "username": "Usuario",
+        "username": "Usuario", 
         "password": "Clave",
         "submitt": "Enviar",
         "example": "Ejemplo123@gmail.com",
@@ -44,7 +44,11 @@
         "phone": "Telefono",
         "changeE": "Cambiar Correo",
         "changeP": "Cambiar Contraseña",
-        "update": "Actualizar"
+        "update": "Actualizar",
+        "mRecover": "Por favor ingrese su correo electrónico para recuperar su contraseña",
+        "rPass": "Recuperar contraseña",
+        "enterP": "Ingrese su contraseña nueva",
+        "repeatP": "Repita su nueva contraseña"
     },
     "Calculate": {
         "report": "Reporte",

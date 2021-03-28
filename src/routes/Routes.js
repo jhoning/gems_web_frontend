@@ -8,7 +8,7 @@ import UserSettings from '../components/UserSettings';
 import Calculate1 from '../containers/Calculate1';
 import Recover from '../components/Recover';
 import ChangePassword from '../containers/ChangePassword';
-
+import MessageEmail from '../components/MessageEmail';
 
 export default function Routes() {
   return (
@@ -17,6 +17,7 @@ export default function Routes() {
         <Route exact path="/" component={LoginForm}/>
         <Route exact path="/register" component={Register}/>
         <Route exact path="/recover" component={Recover}/>
+        <Route exact path="/message" component={MessageEmail}/>
         <Route path="/change/:token" children={ChangePassword}/>
         <Route exact path="/t_board" component={Home_tboard}/>
         <Route exact path="/user_settings" component={UserSettings}/>

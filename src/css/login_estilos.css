@@ -5,7 +5,7 @@ body {
     background-repeat: no-repeat !important;
     background-position: center;
     background-size: cover; 
-    height: 100vh;
+    height: 100%;
 }
 
 body::after {
@@ -189,7 +189,7 @@ h5 {
 
 
 .mensaje {
-  text-align: center;
+  text-align: left;
   color: gray;
 }
 
@@ -204,12 +204,43 @@ h5 {
   background-color: #fff;
   background-clip: padding-box;
   outline: 0;
-  padding: 40px 0px 0px !important;
+  padding: 25px 0px 0px !important;
   border-top: 3px solid #28a745 !important;
-  margin-top: 4rem;
+  margin-top: 8rem;
+  border-radius: 0 0 10px 10px;
+}
+
+.formMessage {
+  width: auto;
+  max-width: 490px;
+  background: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  outline: 0;
+  padding: 25px 0px 0px !important;
+  border-top: 3px solid #28a745 !important;
+  margin-top: 8rem;
   border-radius: 0 0 10px 10px;
 }
 
 .clave input {
-  background-color: #ffffbd;
+  background-color: #ffffd7;
+}
+
+.t-l {
+  text-align: left !important;
+}
+
+.imgMail {
+  width: 20%;
+}
+
+.centra {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

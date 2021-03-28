@@ -42,6 +42,7 @@ const Header = () => {
         </div>
       </li>
       </ul>
+      
       {
         URLactual.href == "http://localhost:3004/"?<a className="btn btn-outline-light text-dark mx-1 mr-md-3 line" href="/register">{t("Header.sign_up")}</a>:  <a className="btn btn-outline-light mr-md-4 line text-dark" href="/">{t("Header.sign_in")}</a>
       }

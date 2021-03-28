@@ -44,7 +44,11 @@
         "phone": "Phone",
         "changeE": "Change Email",
         "changeP": "Change Password",
-        "update": "Update"
+        "update": "Update",
+        "mRecover": "Please enter your email address to recover your password",
+        "rPass": "Recover password",
+        "enterP": "Enter your new password",
+        "repeatP": "Repeat your new password"
     },
     "Calculate": {
         "report": "Report",

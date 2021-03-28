@@ -19,11 +19,11 @@ const Recover = () => {
           <div id="recover-row" className="row justify-content-center align-items-center">
             <div id="recover-column" className="col-md-12">
               <div id="recovern-box" className="col-md-12">
-                <h3 className="text-center mb-4">Ingresa tu correo</h3>
-                <p class="mensaje">Por favor ingrese su correo electrónico para recuperar su contraseña</p>
+                <h3 className="mb-3 t-l">{t("userS.rPass")}</h3>
+                <p class="mensaje">{t("userS.mRecover")}</p>
               
                   <div class="form-group clave">
-                    <input type="text" name="email" id="email" placeholder="ingrese correo" className="form-control"  onChange={ e => setEmail({email: e.target.value}) }/>
+                    <input type="text" name="email" id="email" placeholder={t("userS.emailA")} className="form-control"  onChange={ e => setEmail({email: e.target.value}) }/>
                   </div>
                   <div className="form-group text-center mt-3">
                     <button  className="boton btn btn-primary" onClick={()=>{changePassword();console.log(email)}}> enviar</button>
