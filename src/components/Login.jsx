@@ -18,10 +18,9 @@ const Login = () => {
     console.log(resolve)
     const token = resolve.data.token
     localStorage.setItem('token', token);
-    // alert("Usuario logeado de forma exitosa")
     history.push("/t_board")})
    
-    .catch(Response=>alert("Usuario no logeado"))
+    .catch(Response=>alert(`${t("Alerts.login")}`))
    
   }
   
@@ -29,13 +28,13 @@ const Login = () => {
     e.preventDefault();
     
   }
-
+ 
   return (
     <div className="app">
       <div className="card mx-auto my-8 formContent wrapper fadeInDown">
-        <div className="card-body pg">
+        <div className="card-body pgl">
           <div id="login-row" className="row justify-content-center align-items-center">
-            <div id="login-column" className="col-md-12">
+            <div id="login-column" className="col-md-12 mb1">
               <div id="login-box" className="col-md-12">
                 <h3 className="text-center mb-4">{t("Header.logeo")}</h3>
                 <form onSubmit={submitHandler}>
@@ -53,11 +52,14 @@ const Login = () => {
                 </form>
               </div>
             </div>
-            
+            <span>
+            {t("userS.mAccount")}
+            <a class="underlineHover ml9" href="/register">{t("Header.register")}</a>
+            </span>
           </div>
         </div>
         <div id="formFooter">
-          <a class="underlineHover" href="/Recover">{t("Header.forgotP")}?</a>
+          <a class="underlineHover" href="/Recover">{t("Header.forgotP")}</a>
         </div>
       </div>
 

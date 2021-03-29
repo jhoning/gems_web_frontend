@@ -2,7 +2,6 @@
     "Header": {
         "plans_pricing": "Planes & Costos",
         "help": "Ayuda",
-        "sign_in": "Iniciar sesión",
         "sign_up": "Registro",
         "logeo": "Iniciar sesión",
         "email": "Correo",
@@ -15,7 +14,8 @@
         "calculate": "Calcular",
         "es": "Español",
         "en": "Inglés",
-        "forgotP": "Olvidó su contraseña"
+        "forgotP": "¿Olvidó su contraseña?",
+        "Access": "Ingresar"
     },
     "HeaderT": {
         "log_out": "Cerrar sesión",
@@ -24,35 +24,38 @@
         "projectsS": "Soporte de Proyectos",
         "projectsNews": "Nuevo Proyecto",
         "search_projects": "Buscar proyectos",
-        "Terms": "Terminos",
+        "Terms": "Términos",
         "Privacy": "Privacidad",
         "Blog": "Blog",
-        "ContactUs": "Contactanos",
-        "idPass": "Nombre del nuevo proyecto"
+        "ContactUs": "Contáctanos",
+        "idPass": "Nombre nuevo proyecto"
     },
     "userS": {
         "userS": "Editar perfil",
-        "companyI": "Informacion de compañía",
-        "emailA": "Direccion de email",
-        "company": "Compania",
+        "companyI": "Información de usuario",
+        "emailA": "Dirección de email",
+        "company": "Compañía",
         "updateU": "Actualizar datos de usuario",
         "firstN": "Primer nombre",
         "lastN": "Apellido",
         "address": "Dirección",
         "professionalID": "ID profesional",
-        "country": "Pais",
-        "phone": "Telefono",
+        "country": "País",
+        "phone": "Teléfono",
         "changeE": "Cambiar Correo",
         "changeP": "Cambiar Contraseña",
         "update": "Actualizar",
         "mRecover": "Por favor ingrese su correo electrónico para recuperar su contraseña",
         "rPass": "Recuperar contraseña",
         "enterP": "Ingrese su contraseña nueva",
-        "repeatP": "Repita su nueva contraseña"
+        "repeatP": "Repita su nueva contraseña",
+        "mAccount": "¿Todavía no tienes una cuenta?",
+        "verify": "Su cuenta ha sido verificada",
+        "message": "¡Ya puedes acceder a tu cuenta con tu correo y contraseña suministrados!"
     },
     "Calculate": {
         "report": "Reporte",
-        "project": "Projecto",
+        "project": "Proyecto",
         "bCircuits": "Circuitos derivados",
         "branch": "Rama",
         "bType": "Tipo de rama",
@@ -63,7 +66,7 @@
         "power": "Potencia"
     },
     "InputsC": {
-        "sAppliance": "Toma corriente especial",
+        "sAppliance": "Tomacorriente especial",
         "cSettings": "Configuraciones de circuito",
         "loadType": "Tipo de carga",
         "choose": "Seleccionar",
@@ -88,5 +91,20 @@
     "MenuTree": {
         "tableN": "Ingrese nombre del tablero",
         "addT": "Agregar tablero"
+    },
+    "Alerts": {
+        "login": "Usuario o contraseña incorrectos",
+        "register": "Registro exitoso",
+        "claveS": "Contraseña cambiada con éxito!",
+        "claveF": "No se pudo cambiar la contraseña",
+        "mCalculate": "El reporte se ha generado exitosamente",
+        "recover": "Se ha enviado un correo de verificación",
+        "recoverE": "Este correo no esta registrado",
+        "error": "Ha ocurrido un error",
+        "exist": "Datos actualizados de forma exitosa",
+        "delete": "Eliminado"
+    },
+    "Board": {
+        "nTab": "Nueva pestaña"
     }
 }

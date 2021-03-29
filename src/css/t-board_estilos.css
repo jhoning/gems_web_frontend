@@ -63,3 +63,24 @@
 .cpan {
     overflow-y: hidden;
 }
+
+.sideBar {
+    margin-left: 0px !important;
+    padding: 10px 5px !important;
+}
+
+.board input {
+    padding: 5px;
+}
+
+.fa-edit {
+    margin-right: 10px;
+    color: #007bff;
+}
+
+.fa-trash {
+    color: #dc3545;
+}
+.controls a {
+    cursor: pointer;
+}

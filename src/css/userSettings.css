@@ -14,11 +14,27 @@
 .widget-heading {
     display: flex;
     justify-content: space-between;
+    padding: 11px 0 5px 20px !important;
 }
 
 .con {
-    border-radius: .7rem;
+    border-radius: .3rem;
     padding: 30px !important;
+}
+
+.con input {
+    background-color: #ffffd7;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 32px 15px 15px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px 0;
+    width: 100%;
+    border: 2px solid #f6f6f6;
+    transition: all 0.5s ease-in-out;
+    border-radius: 5px 5px 5px 5px;
 }
 
 .p {
@@ -38,4 +54,47 @@
 
 .ml .col-6 {
     padding-left: 0;
+}
+
+.block {
+    display: block;
+}
+
+.set span {
+    color: #005f9f;
+}
+
+.white {
+    background: #f8f8f8;
+    padding: 2px 20px 13px !important;
+}
+
+.p0 {
+    padding: 0 !important;
+}
+
+.conte {
+    padding: 10px 20px;
+}
+
+.bglight {
+    background-color: #ffffff!important;
+}
+
+.pais {
+    background-color: #f8f8f8;
+    color: #0d0d0d;
+    padding: 6px 32px 6px 15px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px 0;
+    width: 100%;
+    border: 2px solid #f0f0f0;
+    transition: all 0.5s ease-in-out;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.white label {
+    font-weight: 500;
 }

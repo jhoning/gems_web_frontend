@@ -34,7 +34,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
     setArr([...arr,report])
     console.log(values)
     console.log(arr)
-     await authAxios.post('/report',report).then(res => alert("generado el reporte exitosamente")).catch(err => console.log(err)) 
+     await authAxios.post('/report',report).then(res => alert(`${t("Alerts.mCalculate")}`)).catch(err => console.log(err)) 
   }
 
   return (
@@ -95,9 +95,9 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
           <div class="col-sm-7">
             <select class="custom-select custom-select"  autocomplete="off">
               <option selected>{t("InputsC.choose")}</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
+              <option value="1">TW</option>
+              <option value="2">THWN</option>
+              <option value="3">THHN</option>
             </select>
           </div>
         </div>

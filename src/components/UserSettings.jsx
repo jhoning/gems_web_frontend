@@ -26,13 +26,13 @@ const UserSettings = () => {
     console.log(tokenID)
     await axios.get(`http://localhost:4000/user/${tokenID}`)
       .then(resolve => setDatos({ ...datos, username: resolve.data.username, email: resolve.data.email, first_name: resolve.data.first_name, last_name: resolve.data.last_name, phone: resolve.data.phone, address: resolve.data.address, profesionalID: resolve.data.profesionalID, country: resolve.data.country, tokenID: tokenID }))
-      .catch(Response => alert("error"))
+      .catch(Response => alert(`${t("Alerts.error")}`))
   }
 
   const update = async () => {
     console.log(datos)
     await axios.patch(`http://localhost:4000/user/${datos.tokenID}`, { username: datos.username, email: datos.email, first_name: datos.first_name, last_name: datos.last_name, phone: datos.phone, address: datos.address, profesionalID: datos.profesionalID, country: datos.country })
-      .then(resolve => alert("Datos actualizados de forma exitosa")).catch(Response => console.log(Response))
+      .then(resolve => alert(`${t("Alerts.exist")}`)).catch(Response => console.log(Response))
 
   }
   const countrys = async () => {
@@ -43,17 +43,21 @@ const UserSettings = () => {
       <HeaderT />
       <div className="container">
         <div className="altoCompleto alto">
-          <div className="col-12 jumbotron con mb-0 bg-light">
+          <div className="col-12 p0 con mb-0 bglight set">
+            
             <div className="bordeColor text-left widget-heading">
               <h5 className="mb-2 mx-0">{t("userS.userS")}</h5>
             </div>
+
+            <div class="white">
             <label class="mt-2 p">{t("userS.companyI")}</label>
             <div className="row mt-2">
               <div className="col-6">
                 <div class="form-group">
                   <fieldset disabled="">
                     <label class="control-label bordeColor p-1 " for="disabledInput">{t("userS.emailA")}</label>
-                    <input class="form-control in" id="disabledInput" type="text" placeholder={datos.email} disabled="true" />
+                    <span class="control-label bordeColor p-1 block" for="disabledInput">{datos.email}</span>
+                    {/* <input class="form-control in" id="disabledInput" type="text" placeholder={datos.email} disabled="true" /> */}
                   </fieldset>
                 </div>
               </div>
@@ -62,11 +66,15 @@ const UserSettings = () => {
                 <div class="form-group">
                   <fieldset disabled="">
                     <label class="control-label bordeColor p-1 " for="disabledInput">{t("userS.company")}</label>
-                    <input class="form-control in" id="disabledInput" type="text" defaultValue="Personal" disabled="true" />
+                    <span class="control-label bordeColor p-1 block" for="disabledInput">{t("userS.company")}</span>
+                    {/* <input class="form-control in" id="disabledInput" type="text" defaultValue="Personal" disabled="true" /> */}
                   </fieldset>
                 </div>
               </div>
             </div>
+            </div>
+
+            <div class="conte">
             <h6 className="mb-3 mt-2">{t("userS.updateU")}</h6>
             <div className="row ml">
               <div className="col-6">
@@ -97,7 +105,7 @@ const UserSettings = () => {
                 <div className="form-group">
                   <label htmlFor="Country">{t("userS.country")}</label>
                   {/* <input type="text" name="country" className="form-control in" placeholder={datos.country}  onChange={ e => setDatos({...datos,country: e.target.value}) } /> */}
-                  <select class="form-select" aria-label="Default select example">
+                  <select class="form-select pais block" aria-label="Default select example">
                     <option selected  onChange={ e => setDatos({...datos,country: e.target.value}) }>Open this select menu</option>
                    {/*  <option value="1">One</option>
                     <option value="2">Two</option>
@@ -130,6 +138,8 @@ const UserSettings = () => {
               <div className="col-4"><a className="btn btn-primary btn-block" onClick={() => update()}>{t("userS.update")}</a></div>
               <div className="col-4"></div>
             </div>
+            </div>
+
           </div>
         </div>
       </div>

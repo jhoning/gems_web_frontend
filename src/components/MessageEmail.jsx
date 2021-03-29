@@ -7,7 +7,7 @@ const MessageEmail = () => {
 
   const [t] = useTranslation("global")
 
-  return (
+  return ( 
     <div className="app">
       <div className="card mx-auto my-8 formMessage wrapper fadeInDown">
         <div className="card-body pg">
@@ -18,11 +18,11 @@ const MessageEmail = () => {
                     <img class="imgMail mb-3" src={mail} />
                   </div>
               
-                    <h3 className="mb-3 t-l text-center">Su cuenta ha sido verificada</h3>
-                    <p class="mensaje">¡Ya puedes acceder a tu cuenta con tu correo y contraseña suministrados!</p>
+                    <h3 className="mb-3 t-l text-center">{t("userS.verify")}</h3>
+                    <p class="mensaje">{t("userS.message")}</p>
 
                   <div className="form-group text-center mt-3">
-                    <button  className="boton btn btn-primary">Acceder</button>
+                    <button  className="boton btn btn-primary">{t("Header.access")}</button>
                   </div>
              
               </div>

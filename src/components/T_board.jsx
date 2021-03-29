@@ -35,17 +35,17 @@ const T_board = () => {
     console.log(name1)
   }
   const crearProject = async () => {
-    await authAxios.post('/project', { name: nameProject }).then(resp => { alert("proyecto agregado con exito"); setBandera(bandera ? false : true); setNameProject("") }).catch(err => alert("ha ocurrido un error"))
+    await authAxios.post('/project', { name: nameProject }).then(resp => { setBandera(bandera ? false : true); setNameProject("") }).catch(err => alert(`${t("Alerts.error")}`))
   }
 
   const cambiarNombre = async(id,value)=>{
     await authAxios.patch('/project/'+id,value).then(res => {alert("nombre cambiado"); setBandera(bandera? false:true)})
    
-  }
+  } 
   
   const delete1 = async(id)=>{
     console.log(id)
-     await authAxios.delete('/project/'+id).then(res =>  {alert("eliminado");setBandera1(bandera1? false:true); console.log(name1)});
+     await authAxios.delete('/project/'+id).then(res =>  {alert(`${t("Alerts.delete")}`);setBandera1(bandera1? false:true); console.log(name1)});
 
     }
   return (
@@ -53,7 +53,7 @@ const T_board = () => {
       <div className=" mb-3">
         <div className="row" >
           <nav className="col-2 col-md-2 col-sm-2 gris sidebar altoCompleto mx-0">
-            <div className="sidebar-sticky sideBar text-center" >
+            <div className="sidebar-sticky sideBar board text-center" >
               <ul className="nav flex-column text-left">
 
                 <li className="nav-item"><a href="" className="nav-link text-white">{t("HeaderT.projects")}</a></li>
@@ -81,12 +81,19 @@ const T_board = () => {
                   name1.map((item) => {
                     return <li className="list-group-item d-flex justify-content-between align-items-center">
                       <a class="col-md-10" href={`http://localhost:3004/calculate/${item.id}`}>{item.name}</a> 
-                    
+                  
+                      <div class="col-md-1 controls">
+                     
+                      <a >
+                        <i class="fa fa-edit"></i>
+                      </a>
+                     
+                      <a >
+                        <i class="fa fa-trash"></i>
+                      </a>
 
-
-                      <div class="col-md-3">
-                        <button className="btn btn-primary mx-0 text-right mr-2 ml-3" onClick={() => {document.getElementById(item.id).disabled? document.getElementById(item.id).disabled = false:document.getElementById(item.id).disabled = true;document.getElementById(item.id).focus()}}   >edit</button>
-                        <button className="btn btn-danger mx-0 text-right" onClick={() => {delete1(item.id)}}>delete</button>
+                        {/* <button className="btn btn-primary mx-0 text-right mr-2 ml-3" onClick={() => {document.getElementById(item.id).disabled? document.getElementById(item.id).disabled = false:document.getElementById(item.id).disabled = true;document.getElementById(item.id).focus()}}   >edit</button>
+                        <button className="btn btn-danger mx-0 text-right" onClick={() => {delete1(item.id)}}>delete</button> */}
                       </div>
                     </li>
                   })

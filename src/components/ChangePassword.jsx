@@ -21,7 +21,7 @@ const ChangePassword = () => {
   })
   
   const enviarNewPass = async() => {
-    await authAxios.put('/auth/new-password',pass).then(res=> alert("contrasena cambiada con exito")).catch(err => alert("err"))
+    await authAxios.put('/auth/new-password',pass).then(res=> alert(`${t("Alerts.claveS")}`)).catch(err => alert(`${t("Alerts.claveF")}`))
   }
   
   return (
@@ -43,7 +43,7 @@ const ChangePassword = () => {
                   </div>
                   <div className="form-group text-center mt-3">
                     <input type="submit" className="boton btn btn-primary" value={t("userS.update")} onClick={()=> enviarNewPass()}/>
-                    <button onClick={()=>{console.log(token);console.log(pass)}}>ver token</button>
+                    {/* <button onClick={()=>{console.log(token);console.log(pass)}}>ver token</button> */}
                   </div>
              
               </div>

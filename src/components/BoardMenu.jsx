@@ -1,6 +1,8 @@
 import React from 'react'
 import '../css/board_menu.css'
+import { useTranslation } from 'react-i18next';
 const BoardMenu = ({name1,keys})=> {
+  const [t] = useTranslation("global")
   return (
     <div class="card">
     <div class="list-group" id="headingOne">
@@ -13,7 +15,7 @@ const BoardMenu = ({name1,keys})=> {
 
     <div id={`collapse${keys}`} class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-        <button className="btn btn-primary">New Tab</button>
+        <button className="btn btn-primary">{t("Board.nTab")}</button>
        {/*  Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class. */}
       </div>
     </div>

@@ -10,7 +10,7 @@ const Recover = () => {
     await axios.put('http://localhost:4000/auth/forgot-password',
       email
   
-  ).then((res)=>alert("Se ha enviado correo de verificacion")).catch(err => alert("este correo no esta registrado"))
+  ).then((res)=>alert(`${t("Alerts.recover")}`)).catch(err => alert(`${t("Alerts.recoverE")}`))
   }
   return (
     <div className="app">

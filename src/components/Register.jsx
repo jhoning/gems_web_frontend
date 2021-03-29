@@ -14,7 +14,7 @@ const Register = () => {
     
     await axios.post('http://localhost:4000/user', form)
     .then(resolve => {
-        alert("Usuario Registrado de forma exitosa")
+        alert(`${t("Alerts.register")}`)
         history.push("/")
         setForm({ username: "", email: "", password: "", first_name: "", last_name: "", profesionalID: "" })
     })
@@ -38,25 +38,25 @@ const Register = () => {
 
             <div className="col-md-12 p display">
               <div className="form-group col-md-6 p margen">
-                <input className="form-control" name="username" type="text" placeholder={t("Header.username")} onChange={ e => setForm({...form,username: e.target.value})} />
+                <input className="form-control" name="first_name" type="text" placeholder={t("userS.firstN")} onChange={ e => setForm({...form,first_name: e.target.value})}  />
               </div>
               <div className="form-group col-md-6 p">
-                <input className="form-control" name="first_name" type="text" placeholder={t("userS.firstN")} onChange={ e => setForm({...form,first_name: e.target.value})}  />
+                <input className="form-control" name="last_name" type="text" placeholder={t("userS.lastN")} onChange={ e => setForm({...form,last_name: e.target.value})} />
               </div>
             </div>
             
             <div className="col-md-12 p display">
               <div className="form-group col-md-6 p margen">
-                <input className="form-control" name="password" type="password" placeholder={t("Header.password")} onChange={ e => setForm({...form,password: e.target.value})}  />
+                <input className="form-control" name="username" type="text" placeholder={t("Header.username")} onChange={ e => setForm({...form,username: e.target.value})} />
               </div>
               <div className="form-group col-md-6 p ">
-                <input className="form-control" name="last_name" type="text" placeholder={t("userS.lastN")} onChange={ e => setForm({...form,last_name: e.target.value})} />
+                <input className="form-control" name="email" type="email" placeholder={t("Header.email")} onChange={ e => setForm({...form,email: e.target.value})} />
               </div>
             </div>
               
             <div className="col-md-12 p display">
               <div className="form-group col-md-6 p margen">
-                <input className="form-control" name="email" type="email" placeholder={t("Header.email")} onChange={ e => setForm({...form,email: e.target.value})} />
+                <input className="form-control" name="password" type="password" placeholder={t("Header.password")} onChange={ e => setForm({...form,password: e.target.value})}  />
               </div>
               <div className="form-group col-md-6 p ">
                 <input className="form-control" name="profesionalID" type="text" placeholder={t("userS.professionalID")} onChange={ e => setForm({...form,profesionalID: e.target.value})} />

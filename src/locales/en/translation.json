@@ -2,7 +2,6 @@
     "Header": {
         "plans_pricing": "Plans & Pricing",
         "help": "Help",
-        "sign_in": "Sign in",
         "sign_up": "Sign up",
         "logeo": "Sing in to T-board",
         "email": "Email",
@@ -15,7 +14,8 @@
         "calculate": "Calculate",
         "es": "Spanish",
         "en": "English",
-        "forgotP": "Forgot Password"
+        "forgotP": "Forgot Password?",
+        "access": "Access"
     },
     "HeaderT": {
         "log_out": "Log Out", 
@@ -28,11 +28,11 @@
         "Privacy": "Privacy",
         "Blog": "Blog",
         "ContactUs": "ContactUs",
-        "idPass": "Name of the new project"
+        "idPass": "New project name"
     },
     "userS": {
         "userS": "Edit profile",
-        "companyI": "Company information",
+        "companyI": "User information",
         "emailA": "Email address",
         "company": "Company",
         "updateU": "Update user settings",
@@ -48,7 +48,10 @@
         "mRecover": "Please enter your email address to recover your password",
         "rPass": "Recover password",
         "enterP": "Enter your new password",
-        "repeatP": "Repeat your new password"
+        "repeatP": "Repeat your new password",
+        "mAccount": "Don't you have an account yet?",
+        "verify": "Your account has been verified",
+        "message": "You can access with your email and password!"
     },
     "Calculate": {
         "report": "Report",
@@ -63,7 +66,7 @@
         "power": "Power"
     },
     "InputsC": {
-        "sAppliance": "Special appliance 1",
+        "sAppliance": "Special appliance",
         "cSettings": "Circuit settings",
         "loadType": "Load type",
         "choose": "Choose",
@@ -88,5 +91,20 @@
     "MenuTree": {
         "tableN": "Enter table name",
         "addT": "Add Table"
+    },
+    "Alerts": {
+        "login": "Incorrect user or password",
+        "register": "Successful registration",
+        "claveS": "Password changed successfully!",
+        "claveF": "Failed to change password",
+        "mCalculate": "Report successfully generated",
+        "recover": "A email verification has been sent",
+        "recoverE": "This email is not registered",
+        "error": "An error has occurred",
+        "exist": "Data updated successfully",
+        "delete": "Deleted!"
+    },
+    "Board": {
+        "nTab": "New Tab"
     }
 }
