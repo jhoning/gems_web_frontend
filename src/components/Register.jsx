@@ -31,7 +31,7 @@ const Register = () => {
     <div className="app">
       <Header />
       <div className="card mx-auto mt-5 formContentReg wrapper fadeInDown">
-        <div className="row justify-content-center align-items-center">
+        <div className="row justify-content-center reg align-items-center">
           <div className="col-md-12">
             <h3 className="text-center mb-3">{t("Header.ryc")}</h3>
             <form onSubmit={submitHandler}>
@@ -72,6 +72,12 @@ const Register = () => {
               </small>
             </form>
           </div>
+        </div>
+        <div id="formFooter">
+          <span>
+            {t("userS.goLogin")}
+            <a class="underlineHover ml9" href="/">{t("Header.logeo")}</a>
+          </span>
         </div>
       </div>
       <Footer />

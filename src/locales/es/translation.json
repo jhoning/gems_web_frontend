@@ -50,6 +50,7 @@
         "enterP": "Ingrese su contraseña nueva",
         "repeatP": "Repita su nueva contraseña",
         "mAccount": "¿Todavía no tienes una cuenta?",
+        "goLogin": "¿Ya posee una cuenta?",
         "verify": "Su cuenta ha sido verificada",
         "message": "¡Ya puedes acceder a tu cuenta con tu correo y contraseña suministrados!"
     },

@@ -34,7 +34,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
     setArr([...arr,report])
     console.log(values)
     console.log(arr)
-     await authAxios.post('/report',report).then(res => alert(`${t("Alerts.mCalculate")}`)).catch(err => console.log(err)) 
+     await authAxios.post('/report',report).catch(err => console.log(err)) 
   }
 
   return (

@@ -50,6 +50,7 @@
         "enterP": "Enter your new password",
         "repeatP": "Repeat your new password",
         "mAccount": "Don't you have an account yet?",
+        "goLogin": "Already have an account?",
         "verify": "Your account has been verified",
         "message": "You can access with your email and password!"
     },
