@@ -134,7 +134,7 @@ const Login = () => {
                       <input type="password" name="password" id="password" placeholder='***************' className="form-control password1 " onChange={e => {setLogin({ ...login, password: e.target.value });validar(login.password)}} />
                       <span class="fa fa-fw fa-eye password-icon show-password"></span>
                       <div class="valid-feedback">Success!</div>
-                      <div class="invalid-feedback">La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.</div>
+                      <div class="invalid-feedback">La contraseña debe tener al entre 8 y 16 caracteres, al menos un caracter, al menos una minúscula y al menos una mayúscula.</div>
                     
                     </div>
 

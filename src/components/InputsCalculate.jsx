@@ -95,9 +95,9 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
           <div class="col-sm-7">
             <select class="custom-select custom-select"  autocomplete="off">
               <option selected>{t("InputsC.choose")}</option>
-              <option value="1">TW</option>
-              <option value="2">THWN</option>
-              <option value="3">THHN</option>
+              <option value="1" data-bs-toggle="tooltip" data-bs-placement="right" title="Esta opcion incluye todas las temparaturas todos los aislamientis contra temperatura maxima de 60°C">TW</option>
+              <option value="2" data-bs-toggle="tooltip" data-bs-placement="right" title="Esta opcion incluye todas las temparaturas todos los aislamientis contra temperatura maxima de 75°C">THWN</option>
+              <option value="3" data-bs-toggle="tooltip" data-bs-placement="right" title="Esta opcion incluye todas las temparaturas todos los aislamientis contra temperatura maxima de 90°C">THHN</option>
             </select>
           </div>
         </div>
