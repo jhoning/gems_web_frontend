@@ -6,7 +6,7 @@ import Register from '../components/Register';
 import Home_tboard from '../containers/Home_tboard';
 import UserSettings from '../components/UserSettings';
 import Calculate1 from '../containers/Calculate1';
-import Recover from '../components/Recover';
+import Recover from '../containers/Recover';
 import ChangePassword from '../containers/ChangePassword';
 import MessageEmail from '../components/MessageEmail';
 
