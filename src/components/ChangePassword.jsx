@@ -3,10 +3,11 @@ import '../css/login_estilos.css'
 import { useTranslation } from 'react-i18next';
 import { useParams } from "react-router";
 import axios from 'axios'
-
+import { useHistory } from 'react-router';
 
 const ChangePassword = () => { 
 
+  const history = useHistory();
   const [t] = useTranslation("global")
   let { token } = useParams(); 
   let [pass,setPass] = useState({
@@ -21,7 +22,7 @@ const ChangePassword = () => {
   })
   
   const enviarNewPass = async() => {
-    await authAxios.put('/auth/new-password',pass).then(res=> alert(`${t("Alerts.claveS")}`)).catch(err => alert(`${t("Alerts.claveF")}`))
+    await authAxios.put('/auth/new-password',pass).then(res=> {alert(`${t("Alerts.claveS")}`); history.push("/")}).catch(err => alert(`${t("Alerts.claveF")}`))
   }
   
   return (
@@ -43,7 +44,7 @@ const ChangePassword = () => {
                   </div>
                   <div className="form-group text-center mt-3">
                     <input type="submit" className="boton btn btn-primary" value={t("userS.update")} onClick={()=> enviarNewPass()}/>
-                    {/* <button onClick={()=>{console.log(token);console.log(pass)}}>ver token</button> */}
+
                   </div>
              
               </div>

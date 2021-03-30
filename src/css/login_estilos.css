@@ -263,3 +263,10 @@ h5 {
 #login-column {
   font-size: 13px;
 }
+
+.password-icon {
+  float: right;
+  position: relative;
+  margin: -30px 10px 0 0;
+  cursor: pointer;
+}

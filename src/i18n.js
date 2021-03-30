@@ -5,6 +5,8 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import global_es from './locales/es/translation.json'
 import global_en from './locales/en/translation.json'
 
+const idioma = localStorage.getItem('i18nextLng')
+
 i18n
     .use(LanguageDetector)
     .use(initReactI18next)
@@ -20,4 +22,4 @@ i18n
         }
     });
 
-i18n.changeLanguage("en");
+i18n.changeLanguage(idioma == 'en'? 'en':'es');

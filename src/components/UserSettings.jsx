@@ -8,12 +8,13 @@ import { useGetUser } from '../hooks/useGetUser'
 const UserSettings = () => {
 
   const [t] = useTranslation("global")
+  const [bandera,setBandera] = useState(false)
   const [paises, setPaises] = useState([]);
   const [datos, setDatos] = useState({ username: "", email: "", first_name: "", last_name: "", phone: "", address: "", profesionalID: "", country: "", tokenID: "" });
   useEffect(() => {
     peticion()
     countrys()
-  }, [])
+  }, [bandera])
 
 
   const peticion = async () => {
@@ -135,7 +136,7 @@ const UserSettings = () => {
                 </div>
               </div>
               <div className="col-4"></div>
-              <div className="col-4"><a className="btn btn-primary btn-block" onClick={() => update()}>{t("userS.update")}</a></div>
+              <div className="col-4"><a className="btn btn-primary btn-block" onClick={() => {update();bandera?setBandera(false):setBandera(true)}}>{t("userS.update")}</a></div>
               <div className="col-4"></div>
             </div>
             </div>
