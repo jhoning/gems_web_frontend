@@ -86,7 +86,7 @@ const Login = () => {
 
                     <div className="form-group text-center mt-3">
                       <button className="boton btn btn-primary " onClick={() => logear()}>{t("Header.submitt")} </button>
-                      <button className="boton btn btn-primary" onClick={() => console.log(login)}>{t("Header.submitt")} </button>
+
                     </div>
                   </div>
 
