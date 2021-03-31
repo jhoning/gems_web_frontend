@@ -54,7 +54,8 @@
         "verify": "Su cuenta ha sido verificada",
         "message": "¡Ya puedes acceder a tu cuenta con tu correo y contraseña suministrados!",
         "sMes": "¡Éxito!",
-        "invalid": "La contraseña debe tener al entre 8 y 16 digitos al menos un caracter, al menos una minúscula y al menos una mayúscula."
+        "invalid": "La contraseña debe tener al entre 8 y 16 dígitos al menos un carácter, al menos una minúscula y al menos una mayúscula.",
+        "eInvalid": "Por favor verifique que su direccion de correo sea válida"
     },
     "Calculate": {
         "report": "Reporte",

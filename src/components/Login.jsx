@@ -86,6 +86,20 @@ const Login = () => {
 
   }
 
+  const validarMail = (valor) => {
+    const expresionMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    console.log(expresionMail.test(valor))
+    if (expresionMail.test(valor)) {
+
+      document.querySelector('#email').classList.add("is-valid")
+      document.querySelector('#email').classList.remove("is-invalid")
+    } else {
+      document.querySelector('#email').classList.add("is-invalid")
+      document.querySelector('#email').classList.remove("is-valid")
+    }
+  }
+
+
   const puntero = () => {
     window.addEventListener("load", function () {
 
@@ -124,7 +138,9 @@ const Login = () => {
 
                     <div class="form-group ">
                       <i class="fa fa-user"></i>
-                      <input type="text" name="email" id="email" placeholder={t("Header.example")} className="form-control" onChange={e => { setLogin({ ...login, email: e.target.value }); validar(login.password) }} value={login.name} />
+                      <input type="text" name="email" id="email" placeholder={t("Header.example")} className="form-control" onChange={e => { setLogin({ ...login, email: e.target.value }); validarMail(login.email) }} value={login.name} />
+                      <div class="valid-feedback">{t("userS.sMes")}</div>
+                      <div class="invalid-feedback">{t("userS.eInvalid")}</div>
                     </div>
 
                     <div className="form-group has-danger">
