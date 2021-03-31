@@ -5,11 +5,15 @@ import { useTranslation } from 'react-i18next';
 import Header from './Header';
 import '../css/Register.css'
 import Footer from './Footer'
+import { useEffect } from 'react/cjs/react.development';
 const Register = () => {
   const [t] = useTranslation("global")
   const history = useHistory()
   const [form, setForm] = useState({ username: "", email: "", password: "", first_name: "", last_name: "", profesionalID: "" })
-  
+  useEffect(()=>{
+    puntero()
+  },[])
+
   const registrar = async () => {
     
     await axios.post('http://localhost:4000/user', form)
@@ -27,8 +31,49 @@ const Register = () => {
     
   }
 
+  const validar = (valor)=>{
+    const expresion = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/
+    console.log(expresion.test(valor))
+    if( expresion.test(valor)){
+  
+      document.querySelector('#password').classList.add("is-valid") 
+      document.querySelector('#password').classList.remove("is-invalid") 
+    }else {
+      document.querySelector('#password').classList.add("is-invalid") 
+      document.querySelector('#password').classList.remove("is-valid") 
+    }
+   
+
+  }
+
+  const puntero = ()=> {
+    window.addEventListener("load", function() {
+
+      // icono para mostrar contraseña
+      let showPassword = document.querySelector('.show-password');
+       showPassword.addEventListener('click', () => {
+
+          // elementos input de tipo clave
+          let password1 = document.querySelector('.password1');
+       
+
+          if ( password1.type === "text" ) {
+              password1.type = "password"
+           
+              showPassword.classList.remove('fa-eye-slash');
+          } else {
+              password1.type = "text"
+       
+              showPassword.classList.toggle("fa-eye-slash");
+          }
+
+      })
+
+  });
+  }
+
   return (
-    <div className="app">
+    <div className="app"> 
       <Header />
       <div className="card mx-auto mt-5 formContentReg wrapper fadeInDown">
         <div className="row justify-content-center reg align-items-center">
@@ -56,7 +101,10 @@ const Register = () => {
               
             <div className="col-md-12 p display">
               <div className="form-group col-md-6 p margen">
-                <input className="form-control" name="password" type="password" placeholder={t("Header.password")} onChange={ e => setForm({...form,password: e.target.value})}  />
+                <input className="form-control password1" id="password" name="password" type="password" placeholder={t("Header.password")} onChange={ e => {setForm({...form,password: e.target.value}); validar(form.password)}}  />
+                <span class="fa fa-fw fa-eye password-icon show-password eye"></span>
+                <div class="valid-feedback">{t("userS.sMes")}</div>
+                <div class="invalid-feedback invalidR">{t("userS.invalid")}</div>
               </div>
               <div className="form-group col-md-6 p ">
                 <input className="form-control" name="profesionalID" type="text" placeholder={t("userS.professionalID")} onChange={ e => setForm({...form,profesionalID: e.target.value})} />

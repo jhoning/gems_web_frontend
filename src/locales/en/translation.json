@@ -52,7 +52,9 @@
         "mAccount": "Don't you have an account yet?",
         "goLogin": "Already have an account?",
         "verify": "Your account has been verified",
-        "message": "You can access with your email and password!"
+        "message": "You can access with your email and password!",
+        "sMes": "Success!",
+        "invalid": "The password must have between 8 and 16 digits at least one character, at least one lowercase and at least one uppercase."
     },
     "Calculate": {
         "report": "Report",

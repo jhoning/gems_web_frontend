@@ -8,13 +8,13 @@ import { useEffect } from 'react/cjs/react.development';
 
 const Login = () => {
 
-  
+
   const history = useHistory();
   const [login, setLogin] = useState({ email: "", password: "" });
   const [t] = useTranslation("global")
-  useEffect(()=>{
+  useEffect(() => {
     puntero()
-  },[])
+  }, [])
   const logear = async () => {
 
     await axios.post('http://localhost:4000/auth/login', { email: login.email, password: login.password })
@@ -71,45 +71,45 @@ const Login = () => {
 
   }
 
-  const validar = (valor)=>{
+  const validar = (valor) => {
     const expresion = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/
     console.log(expresion.test(valor))
-    if( expresion.test(valor)){
-  
-      document.querySelector('#password').classList.add("is-valid") 
-      document.querySelector('#password').classList.remove("is-invalid") 
-    }else {
-      document.querySelector('#password').classList.add("is-invalid") 
-      document.querySelector('#password').classList.remove("is-valid") 
+    if (expresion.test(valor)) {
+
+      document.querySelector('#password').classList.add("is-valid")
+      document.querySelector('#password').classList.remove("is-invalid")
+    } else {
+      document.querySelector('#password').classList.add("is-invalid")
+      document.querySelector('#password').classList.remove("is-valid")
     }
-   
+
 
   }
 
-  const puntero = ()=> {
-    window.addEventListener("load", function() {
+  const puntero = () => {
+    window.addEventListener("load", function () {
 
       // icono para mostrar contraseña
       let showPassword = document.querySelector('.show-password');
-       showPassword.addEventListener('click', () => {
+      showPassword.addEventListener('click', () => {
 
-          // elementos input de tipo clave
-          let password1 = document.querySelector('.password1');
-       
+        // elementos input de tipo clave
+        let password1 = document.querySelector('.password1');
 
-          if ( password1.type === "text" ) {
-              password1.type = "password"
-           
-              showPassword.classList.remove('fa-eye-slash');
-          } else {
-              password1.type = "text"
-       
-              showPassword.classList.toggle("fa-eye-slash");
-          }
+
+        if (password1.type === "text") {
+          password1.type = "password"
+
+          showPassword.classList.remove('fa-eye-slash');
+        } else {
+          password1.type = "text"
+
+          showPassword.classList.toggle("fa-eye-slash");
+        }
 
       })
 
-  });
+    });
   }
   return (
     <div className="app">
@@ -124,18 +124,16 @@ const Login = () => {
 
                     <div class="form-group ">
                       <i class="fa fa-user"></i>
-                      <input type="text" name="email" id="email" placeholder={t("Header.example")} className="form-control" onChange={e => {setLogin({ ...login, email: e.target.value });validar(login.password)}} value={login.name} />
-
-                      
+                      <input type="text" name="email" id="email" placeholder={t("Header.example")} className="form-control" onChange={e => { setLogin({ ...login, email: e.target.value }); validar(login.password) }} value={login.name} />
                     </div>
 
                     <div className="form-group has-danger">
                       <i className="fa fa-lock"></i>
-                      <input type="password" name="password" id="password" placeholder='***************' className="form-control password1 " onChange={e => {setLogin({ ...login, password: e.target.value });console.log(login.password); validar(login.password)}} />
-                      <span class="fa fa-fw fa-eye password-icon show-password"></span>
-                      <div class="valid-feedback">Success!</div>
-                      <div class="invalid-feedback">La contraseña debe tener al entre 8 y 16 digitos al menos un caracter, al menos una minúscula y al menos una mayúscula.</div>
-                    
+                      <input type="password" name="password" id="password" placeholder='***************' className="form-control password1 " onChange={e => { setLogin({ ...login, password: e.target.value }); validar(login.password) }} />
+                      <span class="fa fa-fw fa-eye password-icon show-password eye"></span>
+                      <div class="valid-feedback">{t("userS.sMes")}</div>
+                      <div class="invalid-feedback">{t("userS.invalid")}</div>
+
                     </div>
 
 

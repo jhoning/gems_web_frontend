@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../css/login_estilos.css'
 import { useTranslation } from 'react-i18next';
-import mail from '../css/mail.png'
+import mail from '../img/mail.png'
 import axios from 'axios'
 import Header from './Header';
 import Footer from './Footer';

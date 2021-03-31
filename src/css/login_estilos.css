@@ -1,7 +1,7 @@
 /* BASIC */
 
 body {
-    background: url("fondo.jpg");
+    background: url("/src/img/fondo.jpg");
     background-repeat: no-repeat !important;
     background-position: center;
     background-size: cover; 
@@ -262,6 +262,7 @@ h5 {
 }
 #login-column {
   font-size: 13px;
+  padding: 5px 8px 0;
 }
 
 .password-icon {
@@ -269,4 +270,24 @@ h5 {
   position: relative;
   margin: -30.9px 35px 0 0;
   cursor: pointer;
+}
+
+.logo {
+  width: 120px;
+}
+.eye {
+  position: absolute;
+  top: 48px;
+  font-size: 16px;
+  color: #374753;
+  float: right;
+  right: -2px;
+}
+
+.invalidR {
+  position: relative;
+  width: 200% !important;
+  margin-top: .25rem;
+  font-size: 70% !important;
+  color: #dc3545;
 }
