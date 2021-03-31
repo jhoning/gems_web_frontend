@@ -8,7 +8,7 @@ import es from '../img/espana.svg';
 import en from '../img/estados-unidos.svg';
 import logo from '../img/logo.png';
 import {useHistory} from 'react-router';
-
+const idioma = localStorage.getItem('i18nextLng')
 const URLactual = window.location;
 const token = localStorage.getItem('token')
   const authAxios = axios.create({
