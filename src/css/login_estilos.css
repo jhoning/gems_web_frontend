@@ -283,3 +283,11 @@ h5 {
   float: right;
   right: -2px;
 }
+
+.invalidR {
+  position: relative;
+  width: 200% !important;
+  margin-top: .25rem;
+  font-size: 70% !important;
+  color: #dc3545;
+}

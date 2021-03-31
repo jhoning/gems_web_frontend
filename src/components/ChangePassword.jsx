@@ -29,6 +29,36 @@ const ChangePassword = () => {
     await authAxios.put('/auth/new-password',pass).then(res=> {alert(`${t("Alerts.claveS")}`); history.push("/")}).catch(err => alert(`${t("Alerts.claveF")}`))
   }
 
+  const validar = (valor)=>{
+    const expresion = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/
+    console.log(expresion.test(valor))
+    if( expresion.test(valor)){
+  
+      document.querySelector('#password').classList.add("is-valid") 
+      document.querySelector('#password').classList.remove("is-invalid") 
+    }else {
+      document.querySelector('#password').classList.add("is-invalid") 
+      document.querySelector('#password').classList.remove("is-valid") 
+    }
+   
+
+  }
+
+  const validar2 = (valor)=>{
+    const expresion = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/
+    console.log(expresion.test(valor))
+    if( expresion.test(valor)){
+  
+      document.querySelector('#password2').classList.add("is-valid") 
+      document.querySelector('#password2').classList.remove("is-invalid") 
+    }else {
+      document.querySelector('#password2').classList.add("is-invalid") 
+      document.querySelector('#password2').classList.remove("is-valid") 
+    }
+   
+
+  }
+
   const puntero = ()=> {
     window.addEventListener("load", function() {
 
@@ -71,7 +101,7 @@ const ChangePassword = () => {
 
   });
   }
-  
+
   return (
     <div className="app">
       <div className="card mx-auto my-8 formRecover wrapper fadeInDown">
@@ -83,14 +113,14 @@ const ChangePassword = () => {
             
                   <div class="form-group clave">
                     <label>{t("userS.enterP")}</label>
-                    <input type="password" name="pass" id="pass1" placeholder="" className="form-control password1" onChange={ e => setPass({confirmPassword:`${pass.confirmPassword}`,password: e.target.value}) }/>
+                    <input type="password" name="pass" id="password" placeholder="" className="form-control password1" onChange={ e => {setPass({confirmPassword:`${pass.confirmPassword}`,password: e.target.value}); validar(pass.password) }}/>
                     <span class="fa fa-fw fa-eye password-icon show-password"></span>
                       <div class="valid-feedback">{t("userS.sMes")}</div>
                       <div class="invalid-feedback">{t("userS.invalid")}</div>
                   </div>
                   <div class="form-group clave">
                     <label>{t("userS.repeatP")}</label>
-                    <input type="password" name="pass" id="pass2" placeholder="" className="form-control password2" onChange={ e => setPass({password:`${pass.password}`,confirmPassword: e.target.value}) }/>
+                    <input type="password" name="pass" id="password2" placeholder="" className="form-control password2" onChange={ e => {setPass({password:`${pass.password}`,confirmPassword: e.target.value}); validar2(pass.password) }}/>
                     <span class="fa fa-fw fa-eye password-icon show-password2"></span>
                       <div class="valid-feedback">{t("userS.sMes")}</div>
                       <div class="invalid-feedback">{t("userS.invalid")}</div>
