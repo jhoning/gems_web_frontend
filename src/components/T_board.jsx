@@ -15,6 +15,7 @@ const T_board = () => {
   const [name1, setName1] = useState([])
   const [nameProject, setNameProject] = useState()
   const [bandera, setBandera] = useState(false)
+  const [bandera3, setBandera3] = useState(true)
   const [bandera1, setBandera1] = useState(true)
   const token = localStorage.getItem('token')
   const authAxios = axios.create({
@@ -28,7 +29,7 @@ const T_board = () => {
     getProjectByID()
    
 
-  }, [bandera,bandera1])
+  }, [bandera,bandera1,bandera3])
   const getProjectByID = async () => {
 
     const algo = await authAxios.get(`/project`).then(resolve => setName1(resolve.data));
@@ -78,26 +79,37 @@ const T_board = () => {
               </div>
               <ul className="list-group mx-3 cpan">
                 {
-                  name1.map((item) => {
-                    return <li className="list-group-item d-flex justify-content-between align-items-center">
-                      <a class="col-md-10" href={`http://localhost:3004/calculate/${item.id}`}>{item.name}</a> 
+                  name1 != []? name1.map((item,i) => {
                   
+                    return <li className="list-group-item d-flex justify-content-between align-items-center">
+                    <a class="col-md-10" id={item.id+"a"}href={`http://localhost:3004/calculate/${item.id}`}>{item.name}</a> 
+                    <input type="text" style={{ display: "none",height: "35px" }} id={item.id+"i"} />
                       <div class="col-md-1 controls">
-                     
+             
                       <a >
-                        <i class="fa fa-edit"></i>
+                        <i class="fa fa-edit" onClick={()=>{ 
+                        if ($(`#${item.id}a`).is(':visible')) {
+                          $(`#${item.id}a`).hide();
+                          $(`#${item.id}i`).show();
+                        } else {
+                          $(`#${item.id}a`).show();
+                          $(`#${item.id}i`).hide();
+                        }
+                      }
+                      }></i>
                       </a>
                      
                       <a >
-                        <i class="fa fa-trash"></i>
+                        <i class="fa fa-trash" onClick={() => delete1(item.id)}></i>
                       </a>
 
                         {/* <button className="btn btn-primary mx-0 text-right mr-2 ml-3" onClick={() => {document.getElementById(item.id).disabled? document.getElementById(item.id).disabled = false:document.getElementById(item.id).disabled = true;document.getElementById(item.id).focus()}}   >edit</button>
                         <button className="btn btn-danger mx-0 text-right" onClick={() => {delete1(item.id)}}>delete</button> */}
                       </div>
                     </li>
-                  })
+                  }):null
                 }
+                
               </ul>
             </div>
           </div>
