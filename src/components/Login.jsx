@@ -125,16 +125,14 @@ const Login = () => {
                     <div class="form-group ">
                       <i class="fa fa-user"></i>
                       <input type="text" name="email" id="email" placeholder={t("Header.example")} className="form-control" onChange={e => {setLogin({ ...login, email: e.target.value });validar(login.password)}} value={login.name} />
-
-                      
                     </div>
 
                     <div className="form-group has-danger">
                       <i className="fa fa-lock"></i>
                       <input type="password" name="password" id="password" placeholder='***************' className="form-control password1 " onChange={e => {setLogin({ ...login, password: e.target.value });validar(login.password)}} />
-                      <span class="fa fa-fw fa-eye password-icon show-password"></span>
-                      <div class="valid-feedback">Success!</div>
-                      <div class="invalid-feedback">La contraseña debe tener al entre 8 y 16 digitos al menos un caracter, al menos una minúscula y al menos una mayúscula.</div>
+                      <span class="fa fa-fw fa-eye password-icon show-password eye"></span>
+                      <div class="valid-feedback">{t("userS.sMes")}</div>
+                      <div class="invalid-feedback">{t("userS.invalid")}</div>
                     
                     </div>
 

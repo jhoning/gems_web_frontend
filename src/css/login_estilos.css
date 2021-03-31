@@ -262,6 +262,7 @@ h5 {
 }
 #login-column {
   font-size: 13px;
+  padding: 5px 8px 0;
 }
 
 .password-icon {
@@ -274,10 +275,10 @@ h5 {
 .logo {
   width: 120px;
 }
-.fa-eye {
+.eye {
   position: absolute;
-  top: 47px;
-  font-size: 18px;
+  top: 48px;
+  font-size: 16px;
   color: #374753;
   float: right;
   right: -2px;
