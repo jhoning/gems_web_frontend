@@ -274,3 +274,11 @@ h5 {
 .logo {
   width: 120px;
 }
+.fa-eye {
+  position: absolute;
+  top: 47px;
+  font-size: 18px;
+  color: #374753;
+  float: right;
+  right: -2px;
+}
