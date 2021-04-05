@@ -26,12 +26,13 @@ const Calculate = () => {
   useEffect(()=>{},[])
   const [arr, setArr] = useState([])
   const amplio = () => {
-    if (document.getElementById("report").style.width == '80%') {
+    if (document.getElementById("report").style.width == '50%') {
+      document.getElementById("reporte").style.width = '30%';
       document.getElementById("report").style.width = '45%';
-      document.getElementById("report").style.position = 'absolute';
-
       } else {
-      document.getElementById("report").style.width = '80%';
+      document.getElementById("reporte").style.width = '25%';
+      document.getElementById("report").style.width = '50%';
+
       }
   }
   return (
