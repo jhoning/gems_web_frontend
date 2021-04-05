@@ -34,7 +34,7 @@
         "userS": "Editar perfil",
         "companyI": "Información de usuario",
         "emailA": "Dirección de email",
-        "company": "Compañía",
+        "company": "Nombre de la compañía",
         "updateU": "Actualizar datos de usuario",
         "firstN": "Primer nombre",
         "lastN": "Apellido",
@@ -53,9 +53,14 @@
         "goLogin": "¿Ya posee una cuenta?",
         "verify": "Su cuenta ha sido verificada",
         "message": "¡Ya puedes acceder a tu cuenta con tu correo y contraseña suministrados!",
-        "sMes": "¡Éxito!",
+        "sMes": "Contraseña válida",
         "invalid": "La contraseña debe tener al entre 8 y 16 dígitos al menos un carácter, al menos una minúscula y al menos una mayúscula.",
-        "eInvalid": "Por favor verifique que su direccion de correo sea válida"
+        "eInvalid": "Por favor verifique que su direccion de correo sea válida",
+        "eMes": "Correo válido",
+        "fText1": "Al crear una cuenta, acepta los",
+        "fText2": "Para obtener más información sobre los términos de privacidad de T-board, consulte la",
+        "terms": "Términos de servicio.",
+        "pState": "Declaracion de privacidad."
     },
     "Calculate": {
         "report": "Reporte",
@@ -90,7 +95,10 @@
         "pipeD": "Diámetro de la tubería (pulgada)",
         "protectionD": "Dispositivo de protección (A)",
         "loadP": "Nro de fases de la carga",
-        "cablesP": "Conductores por fase"
+        "cablesP": "Conductores por fase",
+        "tw": "Esta opción incluye todas las temperaturas y todos los aislamientos con temperatura máxima de 60°C",
+        "thwn": "Esta opción incluye todas las temperaturas y todos los aislamientos con temperatura máxima de 75°C",
+        "thhn": "Esta opción incluye todas las temperaturas y todos los aislamientos con temperatura máxima de 90°C"
     },
     "MenuTree": {
         "tableN": "Ingrese nombre del tablero",

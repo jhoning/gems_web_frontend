@@ -139,16 +139,16 @@ const Login = () => {
                     <div class="form-group ">
                       <i class="fa fa-user"></i>
                       <input type="text" name="email" id="email" placeholder={t("Header.example")} className="form-control" onChange={e => { setLogin({ ...login, email: e.target.value }); validarMail(login.email) }} value={login.name} />
-                      <div class="valid-feedback">{t("userS.sMes")}</div>
+                      {/* <div class="valid-feedback">{t("userS.eMes")}</div> */}
                       <div class="invalid-feedback">{t("userS.eInvalid")}</div>
                     </div>
 
                     <div className="form-group has-danger">
                       <i className="fa fa-lock"></i>
-                      <input type="password" name="password" id="password" placeholder='***************' className="form-control password1 " onChange={e => { setLogin({ ...login, password: e.target.value }); validar(login.password) }} />
+                      <input type="password" name="password" id="password" placeholder='***************' className="form-control password1 " onChange={e => { setLogin({ ...login, password: e.target.value })}} />
                       <span class="fa fa-fw fa-eye password-icon show-password eye"></span>
-                      <div class="valid-feedback">{t("userS.sMes")}</div>
-                      <div class="invalid-feedback">{t("userS.invalid")}</div>
+                      {/* <div class="valid-feedback">{t("userS.sMes")}</div>
+                      <div class="invalid-feedback">{t("userS.invalid")}</div> */}
 
                     </div>
 
@@ -163,7 +163,7 @@ const Login = () => {
                 </form>
               </div>
             </div>
-            <span>
+            <span class="f13">
               {t("userS.mAccount")}
               <a class="underlineHover ml9" href="/register">{t("Header.register")}</a>
             </span>

@@ -72,6 +72,19 @@ const Register = () => {
   });
   }
 
+   const validarMail = (valor) => {
+    const expresionMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    console.log(expresionMail.test(valor))
+    if (expresionMail.test(valor)) {
+
+      document.querySelector('#email').classList.add("is-valid")
+      document.querySelector('#email').classList.remove("is-invalid")
+    } else {
+      document.querySelector('#email').classList.add("is-invalid")
+      document.querySelector('#email').classList.remove("is-valid")
+    }
+  } 
+
   return (
     <div className="app"> 
       <Header />
@@ -95,18 +108,30 @@ const Register = () => {
                 <input className="form-control" name="username" type="text" placeholder={t("Header.username")} onChange={ e => setForm({...form,username: e.target.value})} />
               </div>
               <div className="form-group col-md-6 p ">
-                <input className="form-control" name="email" type="email" placeholder={t("Header.email")} onChange={ e => setForm({...form,email: e.target.value})} />
+                <input className="form-control" id="email" name="email" type="email" placeholder={t("Header.email")} onChange={ e => {setForm({...form,email: e.target.value}); validarMail(form.email)}} />
+                {/* <div class="valid-feedback">{t("userS.eMes")}</div> */}
+                <div class="invalid-feedback inRegis">{t("userS.eInvalid")}</div>
               </div>
             </div>
               
             <div className="col-md-12 p display">
               <div className="form-group col-md-6 p margen">
                 <input className="form-control password1" id="password" name="password" type="password" placeholder={t("Header.password")} onChange={ e => {setForm({...form,password: e.target.value}); validar(form.password)}}  />
-                <span class="fa fa-fw fa-eye password-icon show-password eye"></span>
-                <div class="valid-feedback">{t("userS.sMes")}</div>
+                <span class="fa fa-fw fa-eye password-icon show-password eye regEye"></span>
+                {/* <div class="valid-feedback">{t("userS.sMes")}</div> */}
                 <div class="invalid-feedback invalidR">{t("userS.invalid")}</div>
               </div>
-              <div className="form-group col-md-6 p ">
+              <div className="col-md-6 p0">
+                <select class="custom-select custom-select p5"  autocomplete="off">
+                  <option selected>+58</option>
+                  <option selected>+1</option>
+                </select>
+                <input className="form-control w31" name="profesionalID" type="text" placeholder={t("userS.phone")} />
+                </div>
+              </div>
+
+            <div className="col-md-12 p display">
+              <div className="form-group col-md-6 p margen">
                 <input className="form-control" name="profesionalID" type="text" placeholder={t("userS.professionalID")} onChange={ e => setForm({...form,profesionalID: e.target.value})} />
               </div>
             </div>
@@ -114,15 +139,13 @@ const Register = () => {
 
               <input type="submit" className="botonReg btn btn-primary" value={t("Header.register")} onClick={()=>registrar()}/>
               <small className="form-text text-muted">
-                By creating a account, you agree to the <a href="">Terms of Service.</a>
-                         For more information about T-board's privacity terms,
-                         see the <a href="">Privacy Statement.</a>
+              {t("userS.fText1")} <a href="">{t("userS.terms")}</a> {t("userS.fText2")} <a href="">{t("userS.pState")}</a>
               </small>
             </form>
           </div>
         </div>
         <div id="formFooter">
-          <span>
+          <span class="f13">
             {t("userS.goLogin")}
             <a class="underlineHover ml9" href="/">{t("Header.logeo")}</a>
           </span>

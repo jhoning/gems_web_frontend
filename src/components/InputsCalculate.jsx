@@ -37,8 +37,22 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
      await authAxios.post('/report',report).catch(err => console.log(err)) 
   }
 
+  const amp = () => {
+    if (document.getElementById("reporte").style.width == '40%') {
+      document.getElementById("reporte").style.width = '30%';
+      document.getElementById("report").style.width = '45%';
+
+      } else {
+      document.getElementById("reporte").style.width = '40%';
+      document.getElementById("report").style.width = '35%';
+
+      }
+  }
+
   return (
-    <div className="col-4 overflow-auto calculoAlto">
+    <div className="w30 overflow-auto calculoAlto" id="reporte">
+    <button className="btn btn-primary " onClick={() => amp()}> Ver </button>
+
       <div className="container mb-1 ">
         <h3 className="text-center mb-0 p-0 mt-2 color">{t("InputsC.sAppliance")}</h3>
          <hr />
@@ -95,9 +109,9 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
           <div class="col-sm-7">
             <select class="custom-select custom-select"  autocomplete="off">
               <option selected>{t("InputsC.choose")}</option>
-              <option value="1" data-bs-toggle="tooltip" data-bs-placement="right" title="Esta opción incluye todas las temparaturas todos los aislamientos con temperatura máxima de 60°C">TW</option>
-              <option value="2" data-bs-toggle="tooltip" data-bs-placement="right" title="Esta opción incluye todas las temparaturas todos los aislamientos con temperatura máxima de 75°C">THWN</option>
-              <option value="3" data-bs-toggle="tooltip" data-bs-placement="right" title="Esta opción incluye todas las temparaturas todos los aislamientos con temperatura máxima de 90°C">THHN</option>
+              <option value="1" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.tw")}>TW</option>
+              <option value="2" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.thwn")}>THWN</option>
+              <option value="3" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.thhn")}>THHN</option>
             </select>
           </div>
         </div>

@@ -51,6 +51,7 @@ label {
 
 #formFooter a {
 text-align: 12px;
+font-size: 14.5px;
 }
 
 .card-body {
@@ -284,10 +285,43 @@ h5 {
   right: -2px;
 }
 
+.regEye {
+  right: 6px !important;
+}
+
 .invalidR {
   position: relative;
   width: 200% !important;
   margin-top: .25rem;
   font-size: 70% !important;
   color: #dc3545;
+}
+
+.inRegis {
+  position: relative;
+  margin-top: .25rem;
+  font-size: 70% !important;
+  left: 0;
+  color: #dc3545;
+  background: white;
+}
+
+.p5 {
+  padding: 0 8px !important;
+  margin-right: 7px;
+  margin-top: -7px;
+  padding-right: 5px !important;
+  width: 30% !important;
+}
+
+.w31 {
+  width: 63% !important;
+}
+
+.p0 {
+  padding: 0;
+}
+
+.f13 {
+  font-size: 90%;
 }
