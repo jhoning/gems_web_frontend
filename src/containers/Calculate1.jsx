@@ -20,6 +20,19 @@ const Calculate1 = () => {
     circuit: {},
   });
   const [arr, setArr] = useState([])
+
+  const amplio = () => {
+    if (document.getElementById("report").style.width == '50%') {
+      document.getElementById("reporte").style.width = '30%';
+      document.getElementById("report").style.width = '45%';
+      } else {
+      document.getElementById("reporte").style.width = '25%';
+      document.getElementById("report").style.width = '50%';
+
+      }
+  }
+
+
   return (
     <div>
       <Header />
@@ -29,7 +42,9 @@ const Calculate1 = () => {
             <MenuTree idCircuits={id1} />
           </div>
           <InputsCalculate values={values} setValues={setValues} setArr={setArr} arr={arr} />
-          <div className="col-5 p-0 report">
+          <div className="w45 p-0 report" id="report">
+          <button className="btn btn-primary " onClick={() => amplio()}> Ver </button>
+
             <div className="jumbotron calculoAltoMin ">
               <h2 className="text-center color">{t("Calculate.report")}</h2>
               <table border="1" class="table table-bordered table-sm table-striped">

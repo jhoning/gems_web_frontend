@@ -278,3 +278,13 @@ hr {
     background-color: #f0f3ff !important;
     border-color: transparent !important;
 }
+
+.w30 {
+    width: 30%;
+}
+
+.w45 {
+    width: 45%;
+    background: #fafafa;
+}
+

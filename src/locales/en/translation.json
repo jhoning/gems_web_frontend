@@ -34,7 +34,7 @@
         "userS": "Edit profile",
         "companyI": "User information",
         "emailA": "Email address",
-        "company": "Company",
+        "company": "Company name",
         "updateU": "Update user settings",
         "firstN": "First name",
         "lastN": "Last name",
@@ -54,7 +54,13 @@
         "verify": "Your account has been verified",
         "message": "You can access with your email and password!",
         "sMes": "Success!",
-        "invalid": "The password must have between 8 and 16 digits at least one character, at least one lowercase and at least one uppercase."
+        "invalid": "The password must have between 8 and 16 digits at least one character, at least one lowercase and at least one uppercase.",
+        "eInvalid": "Please verify if your email address is valid",
+        "eMes": "Valid email",
+        "fText1": "By creating an account, you agree to the",
+        "fText2": "For more information about T-board's privacity terms, see the",
+        "terms": "Terms of Service.",
+        "pState": "Privacy Statement."
     },
     "Calculate": {
         "report": "Report",
@@ -89,7 +95,10 @@
         "pipeD": "Pipe diameter (inch)",
         "protectionD": "Protection device (A)",
         "loadP": "Load phases",
-        "cablesP": "Cables per phase"
+        "cablesP": "Cables per phase",
+        "tw": "This option includes all temperatures and all insulation with a maximum temperature of 60°C",
+        "thwn": "This option includes all temperatures and all insulation with a maximum temperature of 75°C",
+        "thhn": "This option includes all temperatures and all insulation with a maximum temperature of 90°C"
     },
     "MenuTree": {
         "tableN": "Enter table name",
