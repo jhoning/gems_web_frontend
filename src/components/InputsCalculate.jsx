@@ -102,20 +102,20 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
           </div>
         </div>
         <div class="form-group row my-1">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.temperature")}</label>
+        <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.temperature")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="email" class="form-control" id="inputEmail3"  autocomplete="off"/>
+          <input type="email" class="form-control" id="inputEmail3"  autocomplete="off"/>
           </div>
         </div>
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
           <div className="col-4"><button className="btn btn-primary mt-2 gray" onClick={()=>{setReport({
-             current:parseInt( Math.random()*99),
-             cable_width:parseInt( Math.random()*99),
-             pipe_diameter:parseInt( Math.random()*99),
-             protection_device:parseInt( Math.random()*99),
-             voltaje_drop:parseInt( Math.random()*99),
+    current:parseInt( Math.random()*99),
+    cable_width:parseInt( Math.random()*99),
+    pipe_diameter:parseInt( Math.random()*99),
+    protection_device:parseInt( Math.random()*99),
+    voltaje_drop:parseInt( Math.random()*99),
              circuit: {}
           })}}>{t("InputsC.compute")}</button></div>
         </div>
