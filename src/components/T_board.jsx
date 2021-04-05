@@ -30,6 +30,7 @@ const T_board = () => {
    
 
   }, [bandera,bandera1,bandera3])
+  
   const getProjectByID = async () => {
 
     const algo = await authAxios.get(`/project`).then(resolve => setName1(resolve.data));
@@ -49,6 +50,13 @@ const T_board = () => {
      await authAxios.delete('/project/'+id).then(res =>  {alert(`${t("Alerts.delete")}`);setBandera1(bandera1? false:true); console.log(name1)});
 
     }
+  
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      crearProject()
+      console.log('do validate')
+    }
+  }
   return (
     <div className="container-fluid tbo">
       <div className=" mb-3">
@@ -62,7 +70,7 @@ const T_board = () => {
                 <li className="nav-item"><a href="" className="nav-link text-white">{t("HeaderT.projectsS")}</a></li>
 
               </ul>
-              <input type="text" name="text" placeholder={t("HeaderT.idPass")} className="form-control" value={nameProject} onChange={e => { setNameProject(e.target.value) }}  />
+              <input type="text" name="text" placeholder={t("HeaderT.idPass")} className="form-control" value={nameProject}  onKeyDown={(e) =>handleKeyDown(e)} onChange={e => { setNameProject(e.target.value) }}  />
               <button className="btn btn-primary mt-3" onClick={() => crearProject()}>{t("HeaderT.projectsNews")}</button>
             </div>
           </nav>

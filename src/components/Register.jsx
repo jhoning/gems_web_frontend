@@ -9,7 +9,7 @@ import { useEffect } from 'react/cjs/react.development';
 const Register = () => {
   const [t] = useTranslation("global")
   const history = useHistory()
-  const [form, setForm] = useState({ username: "", email: "", password: "", first_name: "", last_name: "", profesionalID: "" })
+  const [form, setForm] = useState({ username: "", email: "", password: "", first_name: "", last_name: "", profesionalID: "",phone: "", idioma: "es" })
   useEffect(()=>{
     puntero()
   },[])
@@ -20,7 +20,7 @@ const Register = () => {
     .then(resolve => {
         alert(`${t("Alerts.register")}`)
         history.push("/")
-        setForm({ username: "", email: "", password: "", first_name: "", last_name: "", profesionalID: "" })
+        setForm({ username: "", email: "", password: "", first_name: "", last_name: "", profesionalID: "", phone: "", idioma: "es" })
     })
     .catch(Response=>console.log(Response))
     
@@ -126,7 +126,7 @@ const Register = () => {
                   <option selected>+58</option>
                   <option selected>+1</option>
                 </select>
-                <input className="form-control w31" name="profesionalID" type="text" placeholder={t("userS.phone")} />
+                <input className="form-control w31" name="profesionalID" type="text" placeholder={t("userS.phone")} onChange={ e => setForm({...form,phone: e.target.value})}/>
                 </div>
               </div>
 
