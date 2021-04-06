@@ -26,12 +26,17 @@ const Calculate = () => {
   useEffect(()=>{},[])
   const [arr, setArr] = useState([])
   const amplio = () => {
+<<<<<<< HEAD
     if (document.getElementById("report").style.width === '80%') {
+=======
+    if (document.getElementById("report").style.width == '50%') {
+      document.getElementById("reporte").style.width = '30%';
+>>>>>>> 473374c2fef35553fd3a1819c85ab33c66833ccb
       document.getElementById("report").style.width = '45%';
-      document.getElementById("report").style.position = 'absolute';
-
       } else {
-      document.getElementById("report").style.width = '80%';
+      document.getElementById("reporte").style.width = '25%';
+      document.getElementById("report").style.width = '50%';
+
       }
   }
   return (
