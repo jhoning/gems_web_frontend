@@ -99,7 +99,7 @@
         "tw": "Esta opción incluye todas las temperaturas y todos los aislamientos con temperatura máxima de 60°C",
         "thwn": "Esta opción incluye todas las temperaturas y todos los aislamientos con temperatura máxima de 75°C",
         "thhn": "Esta opción incluye todas las temperaturas y todos los aislamientos con temperatura máxima de 90°C",
-        "neutral": "Sistema alimentado con neutro",
+        "neutral": "¿Sistema alimentado con neutro?",
         "conduit": "Material de la tubeía"
     },
     "MenuTree": {
@@ -120,5 +120,9 @@
     },
     "Board": {
         "nTab": "Nueva pestaña"
+    },
+    "Option": {
+        "yes": "Sí",
+        "no": "No"
     }
 }

@@ -151,9 +151,6 @@ const Login = () => {
                       <div class="invalid-feedback">{t("userS.invalid")}</div> */}
 
                     </div>
-
-
-
                     <div className="form-group text-center mt-3">
                       <button className="boton btn btn-primary " onClick={() => {logear();console.log(login)}}>{t("Header.submitt")} </button>
 

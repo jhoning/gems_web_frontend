@@ -99,7 +99,7 @@
         "tw": "This option includes all temperatures and all insulation with a maximum temperature of 60°C",
         "thwn": "This option includes all temperatures and all insulation with a maximum temperature of 75°C",
         "thhn": "This option includes all temperatures and all insulation with a maximum temperature of 90°C",
-        "neutral": "Feeder include neutral wire",
+        "neutral": "Feeder include neutral wire?",
         "conduit": "Conduit material"        
     },
     "MenuTree": {
@@ -120,5 +120,9 @@
     },
     "Board": {
         "nTab": "New Tab"
+    },
+    "Option": {
+        "yes": "Yes",
+        "no": "No"
     }
 }

@@ -130,8 +130,11 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
 
         <div class="form-group row my-1">
         <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.neutral")}</label>
-          <div class="col-sm-7 mx-0">
-          <input type="text" class="form-control" id="inputEmail3"  autocomplete="off"/>
+        <div class="col-sm-7">
+            <select class="custom-select custom-select"  autocomplete="off">
+              <option value="1" selected data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.tw")}>{t("Option.yes")}</option>
+              <option value="2" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.thwn")}>{t("Option.no")}</option>
+            </select>
           </div>
         </div>
 

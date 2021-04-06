@@ -67,8 +67,8 @@ const UserSettings = () => {
                 <div class="form-group">
                   <fieldset disabled="">
                     <label class="control-label bordeColor p-1 " for="disabledInput">{t("userS.company")}</label>
-                    <span class="control-label bordeColor p-1 block" for="disabledInput">{t("userS.company")}</span>
-                    {/* <input class="form-control in" id="disabledInput" type="text" defaultValue="Personal" disabled="true" /> */}
+                    <span class="control-label bordeColor p-1 block" defaultValue="Personal" for="disabledInput">{datos.company}</span>
+                     {/* <input class="form-control in" id="disabledInput" type="text" defaultValue="Personal" disabled="true" />  */}
                   </fieldset>
                 </div>
               </div>
@@ -88,6 +88,12 @@ const UserSettings = () => {
                 <div className="form-group">
                   <label htmlFor="LastName">{t("userS.lastN")}</label>
                   <input type="text" name="last_name" className="form-control in" placeholder={datos.last_name} onChange={e => setDatos({ ...datos, last_name: e.target.value })} />
+                </div>
+              </div>
+              <div className="col-6">
+                <div className="form-group">
+                  <label htmlFor="FirstName">{t("userS.company")}</label>
+                  <input type="text" name="first_name" className="form-control in" placeholder={datos.company} onChange={e => setDatos({ ...datos, first_name: e.target.value })} />
                 </div>
               </div>
               <div className="col-6">
@@ -136,7 +142,9 @@ const UserSettings = () => {
                 </div>
               </div>
               <div className="col-4"></div>
-              <div className="col-4"><a className="btn btn-primary btn-block" onClick={() => {update();bandera?setBandera(false):setBandera(true)}}>{t("userS.update")}</a></div>
+              <div className="col-4"></div>
+              <div className="col-4">
+                <a className="btn btn-primary btn-block mt10" onClick={() => {update();bandera?setBandera(false):setBandera(true)}}>{t("userS.update")}</a></div>
               <div className="col-4"></div>
             </div>
             </div>
