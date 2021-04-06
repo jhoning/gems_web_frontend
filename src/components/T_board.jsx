@@ -91,7 +91,7 @@ const T_board = () => {
                   
                     return <li className="list-group-item d-flex justify-content-between align-items-center">
                     <a class="col-md-10" id={item.id+"a"}href={`http://localhost:3004/calculate/${item.id}`}>{item.name}</a> 
-                    <input type="text" style={{ display: "none",height: "35px" }} id={item.id+"i"} />
+                    <input type="text" class="edit" style={{ display: "none",height: "35px" }} id={item.id+"i"} />
                       <div class="col-md-1 controls">
              
                       <a >

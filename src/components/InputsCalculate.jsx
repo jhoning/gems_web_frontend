@@ -104,7 +104,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
           </div>
         </div>
         <div class="form-group row my-1">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.voltaje")}%</label>
+          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.voltaje")} (%)</label>
           <div class="col-sm-7 mx-0">
             <input type="text" class="form-control" id="inputEmail3" autocomplete="off"  />
           </div>
@@ -121,11 +121,26 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
           </div>
         </div>
         <div class="form-group row my-1">
-        <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.temperature")}</label>
+        <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.temperature")} (°C)</label>
           <div class="col-sm-7 mx-0">
           <input type="text" class="form-control" id="inputEmail3"  autocomplete="off"/>
           </div>
         </div>
+
+        <div class="form-group row my-1">
+        <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.neutral")}</label>
+          <div class="col-sm-7 mx-0">
+          <input type="text" class="form-control" id="inputEmail3"  autocomplete="off"/>
+          </div>
+        </div>
+
+        <div class="form-group row my-1">
+        <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.conduit")}</label>
+          <div class="col-sm-7 mx-0">
+          <input type="text" class="form-control" id="inputEmail3"  autocomplete="off"/>
+          </div>
+        </div>
+
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>

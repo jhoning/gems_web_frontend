@@ -12,7 +12,7 @@ const UserSettings = () => {
   const [paises, setPaises] = useState([]);
   const [datos, setDatos] = useState({ username: "", email: "", first_name: "", last_name: "", phone: "", address: "", profesionalID: "", country: "", tokenID: "" });
   useEffect(() => {
-    peticion()
+    peticion() 
     countrys()
   }, [bandera])
 

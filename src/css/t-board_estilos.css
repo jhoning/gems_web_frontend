@@ -70,7 +70,7 @@
 }
 
 .board input {
-    padding: 5px;
+    padding: 5px 5px 5px 10px;
 }
 
 .fa-edit {
@@ -83,4 +83,8 @@
 }
 .controls a {
     cursor: pointer;
+}
+
+.edit {
+    width: 40% !important;
 }
