@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useParams } from "react-router";
 import Footer from '../components/Footer'
 import Header from '../components/HeaderT'
@@ -22,7 +22,7 @@ const Calculate1 = () => {
   const [arr, setArr] = useState([])
 
   const amplio = () => {
-    if (document.getElementById("report").style.width == '50%') {
+    if (document.getElementById("report").style.width === '50%') {
       document.getElementById("reporte").style.width = '30%';
       document.getElementById("report").style.width = '45%';
       } else {
