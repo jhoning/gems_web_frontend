@@ -51,6 +51,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
 
   return (
     <div className="w30 overflow-auto calculoAlto" id="reporte">
+      <div  autocomplete="off">
     <button className="btn btn-primary " onClick={() => amp()}> Ver </button>
 
       <div className="container mb-1 ">
@@ -178,6 +179,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
           <div className="col-4"></div>
           <div className="col-4"><button className="btn btn-primary mt-2 gray" onClick={()=>{reportGenerate();console.log(report)}}>{t("Calculate.report")}</button></div>
         </div>
+      </div>
       </div>
     </div>
   )
