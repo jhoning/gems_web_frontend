@@ -88,6 +88,7 @@ const Login = () => {
 
   const validarMail = (valor) => {
     const expresionMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    console.log(valor)
     console.log(expresionMail.test(valor))
     if (expresionMail.test(valor)) {
 
@@ -99,7 +100,10 @@ const Login = () => {
     }
   }
 
-
+  const handlePaste = () => {
+    setLogin(login)
+    validarMail(login.email);
+  };
   const puntero = () => {
     window.addEventListener("load", function () {
 
@@ -114,16 +118,19 @@ const Login = () => {
         if (password1.type === "text") {
           password1.type = "password"
 
-          showPassword.classList.remove('fa-eye-slash');
+          showPassword.classList.remove('fa-eye');
+          showPassword.classList.toggle("fa-eye-slash");
         } else {
           password1.type = "text"
 
-          showPassword.classList.toggle("fa-eye-slash");
+          showPassword.classList.toggle("fa-eye");
+          showPassword.classList.remove('fa-eye-slash');
         }
 
       })
 
     });
+  
   }
   return (
     <div className="app">
@@ -138,7 +145,7 @@ const Login = () => {
 
                     <div class="form-group ">
                       <i class="fa fa-user"></i>
-                      <input type="text" name="email" id="email" placeholder={t("Header.example")} autocomplete="off" className="form-control" onChange={e => { setLogin({ ...login, email: e.target.value }); validarMail(login.email) }} />
+                      <input type="text" name="email" id="email" placeholder={t("Header.example")} autocomplete="off" className="form-control" onPaste={handlePaste}  onChange={e => { setLogin({ ...login, email: e.target.value }); validarMail(login.email) }} />
                       {/* <div class="valid-feedback">{t("userS.eMes")}</div> */}
                       <div class="invalid-feedback">{t("userS.eInvalid")}</div>
                     </div>
@@ -146,7 +153,7 @@ const Login = () => {
                     <div className="form-group has-danger">
                       <i className="fa fa-lock"></i>
                       <input type="password" name="password" id="password" placeholder='***************' autocomplete="off" className="form-control password1 " onChange={e => { setLogin({ ...login, password: e.target.value })}} />
-                      <span class="fa fa-fw fa-eye password-icon show-password eye"></span>
+                      <span class="fa fa-fw fa-eye-slash password-icon show-password eye"></span>
                       {/* <div class="valid-feedback">{t("userS.sMes")}</div>
                       <div class="invalid-feedback">{t("userS.invalid")}</div> */}
 
