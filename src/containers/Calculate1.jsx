@@ -80,13 +80,13 @@ const Calculate1 = () => {
 
                   {arr.map((item) => {
                     return <tr>
-                      <th scope="col" className="px-2">{parseInt(item.cable_width + 2)}</th>
-                      <th scope="col" className="px-2">{parseInt(item.current * 5)}</th>
-                      <th scope="col" className="px-2">{parseInt(item.pipe_diameter * 22)}</th>
-                      <th scope="col" className="px-2">{parseInt(item.protection_device + 8)}</th>
-                      <th scope="col" className="px-2">{parseInt(item.voltaje_drop + 14)}</th>
-                      <th scope="col" className="px-2">{parseInt(item.voltaje_drop + 9)}</th>
-                      <th scope="col" className="px-2">{parseInt(item.current + 8)}</th>
+                      <th scope="col" className="px-2">{parseFloat(item.cable_width + 2).toFixed(1)}</th>
+                      <th scope="col" className="px-2">{parseFloat(item.current * 5).toFixed(1)}</th>
+                      <th scope="col" className="px-2">{parseFloat(item.pipe_diameter * 22).toFixed(1)}</th>
+                      <th scope="col" className="px-2">{parseFloat(item.protection_device + 8).toFixed(1)}</th>
+                      <th scope="col" className="px-2">{parseFloat(item.voltaje_drop + 14).toFixed(1)}</th>
+                      <th scope="col" className="px-2">{parseFloat(item.voltaje_drop + 9).toFixed(1)}</th>
+                      <th scope="col" className="px-2">{parseFloat(item.current + 8).toFixed(1)}</th>
 
 
                     </tr>

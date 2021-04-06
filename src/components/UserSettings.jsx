@@ -37,7 +37,7 @@ const UserSettings = () => {
 
   }
   const countrys = async () => {
-    await axios.get(`http://localhost:4000/country`).then(res => setPaises(res.data))
+    await axios.get(`http://localhost:4000/country`).then(res => setPaises(res.data)).catch(err => console.log(err))
   }
   return (
     <div>
@@ -106,7 +106,7 @@ const UserSettings = () => {
                 <div className="form-group">
                   <label htmlFor="Country">{t("userS.country")}</label>
                   {/* <input type="text" name="country" className="form-control in" placeholder={datos.country}  onChange={ e => setDatos({...datos,country: e.target.value}) } /> */}
-                  <select class="form-select pais block" aria-label="Default select example">
+                  <select class="form-select pais block" aria-label="Default select example"  >
                     <option selected  onChange={ e => setDatos({...datos,country: e.target.value}) }>Open this select menu</option>
                    {/*  <option value="1">One</option>
                     <option value="2">Two</option>

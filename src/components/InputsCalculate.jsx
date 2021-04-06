@@ -71,37 +71,42 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div class="form-group row my-0">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.powerW")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="email" class="form-control" id="inputEmail3" autocomplete="off" />
+            <input type="text" class="form-control" id="inputEmail3" autocomplete="off" />
           </div>
         </div>
         <div class="form-group row my-0">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.loadP")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="email" class="form-control" id="inputEmail3" autocomplete="off" />
+          <select class="custom-select custom-select"  autocomplete="off">
+              <option selected>{t("InputsC.choose")}</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
           </div>
         </div>
         <div class="form-group row my-0">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.cablesP")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="email" class="form-control" id="inputEmail3" autocomplete="off" />
+            <input type="text" class="form-control" id="inputEmail3" autocomplete="off" />
           </div>
         </div>
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.distance")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="email" class="form-control" id="inputEmail3"  autocomplete="off" />
+            <input type="text" class="form-control" id="inputEmail3"  autocomplete="off" />
           </div>
         </div>
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.powerF")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="email" class="form-control" id="inputEmail3" autocomplete="off" />
+            <input type="text" class="form-control" id="inputEmail3" autocomplete="off" />
           </div>
         </div>
         <div class="form-group row my-1">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.voltaje")}</label>
+          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.voltaje")}%</label>
           <div class="col-sm-7 mx-0">
-            <input type="email" class="form-control" id="inputEmail3" autocomplete="off"  />
+            <input type="text" class="form-control" id="inputEmail3" autocomplete="off"  />
           </div>
         </div>
         <div className="form-group row my-1 se">
@@ -116,20 +121,20 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
           </div>
         </div>
         <div class="form-group row my-1">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.temperature")}</label>
+        <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.temperature")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="email" class="form-control" id="inputEmail3"  autocomplete="off"/>
+          <input type="text" class="form-control" id="inputEmail3"  autocomplete="off"/>
           </div>
         </div>
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
           <div className="col-4"><button className="btn btn-primary mt-2 gray" onClick={()=>{setReport({
-             current:parseInt( Math.random()*99),
-             cable_width:parseInt( Math.random()*99),
-             pipe_diameter:parseInt( Math.random()*99),
-             protection_device:parseInt( Math.random()*99),
-             voltaje_drop:parseInt( Math.random()*99),
+    current:parseFloat( Math.random()*99).toFixed(1),
+    cable_width:parseFloat( Math.random()*99).toFixed(1),
+    pipe_diameter:parseFloat( Math.random()*99).toFixed(1),
+    protection_device:parseFloat( Math.random()*99).toFixed(1),
+    voltaje_drop:parseFloat( Math.random()*99).toFixed(1),
              circuit: {}
           })}}>{t("InputsC.compute")}</button></div>
         </div>
@@ -141,37 +146,37 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2 " >{t("InputsC.current")}</label>
           <div class="col-sm-8 mx-0">
-            <input type="email" class="form-control text-right mt-2" id="inputEmail3" placeholder="0"  autocomplete="off" onChange={ e => setValues({...values,current: e.target.value}) } value={report.current}/>
+            <input type="text" class="form-control text-right mt-2" id="inputEmail3" placeholder="0"  autocomplete="off" onChange={ e => setValues({...values,current: e.target.value}) } value={report.current}/>
           </div>
         </div>
         <div class="form-group row my-3">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2" >{t("InputsC.cable")}</label>
           <div class="col-sm-8 mx-0">
-            <input type="email" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,cable_width: e.target.value}) } value={report.cable_width}/>
+            <input type="text" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,cable_width: e.target.value}) } value={report.cable_width}/>
           </div>
         </div>
         <div class="form-group row my-0">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0">{t("InputsC.pipeD")}</label>
           <div class="col-sm-8 mx-0">
-            <input type="email" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,pipe_diameter: e.target.value}) } value={report.pipe_diameter}/>
+            <input type="text" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,pipe_diameter: e.target.value}) } value={report.pipe_diameter}/>
           </div>
         </div>
         <div class="form-group row my-0">
           <label for="inputEmail3" class="col-sm-4 col-form-label my-0">{t("InputsC.protectionD")}</label>
           <div class="col-sm-8 my-0">
-            <input type="email" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,protection_device: e.target.value}) } value={report.voltaje_drop}/>
+            <input type="text" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,protection_device: e.target.value}) } value={report.voltaje_drop}/>
           </div>
         </div>
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0">{t("InputsC.voltaje")}</label>
           <div class="col-sm-8 mx-0">
-            <input type="email" class="form-control text-right" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,voltaje_drop: e.target.value}) } value={report.protection_device}/>
+            <input type="text" class="form-control text-right" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,voltaje_drop: e.target.value}) } value={report.protection_device}/>
           </div>
         </div>
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-          <div className="col-4"><button className="btn btn-primary mt-2 gray" onClick={()=>reportGenerate()}>{t("Calculate.report")}</button></div>
+          <div className="col-4"><button className="btn btn-primary mt-2 gray" onClick={()=>{reportGenerate();console.log(report)}}>{t("Calculate.report")}</button></div>
         </div>
       </div>
     </div>

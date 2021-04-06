@@ -16,7 +16,7 @@ const Header = () => {
   }
   return (
     <div className="d-flex flex-column flex-md-row align-items-center px-md-4 shadow-sm fondo">
-      <h5 className="my-0 mr-md-auto text-dark ml-md-4"><img class="logo" src={logo} /></h5>
+     <h5 className="my-0 mr-md-auto text-dark ml-md-4"><a href="/"><img class="logo" src={logo}  /></a></h5>
 
       <nav className="my-2 my-md-0 mr-md-1">
         <a className="p-2 text-dark" href="">{t("Header.plans_pricing")}</a>
