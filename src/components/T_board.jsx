@@ -33,7 +33,7 @@ const T_board = () => {
   
   const getProjectByID = async () => {
 
-    const algo = await authAxios.get(`/project`).then(resolve => setName1(resolve.data));
+    const algo = await authAxios.get(`/project`).then(resolve => setName1(resolve.data)).catch(err => setName1(null));
     console.log(name1)
   }
   const crearProject = async () => {
@@ -71,7 +71,7 @@ const T_board = () => {
 
               </ul>
               <input type="text" name="text" placeholder={t("HeaderT.idPass")} className="form-control" value={nameProject}  onKeyDown={(e) =>handleKeyDown(e)} onChange={e => { setNameProject(e.target.value) }}  />
-              <button className="btn btn-primary mt-3" onClick={() => crearProject()}>{t("HeaderT.projectsNews")}</button>
+              <button className="btn btn-primary mt-3" onClick={() => {crearProject();console.log(name1)}}>{t("HeaderT.projectsNews")}</button>
             </div>
           </nav>
           <div className="col-10 altoCompleto vt">
@@ -87,14 +87,15 @@ const T_board = () => {
               </div>
               <ul className="list-group mx-3 cpan">
                 {
-                  name1 != []? name1.map((item,i) => {
+                
+                  name1 == null? null : name1.map((item,i) => {
                   
                     return <li className="list-group-item d-flex justify-content-between align-items-center">
                     <a class="col-md-10" id={item.id+"a"}href={`http://localhost:3004/calculate/${item.id}`}>{item.name}</a> 
                     <input type="text" style={{ display: "none",height: "35px" }} id={item.id+"i"} />
                       <div class="col-md-1 controls">
              
-                      <a >
+                      <a>
                         <i class="fa fa-edit" onClick={()=>{ 
                         if ($(`#${item.id}a`).is(':visible')) {
                           $(`#${item.id}a`).hide();
@@ -107,7 +108,7 @@ const T_board = () => {
                       }></i>
                       </a>
                      
-                      <a >
+                      <a>
                         <i class="fa fa-trash" onClick={() => delete1(item.id)}></i>
                       </a>
 
@@ -115,7 +116,7 @@ const T_board = () => {
                         <button className="btn btn-danger mx-0 text-right" onClick={() => {delete1(item.id)}}>delete</button> */}
                       </div>
                     </li>
-                  }):null
+                  })
                 }
                 
               </ul>
