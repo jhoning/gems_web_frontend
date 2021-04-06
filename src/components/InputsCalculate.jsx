@@ -130,12 +130,12 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
           <div className="col-4"></div>
           <div className="col-4"></div>
           <div className="col-4"><button className="btn btn-primary mt-2 gray" onClick={()=>{setReport({
-    current:parseFloat( Math.random()*99).toFixed(1),
-    cable_width:parseFloat( Math.random()*99).toFixed(1),
-    pipe_diameter:parseFloat( Math.random()*99).toFixed(1),
-    protection_device:parseFloat( Math.random()*99).toFixed(1),
-    voltaje_drop:parseFloat( Math.random()*99).toFixed(1),
-             circuit: {}
+              current:parseFloat( Math.random()*99).toFixed(1),
+              cable_width:parseFloat( Math.random()*99).toFixed(1),
+              pipe_diameter:parseFloat( Math.random()*99).toFixed(1),
+              protection_device:parseFloat( Math.random()*99).toFixed(1),
+              voltaje_drop:parseFloat( Math.random()*99).toFixed(1),
+              circuit: {}
           })}}>{t("InputsC.compute")}</button></div>
         </div>
         <div className="col-4">
