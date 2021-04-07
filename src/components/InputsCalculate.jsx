@@ -52,7 +52,10 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
   return (
     <div className="w30 overflow-auto calculoAlto" id="reporte">
       <div  autocomplete="off">
-    <button className="btn btn-primary " onClick={() => amp()}> Ver </button>
+        <a onClick={() => amp()}>
+        <i class="fa fa-expand" aria-hidden="true"></i>
+        </a>
+    {/* <button className="btn btn-primary " onClick={() => amp()}> Ver </button> */}
 
       <div className="container mb-1 ">
         <h3 className="text-center mb-0 p-0 mt-2 color">{t("InputsC.sAppliance")}</h3>
@@ -72,7 +75,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div class="form-group row my-0">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.powerW")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="text" class="form-control" id="inputEmail3" autocomplete="off" />
+            <input type="text" class="form-control" id="inputEmail3" autocomplete="off" autocomplete="nope" />
           </div>
         </div>
         <div class="form-group row my-0">

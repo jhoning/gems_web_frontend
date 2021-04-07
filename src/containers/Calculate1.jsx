@@ -43,7 +43,10 @@ const Calculate1 = () => {
           </div>
           <InputsCalculate values={values} setValues={setValues} setArr={setArr} arr={arr} />
           <div className="w45 p-0 report" id="report">
-          <button className="btn btn-primary " onClick={() => amplio()}> Ver </button>
+          <a onClick={() => amplio()}>
+              <i class="fa fa-expand" aria-hidden="true"></i>
+            </a>
+          {/* <button className="btn btn-primary " onClick={() => amplio()}> Ver </button> */}
 
             <div className="jumbotron calculoAltoMin ">
               <h2 className="text-center color">{t("Calculate.report")}</h2>
