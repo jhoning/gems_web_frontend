@@ -93,7 +93,7 @@ const UserSettings = () => {
               <div className="col-6">
                 <div className="form-group">
                   <label htmlFor="FirstName">{t("userS.company")}</label>
-                  <input type="text" name="first_name" className="form-control in" placeholder={datos.company} onChange={e => setDatos({ ...datos, first_name: e.target.value })} />
+                  <input type="text" name="first_name" className="form-control in" placeholder={datos.company} onChange={e => setDatos({ ...datos, company: e.target.value })} />
                 </div>
               </div>
               <div className="col-6">
