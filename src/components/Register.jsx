@@ -117,7 +117,7 @@ const Register = () => {
             <div className="col-md-12 p display">
               <div className="form-group col-md-6 p margen">
                 <input className="form-control password1" id="password" name="password" type="password" placeholder={t("Header.password")} onChange={ e => {setForm({...form,password: e.target.value}); validar(form.password)}}  />
-                <span class="fa fa-fw fa-eye password-icon show-password eye regEye"></span>
+                <span class="fa fa-fw fa-eye-slash password-icon show-password eye regEye"></span>
                 {/* <div class="valid-feedback">{t("userS.sMes")}</div> */}
                 <div class="invalid-feedback invalidR">{t("userS.invalid")}</div>
               </div>
