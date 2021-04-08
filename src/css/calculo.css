@@ -175,7 +175,7 @@ body {
 
 .jumbotron {
     padding: 20px !important;
-    background-color: #fafafa !important;
+    background-color: white !important;
 }
 
 .report {
@@ -288,3 +288,65 @@ hr {
     background: #fafafa;
 }
 
+
+.point {
+    cursor: pointer;
+}
+
+
+.mr5 {
+    margin-right: 7px;
+}
+
+.amp {
+    right: 0;
+    position: absolute;
+    margin-right: 25px;
+}
+
+.amp1 {
+    margin-left: 10px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.mb10 {
+    margin-bottom: 15px;
+}
+
+.calculo .table-bordered {
+    border: 1px solid #fafafa;
+}
+
+.calculo thead {
+    background: transparent !important;
+    border: transparent !important;
+}
+
+.calculo th {
+    border: 1px solid #fafafa !important;
+    background: transparent !important;
+}
+
+.calculo td {
+    border: 1px solid #fafafa !important;
+    background: transparent !important;
+}
+
+td {
+    letter-spacing: 0px;
+    font-size: 13px;
+    color: #606060;
+    font-weight: 600;
+}
+
+.borde {
+    border-top: 2px solid #dfdfdf;
+    border-bottom: 2px solid #dfdfdf;
+}
+
+.borde1 {
+    border: 2px solid #e9e9e9;
+}

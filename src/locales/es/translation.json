@@ -72,7 +72,8 @@
         "fases": "Fases",
         "ground": "Tierra",
         "breaker": "Interruptor",
-        "power": "Potencia"
+        "power": "Potencia",
+        "amp": "Ver"
     },
     "InputsC": {
         "sAppliance": "Tomacorriente especial",
