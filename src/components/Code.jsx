@@ -1,17 +1,10 @@
 import React, { useState } from 'react'
 import '../css/login_estilos.css'
 import { useTranslation } from 'react-i18next';
-import axios from 'axios'
-const Recover = () => { 
+
+const Code = () => { 
 
   const [t] = useTranslation("global")
-  const [email,setEmail] = useState()
-  const changePassword = async() => {
-    await axios.put('http://localhost:4000/auth/forgot-password',
-      email
-  
-  ).then((res)=>alert(`${t("Alerts.recover")}`)).catch(err => alert(`${t("Alerts.recoverE")}`))
-  }
   return (
     <div className="app">
       <div className="card mx-auto my-8 formRecover wrapper fadeInDown">
@@ -19,14 +12,14 @@ const Recover = () => {
           <div id="recover-row" className="row justify-content-center align-items-center">
             <div id="recover-column" className="col-md-12">
               <div id="recovern-box" className="col-md-12">
-                <h3 className="mb-3 t-l">{t("userS.rPass")}</h3>
-                <p class="mensaje">{t("userS.mRecover")}</p>
+                <h3 className="mb-3 t-l">{t("userS.code")}</h3>
+                <p class="mensaje">{t("userS.cMess")}</p>
               
                   <div class="form-group clave">
-                    <input type="text" name="email" id="email" placeholder={t("userS.emailA")} className="form-control"  onChange={ e => setEmail({email: e.target.value}) }/>
+                    <input type="text" name="email" id="email" placeholder={t("userS.cNumber")} className="form-control"/>
                   </div>
                   <div className="form-group text-center mt-3">
-                    <button  className="boton btn btn-primary" onClick={()=>{changePassword();console.log(email)}}>{t("Header.submitt")}</button>
+                    <button  className="boton btn btn-primary">{t("Header.submitt")}</button>
                   </div>
              
               </div>
@@ -38,4 +31,4 @@ const Recover = () => {
     
   )
 }
-export default Recover
+export default Code

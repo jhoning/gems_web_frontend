@@ -109,7 +109,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
           </div>
         </div>
         <div class="form-group row my-1">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.voltaje")} (%)</label>
+          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.voltage")} (%)</label>
           <div class="col-sm-7 mx-0">
             <input type="text" class="form-control" id="inputEmail3" autocomplete="off"  />
           </div>
@@ -191,7 +191,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
           </div>
         </div>
         <div class="form-group row my-1">
-          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0">{t("InputsC.voltaje")}</label>
+          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0">{t("InputsC.voltage")}</label>
           <div class="col-sm-8 mx-0">
             <input type="text" class="form-control text-right" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,voltaje_drop: e.target.value}) } value={report.protection_device}/>
           </div>

@@ -100,7 +100,7 @@ const Calculate = () => {
                   })}
 
 
-
+ 
                 </tbody>
               </table>
 

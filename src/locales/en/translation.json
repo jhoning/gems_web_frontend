@@ -60,7 +60,10 @@
         "fText1": "By creating an account, you agree to the",
         "fText2": "For more information about T-board's privacity terms, see the",
         "terms": "Terms of Service.",
-        "pState": "Privacy Statement."
+        "pState": "Privacy Statement.",
+        "code": "Please enter your code",
+        "cMess": "Enter the code sent to your email to reset your password",
+        "cNumber": "Your code"
     },
     "Calculate": {
         "report": "Report",
@@ -73,7 +76,8 @@
         "ground": "Ground",
         "breaker": "Breaker",
         "power": "Power",
-        "amp": "See"
+        "amp": "See",
+        "print": "Print this out!"
     },
     "InputsC": {
         "sAppliance": "Special appliance",
@@ -86,7 +90,7 @@
         "powerW": "Power (W)",
         "distance": "Distance (M)",
         "powerF": "Power factor",
-        "voltaje": "Voltaje drop",
+        "voltage": "Voltage drop",
         "aisolation": "Aisolation",
         "temperature": "Temperature",
         "compute": "Compute",

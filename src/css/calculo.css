@@ -174,7 +174,7 @@ body {
 }
 
 .jumbotron {
-    padding: 20px !important;
+    padding: 7px 20px 20px !important;
     background-color: white !important;
 }
 
@@ -285,7 +285,7 @@ hr {
 
 .w45 {
     width: 45%;
-    background: #fafafa;
+    background: white;
 }
 
 
@@ -349,4 +349,9 @@ td {
 
 .borde1 {
     border: 2px solid #e9e9e9;
+}
+
+.pade {
+    margin-top: 15px;
+    margin-left: 20px;
 }
