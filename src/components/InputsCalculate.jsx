@@ -114,6 +114,16 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
             <input type="text" class="form-control" id="inputEmail3" autocomplete="off"  />
           </div>
         </div>
+        <div class="form-group row my-1">
+        <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.sVoltage")}</label>
+        <div class="col-sm-7">
+            <select class="custom-select custom-select"  autocomplete="off">
+              <option value="120" selected data-bs-toggle="tooltip" data-bs-placement="right" title="120">120 V</option>
+              <option value="208" selected data-bs-toggle="tooltip" data-bs-placement="right" title="208">208 V</option>
+              <option value="220" selected data-bs-toggle="tooltip" data-bs-placement="right" title="220">220 V</option>
+            </select>
+          </div>
+        </div>
         <div className="form-group row my-1 se">
           <label for="inputEmail3" class="col-sm-5 col-form-label">{t("InputsC.aisolation")}</label>
           <div class="col-sm-7">
@@ -160,7 +170,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
               voltaje_drop:parseFloat( Math.random()*99).toFixed(1),
               circuit: {}
           })}}>{t("InputsC.compute")}</button></div>
-        </div>
+        </div> 
         <div className="col-4">
             {/* <button className="btn btn-primary mt-2 gray" onClick={()=>console.log(report)}>algo</button> */}
           </div>

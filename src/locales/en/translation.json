@@ -105,7 +105,8 @@
         "thwn": "This option includes all temperatures and all insulation with a maximum temperature of 75°C",
         "thhn": "This option includes all temperatures and all insulation with a maximum temperature of 90°C",
         "neutral": "Feeder include neutral wire?",
-        "conduit": "Conduit material"        
+        "conduit": "Conduit material",
+        "sVoltage": "System Voltage"       
     },
     "MenuTree": {
         "tableN": "Enter table name",
