@@ -25,13 +25,14 @@ const Calculate = () => {
   });
   useEffect(()=>{},[])
   const [arr, setArr] = useState([])
+
   const amplio = () => {
-    if (document.getElementById("report").style.width == '50%') {
+    if (document.getElementById("report").style.width === '55%') {
       document.getElementById("reporte").style.width = '30%';
       document.getElementById("report").style.width = '45%';
       } else {
-      document.getElementById("reporte").style.width = '25%';
-      document.getElementById("report").style.width = '50%';
+      document.getElementById("reporte").style.width = '20%';
+      document.getElementById("report").style.width = '55%';
 
       }
   }
@@ -45,9 +46,10 @@ const Calculate = () => {
           </div>
           <InputsCalculate values={values} setValues={setValues} setArr={setArr} arr={arr} />
           <div className="w45 p-0 report" id="report">
-            <a onClick={() => amplio()}>
-              <i class="fa fa-expand" aria-hidden="true"></i>
-            </a>
+          <a onClick={() => amplio()} class="point amp mt10">
+            <i class="fa fa-expand mr5" aria-hidden="true"></i>
+            {t("Calculate.amp")}
+          </a>
           {/* <button className="btn btn-primary " onClick={() => amplio()}> Ver </button> */}
 
             <div className="jumbotron calculoAltoMin ">

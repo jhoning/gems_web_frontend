@@ -22,12 +22,12 @@ const Calculate1 = () => {
   const [arr, setArr] = useState([])
 
   const amplio = () => {
-    if (document.getElementById("report").style.width === '50%') {
+    if (document.getElementById("report").style.width === '55%') {
       document.getElementById("reporte").style.width = '30%';
       document.getElementById("report").style.width = '45%';
       } else {
-      document.getElementById("reporte").style.width = '25%';
-      document.getElementById("report").style.width = '50%';
+      document.getElementById("reporte").style.width = '20%';
+      document.getElementById("report").style.width = '55%';
 
       }
   }
@@ -43,16 +43,17 @@ const Calculate1 = () => {
           </div>
           <InputsCalculate values={values} setValues={setValues} setArr={setArr} arr={arr} />
           <div className="w45 p-0 report" id="report">
-          <a onClick={() => amplio()}>
-              <i class="fa fa-expand" aria-hidden="true"></i>
-            </a>
+          <a onClick={() => amplio()} class="point amp mt10">
+            <i class="fa fa-expand mr5" aria-hidden="true"></i>
+            {t("Calculate.amp")}
+          </a>
           {/* <button className="btn btn-primary " onClick={() => amplio()}> Ver </button> */}
 
             <div className="jumbotron calculoAltoMin ">
               <h2 className="text-center color">{t("Calculate.report")}</h2>
-              <table border="1" class="table table-bordered table-sm table-striped">
+              <table border="1" class="table table-bordered table-sm table-striped calculo">
                 <thead class="table-secondary">
-                  <tr>
+                  <tr class="borde1">
                     <th scope="col-4" >{t("Calculate.project")}</th>
                   </tr>
                   <tr>
@@ -65,10 +66,10 @@ const Calculate1 = () => {
 
                 </tbody>
               </table>
-              <h2 className="text-center color">{t("Calculate.bCircuits")}</h2>
-              <table class="table table-bordered mx-0 table-sm">
+              <h2 className="text-center color mb10"> <u>{t("Calculate.bCircuits")}</u> </h2>
+              <table class="table table-bordered mx-0 table-sm calculo">
                 <thead class="table-secondary">
-                  <tr>
+                  <tr class="borde">
                     <th scope="col" className="px-2">{t("Calculate.branch")}</th>
                     <th scope="col" className="px-2">{t("Calculate.bType")}</th>
                     <th scope="col" className="px-2">{t("Calculate.canalization")}</th>
@@ -83,13 +84,13 @@ const Calculate1 = () => {
 
                   {arr.map((item) => {
                     return <tr>
-                      <th scope="col" className="px-2">{parseFloat(item.cable_width + 2).toFixed(1)}</th>
-                      <th scope="col" className="px-2">{parseFloat(item.current * 5).toFixed(1)}</th>
-                      <th scope="col" className="px-2">{parseFloat(item.pipe_diameter * 22).toFixed(1)}</th>
-                      <th scope="col" className="px-2">{parseFloat(item.protection_device + 8).toFixed(1)}</th>
-                      <th scope="col" className="px-2">{parseFloat(item.voltaje_drop + 14).toFixed(1)}</th>
-                      <th scope="col" className="px-2">{parseFloat(item.voltaje_drop + 9).toFixed(1)}</th>
-                      <th scope="col" className="px-2">{parseFloat(item.current + 8).toFixed(1)}</th>
+                      <td scope="col" className="px-2">{parseFloat(item.cable_width + 2).toFixed(1)}</td>
+                      <td scope="col" className="px-2">{parseFloat(item.current * 5).toFixed(1)}</td>
+                      <td scope="col" className="px-2">{parseFloat(item.pipe_diameter * 22).toFixed(1)}</td>
+                      <td scope="col" className="px-2">{parseFloat(item.protection_device + 8).toFixed(1)}</td>
+                      <td scope="col" className="px-2">{parseFloat(item.voltaje_drop + 14).toFixed(1)}</td>
+                      <td scope="col" className="px-2">{parseFloat(item.voltaje_drop + 9).toFixed(1)}</td>
+                      <td scope="col" className="px-2">{parseFloat(item.current + 8).toFixed(1)}</td>
 
 
                     </tr>
@@ -100,9 +101,9 @@ const Calculate1 = () => {
                 </tbody>
               </table>
 
-              <table class="table table-bordered mx-0">
+              <table class="table table-bordered mx-0 calculo">
                 <thead class="table-secondary">
-                  <tr>
+                  <tr class="borde1">
                     <th scope="col" colspan="1" className="px-2">{t("Calculate.branch")}</th>
                     <th scope="col" colspan="3"></th>
                   </tr>

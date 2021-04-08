@@ -52,8 +52,9 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
   return (
     <div className="w30 overflow-auto calculoAlto" id="reporte">
       <div  autocomplete="off">
-        <a onClick={() => amp()}>
-        <i class="fa fa-expand" aria-hidden="true"></i>
+        <a onClick={() => amp()} class="point amp1">
+        <i class="fa fa-expand mr5" aria-hidden="true"></i>
+        {t("Calculate.amp")}
         </a>
     {/* <button className="btn btn-primary " onClick={() => amp()}> Ver </button> */}
 
