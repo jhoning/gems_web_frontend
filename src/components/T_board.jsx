@@ -18,6 +18,7 @@ const T_board = () => {
   const [bandera3, setBandera3] = useState(true)
   const [bandera1, setBandera1] = useState(true)
   const token = localStorage.getItem('token')
+  const [aux1,setAux1] = useState()
   const authAxios = axios.create({
     baseURL: 'http://localhost:4000',
     headers: {
@@ -50,13 +51,25 @@ const T_board = () => {
      await authAxios.delete('/project/'+id).then(res =>  {alert(`${t("Alerts.delete")}`);setBandera1(bandera1? false:true); console.log(name1)});
 
     }
-  
+  const cambiarName = async(id)=>{
+    await authAxios.patch('/project/'+id, aux1).then(res =>console.log(res))
+
+  }
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       crearProject()
       console.log('do validate')
     }
   }
+
+  const handleKeyDown1 = (event,id) => {
+    console.log(id)
+    if (event.key === 'Enter') {
+      cambiarName(id)
+     
+    }
+  }
+
   return (
     <div className="container-fluid tbo">
       <div className=" mb-3">
@@ -90,9 +103,9 @@ const T_board = () => {
                 
                   name1 == null? null : name1.map((item,i) => {
                   
-                    return <li className="list-group-item d-flex justify-content-between align-items-center">
+                    return <li className="list-group-item d-flex justify-content-between align-items-center"> 
                     <a class="col-md-10" id={item.id+"a"}href={`http://localhost:3004/calculate/${item.id}`}>{item.name}</a> 
-                    <input type="text" class="edit" style={{ display: "none",height: "35px" }} id={item.id+"i"} />
+                    <input type="text" class="edit" style={{ display: "none",height: "35px" }} id={item.id+"i"} onChange={e => { setAux1({ ...aux1, name: e.target.value });console.log(aux1)}} onKeyDown={(e) =>handleKeyDown1(e,item.id)}/>
                       <div class="col-md-1 controls">
              
                       <a>
