@@ -59,11 +59,7 @@ const MenuTree = ({idCircuits}) => {
       "label": item.name,
       "data": item.name,
       "icon": "pi pi-fw pi-inbox",
-      "children": [{"key": item.id,
-      "label": item.name,
-      "data": item.name,
-      "icon": "pi pi-fw pi-inbox",
-      "children": []}]
+      "children":[]
     }
 
     ))
@@ -103,35 +99,117 @@ const MenuTree = ({idCircuits}) => {
   }
   
   const recorre = (arr,id) => {
-    arr.forEach((item,i)=>{
+    let aux = [...boards]
+    aux.forEach((item,i)=>{
       if(item.key == id){
         item.children.push({
-          "key": item.id,
+          "key": parseInt(Math.random()*1000),
           "label": "nuevo",
           "data": "nuevos",
           "icon": "pi pi-fw pi-inbox",
           "children": []
         })
+        
+      }else {
+        item.children.forEach((item,i)=>{
+          if(item.key == id){
+            item.children.push({
+              "key": parseInt(Math.random()*1000),
+              "label": "nuevo",
+              "data": "nuevos",
+              "icon": "pi pi-fw pi-inbox",
+              "children": []
+            })
+            
+          }else {
+            item.children.forEach((item,i)=>{
+              if(item.key == id){
+                item.children.push({
+                  "key": parseInt(Math.random()*1000),
+                  "label": "nuevo",
+                  "data": "nuevos",
+                  "icon": "pi pi-fw pi-inbox",
+                  "children": []
+                })
+                
+              }else {
+                item.children.forEach((item,i)=>{
+                  if(item.key == id){
+                    item.children.push({
+                      "key": parseInt(Math.random()*1000),
+                      "label": "nuevo",
+                      "data": "nuevos",
+                      "icon": "pi pi-fw pi-inbox",
+                      "children": []
+                    })
+                    
+                  }else {
+                    item.children.forEach((item,i)=>{
+                      if(item.key == id){
+                        item.children.push({
+                          "key": parseInt(Math.random()*1000),
+                          "label": "nuevo",
+                          "data": "nuevos",
+                          "icon": "pi pi-fw pi-inbox",
+                          "children": []
+                        })
+                        
+                      }else {
+                        item.children.forEach()
+                      }
+                   
+                     /*  if(item.children.length != 0){
+                        recorre(item.children,id);
+                      }else {
+                        return 0
+                      } */
+                    })
+                  }
+               
+                 /*  if(item.children.length != 0){
+                    recorre(item.children,id);
+                  }else {
+                    return 0
+                  } */
+                })
+              }
+           
+             /*  if(item.children.length != 0){
+                recorre(item.children,id);
+              }else {
+                return 0
+              } */
+            })
+          }
+       
+         /*  if(item.children.length != 0){
+            recorre(item.children,id);
+          }else {
+            return 0
+          } */
+        })
       }
+   
      /*  if(item.children.length != 0){
         recorre(item.children,id);
       }else {
         return 0
       } */
     })
+    return aux
   }
 
   const nodeTemplate = (node) => {
+    
     if (node.label) {
       return (
         <div>
           <a href={node.label}>{node.label}</a>
           <button className="btn btn-primary btn-sm ml-4" onClick={()=>{
-            
-              recorre(boards,node.key)
-              agregarBoard("nuebva")
-           
-          }}>+</button>
+          
+              setBoards(recorre(boards,node.key))
+              
+          }}>+</button>  
         </div>
           
       )
