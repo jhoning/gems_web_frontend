@@ -23,17 +23,20 @@ const MenuTree = ({idCircuits}) => {
   const [t] = useTranslation("global")
 
   const [boards,setBoards] = useState([]);
+  const [circuits,setCircuits] = useState([]);
   const [idproject,setIdproject] = useState([]);
   const [name1,setName1] = useState([]); 
   const [name2,setName2] = useState();
+  const [info,setInfo] = useState();
   const [name3,setName3] = useState();
   const [bandera,setBandera] = useState(true)
   useEffect( () => {
    /*  obtenerArrBoards() */
   
    obteneralgo()
+   obtenerCircuits()
   obtenerIdProyecto()
- 
+
     
   } 
 
@@ -50,10 +53,22 @@ const MenuTree = ({idCircuits}) => {
     })
   
   } */
-
+  const obtenerCircuits = async()=>{
+    await authAxios.get('/circuit').then(res =>setCircuits(res.data)).catch(err=>console.log(err))
+  }
+  const crearCircuit = async(id1)=> {
+    await authAxios.post('/circuit',{
+      name: 'Circuit',
+      board_padre: { 
+        id: id1
+      }
+    }
+    ).then(res=>console.log('circuito agreado')).catch(err=> console.log("error"))
+  }
   const obtenerIdProyecto = async() => {
     const algo3 = []
     const algo2 = await authAxios.get('/project/'+idCircuits).then(res=> res.data.boards)
+    console.log(algo2)
     algo2.forEach((item)=>algo3.push( {
       "key": item.id,
       "label": item.name,
@@ -63,6 +78,16 @@ const MenuTree = ({idCircuits}) => {
     }
 
     ))
+    /* circuits.forEach((item)=>algo3.push( {
+      "key": item.board_padre.id,
+      "label": item.name,
+      "data": item.name,
+      "icon": "pi pi-fw pi-inbox",
+      "children":[]
+    }
+
+    )) */
+    console.log(algo3)
     console.log(algo2)
     setBoards(algo3)
     return algo3
@@ -95,7 +120,10 @@ const MenuTree = ({idCircuits}) => {
     idproject.forEach((item, i) => setBoards([...boards,1]))
   }
   const obteneralgo = async() => {
-    await authAxios.get('/project/'+id).then(res => setName2(res.data)).catch(err => console.log(err))
+    await authAxios.get('/project/'+id).then(res =>{ setName2(res.data);console.log(name2)}).catch(err => console.log(err))
+  }
+  const obtenerBoard = async(id1) => {
+    await authAxios.get('/board/'+id1).then(res => {setInfo(res.data);console.log(info)}).catch(err => console.log(err))
   }
   
   const recorre = (arr,id) => {
@@ -198,17 +226,23 @@ const MenuTree = ({idCircuits}) => {
     })
     return aux
   }
-
+  
   const nodeTemplate = (node) => {
     
     if (node.label) {
       return (
-        <div>
-          <a href={node.label}>{node.label}</a>
-          <button className="btn btn-primary btn-sm ml-4" onClick={()=>{
+        <div  style={{height: '70px',padding: '0px',margin:'0px'}}>
+          <span onClick={()=>console.log('ola')}>{node.label}</span>
+          <button className="btn btn-primary btn-sm ml-4 " onClick={()=>{
+          console.log(circuits)
+          obtenerBoard(node.key)
+        
+          crearCircuit(node.key)
+      }}>C</button>  
+          <button className="btn btn-primary btn-sm ml-4 " onClick={()=>{
           
               setBoards(recorre(boards,node.key))
-              
+              crearCircuit(node.key)
           }}>+</button>  
         </div>
           
