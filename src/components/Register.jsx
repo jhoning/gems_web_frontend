@@ -9,14 +9,18 @@ import { useEffect } from 'react/cjs/react.development';
 const Register = () => {
   const [t] = useTranslation("global")
   const history = useHistory()
+  const [paises, setPaises] = useState([]);
   const [form, setForm] = useState({ username: "", email: "", password: "", first_name: "", last_name: "", profesionalID: "",phone: "", idioma: "es" })
   useEffect(()=>{
+    countrys()
     puntero()
   },[])
-
+  const countrys = async () => {
+    await axios.get(`http://localhost:4000/country`).then(res => {setPaises(res.data)}).catch(err => console.log(err))
+  }
   const registrar = async () => {
     
-    await axios.post('http://localhost:4000/user', form)
+    await axios.post('http://localhost:4000/auth/register', form)
     .then(resolve => {
         alert(`${t("Alerts.register")}`)
         history.push("/")
@@ -124,8 +128,10 @@ const Register = () => {
               </div>
               <div className="col-md-6 p0">
                 <select class="custom-select custom-select p5"  autocomplete="off">
-                  <option selected>+58</option>
-                  <option selected>+1</option>
+                  {
+                    paises.map(item=> <option selected>{item.code + item.prefix}</option>)
+                  }
+                
                 </select>
                 <input className="form-control w31" name="profesionalID" type="text" placeholder={t("userS.phone")} onChange={ e => setForm({...form,phone: e.target.value})}/>
                 </div>
