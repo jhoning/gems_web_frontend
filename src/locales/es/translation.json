@@ -60,7 +60,10 @@
         "fText1": "Al crear una cuenta, acepta los",
         "fText2": "Para obtener más información sobre los términos de privacidad de T-board, consulte la",
         "terms": "Términos de servicio.",
-        "pState": "Declaracion de privacidad."
+        "pState": "Declaracion de privacidad.",
+        "code": "Ingrese su código por favor",
+        "cMess": "Ingrese el código que se envió a su correo electrónico para restablecer su contraseña",
+        "cNumber": "Ingrese su código aquí"
     },
     "Calculate": {
         "report": "Reporte",
@@ -73,7 +76,8 @@
         "ground": "Tierra",
         "breaker": "Interruptor",
         "power": "Potencia",
-        "amp": "Ver"
+        "amp": "Ver", 
+        "print": "¡Imprimir!"
     },
     "InputsC": {
         "sAppliance": "Tomacorriente especial",
@@ -86,7 +90,7 @@
         "powerW": "Potencia (W)",
         "distance": "Distancia (M)",
         "powerF": "Factor de potencia",
-        "voltaje": "Caída de voltaje",
+        "voltage": "Caída de voltaje",
         "aisolation": "Aislamiento",
         "temperature": "Temperatura",
         "compute": "Calcular",
@@ -101,7 +105,8 @@
         "thwn": "Esta opción incluye todas las temperaturas y todos los aislamientos con temperatura máxima de 75°C",
         "thhn": "Esta opción incluye todas las temperaturas y todos los aislamientos con temperatura máxima de 90°C",
         "neutral": "¿Sistema alimentado con neutro?",
-        "conduit": "Material de la tubeía"
+        "conduit": "Material de la tubeía",
+        "sVoltage": "Tensión del sistema"       
     },
     "MenuTree": {
         "tableN": "Ingrese nombre del tablero",

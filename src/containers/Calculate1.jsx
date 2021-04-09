@@ -48,15 +48,16 @@ const Calculate1 = () => {
           </div>
           <InputsCalculate values={values} setValues={setValues} setArr={setArr} arr={arr} />
           <div className="w45 p-0 report" id="report">
-            <a onClick={() => amplio()}>
-              <i class="fa fa-expand" aria-hidden="true"></i>
+            <a onClick={() => amplio()} class="point amp mt10">
+              <i class="fa fa-expand mr5" aria-hidden="true"></i>
+              {t("Calculate.amp")}
             </a>
             <div>
               <ReactToPrint
-                trigger={() => <button>Print this out!</button>}
+                trigger={() => <button class="pade btn btn-primary mt-2 gray">{t("Calculate.print")}</button>}
                 content={() => componentRef.current}
               />
-              <div ref={componentRef}>
+              <div class="calculo" ref={componentRef}>
                 <Report arr={arr} />
               </div>
 

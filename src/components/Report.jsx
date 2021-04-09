@@ -6,9 +6,9 @@ const Report = React.forwardRef(({arr}) => {
     <>
         <div className="jumbotron calculoAltoMin ">
               <h2 className="text-center color">{t("Calculate.report")}</h2>
-              <table border="1" class="table table-bordered table-sm table-striped">
-                <thead class="table-secondary">
-                  <tr>
+              <table border="1" class="table table-bordered table-sm table-striped calculo">
+                <thead class="table-secondary"> 
+                  <tr class="borde1">
                     <th scope="col-4" >{t("Calculate.project")}</th>
                   </tr>
                   <tr>
@@ -24,7 +24,7 @@ const Report = React.forwardRef(({arr}) => {
               <h2 className="text-center color">{t("Calculate.bCircuits")}</h2>
               <table class="table table-bordered mx-0 table-sm">
                 <thead class="table-secondary">
-                  <tr>
+                  <tr class="borde">
                     <th scope="col" className="px-2">{t("Calculate.branch")}</th>
                     <th scope="col" className="px-2">{t("Calculate.bType")}</th>
                     <th scope="col" className="px-2">{t("Calculate.canalization")}</th>
@@ -58,7 +58,7 @@ const Report = React.forwardRef(({arr}) => {
 
               <table class="table table-bordered mx-0">
                 <thead class="table-secondary">
-                  <tr>
+                  <tr class="borde1">
                     <th scope="col" colspan="1" className="px-2">{t("Calculate.branch")}</th>
                     <th scope="col" colspan="3"></th>
                   </tr>
