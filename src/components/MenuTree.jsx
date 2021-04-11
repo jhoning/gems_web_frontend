@@ -255,7 +255,43 @@ const MenuTree = ({idCircuits}) => {
     <input className="ingris" type="text" onChange={ e => setName3(e.target.value)} value={name3} placeholder={t("MenuTree.tableN")}/>
     <button className="btn btn-primary mt-1 mb-2 text" onClick={()=>{agregarBoard(name1);setName3("");console.log(name1)}}>{t("MenuTree.addT")}</button>
    {/*  <button onClick={()=>console.log(name2)}>nueva</button> */}
-    <Tree value={boards} nodeTemplate={nodeTemplate} className="mx-0"/>
+    <Tree value={[{
+      "key": 'frutas',
+      "label": 'frutas',
+      "data": 'frutas',
+      "icon": "pi pi-fw pi-inbox",
+      "children":[{
+        "key": 'frutas',
+        "label": 'frutas',
+        "data": 'frutas',
+        "icon": "pi pi-fw pi-inbox",
+        "children":[{
+          "key": 'frutas',
+          "label": 'frutas',
+          "data": 'frutas',
+          "icon": "pi pi-fw pi-inbox",
+          "children":[]
+        },]
+      },]
+    },{
+      "key": 'frutas',
+      "label": 'frutas',
+      "data": 'frutas',
+      "icon": "pi pi-fw pi-inbox",
+      "children":[{
+        "key": 'frutas',
+        "label": 'frutas',
+        "data": 'frutas',
+        "icon": "pi pi-fw pi-inbox",
+        "children":[]
+      },]
+    },{
+      "key": 'frutas',
+      "label": 'frutas',
+      "data": 'frutas',
+      "icon": "pi pi-fw pi-inbox",
+      "children":[]
+    },]} nodeTemplate={nodeTemplate} className="mx-0"/>
   </div>
   )
 }
