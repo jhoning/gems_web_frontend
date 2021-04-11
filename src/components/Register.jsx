@@ -20,7 +20,7 @@ const Register = () => {
   }
   const registrar = async () => {
     
-    await axios.post('http://localhost:4000/auth/register', form)
+    await axios.post('http://localhost:4000/user', form)
     .then(resolve => {
         alert(`${t("Alerts.register")}`)
         history.push("/")
