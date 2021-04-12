@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import BoardMenu from './BoardMenu'
 import '../css/tree-nav.css'
+import subtab from '../img/icon3.png';
+import plus from '../img/plus.png';
 import '../../node_modules/react-simple-tree-menu/dist/main.css';
 import { Tree } from 'primereact/tree';
 
@@ -73,7 +75,7 @@ const MenuTree = ({idCircuits}) => {
       "key": item.id,
       "label": item.name,
       "data": item.name,
-      "icon": "pi pi-fw pi-inbox",
+      "icon": "tab",
       "children":[]
     }
 
@@ -82,7 +84,7 @@ const MenuTree = ({idCircuits}) => {
       "key": item.board_padre.id,
       "label": item.name,
       "data": item.name,
-      "icon": "pi pi-fw pi-inbox",
+      "icon": "tab",
       "children":[]
     }
 
@@ -134,7 +136,7 @@ const MenuTree = ({idCircuits}) => {
           "key": parseInt(Math.random()*1000),
           "label": "nuevo",
           "data": "nuevos",
-          "icon": "pi pi-fw pi-inbox",
+          "icon": "tab",
           "children": []
         })
         
@@ -145,7 +147,7 @@ const MenuTree = ({idCircuits}) => {
               "key": parseInt(Math.random()*1000),
               "label": "nuevo",
               "data": "nuevos",
-              "icon": "pi pi-fw pi-inbox",
+              "icon": "tab",
               "children": []
             })
             
@@ -156,7 +158,7 @@ const MenuTree = ({idCircuits}) => {
                   "key": parseInt(Math.random()*1000),
                   "label": "nuevo",
                   "data": "nuevos",
-                  "icon": "pi pi-fw pi-inbox",
+                  "icon": "tab",
                   "children": []
                 })
                 
@@ -167,7 +169,7 @@ const MenuTree = ({idCircuits}) => {
                       "key": parseInt(Math.random()*1000),
                       "label": "nuevo",
                       "data": "nuevos",
-                      "icon": "pi pi-fw pi-inbox",
+                      "icon": "tab",
                       "children": []
                     })
                     
@@ -178,7 +180,7 @@ const MenuTree = ({idCircuits}) => {
                           "key": parseInt(Math.random()*1000),
                           "label": "nuevo",
                           "data": "nuevos",
-                          "icon": "pi pi-fw pi-inbox",
+                          "icon": "tab",
                           "children": []
                         })
                         
@@ -231,19 +233,19 @@ const MenuTree = ({idCircuits}) => {
     
     if (node.label) {
       return (
-        <div  style={{height: '70px',padding: '0px',margin:'0px'}}>
+        <div  style={{height: '70px',padding: '20px 0 0 0px',margin:'0px 6px 0 0'}}>
           <span onClick={()=>console.log('ola')}>{node.label}</span>
-          <button className="btn btn-primary btn-sm ml-4 " onClick={()=>{
+          <a className="ml4 " onClick={()=>{
           console.log(circuits)
           obtenerBoard(node.key)
         
           crearCircuit(node.key)
-      }}>C</button>  
-          <button className="btn btn-primary btn-sm ml-4 " onClick={()=>{
+      }}><img class="ban1" src={subtab} /></a>  
+          <a className="ml4 " onClick={()=>{
           
               setBoards(recorre(boards,node.key))
               crearCircuit(node.key)
-          }}>+</button>  
+          }}><img class="ban2" src={plus} /></a>  
         </div>
           
       )
@@ -259,17 +261,17 @@ const MenuTree = ({idCircuits}) => {
       "key": 'frutas',
       "label": 'frutas',
       "data": 'frutas',
-      "icon": "pi pi-fw pi-inbox",
+      "icon": "tab",
       "children":[{
         "key": 'frutas',
         "label": 'frutas',
         "data": 'frutas',
-        "icon": "pi pi-fw pi-inbox",
+        "icon": "tab",
         "children":[{
           "key": 'frutas',
           "label": 'frutas',
           "data": 'frutas',
-          "icon": "pi pi-fw pi-inbox",
+          "icon": "tab",
           "children":[]
         },]
       },]
@@ -277,19 +279,19 @@ const MenuTree = ({idCircuits}) => {
       "key": 'frutas',
       "label": 'frutas',
       "data": 'frutas',
-      "icon": "pi pi-fw pi-inbox",
+      "icon": "tab",
       "children":[{
         "key": 'frutas',
         "label": 'frutas',
         "data": 'frutas',
-        "icon": "pi pi-fw pi-inbox",
+        "icon": "tab",
         "children":[]
       },]
     },{
       "key": 'frutas',
       "label": 'frutas',
       "data": 'frutas',
-      "icon": "pi pi-fw pi-inbox",
+      "icon": "tab",
       "children":[]
     },]} nodeTemplate={nodeTemplate} className="mx-0"/>
   </div>
