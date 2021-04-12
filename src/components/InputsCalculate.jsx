@@ -115,12 +115,13 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
           </div>
         </div>
         <div class="form-group row my-1">
-        <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.sVoltage")}</label>
+        <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.sVoltage")} (V)</label>
         <div class="col-sm-7">
             <select class="custom-select custom-select"  autocomplete="off">
-              <option value="120" selected data-bs-toggle="tooltip" data-bs-placement="right" title="120">120 V</option>
-              <option value="208" selected data-bs-toggle="tooltip" data-bs-placement="right" title="208">208 V</option>
-              <option value="220" selected data-bs-toggle="tooltip" data-bs-placement="right" title="220">220 V</option>
+              <option selected>{t("InputsC.choose")}</option>
+              <option value="120" data-bs-toggle="tooltip" data-bs-placement="right" title="120">120</option>
+              <option value="208" data-bs-toggle="tooltip" data-bs-placement="right" title="208">208</option>
+              <option value="220" data-bs-toggle="tooltip" data-bs-placement="right" title="220">220</option>
             </select>
           </div>
         </div>
@@ -146,8 +147,8 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.neutral")}</label>
         <div class="col-sm-7">
             <select class="custom-select custom-select"  autocomplete="off">
-              <option value="1" selected data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.tw")}>{t("Option.yes")}</option>
-              <option value="2" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.thwn")}>{t("Option.no")}</option>
+              <option value="1" selected data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.yes")}>{t("Option.yes")}</option>
+              <option value="2" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.no")}>{t("Option.no")}</option>
             </select>
           </div>
         </div>
@@ -155,7 +156,11 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div class="form-group row my-1">
         <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.conduit")}</label>
           <div class="col-sm-7 mx-0">
-          <input type="text" class="form-control" id="inputEmail3"  autocomplete="off"/>
+            <select class="custom-select custom-select"  autocomplete="off">
+            <option selected>{t("InputsC.choose")}</option>
+              <option value="1" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.aluminum")}>{t("Option.aluminum")}</option>
+              <option value="2" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.steel")}>{t("Option.steel")}</option>
+            </select>
           </div>
         </div>
 

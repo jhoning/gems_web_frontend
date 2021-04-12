@@ -27,14 +27,14 @@ const Calculate1 = () => {
 
 
   const amplio = () => {
-    if (document.getElementById("report").style.width === '50%') {
+    if (document.getElementById("report").style.width === '55%') {
       document.getElementById("reporte").style.width = '30%';
       document.getElementById("report").style.width = '45%';
     } else {
-      document.getElementById("reporte").style.width = '25%';
-      document.getElementById("report").style.width = '50%';
+      document.getElementById("reporte").style.width = '20%';
+      document.getElementById("report").style.width = '55%';
 
-    }
+    } 
   }
 
 

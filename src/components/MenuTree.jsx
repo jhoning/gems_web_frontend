@@ -90,7 +90,7 @@ const MenuTree = ({idCircuits}) => {
     console.log(algo3)
     console.log(algo2)
     setBoards(algo3)
-    return algo3
+    return algo3 
   }
   const selectElementosNav = ()=>{
     const arr = document.querySelectorAll('div.p-treenode-content');
