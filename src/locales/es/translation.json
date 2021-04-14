@@ -76,7 +76,7 @@
         "ground": "Tierra",
         "breaker": "Interruptor",
         "power": "Potencia",
-        "amp": "Ver", 
+        "amp": "Ver completo", 
         "print": "¡Imprimir!"
     },
     "InputsC": {
@@ -129,6 +129,8 @@
     },
     "Option": {
         "yes": "Sí",
-        "no": "No"
+        "no": "No",
+        "aluminum": "Aluminio",
+        "steel": "Acero"
     }
 }

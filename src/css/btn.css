@@ -29,6 +29,20 @@
     margin-right: 10px;
 }
 
+.ban1 {
+    width: 25px;
+    margin-right: 0px;
+}
+
+.ban2 {
+    width: 20px;
+    margin-right: 0px;
+}
+
+.p-tree .p-tree-container .p-treenode .p-treenode-content .p-treenode-icon {
+    margin-right: 8px;
+}
+
 .leng {
     padding-right: 20px !important;
 }
@@ -60,5 +74,41 @@
     color: white;
 }
 .p-tree {
-    padding: 10px 5px !important;
+    padding: 6px 0 !important;
+}
+
+.p-component {
+    max-height: 390px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.p-tree-container {
+    overflow: hidden !important;
+}
+
+.p-treenode-content {
+    padding: 0 !important;
+}
+.p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler {
+    width: auto !important;
+    padding-left: 4px;
+    margin-right: 4px !important;
+}
+
+.tab {
+    background: url("/src/img/tab.png");
+    background-repeat: no-repeat !important;
+    background-position: center;
+    background-size: cover; 
+    width: 15px;
+    height: 15px;
+}
+
+.ml4 {
+    margin-left: 7px !important;
+}
+
+.p-tree .p-tree-container .p-treenode {
+    padding: 0.143rem 0 0 4px !important;
 }

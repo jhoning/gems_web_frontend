@@ -76,7 +76,7 @@
         "ground": "Ground",
         "breaker": "Breaker",
         "power": "Power",
-        "amp": "See",
+        "amp": "See full",
         "print": "Print this out!"
     },
     "InputsC": {
@@ -129,6 +129,8 @@
     },
     "Option": {
         "yes": "Yes",
-        "no": "No"
+        "no": "No",
+        "aluminum": "Aluminum",
+        "steel": "Steel"
     }
 }
