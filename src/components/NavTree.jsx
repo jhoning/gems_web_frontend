@@ -103,7 +103,7 @@ const NavTree = ({idCircuits})=> {
     }
     
     for (let i = 0;i<cont;i++) {
-     aux2.push(aux[i])
+      aux2.push(aux[i])
        
     }
     
