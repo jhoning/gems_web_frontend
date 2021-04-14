@@ -73,12 +73,13 @@
     background: #c2c2c2 !important;
     color: white;
 }
+
 .p-tree {
     padding: 6px 0 !important;
 }
 
 .p-component {
-    max-height: 400px;
+    max-height: 440px;
     overflow-x: hidden;
     overflow-y: scroll;
 }
@@ -97,12 +98,27 @@
 }
 
 .tab {
-    background: url("/src/img/tab.png");
-    background-repeat: no-repeat !important;
+    background: url("/src/img/iconplus.svg");
     background-position: center;
-    background-size: cover; 
-    width: 15px;
-    height: 15px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
+
+.p-treenode-content {
+    height: 35px;
+}
+
+.agg {
+    float: right;
+    right: 0;
+    align-items: end;
+    cursor: pointer;
+}
+
+.p-treenode-label {
+    width: 100%;
 }
 
 .ml4 {

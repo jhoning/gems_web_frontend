@@ -6,8 +6,8 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import BoardMenu from './BoardMenu'
 import '../css/tree-nav.css'
-import subtab from '../img/icon3.png';
-import plus from '../img/plus.png';
+import subtab from '../img/icon2.svg';
+import plus from '../img/plus.svg';
 import '../../node_modules/react-simple-tree-menu/dist/main.css';
 import { Tree } from 'primereact/tree';
 
@@ -235,17 +235,17 @@ const MenuTree = ({idCircuits}) => {
       return (
         <div  style={{height: '70px',padding: '20px 0 0 0px',margin:'0px 6px 0 0'}}>
           <span onClick={()=>console.log('ola')}>{node.label}</span>
-          <a className="ml4 " onClick={()=>{
+          {/* <a className="ml4 " onClick={()=>{
           console.log(circuits)
           obtenerBoard(node.key)
         
           crearCircuit(node.key)
-      }}><img class="ban1" src={subtab} /></a>  
-          <a className="ml4 " onClick={()=>{
+      }}><img class="ban1" src={subtab} /></a>   */}
+          <a className="agg" onClick={()=>{
           
               setBoards(recorre(boards,node.key))
               crearCircuit(node.key)
-          }}><img class="ban2" src={plus} /></a>  
+          }}><img class="ban1" src={plus} /></a>  
         </div>
           
       )
