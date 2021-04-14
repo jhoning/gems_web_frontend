@@ -9,6 +9,7 @@ import MenuTree from '../components/MenuTree'
 import Report from '../components/Report';
 import { useRef } from 'react';
 import ReactToPrint from 'react-to-print';
+import NavTree from '../components/NavTree';
 const Calculate1 = () => {
   let { id1 } = useParams();
   console.log(id1)
@@ -44,7 +45,8 @@ const Calculate1 = () => {
       <div className="container-fluid tbo">
         <div className="row ">
           <div className="col-2 gb">
-            <MenuTree idCircuits={id1} />
+            {/* <MenuTree idCircuits={id1} /> */}
+            <NavTree idCircuits={id1}/>
           </div>
           <InputsCalculate values={values} setValues={setValues} setArr={setArr} arr={arr} />
           <div className="w45 p-0 report" id="report">
