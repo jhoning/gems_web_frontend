@@ -110,7 +110,9 @@
     },
     "MenuTree": {
         "tableN": "Ingrese nombre del tablero",
-        "addT": "Agregar tablero"
+        "addT": "Agregar tablero",
+        "addAppliance": "Agregar circuito",
+        "addBoard": "Agregar tablero"
     },
     "Alerts": {
         "login": "Usuario o contraseña incorrectos",

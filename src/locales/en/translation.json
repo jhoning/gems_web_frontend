@@ -110,7 +110,9 @@
     },
     "MenuTree": {
         "tableN": "Enter table name",
-        "addT": "Add Table"
+        "addT": "Add Table",
+        "addAppliance": "Add Appliance",
+        "addBoard": "Add Board"
     },
     "Alerts": {
         "login": "Incorrect user or password",
