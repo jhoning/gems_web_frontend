@@ -37,7 +37,7 @@ const NavTree = ({idCircuits})=> {
        console.log(arrBoardsInfo)
        setMount(true);
        console.log('hola olis')
-     },5000)
+     },1000)
   
    
     
@@ -73,6 +73,14 @@ const NavTree = ({idCircuits})=> {
         for (let i = 0;i<item.board_hijos.length;i++) {
           hijos.push(generarNavTree(item.board_hijos[i]))
         }
+       /*  for (let i = 0;i<item.board_hijos.length;i++) {
+          for (let j = 0;j<hijos.length;j++) {
+            if(item.board_padre == hijos[j].id){
+              hijos[j].children.push(generarNavTree(item.board_hijos[i]))
+            }
+          }
+        } */
+
         aux = {
           "key": item.id,
           "label": item.name,
@@ -141,7 +149,7 @@ const NavTree = ({idCircuits})=> {
       }}>C</button>  
           <button className="btn btn-primary btn-sm ml-4 " onClick={()=>{
               registrarBoard(node.key,node.label)
-              setBandera(bandera? false:true)
+              setMount(false)
              /*  setBoards(recorre(boards,node.key))
               crearCircuit(node.key) */
           }}>+</button>  
@@ -154,6 +162,7 @@ const NavTree = ({idCircuits})=> {
     <>
       <button className='btn btn-primary' onClick={()=>{
         registrarBoard1()
+        setMount(false)
 
       }}>Agregar Board</button>
       <Tree value={arrBoardsPrincipales} nodeTemplate={nodeTemplate} className="mx-0" />
