@@ -130,6 +130,7 @@
     "Option": {
         "yes": "Yes",
         "no": "No",
+        "PVC": "PVC",
         "aluminum": "Aluminum",
         "steel": "Steel"
     }

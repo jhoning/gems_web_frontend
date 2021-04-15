@@ -73,18 +73,38 @@
     background: #c2c2c2 !important;
     color: white;
 }
+
 .p-tree {
     padding: 6px 0 !important;
 }
 
-.p-component {
-    max-height: 390px;
-    overflow-x: hidden;
+.p-tree-container {
+    overflow: auto !important;
+    overflow-x: scroll;
     overflow-y: scroll;
+    max-height: 430px;
 }
 
-.p-tree-container {
-    overflow: hidden !important;
+.p-tree-container::-webkit-scrollbar {
+    width: 8px;     /* Tamaño del scroll en vertical */
+    height: 8px;    /* Tamaño del scroll en horizontal */
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+.p-tree-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+.p-tree-container::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Cambiamos el fondo cuando esté en active */
+.p-tree-container::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
 }
 
 .p-treenode-content {
@@ -96,13 +116,32 @@
     margin-right: 4px !important;
 }
 
+.fr {
+    float: right;
+}
+
 .tab {
-    background: url("/src/img/tab.png");
-    background-repeat: no-repeat !important;
+    background: url("/src/img/iconplus.svg");
     background-position: center;
-    background-size: cover; 
-    width: 15px;
-    height: 15px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
+
+.p-treenode-content {
+    height: 35px;
+}
+
+.agg {
+    float: right;
+    right: 0;
+    align-items: end;
+    cursor: pointer;
+}
+
+.p-treenode-label {
+    width: 100%;
 }
 
 .ml4 {
