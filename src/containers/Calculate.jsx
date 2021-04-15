@@ -44,7 +44,7 @@ const Calculate = () => {
           <div className="col-2 gb">
             <MenuTree idCircuits={id} />
           </div>
-          <InputsCalculate values={values} setValues={setValues} setArr={setArr} arr={arr} />
+          <InputsCalculate idProject={id} values={values} setValues={setValues} setArr={setArr} arr={arr} />
           <div className="w45 p-0 report" id="report">
           <a onClick={() => amplio()} class="point amp mt10">
             <i class="fa fa-expand mr5" aria-hidden="true"></i>
