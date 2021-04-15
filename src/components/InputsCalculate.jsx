@@ -158,8 +158,10 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
           <div class="col-sm-7 mx-0">
             <select class="custom-select custom-select"  autocomplete="off">
             <option selected>{t("InputsC.choose")}</option>
-              <option value="1" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.aluminum")}>{t("Option.aluminum")}</option>
-              <option value="2" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.steel")}>{t("Option.steel")}</option>
+              <option value="1" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.PVC")}>{t("Option.PVC")}</option>
+              <option value="2" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.aluminum")}>{t("Option.aluminum")}</option>
+              <option value="3" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.steel")}>{t("Option.steel")}</option>
+
             </select>
           </div>
         </div>

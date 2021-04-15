@@ -31,7 +31,7 @@ const NavTree = ({ idCircuits }) => {
     
     
   }, [bandera])
-  
+   
 
   const obtenerIdProyecto = async() => {
     const algo3 = []
@@ -64,7 +64,6 @@ const NavTree = ({ idCircuits }) => {
         <div>
           <a href={node.label}>{node.label}</a>
           <button className="btn btn-primary btn-sm ml-4" onClick={()=>{
-            
        
               agregarBoard("nuebva")
            
