@@ -28,12 +28,12 @@ const Header = () => {
   const deslogear = () => {
 
       localStorage.removeItem('token');
-      history.push("/")
+      history.push("/") 
       
     
   }
   return (
-    <div className="d-flex flex-column flex-md-row align-items-center px-md-4 shadow-sm fondo header">
+    <div className="flex-column flex-md-row align-items-center px-md-4 shadow-sm fondo header">
       <h5 className="my-0 mr-md-auto text-dark ml-md-4"><a href="/t_board"><img class="logo" src={logo}  /></a></h5>
       <nav className="my-2 my-md-0 mr-md-1">
       <ul class="navbar-nav idioma mr-md-1">

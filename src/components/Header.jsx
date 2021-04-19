@@ -7,7 +7,7 @@ import es from '../img/espana.svg';
 import en from '../img/estados-unidos.svg'
 import logo from '../img/logo.png';
 
-const Header = () => {
+const Header = () => { 
   const idioma = localStorage.getItem('i18nextLng')
   const [t] = useTranslation("global")
   const URLactual = window.location;
@@ -15,9 +15,9 @@ const Header = () => {
     i18next.changeLanguage(lang)
   }
   return (
-    <div className="d-flex flex-column flex-md-row align-items-center px-md-4 shadow-sm fondo header">
+    <div className="flex-column flex-md-row align-items-center px-md-4 shadow-sm fondo header">
      <h5 className="my-0 mr-md-auto text-dark ml-md-4"><a href="/"><img class="logo" src={logo}  /></a></h5>
-
+    
       <nav className="my-2 my-md-0 mr-md-1">
         <a className="p-2 text-dark" href="">{t("Header.plans_pricing")}</a>
         <a className="p-2 text-dark" href="">{t("Header.help")}</a>

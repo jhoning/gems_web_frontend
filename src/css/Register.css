@@ -7,6 +7,7 @@
     position: relative !important;
     box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
     margin-bottom: 60px;
+    margin-top: 4rem;
 }
 
 .reg {
@@ -59,3 +60,16 @@
     color: white;
   }
 
+  @media (max-width: 800px) {
+    .formContentReg 
+    {
+        margin-top: 3rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .formContentReg 
+    {
+        margin-top: 1.5rem;
+    }
+  }

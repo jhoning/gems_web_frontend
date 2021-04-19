@@ -329,12 +329,24 @@ h5 {
 
 
 
-@media (max-width: 780px) {
+@media (max-width: 800px) {
 
   .formContent {
     margin-top: 4rem;
     margin-bottom: 4rem;
-    padding: 30px 0px 0px !important;
+    padding: 25px 0px 0px !important;
+  }
+  #formFooter a {
+    font-size: 14px;
+  }
+  .formContentReg .text-center {
+    margin-bottom: 8px !important;
+  }
+  .reg {
+    padding: 10px 20px !important;
+  }
+  #formFooter {
+    padding: 5px 10px 5px;
   }
 }
 
