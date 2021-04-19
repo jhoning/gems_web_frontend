@@ -95,7 +95,7 @@ const Register = () => {
       <Header />
       <div className="card mx-auto mt-5 formContentReg wrapper fadeInDown">
         <div className="row justify-content-center reg align-items-center">
-          <div className="col-md-12">
+          <div className="col-md-12 p-0">
             <h3 className="text-center mb-3">{t("Header.ryc")}</h3>
             <form onSubmit={submitHandler}>
 

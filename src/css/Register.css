@@ -11,6 +11,7 @@
 
 .reg {
     padding: 20px;
+    margin: 0 !important;
 }
 
 .card-body {
@@ -57,3 +58,4 @@
     background-color: #053a55 !important;
     color: white;
   }
+
