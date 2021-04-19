@@ -9,6 +9,9 @@ import circuit from '../img/icon1.svg';
 import tab from '../img/iconplus.svg';
 import plus from '../img/plus.svg';
 import '../css/tree-nav.css'
+import circuit from '../img/icon1.svg';
+import tab from '../img/iconplus.svg';
+import plus from '../img/plus.svg';
 import '../../node_modules/react-simple-tree-menu/dist/main.css';
 import { Tree } from 'primereact/tree';
 
@@ -39,8 +42,8 @@ const NavTree = ({idCircuits})=> {
      setTimeout(()=>{
        console.log(arrBoardsInfo)
        setMount(true);
-       console.log('hola olis')
-     },5000)
+   /*     console.log('hola olis') */
+     },1000)
   
    
     
@@ -76,6 +79,14 @@ const NavTree = ({idCircuits})=> {
         for (let i = 0;i<item.board_hijos.length;i++) {
           hijos.push(generarNavTree(item.board_hijos[i]))
         }
+       /*  for (let i = 0;i<item.board_hijos.length;i++) {
+          for (let j = 0;j<hijos.length;j++) {
+            if(item.board_padre == hijos[j].id){
+              hijos[j].children.push(generarNavTree(item.board_hijos[i]))
+            }
+          }
+        } */
+
         aux = {
           "key": item.id,
           "label": item.name,
@@ -88,31 +99,66 @@ const NavTree = ({idCircuits})=> {
     return aux
   
   }
+  /*esto es provicional  */
+ 
   
+  /*  */
+  const addTree = (value, id1,id2)=>{
+     let aux = value
+    /*  console.log(value)
+     console.log(id1.id) */
+  
+     for (let index = 0; index < aux.length; index++) {
+     if(value[index].key == id1.id){
+     
+        aux[index].children.push({
+          "key": id2,
+          "label": id2,
+          "data": id2,
+          "icon": "pi pi-fw pi-inbox",
+          "children":[],
+      
+        })
+        return aux
+     }else {
+      
+          return addTree(aux[index].children,id1,id2)
+        
+     }
+      
+    } 
+  }
   const finalNavtree = ()=>{
     let aux = []
     let aux2 = []
     let cont = 0
     for (let i = 0;i<arrBoardsInfo.length;i++) {
       if(arrBoardsInfo[i].board_padre == null){
-       cont++
+       aux.push({
+        "key": arrBoardsInfo[i].id,
+        "label": arrBoardsInfo[i].name,
+        "data": arrBoardsInfo[i].name,
+        "icon": "pi pi-fw pi-inbox",
+        "children":[],
+       })
       }
       
     }
-
+    
+ 
     for (let i = 0;i<arrBoardsInfo.length;i++) {
-      aux.push(generarNavTree(arrBoardsInfo[i]))
+   /*     console.log(aux) */
+      if(arrBoardsInfo[i].board_padre != null){
       
-    }
-    
-    for (let i = 0;i<cont;i++) {
-      aux2.push(aux[i])
-       
-    }
+      addTree(aux,arrBoardsInfo[i].board_padre,arrBoardsInfo[i].id)
+
+      }
+    }  
     
     
-    console.log(cont)
-    SetArrBoardsPrincipales(aux2)
+    
+    console.log(aux)
+    SetArrBoardsPrincipales(aux)
     
   }
   
@@ -135,27 +181,26 @@ const NavTree = ({idCircuits})=> {
     if (node.label) {
       return (
         <div  style={{height: '70px',padding: '20px 0 0 0px',margin:'0px 6px 0 0'}}>
-          <span onClick={()=>console.log('ola')}>{node.label}</span>
-          {/* <button className="btn btn-primary btn-sm ml-4 " onClick={()=>{
-          console.log(circuits)
-          obtenerBoard(node.key)
+        <span onClick={()=>console.log('ola')}>{node.label}</span>
+        {/* <a className="ml4 " onClick={()=>{
+        console.log(circuits)
+        obtenerBoard(node.key)
+      
+        crearCircuit(node.key)
+    }}><img class="ban1" src={subtab} /></a>   */}
+        {/* <a className="agg" onClick={()=>{
         
-          crearCircuit(node.key) 
-      }}>C</button>  */} 
-          {/* <button className="btn btn-primary btn-sm ml-4 " onClick={()=>{
-              registrarBoard(node.key,node.label)
-              setBandera(bandera? false:true)
-              setBoards(recorre(boards,node.key))
-              crearCircuit(node.key) 
-          }}>+</button>   */}
-           <ul class="navbar-nav idioma mr-md-1 fr">
-        <li class="nav-item dropdown language-dropdown">
-            <a class="" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <img class="ban" src={plus} />
-            </a> 
+            setBoards(recorre(boards,node.key))
+            crearCircuit(node.key)
+        }}><img class="ban1" src={plus} /></a>   */}
+        <ul class="navbar-nav idioma mr-md-1 fr">
+      <li class="nav-item dropdown language-dropdown">
+          <a class="" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+            <img class="ban" src={plus} />
+          </a> 
 
-          <div class="dropdown-menu dropdown-menu-left navbar-dropdown py-2" aria-labelledby="LanguageDropdown">
-            <a class="dropdown-item" id="id_es" >
+        <div class="dropdown-menu dropdown-menu-left navbar-dropdown py-2" aria-labelledby="LanguageDropdown">
+        <a class="dropdown-item" id="id_es" >
               <div class="flag-icon-holder">
                 <img class="ban" src={circuit} />
                 <span class="text-dark">{t("MenuTree.addAppliance")}</span>
@@ -167,10 +212,10 @@ const NavTree = ({idCircuits})=> {
                 <span class="text-dark">{t("MenuTree.addBoard")}</span>
               </div>
             </a>
-          </div>
-        </li>
-      </ul>
         </div>
+      </li>
+    </ul>
+      </div>
           
       )
     }
@@ -179,6 +224,7 @@ const NavTree = ({idCircuits})=> {
     <>
       <button className='btn btn-primary' onClick={()=>{
         registrarBoard1()
+        setMount(false)
 
       }}>{t("MenuTree.addBoard")}</button>
       <Tree value={arrBoardsPrincipales} nodeTemplate={nodeTemplate} className="mx-0" />

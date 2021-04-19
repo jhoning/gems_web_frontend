@@ -100,9 +100,10 @@ const Login = () => {
     }
   }
 
-  const handlePaste = () => {
-    setLogin(login)
-    validarMail(login.email);
+  const handlePaste = (e) => {
+   
+    setLogin({...login,email:e.target.value})
+    validarMail(e.target.value)
   };
   const puntero = () => {
     window.addEventListener("load", function () {
@@ -145,7 +146,7 @@ const Login = () => {
 
                     <div class="form-group ">
                       <i class="fa fa-user"></i>
-                      <input type="text" name="email" id="email" placeholder={t("Header.example")} autocomplete="off" className="form-control" onPaste={handlePaste}  onChange={e => { setLogin({ ...login, email: e.target.value }); validarMail(login.email) }} />
+                      <input type="text" name="email" id="email" placeholder={t("Header.example")}  className="form-control"  onChange={e => handlePaste(e)} />
                       {/* <div class="valid-feedback">{t("userS.eMes")}</div> */}
                       <div class="invalid-feedback">{t("userS.eInvalid")}</div>
                     </div>
