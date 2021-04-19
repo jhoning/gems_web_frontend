@@ -83,16 +83,14 @@
     }
   }
 
-  @media (max-width: 425px) {
-    nav {
-        margin-left: 20px !important;
-    }
-  }
-
   @media (max-width: 375px) {
        .formContentReg {
             max-width: 330px !important;
         } 
+        .formContent {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
   }
 
 
