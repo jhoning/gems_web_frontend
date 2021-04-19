@@ -417,13 +417,13 @@ h5 {
     width: 280px;
   }
   .formContentReg h3 {
-    font-size: 17px;
+    font-size: 17px !important;
   }
   input[type=text], input[type=email], input[type=password] {
     font-size: 14px;
   }
   small {
-    font-size: 73%;
+    font-size: 73% !important;
     font-weight: 400;
 }
 }

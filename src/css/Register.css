@@ -19,6 +19,9 @@
     flex: 1 1 auto;
     min-height: 1px;
 }
+.form-text {
+    text-align: justify;
+}
 
 .p {
     padding: 1px 0 !important;
@@ -71,5 +74,24 @@
     .formContentReg 
     {
         margin-top: 1.5rem;
+    }
+    h3 {
+        font-size: 20px !important;
+    }
+    nav {
+        margin-left: 0px !important;
+    }
+  }
+
+  @media (max-width: 415px) {
+    nav {
+        margin-left: 16px !important;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .reg input 
+    {
+        font-size: 12px !important;
     }
   }
