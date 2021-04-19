@@ -60,7 +60,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
 
       <div className="container mb-1 ">
         <h3 className="text-center mb-0 p-0 mt-2 color">{t("InputsC.sAppliance")}</h3>
-         <hr />
+         <hr /> 
         <h4 className="text-left mb-3 mt-0 bordeColor color">{t("InputsC.cSettings")}</h4>
         <div className="form-group row my-1 se">
           <label for="inputEmail3" class="col-sm-5 col-form-label">{t("InputsC.loadType")}</label>
