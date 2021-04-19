@@ -29,7 +29,7 @@
     transition: .600s;
     height: 90vh;
     touch-action: none;
-    padding: 15px !important;
+    padding: 8px 8px 0 15px !important;
     user-select: none;
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -87,4 +87,16 @@
 
 .edit {
     width: 40% !important;
+}
+
+@media (max-width: 800px) {
+    .sidebar-sticky {
+        font-size: 14px;
+    }
+    .sidebar-sticky input {
+        font-size: 14px;
+    }
+    input[type=text], input[type=email], input[type=password] {
+        font-size: 14px;
+    }
 }
