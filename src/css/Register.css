@@ -83,15 +83,28 @@
     }
   }
 
-  @media (max-width: 415px) {
+  @media (max-width: 425px) {
     nav {
-        margin-left: 0px !important;
+        margin-left: 20px !important;
     }
   }
 
-  @media (max-width: 320px) {
+  @media (max-width: 375px) {
+       .formContentReg {
+            max-width: 330px !important;
+        } 
+  }
+
+
+  @media (max-width: 325px) {
     .reg input 
     {
         font-size: 12px !important;
     }
+    .formContentReg {
+        width: 280px;
+      }
+      .formContentReg h3 {
+        font-size: 17px !important;
+      }
   }

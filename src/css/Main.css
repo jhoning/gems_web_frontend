@@ -49,14 +49,6 @@ html {
         padding-top: 5px !important;
         padding-bottom: 5px !important;
     }
-    .col-form-label {
-        padding-right: 0px !important;
-        padding-left: 6px !important;
-    }
-    .form-group .col-sm-7 {
-        padding-right: 0px !important;
-        padding-left: 9px !important;
-    }
     .tbo .btn {
         padding: 2px 6px !important;
         font-size: 13px !important; 
@@ -153,9 +145,6 @@ html {
     .foot nav {
         margin: 0 !important;
     }
-    .formContentReg {
-        max-width: 330px !important;
-    }
   }
   @media (max-width: 360px) {
        .header1 {
@@ -167,10 +156,6 @@ html {
     .header1 {
          height: 130px !important;
      }
-     .formContent {
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-    }
 }
 
 .line, .check {

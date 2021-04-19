@@ -330,7 +330,6 @@ h5 {
 
 
 @media (max-width: 800px) {
-
   .formContent {
     margin-top: 4rem;
     margin-bottom: 4rem;
@@ -348,6 +347,14 @@ h5 {
   #formFooter {
     padding: 5px 10px 5px;
   }
+  .col-form-label {
+    padding-right: 0px !important;
+    padding-left: 6px !important;
+}
+.form-group .col-sm-7 {
+    padding-right: 0px !important;
+    padding-left: 9px !important;
+}
 }
 
 
@@ -413,12 +420,10 @@ h5 {
   #login-box {
     padding: 0;
   }
-  .formContentReg {
-    width: 280px;
-  }
-  .formContentReg h3 {
-    font-size: 17px !important;
-  }
+  .formContent {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
   input[type=text], input[type=email], input[type=password] {
     font-size: 14px;
   }
