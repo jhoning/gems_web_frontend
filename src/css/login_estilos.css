@@ -1,6 +1,22 @@
 /* BASIC */
-html {
-  height: 100%;
+
+body {
+  background: url("/src/img/fondo.jpg");
+  background-repeat: no-repeat !important;
+  background-position: center;
+  background-size: cover; 
+  height: 100vh;
+}
+
+body::after {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh !important;
+  background:rgba(25, 25, 26, 0.3);
+  z-index:-1;
 }
 
 label {
@@ -331,7 +347,7 @@ h5 {
     width: 360px;
   }
   body {
-    height: 800px;
+    height: auto;
   }
 .formContent {
   margin-top: 3rem;
