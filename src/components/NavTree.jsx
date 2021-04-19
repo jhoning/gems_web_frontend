@@ -36,7 +36,7 @@ const NavTree = ({idCircuits})=> {
      setTimeout(()=>{
        console.log(arrBoardsInfo)
        setMount(true);
-       console.log('hola olis')
+   /*     console.log('hola olis') */
      },1000)
   
    
@@ -93,31 +93,66 @@ const NavTree = ({idCircuits})=> {
     return aux
   
   }
+  /*esto es provicional  */
+ 
   
+  /*  */
+  const addTree = (value, id1,id2)=>{
+     let aux = value
+    /*  console.log(value)
+     console.log(id1.id) */
+  
+     for (let index = 0; index < aux.length; index++) {
+     if(value[index].key == id1.id){
+     
+        aux[index].children.push({
+          "key": id2,
+          "label": id2,
+          "data": id2,
+          "icon": "pi pi-fw pi-inbox",
+          "children":[],
+      
+        })
+        return aux
+     }else {
+      
+          return addTree(aux[index].children,id1,id2)
+        
+     }
+      
+    } 
+  }
   const finalNavtree = ()=>{
     let aux = []
     let aux2 = []
     let cont = 0
     for (let i = 0;i<arrBoardsInfo.length;i++) {
       if(arrBoardsInfo[i].board_padre == null){
-       cont++
+       aux.push({
+        "key": arrBoardsInfo[i].id,
+        "label": arrBoardsInfo[i].name,
+        "data": arrBoardsInfo[i].name,
+        "icon": "pi pi-fw pi-inbox",
+        "children":[],
+       })
       }
       
     }
-
+    
+ 
     for (let i = 0;i<arrBoardsInfo.length;i++) {
-      aux.push(generarNavTree(arrBoardsInfo[i]))
+   /*     console.log(aux) */
+      if(arrBoardsInfo[i].board_padre != null){
       
-    }
-    
-    for (let i = 0;i<cont;i++) {
-      aux2.push(aux[i])
-       
-    }
+      addTree(aux,arrBoardsInfo[i].board_padre,arrBoardsInfo[i].id)
+
+      }
+    }  
     
     
-    console.log(cont)
-    SetArrBoardsPrincipales(aux2)
+    
+    console.log(aux)
+    SetArrBoardsPrincipales(aux)
     
   }
   
@@ -139,20 +174,14 @@ const NavTree = ({idCircuits})=> {
     
     if (node.label) {
       return (
-        <div  style={{height: '70px',padding: '0px',margin:'0px'}}>
+        <div >
           <span onClick={()=>console.log('ola')}>{node.label}</span>
-          <button className="btn btn-primary btn-sm ml-4 " onClick={()=>{
-      /*     console.log(circuits)
-          obtenerBoard(node.key)
-        
-          crearCircuit(node.key) */
-      }}>C</button>  
           <button className="btn btn-primary btn-sm ml-4 " onClick={()=>{
               registrarBoard(node.key,node.label)
               setMount(false)
-             /*  setBoards(recorre(boards,node.key))
-              crearCircuit(node.key) */
-          }}>+</button>  
+            
+          }}>+</button>   
+         
         </div>
           
       )

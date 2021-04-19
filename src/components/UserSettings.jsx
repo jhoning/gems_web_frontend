@@ -112,8 +112,8 @@ const UserSettings = () => {
                 <div className="form-group">
                   <label htmlFor="Country">{t("userS.country")}</label>
                   {/* <input type="text" name="country" className="form-control in" placeholder={datos.country}  onChange={ e => setDatos({...datos,country: e.target.value}) } /> */}
-                  <select class="form-select pais block" aria-label="Default select example"  >
-                    <option selected  onChange={ e => setDatos({...datos,country: e.target.value}) }>Open this select menu</option>
+                  <select class="form-select pais block" aria-label="Default select example" onChange={ e => setDatos({...datos,country: e.target.value}) }  >
+                    <option selected  value={datos.country}>{datos.country}</option>
                    {/*  <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option> */}
@@ -132,20 +132,20 @@ const UserSettings = () => {
               <div className="col-6">
                 <div className="form-group">
                   <label htmlFor="NewEmail">{t("userS.changeE")}</label>
-                  <input type="email" name="email" className="form-control in" placeholder=""/*  onChange={this.handledChange} */ />
+                  <input type="email" name="email" className="form-control in" placeholder={datos.email}  onChange={e => setDatos({ ...datos, email: e.target.value })} />
                 </div>
               </div>
-              <div className="col-6">
+           {/*    <div className="col-6">
                 <div className="form-group">
                   <label htmlFor="ChangePassword">{t("userS.changeP")}</label>
-                  <input type="password" className="form-control in" placeholder="" />
+                  <input type="password" className="form-control in" placeholder=""  onChange={e => setDatos({ ...datos, password: e.target.value })}/>
                 </div>
-              </div>
+              </div> */}
               <div className="col-4"></div>
-              <div className="col-4"></div>
+              <div className="col-4"><a className="btn btn-primary btn-block mt10" onClick={() => {update();bandera?setBandera(false):setBandera(true);}}>{t("userS.update")}</a></div></div>
               <div className="col-4">
-                <a className="btn btn-primary btn-block mt10" onClick={() => {update();bandera?setBandera(false):setBandera(true)}}>{t("userS.update")}</a></div>
-              <div className="col-4"></div>
+                
+              
             </div>
             </div>
 
