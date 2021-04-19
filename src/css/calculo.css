@@ -212,7 +212,7 @@ body {
 }
 
 .calculoAltoMin {
-    min-height: 75vh;
+    min-height: 73vh;
 }
 
 .scrollInputs {
@@ -357,3 +357,39 @@ td {
     margin-left: 20px;
 }
 
+
+
+@media (max-width: 1024px) {
+
+    .calculoAlto {
+        max-height: 83vh !important;
+        margin-bottom: 15px;
+    }
+    .report {
+        max-height: 83vh;
+    }
+
+  }
+
+  @media (max-width: 800px) {
+    .calculoAlto {
+    max-height: 79vh !important;
+    margin-bottom: 15px;
+    margin-right: 3px;
+    }
+    .calculoAltoMin {
+        min-height: 67vh !important;
+    }
+    .calculoAlto a {
+        font-size: 14px;
+    }
+    .report h2 {
+        font-size: 15px;
+    }
+    .report a {
+        font-size: 14px;
+    }
+    table {
+        font-size: 14px;
+    }
+}

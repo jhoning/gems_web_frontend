@@ -21,9 +21,43 @@
 
     display: inline-block !important;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     width: 100%;
     justify-content: space-between;
+}
+
+@media (max-width: 800px) {
+    .foot {
+        font-size: 14px;
+    }
+    .logo {
+        width: 110px;
+    }
+    .header a{
+        font-size: 14px;
+    }
+    .idioma a {
+        font-size: 14px;
+    }
+    .fondo {
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+    }
+    .col-form-label {
+        padding-right: 0px !important;
+        padding-left: 6px !important;
+    }
+    .form-group .col-sm-7 {
+        padding-right: 0px !important;
+        padding-left: 9px !important;
+    }
+    .btn {
+        padding: 2px 6px !important;
+        font-size: 13px !important; 
+    }
+    h4 {
+        font-size: 14.5px !important;
+    }
 }
 
 .line, .check {
