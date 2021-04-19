@@ -1,4 +1,4 @@
-.header {
+.header, .header1 {
     display: flex;
 }
 
@@ -39,7 +39,7 @@ html {
     .logo {
         width: 110px;
     }
-    .header a{
+    .header a, .header1 a{
         font-size: 14px;
     }
     .idioma a {
@@ -74,19 +74,21 @@ html {
 @media (max-width: 600px) {
     .header {
         display: block !important;
-        height: 80px !important;
+        height: 90px !important;
+    }
+    .header1 {
+        display: block !important;
+        height: 100px !important;
     }
     .logo {
         width: 100px;
+        margin-bottom: .3rem!important;
+        margin-top: .3rem!important;
     }
-    .header h5 {
+    .header h5, .header1 h5 {
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-    .logo {
-        margin-bottom: .1rem!important;
-        margin-top: .1rem!important;
     }
     nav {
         float: left !important;
@@ -109,7 +111,7 @@ html {
         margin-top: .5rem!important;
         margin-left: 10px !important;
     }
-    .header .btn {
+    .header .btn, .header1 .btn {
         line-height: 18px;
     }
 
@@ -131,7 +133,10 @@ html {
     }
 }
 
-@media (max-width: 370px) {
+
+
+
+@media (max-width: 375px) {
     .header {
         display: flex !important;
         height: auto !important;
@@ -148,7 +153,25 @@ html {
     .foot nav {
         margin: 0 !important;
     }
+    .formContentReg {
+        max-width: 330px !important;
+    }
   }
+  @media (max-width: 360px) {
+       .header1 {
+            height: 123px !important;
+        }
+  }
+ 
+  @media (max-width: 320px) {
+    .header1 {
+         height: 130px !important;
+     }
+     .formContent {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+}
 
 .line, .check {
     padding: 3px 0.75rem !important;

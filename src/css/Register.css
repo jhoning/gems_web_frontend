@@ -85,7 +85,7 @@
 
   @media (max-width: 415px) {
     nav {
-        margin-left: 16px !important;
+        margin-left: 0px !important;
     }
   }
 
