@@ -7,8 +7,8 @@ const Footer = () => {
       <div className="d-flex flex-column flex-md-row align-items-center ">
         
         <h5 className="my-0 mr-md-auto"></h5>
-        <nav className="my-2 my-md-0 mr-md-3">
-          <a className="p-2 text-dark" >&copy;T-board</a>
+        <nav className="my-md-0 mr-md-3">
+          <a className="p-2 text-dark board" >&copy;T-board</a>
           <a className="p-2 text-dark" >{t("HeaderT.Terms")}</a>
           <a className="p-2 text-dark" >{t("HeaderT.Privacy")}</a>
           <a className="p-2 text-dark" >{t("HeaderT.Blog")}</a>

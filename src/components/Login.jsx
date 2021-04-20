@@ -134,7 +134,7 @@ const Login = () => {
   
   }
   return (
-    <div className="app">
+    <div className="app logeo">
       <div className="card mx-auto my-8 formContent wrapper fadeInDown">
         <div className="card-body pgl">
           <div id="login-row" className="row justify-content-center align-items-center">

@@ -257,13 +257,13 @@ const MenuTree = ({idCircuits}) => {
             <a class="dropdown-item" id="id_es" >
               <div class="flag-icon-holder">
                 <img class="ban" src={circuit} />
-                <span class="text-dark">Agregar circuito</span>
+                <span class="text-dark">{t("MenuTree.addAppliance")}</span>
               </div>
             </a>
             <a class="dropdown-item" id="id_en" >
               <div class="flag-icon-holder">
                 <img class="ban" src={tab} />
-                <span class="text-dark">Agregar tablero</span>
+                <span class="text-dark">{t("MenuTree.addBoard")}</span>
               </div>
             </a>
           </div>

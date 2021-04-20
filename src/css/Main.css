@@ -1,3 +1,11 @@
+.header, .header1 {
+    display: flex;
+}
+
+html {
+    height: 100vh;
+}
+
 .fondo {
     width: 100%;
     padding-top: 10px !important;
@@ -16,6 +24,159 @@
     bottom: 0;
     line-height: 31px !important;
     height: 35px !important;
+
+    display: inline-block !important;
+    font-weight: 600;
+    font-size: 16px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+@media (max-width: 800px) {
+    .foot {
+        font-size: 14px;
+    }
+    .logo {
+        width: 110px;
+    }
+    .header a, .header1 a{
+        font-size: 14px;
+    }
+    .idioma a {
+        font-size: 14px;
+    }
+    .fondo {
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+    }
+    .tbo .btn {
+        padding: 2px 6px !important;
+        font-size: 13px !important; 
+    }
+    h3 {
+        font-size: 22px !important;
+    }
+    h4 {
+        font-size: 14.5px !important;
+    }
+}
+
+
+
+@media (max-width: 600px) {
+    .header {
+        display: block !important;
+        height: 90px !important;
+    }
+    .header1 {
+        display: block !important;
+        height: 90px !important;
+    }
+    .logo {
+        width: 100px;
+        margin-bottom: .3rem!important;
+        margin-top: .3rem!important;
+    }
+    .header h5, .header1 h5 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    nav {
+        float: left !important;
+        margin-left: 0px !important;
+    }
+    .navbar-nav {
+        width: 100px !important;
+        float: left !important;
+    }
+    .nav-link {
+        padding: .6rem 10px !important;
+    }
+    .ban {
+        width: 18px !important;
+        margin-right: 6px !important;
+    }
+    .btn-outline-light {
+        float: left !important;
+        margin-bottom: .5rem!important;
+        margin-top: .5rem!important;
+        margin-left: 10px !important;
+    }
+    .header .btn, .header1 .btn {
+        line-height: 18px;
+    }
+
+}
+
+@media (max-width: 450px) {
+    .nav-link {
+        padding-left: 2px !important;
+        padding-right: 0px !important;
+    }
+    #root {
+        background: #f5fbff;
+    }
+    .header .btn {
+        margin-left: -7px !important;
+    }
+    nav {
+        margin-left: 0px !important;
+    }
+    .small, small {
+        font-size: 76% !important;
+    }
+    .foot {
+        font-size: 13px;
+    }
+    .logo {
+        width: 90px;
+    }
+    .idioma .nav-link {
+        padding: 0px 10px !important;
+    }
+    .tbo .col-2 {
+        max-width: 20% !important;
+    }
+    .vt {
+        max-width: 80% !important;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+@media (max-width: 375px) {
+    .header {
+        display: flex !important;
+        height: auto !important;
+    }
+    .header1 {
+        display: block !important;
+        height: 90px !important;
+    } 
+    .nav-link {
+        padding: 5px !important;
+    }
+    .header .btn-outline-light {
+        margin: 5px !important;
+    }
+    .foot nav {
+        margin: 0 !important;
+    }
+  }
+  @media (max-width: 360px) {
+       .header1 {
+            height: 123px !important;
+        }
+        .foot {
+            font-size: 12px;
+        }
+  }
+ 
+  @media (max-width: 320px) {
+    .header1 {
+         height: 130px !important;
+     }
 }
 
 .line, .check {

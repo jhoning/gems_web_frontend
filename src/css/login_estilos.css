@@ -1,22 +1,22 @@
 /* BASIC */
 
 body {
-    background: url("/src/img/fondo.jpg");
-    background-repeat: no-repeat !important;
-    background-position: center;
-    background-size: cover; 
-    height: 100%;
+  background: url("/src/img/fondo.jpg");
+  background-repeat: no-repeat !important;
+  background-position: center;
+  background-size: cover; 
+  height: 100vh;
 }
 
 body::after {
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(25, 25, 26, 0.3);
-    z-index:-1;
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh !important;
+  background:rgba(25, 25, 26, 0.3);
+  z-index:-1;
 }
 
 label {
@@ -36,7 +36,8 @@ label {
   outline: 0;
   padding: 40px 0px 0px !important;
   border-top: 3px solid #28a745 !important;
-  margin-top: 4rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
   border-radius: 0 0 10px 10px;
 }
 
@@ -324,4 +325,110 @@ h5 {
 
 .f13 {
   font-size: 90%;
+}
+
+
+
+@media (max-width: 800px) {
+  .formContent {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    padding: 25px 0px 0px !important;
+  }
+  #formFooter a {
+    font-size: 14px;
+  }
+  .formContentReg .text-center {
+    margin-bottom: 8px !important;
+  }
+  .reg {
+    padding: 10px 20px !important;
+  }
+  #formFooter {
+    padding: 5px 10px 5px;
+  }
+  .col-form-label {
+    padding-right: 0px !important;
+    padding-left: 6px !important;
+}
+.form-group .col-sm-7 {
+    padding-right: 0px !important;
+    padding-left: 9px !important;
+}
+}
+
+
+@media (max-width: 570px) {
+  input[type=text], input[type=email], input[type=password] {
+    font-size: 15px;
+  }
+  .formContentReg {
+    width: 360px;
+  }
+  body {
+    height: auto;
+  }
+  #login-box h5 {
+    font-size: 22px;
+  }
+  .logo {
+    width: 105px;
+}
+.foot {
+  line-height: 20px !important;
+}
+.f13 {
+  font-size: 88%;
+}
+#formFooter a {
+  font-size: 14px;
+}
+}
+
+
+@media (max-width: 378px) {
+  .p-0 {
+    padding: 0;
+  }
+  .formContent {
+    width: 318px;
+    padding: 15px 0px 0px !important;
+  }
+  input[type=text], input[type=email], input[type=password] {
+    padding: 15px 10px 15px 15px;
+  }
+  #login-box h3 {
+    margin-bottom: 1rem!important;
+  }
+  .board {
+    position: absolute;
+    display: none;
+  }
+  .reg {
+    padding: 15px 5px;
+    margin: 0 !important;
+}
+.formContentReg h3 {
+  font-size: 20px;
+}
+}
+
+@media (max-width: 325px) {
+  .formContent {
+    width: 280px;
+  }
+  #login-box {
+    padding: 0;
+  }
+  .formContent {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+  input[type=text], input[type=email], input[type=password] {
+    font-size: 14px;
+  }
+  small {
+    font-size: 73% !important;
+    font-weight: 400;
+}
 }

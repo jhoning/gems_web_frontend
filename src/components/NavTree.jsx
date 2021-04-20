@@ -5,6 +5,9 @@ import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import BoardMenu from './BoardMenu'
+import circuit from '../img/icon1.svg';
+import tab from '../img/iconplus.svg';
+import plus from '../img/plus.svg';
 import '../css/tree-nav.css'
 import circuit from '../img/icon1.svg';
 import tab from '../img/iconplus.svg';
@@ -21,7 +24,7 @@ const authAxios = axios.create({
 })  
 
 const NavTree = ({idCircuits})=> {
-
+  const [t] = useTranslation("global")
   const [arrBoards,SetArrBoards] = useState()
   const [arrBoardsInfo,SetArrBoardsInfo] = useState([])
   const [arrBoardsPrincipales,SetArrBoardsPrincipales] = useState([])
@@ -197,18 +200,18 @@ const NavTree = ({idCircuits})=> {
           </a> 
 
         <div class="dropdown-menu dropdown-menu-left navbar-dropdown py-2" aria-labelledby="LanguageDropdown">
-          <a class="dropdown-item" id="id_es" >
-            <div class="flag-icon-holder">
-              <img class="ban" src={circuit} />
-              <span class="text-dark">Agregar circuito</span>
-            </div>
-          </a>
-          <a class="dropdown-item" id="id_en" >
-            <div class="flag-icon-holder">
-              <img class="ban" src={tab} />
-              <span class="text-dark">Agregar tablero</span>
-            </div>
-          </a>
+        <a class="dropdown-item" id="id_es" >
+              <div class="flag-icon-holder">
+                <img class="ban" src={circuit} />
+                <span class="text-dark">{t("MenuTree.addAppliance")}</span>
+              </div>
+            </a>
+            <a class="dropdown-item" id="id_en" >
+              <div class="flag-icon-holder">
+                <img class="ban" src={tab} />
+                <span class="text-dark">{t("MenuTree.addBoard")}</span>
+              </div>
+            </a>
         </div>
       </li>
     </ul>
@@ -223,7 +226,7 @@ const NavTree = ({idCircuits})=> {
         registrarBoard1()
         setMount(false)
 
-      }}>Agregar Board</button>
+      }}>{t("MenuTree.addBoard")}</button>
       <Tree value={arrBoardsPrincipales} nodeTemplate={nodeTemplate} className="mx-0" />
     </>
   )

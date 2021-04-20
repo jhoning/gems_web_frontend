@@ -7,15 +7,20 @@
     position: relative !important;
     box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
     margin-bottom: 60px;
+    margin-top: 4rem;
 }
 
 .reg {
     padding: 20px;
+    margin: 0 !important;
 }
 
 .card-body {
     flex: 1 1 auto;
     min-height: 1px;
+}
+.form-text {
+    text-align: justify;
 }
 
 .p {
@@ -56,4 +61,48 @@
   .botonReg:hover {
     background-color: #053a55 !important;
     color: white;
+  }
+
+  @media (max-width: 800px) {
+    .formContentReg 
+    {
+        margin-top: 3rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .formContentReg 
+    {
+        margin-top: 1.5rem;
+    }
+    h3 {
+        font-size: 20px !important;
+    }
+    nav {
+        margin-left: 0px !important;
+    }
+  }
+
+  @media (max-width: 375px) {
+       .formContentReg {
+            max-width: 330px !important;
+        } 
+        .formContent {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+  }
+
+
+  @media (max-width: 325px) {
+    .reg input 
+    {
+        font-size: 12px !important;
+    }
+    .formContentReg {
+        width: 280px;
+      }
+      .formContentReg h3 {
+        font-size: 17px !important;
+      }
   }

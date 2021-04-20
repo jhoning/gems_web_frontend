@@ -181,6 +181,7 @@ body {
 .report {
     position: relative !important;
     border-radius: 6px;
+    max-height: 80vh;
     height: 100%;
     border: none;
     margin-top: 15px !important;
@@ -190,7 +191,7 @@ body {
 }
 
 .calculoAlto {
-    max-height: 85vh;
+    max-height: 80vh;
     position: relative;
     background: #fefefe;
     padding: 10px;
@@ -211,7 +212,7 @@ body {
 }
 
 .calculoAltoMin {
-    min-height: 75vh;
+    min-height: 73vh;
 }
 
 .scrollInputs {
@@ -263,7 +264,7 @@ hr {
 
 .gb {
     background: #3d6173 !important;
-    height: 100vh;
+    height: 90vh;
     padding-right: 0 !important;
     max-width: 18% !important;
     padding: 10px !important;
@@ -356,3 +357,39 @@ td {
     margin-left: 20px;
 }
 
+
+
+@media (max-width: 1024px) {
+
+    .calculoAlto {
+        max-height: 83vh !important;
+        margin-bottom: 15px;
+    }
+    .report {
+        max-height: 83vh;
+    }
+
+  }
+
+  @media (max-width: 800px) {
+    .calculoAlto {
+    max-height: 79vh !important;
+    margin-bottom: 15px;
+    margin-right: 3px;
+    }
+    .calculoAltoMin {
+        min-height: 67vh !important;
+    }
+    .calculoAlto a {
+        font-size: 14px;
+    }
+    .report h2 {
+        font-size: 15px;
+    }
+    .report a {
+        font-size: 14px;
+    }
+    table {
+        font-size: 14px;
+    }
+}

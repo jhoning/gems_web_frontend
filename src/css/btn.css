@@ -151,3 +151,13 @@
 .p-tree .p-tree-container .p-treenode {
     padding: 0.143rem 0 0 4px !important;
 }
+
+@media (max-width: 500px) {
+    .calculoAlto {
+        width: 70% !important;
+        margin-top: 0px !important;
+    }
+    .calculoAlto {
+        max-height: 40vh !important;
+    }
+}
