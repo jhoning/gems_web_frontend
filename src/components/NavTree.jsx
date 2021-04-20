@@ -27,7 +27,7 @@ const NavTree = ({idCircuits})=> {
   const [arrBoardsPrincipales,SetArrBoardsPrincipales] = useState([])
   const [bandera, setBandera] = useState(false)
   const [mount, setMount] = useState(false)
-  
+  const [t] = useTranslation("global")
   useEffect(() => {
    
       infoProject();
