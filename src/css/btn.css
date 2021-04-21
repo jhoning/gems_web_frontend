@@ -154,10 +154,22 @@
 
 @media (max-width: 500px) {
     .calculoAlto {
-        width: 70% !important;
+        width: 69% !important;
         margin-top: 0px !important;
     }
     .calculoAlto {
         max-height: 40vh !important;
+    }
+}
+
+@media (max-width: 430px) {
+    .w30 {
+        height: 40vh !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .help {
+        width: 30px;
     }
 }

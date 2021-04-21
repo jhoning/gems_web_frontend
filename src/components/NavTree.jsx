@@ -8,7 +8,11 @@ import BoardMenu from './BoardMenu'
 import circuit from '../img/icon1.svg';
 import tab from '../img/iconplus.svg';
 import plus from '../img/plus.svg';
+<<<<<<< HEAD
 import '../css/tree-nav.css';
+=======
+import '../css/tree-nav.css'
+>>>>>>> 8e538c01c68da8bf7c5d2bed7d1481dcffb78b85
 import '../../node_modules/react-simple-tree-menu/dist/main.css';
 import { Tree } from 'primereact/tree';
 
