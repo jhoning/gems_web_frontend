@@ -70,7 +70,7 @@ html {
     }
     .header1 {
         display: block !important;
-        height: 120px !important;
+        height: 90px !important;
     }
     .logo {
         width: 100px;
@@ -84,6 +84,7 @@ html {
     }
     nav {
         float: left !important;
+        margin-left: 0px !important;
     }
     .navbar-nav {
         width: 100px !important;
@@ -120,7 +121,11 @@ html {
         margin-left: -7px !important;
     }
     nav {
-        margin-left: 20px ;
+        margin-left: 0px !important;
+        width: 50px;
+    }
+    .nav-link span {
+        display: none !important;
     }
     .small, small {
         font-size: 76% !important;
