@@ -37,7 +37,7 @@ const Calculate = () => {
       }
   }
   return (
-    <div>
+    <div class="gray">
       <Header />
       <div className="container-fluid tbo">
         <div className="row ">
