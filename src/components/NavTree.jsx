@@ -8,10 +8,7 @@ import BoardMenu from './BoardMenu'
 import circuit from '../img/icon1.svg';
 import tab from '../img/iconplus.svg';
 import plus from '../img/plus.svg';
-import '../css/tree-nav.css'
-import circuit from '../img/icon1.svg';
-import tab from '../img/iconplus.svg';
-import plus from '../img/plus.svg';
+import '../css/tree-nav.css';
 import '../../node_modules/react-simple-tree-menu/dist/main.css';
 import { Tree } from 'primereact/tree';
 
@@ -30,7 +27,7 @@ const NavTree = ({idCircuits})=> {
   const [arrBoardsPrincipales,SetArrBoardsPrincipales] = useState([])
   const [bandera, setBandera] = useState(false)
   const [mount, setMount] = useState(false)
-  const [t] = useTranslation("global")
+ 
   useEffect(() => {
    
       infoProject();

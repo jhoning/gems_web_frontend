@@ -19,8 +19,8 @@ const Register = () => {
     await axios.get(`http://localhost:4000/country`).then(res => {setPaises(res.data)}).catch(err => console.log(err))
   }
   const registrar = async () => {
-    
-    await axios.post('http://localhost:4000/user', form)
+    console.log(form)
+    await axios.post('http://localhost:4000/auth/register', form)
     .then(resolve => {
         alert(`${t("Alerts.register")}`)
         history.push("/")

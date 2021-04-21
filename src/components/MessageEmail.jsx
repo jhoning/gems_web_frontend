@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
+import { useParams } from "react-router";
 import '../css/login_estilos.css'
 import { useTranslation } from 'react-i18next';
 import mail from '../img/mail.png'
@@ -8,7 +9,10 @@ import Footer from './Footer';
 const MessageEmail = () => { 
 
   const [t] = useTranslation("global")
-
+  useEffect(() => {
+    
+    
+  }, [])
   return ( 
     <div className="app">
       <Header/>
