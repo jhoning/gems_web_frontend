@@ -78,9 +78,6 @@
     h3 {
         font-size: 20px !important;
     }
-    nav {
-        margin-left: 0px !important;
-    }
   }
 
   @media (max-width: 375px) {

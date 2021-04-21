@@ -125,9 +125,11 @@ html {
         margin-left: 3px !important;
     }
     .header1 nav {
-        margin-left: 50px !important;
         width: 50px;
     }
+    nav {
+        margin-left: 50px !important;
+    }   
     .header1 .nav-link span {
         display: none !important;
     }
@@ -154,8 +156,11 @@ html {
 }
 
 @media (max-width: 420px){
-    .header1 nav {
+    .header nav {
         margin-left: 25px !important;
+    }
+    .header1 nav {
+        margin-left: 30px !important;
     }
 }
 
@@ -182,14 +187,8 @@ html {
     }
   }
   @media (max-width: 360px) {
-       /* .header1 {
-            height: 123px !important;
-        } */
         .foot {
             font-size: 12px;
-        }
-        .header1 nav {
-            margin-left: -3px !important;
         }
   }
  
