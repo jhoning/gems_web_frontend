@@ -64,6 +64,10 @@ html {
 
 
 @media (max-width: 600px) {
+    .header .idioma {
+        margin-bottom: .5rem!important;
+        margin-top: .6rem !important;
+    }
     .header {
         display: block !important;
         height: 90px !important;
@@ -118,13 +122,13 @@ html {
         background: #f5fbff;
     }
     .header .btn {
-        margin-left: -7px !important;
+        margin-left: 3px !important;
     }
-    nav {
-        margin-left: 0px !important;
+    .header1 nav {
+        margin-left: 50px !important;
         width: 50px;
     }
-    .nav-link span {
+    .header1 .nav-link span {
         display: none !important;
     }
     .small, small {
@@ -149,6 +153,12 @@ html {
     }
 }
 
+@media (max-width: 420px){
+    .header1 nav {
+        margin-left: 25px !important;
+    }
+}
+
 @media (max-width: 375px) {
     .header {
         display: flex !important;
@@ -167,13 +177,19 @@ html {
     .foot nav {
         margin: 0 !important;
     }
+    .header1 nav {
+        margin-left: 10px !important;
+    }
   }
   @media (max-width: 360px) {
-       .header1 {
+       /* .header1 {
             height: 123px !important;
-        }
+        } */
         .foot {
             font-size: 12px;
+        }
+        .header1 nav {
+            margin-left: -3px !important;
         }
   }
  
@@ -181,6 +197,10 @@ html {
     .header1 {
          height: 130px !important;
      }
+     .header1 .btn {
+        margin-left: 0px !important;
+    }
+
 }
 
 .line, .check {
