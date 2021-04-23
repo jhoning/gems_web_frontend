@@ -190,6 +190,12 @@ html {
         .foot {
             font-size: 12px;
         }
+        .header1 {
+         height: 130px !important;
+     }
+     .calculoAlto {
+    width: 62% !important;
+}
   }
  
   @media (max-width: 320px) {

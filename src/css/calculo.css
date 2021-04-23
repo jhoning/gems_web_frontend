@@ -393,3 +393,55 @@ td {
         font-size: 14px;
     }
 }
+
+@media (max-width: 500px) {
+    .grid {
+        display: grid !important;
+    }
+    .tbo .col-2 {
+        max-width: 85% !important;
+        max-height: 30vh;
+        overflow-x: scroll;
+    }
+    .overflow-auto {
+        width: 85% !important;
+    }
+    .report {
+        width: 85% !important;
+    }
+}
+
+@media (max-width: 414px) {
+    .grid {
+        display: grid !important;
+    }
+    .tbo .col-2 {
+        max-width: 80% !important;
+        max-height: 30vh;
+        overflow-x: scroll;
+    }
+    .overflow-auto {
+        width: 80% !important;
+    }
+    .report {
+        width: 80% !important;
+    }
+}
+
+
+@media (max-width: 375px) {
+    .grid {
+        display: grid !important;
+    }
+    .tbo .col-2 {
+        max-width: 73% !important;
+        max-height: 30vh;
+        overflow-x: scroll;
+    }
+    .overflow-auto {
+        width: 73% !important;
+    }
+    .report {
+        width: 73% !important;
+    }
+}
