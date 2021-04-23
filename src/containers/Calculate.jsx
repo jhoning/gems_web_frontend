@@ -40,7 +40,7 @@ const Calculate = () => {
     <div class="gray">
       <Header />
       <div className="container-fluid tbo">
-        <div className="row ">
+        <div className="row grid">
           <div className="col-2 gb">
             <MenuTree idCircuits={id} />
           </div>
