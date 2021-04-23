@@ -445,3 +445,20 @@ td {
         width: 73% !important;
     }
 }
+
+@media (max-width: 325px) {
+    .grid {
+        display: grid !important;
+    }
+    .tbo .col-2 {
+        max-width: 65% !important;
+        max-height: 30vh;
+        overflow-x: scroll;
+    }
+    .overflow-auto {
+        width: 65% !important;
+    }
+    .report {
+        width: 65% !important;
+    }
+}
