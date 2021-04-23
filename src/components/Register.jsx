@@ -19,8 +19,8 @@ const Register = () => {
     await axios.get(`http://localhost:4000/country`).then(res => {setPaises(res.data)}).catch(err => console.log(err))
   }
   const registrar = async () => {
-    
-    await axios.post('http://localhost:4000/user', form)
+    console.log(form)
+    await axios.post('http://localhost:4000/auth/register', form)
     .then(resolve => {
         alert(`${t("Alerts.register")}`)
         history.push("/")
@@ -113,7 +113,7 @@ const Register = () => {
                 <input className="form-control" name="username" type="text" placeholder={t("Header.username")} onChange={ e => setForm({...form,username: e.target.value})} />
               </div>
               <div className="form-group col-md-6 p ">
-                <input className="form-control" id="email" name="email" type="email" placeholder={t("Header.email")} onChange={ e => {setForm({...form,email: e.target.value}); validarMail(form.email)}} />
+                <input className="form-control" id="email" name="email" type="email" placeholder={t("Header.email")} onChange={ e => {setForm({...form,email: e.target.value}); validarMail(e.target.value)}} />
                 {/* <div class="valid-feedback">{t("userS.eMes")}</div> */}
                 <div class="invalid-feedback inRegis">{t("userS.eInvalid")}</div>
               </div>

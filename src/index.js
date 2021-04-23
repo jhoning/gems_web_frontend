@@ -9,11 +9,14 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-
-    <Routes/>
+       <BrowserRouter >
+       <Routes/>
+       </BrowserRouter >
+   
 
   </React.StrictMode>,
   document.getElementById('root')

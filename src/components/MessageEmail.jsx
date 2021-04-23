@@ -1,14 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
+import { useParams } from "react-router";
 import '../css/login_estilos.css'
 import { useTranslation } from 'react-i18next';
 import mail from '../img/mail.png'
-import axios from 'axios'
+import axios from 'axios';
 import Header from './Header';
 import Footer from './Footer';
+import { useHistory } from 'react-router';
+
 const MessageEmail = () => { 
-
+  const history = useHistory();
   const [t] = useTranslation("global")
-
+  let { token } = useParams(); 
+  const authAxios = axios.create({
+    baseURL: 'http://localhost:4000',
+    headers: {
+      "confirm": `${token}`
+    }
+  })  
+  useEffect(() => {
+    confirm()
+  }, [])
+  const confirm = async()=>{
+    await authAxios.post('/auth/verifyUser')
+  }
   return ( 
     <div className="app">
       <Header/>
@@ -25,7 +40,7 @@ const MessageEmail = () => {
                     <p class="mensaje">{t("userS.message")}</p>
 
                   <div className="form-group text-center mt-3">
-                    <button  className="boton btn btn-primary">{t("Header.access")}</button>
+                    <button  className="boton btn btn-primary" onClick={()=>history.push("/")}>{t("Header.access")}</button>
                   </div>
              
               </div>

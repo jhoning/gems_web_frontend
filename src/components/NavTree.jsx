@@ -1,5 +1,4 @@
 import React from 'react'
-import Tab from './Tab'
 import TreeMenu from 'react-simple-tree-menu';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react'
@@ -27,7 +26,7 @@ const NavTree = ({idCircuits})=> {
   const [arrBoardsPrincipales,SetArrBoardsPrincipales] = useState([])
   const [bandera, setBandera] = useState(false)
   const [mount, setMount] = useState(false)
-  
+ 
   useEffect(() => {
    
       infoProject();
