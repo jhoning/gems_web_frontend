@@ -157,7 +157,7 @@ html {
 
 @media (max-width: 420px){
     .header nav {
-        margin-left: 25px !important;
+        margin-left: 20px !important;
     }
     .header1 nav {
         margin-left: 30px !important;

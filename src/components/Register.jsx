@@ -100,50 +100,65 @@ const Register = () => {
             <form onSubmit={submitHandler}>
 
             <div className="col-md-12 p display">
-              <div className="form-group col-md-6 p margen">
-                <input className="form-control" name="first_name" type="text" placeholder={t("userS.firstN")} onChange={ e => setForm({...form,first_name: e.target.value})}  />
+              <div class="form__div col-md-6 p margen">
+                <input type="text" name="first_name" class="form__input" placeholder=" " onChange={ e => setForm({...form,first_name: e.target.value})} />
+                <label for="" class="form__label">{t("userS.firstN")}</label>
               </div>
-              <div className="form-group col-md-6 p">
-                <input className="form-control" name="last_name" type="text" placeholder={t("userS.lastN")} onChange={ e => setForm({...form,last_name: e.target.value})} />
+
+              <div class="form__div col-md-6 p">
+                <input type="text" name="last_name" class="form__input" placeholder=" " onChange={ e => setForm({...form,last_name: e.target.value})} />
+                <label for="" class="form__label">{t("userS.lastN")}</label>
               </div>
             </div>
             
             <div className="col-md-12 p display">
-              <div className="form-group col-md-6 p margen">
-                <input className="form-control" name="username" type="text" placeholder={t("Header.username")} onChange={ e => setForm({...form,username: e.target.value})} />
+              <div class="form__div col-md-6 p margen">
+                <input type="text" name="username" class="form__input" placeholder=" " onChange={ e => setForm({...form,username: e.target.value})} />
+                <label for="" class="form__label">{t("Header.username")}</label>
               </div>
-              <div className="form-group col-md-6 p ">
-                <input className="form-control" id="email" name="email" type="email" placeholder={t("Header.email")} onChange={ e => {setForm({...form,email: e.target.value}); validarMail(e.target.value)}} />
-                {/* <div class="valid-feedback">{t("userS.eMes")}</div> */}
+
+              <div class="form__div col-md-6 p">
+                <input type="email" id="email" name="email" class="form__input" placeholder=" " onChange={ e => {setForm({...form,email: e.target.value}); validarMail(e.target.value)}} />
+                <label for="" class="form__label">{t("Header.email")}</label>
                 <div class="invalid-feedback inRegis">{t("userS.eInvalid")}</div>
               </div>
             </div>
               
             <div className="col-md-12 p display">
-              <div className="form-group col-md-6 p margen">
-                <input className="form-control password1" id="password" name="password" type="password" placeholder={t("Header.password")} onChange={ e => {setForm({...form,password: e.target.value}); validar(form.password)}}  />
+              <div class="form__div col-md-6 p margen">
+                <input type="password" id="password" name="password" class="pass form__input form-control password1" placeholder=" " onChange={ e => {setForm({...form,password: e.target.value}); validar(form.password)}} />
+                <label for="" class="form__label">{t("Header.password")}</label>
                 <span class="fa fa-fw fa-eye-slash password-icon show-password eye regEye"></span>
-                {/* <div class="valid-feedback">{t("userS.sMes")}</div> */}
                 <div class="invalid-feedback invalidR">{t("userS.invalid")}</div>
-              </div>
-              <div className="col-md-6 p0">
-                <select class="custom-select custom-select p5"  autocomplete="off">
-                  {
-                    paises.map(item=> <option selected>{item.code + item.prefix}</option>)
-                  }
-                
-                </select>
-                <input className="form-control w31" name="profesionalID" type="text" placeholder={t("userS.phone")} onChange={ e => setForm({...form,phone: e.target.value})}/>
+            </div>
+
+              <div className="col-md-6 p0 df phone">
+                <div class="col-md-3">
+                  <select class="custom-select custom-select f-l mt0 form__input h4"  autocomplete="off">
+                    {
+                      paises.map(item=> <option selected>{item.code + item.prefix}</option>)
+                    }
+                  </select>
+                  <label for="" class="form__label">Cod.</label>
                 </div>
+                
+                <div class="col-md-10 ml-7">
+                  <div class="form__div p">
+                    <input type="text" name="profesionalID" class="form__input" placeholder=" " onChange={ e => setForm({...form,phone: e.target.value})} />
+                    <label for="" class="form__label">{t("userS.phone")}</label>
+                  </div>
+                </div>
+                
               </div>
+            </div>
 
             <div className="col-md-12 p display">
-              <div className="form-group col-md-6 p margen">
-                <input className="form-control" name="profesionalID" type="text" placeholder={t("userS.professionalID")} onChange={ e => setForm({...form,profesionalID: e.target.value})} />
+              <div class="form__div col-md-6 p">
+                <input type="text" name="profesionalID" class="form__input" placeholder=" " onChange={ e => setForm({...form,profesionalID: e.target.value})} />
+                <label for="" class="form__label">{t("userS.professionalID")}</label>
               </div>
             </div>
               
-
               <input type="submit" className="botonReg btn btn-primary" value={t("Header.register")} onClick={()=>registrar()}/>
               <small className="form-text text-muted">
               {t("userS.fText1")} <a href="">{t("userS.terms")}</a> {t("userS.fText2")} <a href="">{t("userS.pState")}</a>

@@ -124,6 +124,8 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
     setReport({...report, feeder_include_neutral_wire:e.target.value});
   }
 
+  
+
   return (
     <div className="w30 overflow-auto calculoAlto" id="reporte">
       <div  autocomplete="off">
@@ -136,6 +138,8 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
       <div className="container mb-1 ">
         <h3 className="text-center mb-0 p-0 mt-2 color">{t("InputsC.sAppliance")}</h3>
    
+   
+
          <hr />
         <h4 className="text-left mb-3 mt-0 bordeColor color">{t("InputsC.cSettings")}</h4>
         <div className="form-group row my-1 se">

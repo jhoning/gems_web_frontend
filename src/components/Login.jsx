@@ -13,7 +13,7 @@ const Login = () => {
   const [login, setLogin] = useState({ email: "", password: "" });
   const [t] = useTranslation("global")
   useEffect(() => {
-    puntero()
+    puntero() 
   }, [])
   const logear = async () => {
 
@@ -140,25 +140,30 @@ const Login = () => {
           <div id="login-row" className="row justify-content-center align-items-center">
             <div id="login-column" className="col-md-12 mb1">
               <div id="login-box" className="col-md-12">
-                <h3 className="text-center mb-4">{t("Header.logeo")}</h3>
-                <form onSubmit={submitHandler} id="formulario">
+                <h3 className="text-center mb2">{t("Header.logeo")}</h3>
+                <form onSubmit={submitHandler} id="formulario" class="logeo">
                   <div className="container">
-
-                    <div class="form-group ">
+                    {/* <div class="form-group ">
                       <i class="fa fa-user"></i>
                       <input type="text" name="email" id="email" placeholder={t("Header.example")}  className="form-control"  onChange={e => handlePaste(e)} />
-                      {/* <div class="valid-feedback">{t("userS.eMes")}</div> */}
                       <div class="invalid-feedback">{t("userS.eInvalid")}</div>
+                      <div class="valid-feedback">{t("userS.eMes")}</div>
+                    </div> */}
+
+                    <div class="form__div ">
+                        <i class="fa fa-user"></i>
+                        <input type="email" name="email" id="email"  class="form__input form-control" placeholder=" " onChange={e => handlePaste(e)} />
+                        <label for="" class="form__label">{t("Header.email")}</label>
+                        <div class="invalid-feedback">{t("userS.eInvalid")}</div>
                     </div>
 
-                    <div className="form-group has-danger">
-                      <i className="fa fa-lock"></i>
-                      <input type="password" name="password" id="password" placeholder='***************' autocomplete="off" className="form-control password1 " onChange={e => { setLogin({ ...login, password: e.target.value })}} />
-                      <span class="fa fa-fw fa-eye-slash password-icon show-password eye"></span>
-                      {/* <div class="valid-feedback">{t("userS.sMes")}</div>
-                      <div class="invalid-feedback">{t("userS.invalid")}</div> */}
-
+                    <div class="form__div mb1">
+                        <i class="fa fa-lock"></i>
+                        <input type="password" name="password" id="password" class="form__input password1" placeholder=" " onChange={e => { setLogin({ ...login, password: e.target.value })}} />
+                        <label for="" class="form__label">{t("Header.password")}</label>
+                        <span class="fa fa-fw fa-eye-slash password-icon show-password eye lg3"></span>
                     </div>
+
                     <div className="form-group text-center mt-3">
                       <button className="boton btn btn-primary " onClick={() => {logear();console.log(login)}}>{t("Header.submitt")} </button>
 
