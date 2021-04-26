@@ -31,6 +31,12 @@ html {
     width: 100%;
     justify-content: space-between;
 }
+
+.yep .row {
+    margin-right: -15px !important;
+    margin-left: -15px !important;
+}
+
 .row {
     margin-right: 0 !important;
     margin-left: 0 !important;
@@ -198,17 +204,17 @@ html {
     .header1 nav {
         margin-left: 10px !important;
     }
+    .calculoAlto {
+        width: 62% !important;
+    }
   }
   @media (max-width: 360px) {
         .foot {
             font-size: 12px;
         }
         .header1 {
-         height: 130px !important;
-     }
-     .calculoAlto {
-    width: 62% !important;
-}
+            height: 130px !important;
+        }
   }
  
   @media (max-width: 320px) {

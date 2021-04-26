@@ -39,7 +39,7 @@ const Calculate = () => {
   return (
     <div class="gray">
       <Header />
-      <div className="container-fluid tbo">
+      <div className="container-fluid tbo yep">
         <div className="row grid">
           <div className="col-2 gb">
             <MenuTree idCircuits={id} />
