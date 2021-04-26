@@ -31,6 +31,10 @@ html {
     width: 100%;
     justify-content: space-between;
 }
+.row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
 
 @media (max-width: 800px) {
     .foot {
@@ -95,7 +99,7 @@ html {
         float: left !important;
     }
     .nav-link {
-        padding: .6rem 10px !important;
+        padding: .5rem 1rem .2rem .3rem;
     }
     .ban {
         width: 18px !important;
@@ -149,9 +153,12 @@ html {
         max-width: 20% !important;
     }
     .vt {
-        max-width: 80% !important;
+        max-width: 75% !important;
         padding: 0;
         margin: 0;
+    }
+    .jumbotron .col-6 {
+        padding: 0;
     }
 }
 
@@ -162,12 +169,18 @@ html {
     .header1 nav {
         margin-left: 30px !important;
     }
+    .sidebar-sticky {
+        display: block;
+    }
 }
 
 @media (max-width: 375px) {
     .header {
         display: flex !important;
         height: auto !important;
+    }
+    .nav-link {
+        padding: 5px 0 5px 0 !important;
     }
     .header1 {
         display: block !important;

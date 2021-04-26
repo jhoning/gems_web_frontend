@@ -74,7 +74,7 @@ const T_board = () => {
     <div className="container-fluid tbo">
       <div className=" mb-3">
         <div className="row" >
-          <nav className="col-2 col-md-2 col-sm-2 gris sidebar altoCompleto mx-0">
+          <nav className="col-3 col-md-2 col-sm-2 gris sidebar altoCompleto mx-0">
             <div className="sidebar-sticky sideBar board text-center" >
               <ul className="nav flex-column text-left">
 
