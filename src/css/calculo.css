@@ -358,7 +358,6 @@ td {
 }
 
 
-
 @media (max-width: 1024px) {
 
     .calculoAlto {
@@ -434,15 +433,15 @@ td {
         display: grid !important;
     }
     .tbo .col-2 {
-        max-width: 73% !important;
+        max-width: 75% !important;
         max-height: 30vh;
         overflow-x: scroll;
     }
     .overflow-auto {
-        width: 73% !important;
+        width: 75% !important;
     }
     .report {
-        width: 73% !important;
+        width: 75% !important;
     }
 }
 

@@ -2,8 +2,11 @@ import React from 'react'
 import '../css/calculo.css'
 import { useTranslation } from 'react-i18next';
 import '../css/userSettings.css'
+import '../css/sweetalert2.min.css'
 import {useState,useEffect} from 'react'
 import axios from 'axios'
+const Swal = require('sweetalert2')
+
 const InputsCalculate = ({values,setValues,setArr,arr}) => {
   const [respuesta,setRespuesta] = useState({
     current: "0",
@@ -62,6 +65,19 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
 
       }
   }
+
+  const alert = () => {
+    Swal.fire({
+      title: `${t("Alerts.mCal")}`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: `${t("Option.accept")}`,
+      cancelButtonText: `${t("Option.cancel")}`
+    })
+  }
+
   const handlePipe_material = (e) => {
     
     setReport({...report,pipe_material:parseInt(e.target.value)});
@@ -135,11 +151,10 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         </a>
     {/* <button className="btn btn-primary " onClick={() => amp()}> Ver </button> */}
 
+    <button onClick={() => alert()}>Alerta</button>
+
       <div className="container mb-1 ">
         <h3 className="text-center mb-0 p-0 mt-2 color">{t("InputsC.sAppliance")}</h3>
-   
-   
-
          <hr />
         <h4 className="text-left mb-3 mt-0 bordeColor color">{t("InputsC.cSettings")}</h4>
         <div className="form-group row my-1 se">

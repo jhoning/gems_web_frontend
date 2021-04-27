@@ -16,7 +16,7 @@
         "en": "Inglés",
         "forgotP": "¿Olvidó su contraseña?",
         "Access": "Ingresar"
-    },
+    }, 
     "HeaderT": {
         "log_out": "Cerrar sesión",
         "projects": "Proyectos",
@@ -124,7 +124,8 @@
         "recoverE": "Este correo no esta registrado",
         "error": "Ha ocurrido un error",
         "exist": "Datos actualizados de forma exitosa",
-        "delete": "Eliminado"
+        "delete": "Eliminado",
+        "mCal": "¿Desea calcular esos cambios?"
     },
     "Board": {
         "nTab": "Nueva pestaña"
@@ -134,6 +135,8 @@
         "no": "No",
         "PVC": "PVC",
         "aluminum": "Aluminio",
-        "steel": "Acero"
+        "steel": "Acero",
+        "accept": "Aceptar",
+        "cancel": "Cancelar"
     }
 }

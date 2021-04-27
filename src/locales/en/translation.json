@@ -107,7 +107,7 @@
         "neutral": "Feeder include neutral wire?",
         "conduit": "Conduit material",
         "sVoltage": "System Voltage"       
-    },
+    }, 
     "MenuTree": {
         "tableN": "Enter table name",
         "addT": "Add Table",
@@ -124,7 +124,8 @@
         "recoverE": "This email is not registered",
         "error": "An error has occurred",
         "exist": "Data updated successfully",
-        "delete": "Deleted!"
+        "delete": "Deleted!",
+        "mCal": "Do you want to calculate those changes?"
     },
     "Board": {
         "nTab": "New Tab"
@@ -134,6 +135,8 @@
         "no": "No",
         "PVC": "PVC",
         "aluminum": "Aluminum",
-        "steel": "Steel"
+        "steel": "Steel",
+        "accept": "Accept",
+        "cancel": "Cancel"
     }
 }
