@@ -22,7 +22,7 @@ const MessageEmail = () => {
     confirm()
   }, [])
   const confirm = async()=>{
-    await authAxios.post('/auth/verifyUser')
+    await authAxios.post('/auth/verifyUser').then(res => console.log(res)).catch(err => console.log(err))
   }
   return ( 
     <div className="app">

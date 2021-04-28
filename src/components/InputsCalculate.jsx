@@ -6,11 +6,11 @@ import {useState,useEffect} from 'react'
 import axios from 'axios'
 const InputsCalculate = ({values,setValues,setArr,arr}) => {
   const [respuesta,setRespuesta] = useState({
-    current: "0",
-    cable_width: "0",
-    pipe_diameter: "0",
-    protection_device: "0",
-    voltage_drop: "0"
+    current: 0,
+    cable_width: 0,
+    pipe_diameter: 0,
+    protection_device: 0,
+    voltage_drop: 0
 })
   const [t] = useTranslation("global")
   const token = localStorage.getItem('token')
