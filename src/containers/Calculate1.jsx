@@ -42,8 +42,8 @@ const Calculate1 = () => {
   return (
     <div>
       <Header />
-      <div className="container-fluid tbo">
-        <div className="row ">
+      <div className="container-fluid tbo yep">
+        <div className="row grid">
           <div className="col-2 gb">
             {/* <MenuTree idCircuits={id1} /> */}
             <NavTree idCircuits={id1}/>

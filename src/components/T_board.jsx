@@ -74,7 +74,7 @@ const T_board = () => {
     <div className="container-fluid tbo">
       <div className=" mb-3">
         <div className="row" >
-          <nav className="col-2 col-md-2 col-sm-2 gris sidebar altoCompleto mx-0">
+          <nav className="col-3 col-md-2 col-sm-2 gris sidebar altoCompleto mx-0">
             <div className="sidebar-sticky sideBar board text-center" >
               <ul className="nav flex-column text-left">
 
@@ -83,7 +83,7 @@ const T_board = () => {
                 <li className="nav-item"><a href="" className="nav-link text-white">{t("HeaderT.projectsS")}</a></li>
 
               </ul>
-              <input type="text" name="text" placeholder={t("HeaderT.idPass")} className="form-control" value={nameProject}  onKeyDown={(e) =>handleKeyDown(e)} onChange={e => { setNameProject(e.target.value) }}  />
+              <input type="text" name="text" placeholder={t("HeaderT.idPass")} className="form-control new" value={nameProject}  onKeyDown={(e) =>handleKeyDown(e)} onChange={e => { setNameProject(e.target.value) }}  />
               <button className="btn btn-primary mt-3" onClick={() => {crearProject();console.log(name1)}}>{t("HeaderT.projectsNews")}</button>
             </div>
           </nav>

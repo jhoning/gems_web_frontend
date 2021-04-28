@@ -6,6 +6,11 @@
 .altoCompleto {
     border-radius: 5px;
     min-height: 73vh;
+    padding-right: 0px !important;
+}
+
+.altoCompleto .form-control {
+    background-color: #fdfdfd !important;
 }
 
 .list-group {
@@ -21,6 +26,15 @@
     overflow-x: hidden;
 }
 
+.new {
+    font-size: 13px !important;
+    padding-left: 5px !important;
+}
+
+.nav-item a {
+    font-size: 13px;
+}
+
 .gris {
     background-color: #3d6173 !important;
     width: 220px;
@@ -29,7 +43,7 @@
     transition: .600s;
     height: 90vh;
     touch-action: none;
-    padding: 8px 8px 0 15px !important;
+    padding: 8px 8px 0 8px !important;
     user-select: none;
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);

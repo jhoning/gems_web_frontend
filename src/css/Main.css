@@ -32,6 +32,16 @@ html {
     justify-content: space-between;
 }
 
+.yep .row {
+    margin-right: -15px !important;
+    margin-left: -15px !important;
+}
+
+.row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
 @media (max-width: 800px) {
     .foot {
         font-size: 14px;
@@ -95,7 +105,7 @@ html {
         float: left !important;
     }
     .nav-link {
-        padding: .6rem 10px !important;
+        padding: .5rem 1rem .2rem .3rem;
     }
     .ban {
         width: 18px !important;
@@ -149,18 +159,24 @@ html {
         max-width: 20% !important;
     }
     .vt {
-        max-width: 80% !important;
+        max-width: 75% !important;
         padding: 0;
         margin: 0;
+    }
+    .jumbotron .col-6 {
+        padding: 0;
     }
 }
 
 @media (max-width: 420px){
     .header nav {
-        margin-left: 25px !important;
+        margin-left: 20px !important;
     }
     .header1 nav {
         margin-left: 30px !important;
+    }
+    .sidebar-sticky {
+        display: block;
     }
 }
 
@@ -168,6 +184,9 @@ html {
     .header {
         display: flex !important;
         height: auto !important;
+    }
+    .nav-link {
+        padding: 5px 0 5px 0 !important;
     }
     .header1 {
         display: block !important;
@@ -185,10 +204,16 @@ html {
     .header1 nav {
         margin-left: 10px !important;
     }
+    .calculoAlto {
+        width: 62% !important;
+    }
   }
   @media (max-width: 360px) {
         .foot {
             font-size: 12px;
+        }
+        .header1 {
+            height: 130px !important;
         }
   }
  
