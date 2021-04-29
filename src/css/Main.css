@@ -173,7 +173,7 @@ html {
         margin-left: 20px !important;
     }
     .header1 nav {
-        margin-left: 30px !important;
+        margin-left: 20px !important;
     }
     .sidebar-sticky {
         display: block;
@@ -202,7 +202,7 @@ html {
         margin: 0 !important;
     }
     .header1 nav {
-        margin-left: 10px !important;
+        margin-left: 18px !important;
     }
     .calculoAlto {
         width: 62% !important;
@@ -213,13 +213,20 @@ html {
             font-size: 12px;
         }
         .header1 {
-            height: 130px !important;
+            height: 90px !important;
+        }
+        .header1 nav {
+            margin-left: 0px !important;
+        }
+        .header1 .line {
+            margin-left: 1px !important;
         }
   }
  
   @media (max-width: 320px) {
     .header1 {
-         height: 130px !important;
+         height: auto !important;
+         display: flex !important;
      }
      .header1 .btn {
         margin-left: 0px !important;
