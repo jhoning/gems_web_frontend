@@ -153,6 +153,8 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
 
     <button onClick={() => alert()}>Alerta</button>
 
+  
+    
       <div className="container mb-1 ">
         <h3 className="text-center mb-0 p-0 mt-2 color">{t("InputsC.sAppliance")}</h3>
          <hr />

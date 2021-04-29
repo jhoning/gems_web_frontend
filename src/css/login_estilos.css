@@ -470,6 +470,16 @@ h5 {
   z-index: 9;
 }
 
+.lg3 {
+  position: absolute;
+  top: 45px;
+  z-index: 9 !important;
+  font-size: 16px;
+  color: #374753;
+  float: right;
+  right: -20px;
+}
+
 @media (max-width: 800px) {
   .formContent {
     margin-top: 4rem;
@@ -512,6 +522,15 @@ h5 {
   height: 38px;
   line-height: 2.3rem;
   font-size: 16px;
+}
+.lg3 {
+  position: absolute;
+  top: 44px;
+  z-index: 9 !important;
+  font-size: 16px;
+  color: #374753;
+  float: right;
+  right: -20px;
 }
 }
 

@@ -142,7 +142,7 @@ const Login = () => {
               <div id="login-box" className="col-md-12">
                 <h3 className="text-center mb2">{t("Header.logeo")}</h3>
                 <form onSubmit={submitHandler} id="formulario" class="logeo">
-                  <div className="container">
+                  <div className="logea">
                     {/* <div class="form-group ">
                       <i class="fa fa-user"></i>
                       <input type="text" name="email" id="email" placeholder={t("Header.example")}  className="form-control"  onChange={e => handlePaste(e)} />
