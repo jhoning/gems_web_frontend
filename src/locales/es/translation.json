@@ -15,7 +15,7 @@
         "es": "Español",
         "en": "Inglés",
         "forgotP": "¿Olvidó su contraseña?",
-        "Access": "Ingresar"
+        "access": "Ingresar"
     }, 
     "HeaderT": {
         "log_out": "Cerrar sesión",
