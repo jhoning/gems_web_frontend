@@ -164,7 +164,7 @@ const Login = () => {
                         <span class="fa fa-fw fa-eye-slash password-icon show-password eye lg3"></span>
                     </div>
 
-                    <div className="form-group text-center mt-3">
+                    <div className="form-group text-center mt0">
                       <button className="boton btn btn-primary " onClick={() => {logear();console.log(login)}}>{t("Header.submitt")} </button>
 
                     </div>
