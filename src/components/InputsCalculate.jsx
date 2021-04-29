@@ -149,11 +149,8 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <i class="fa fa-expand mr5" aria-hidden="true"></i>
         {t("Calculate.amp")}
         </a>
-    {/* <button className="btn btn-primary " onClick={() => amp()}> Ver </button> */}
 
     <button onClick={() => alert()}>Alerta</button>
-
-  
     
       <div className="container mb-1 ">
         <h3 className="text-center mb-0 p-0 mt-2 color">{t("InputsC.sAppliance")}</h3>
@@ -170,6 +167,46 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
             </select>
           </div>
         </div>
+
+        <div className="form-group row my-1 se">
+          <label for="inputEmail3" class="col-sm-5 col-form-label">Motor</label>
+          <div class="col-sm-7">
+            <select name="SelectOptions" id="SelectOptions" class="custom-select custom-select" required autocomplete="off">
+                <option value="" selected>{t("InputsC.choose")}</option>
+                <option value="Div1">Div 1</option>
+                <option value="Div2">Div 2</option>
+                <option value="Div3">Div 3</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="DivPai form-group row my-1 se">
+            <div class="Div1">
+              <div class="col-sm-5"></div>
+              <input type="number" placeholder="Contenido 1" class="form-control ml50" autocomplete="off"  autocomplete="nope" />
+            </div>
+    
+            <div class="Div2">
+              <div class="col-sm-5"></div>
+              <input type="number" placeholder="Contenido 2" class="form-control ml50" autocomplete="off"  autocomplete="nope" />
+            </div>
+    
+            <div class="Div3">
+              <div class="col-sm-5"></div>
+              <input type="number" placeholder="Contenido 3" class="form-control ml50" autocomplete="off" autocomplete="nope" />
+            </div>
+        </div>
+
+        {/* <form action="#">
+            <select name="SelectOptions" id="SelectOptions" required>
+                <option value="">Selecione</option>
+                <option value="Div1">Div 1</option>
+                <option value="Div2">Div 2</option>
+                <option value="Div3">Div 3</option>
+            </select>
+        </form> */}
+    
+        
         <div class="form-group row my-0">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.powerW")}</label>
           <div class="col-sm-7 mx-0">
