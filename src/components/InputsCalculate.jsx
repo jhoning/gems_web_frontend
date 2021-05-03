@@ -175,13 +175,13 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
     
     
       <div className="container mb-1 ">
-        <h3 className="text-center mb-0 p-0 mt-2 color">{t("InputsC.sAppliance")}</h3>
+        <h3 className="text-left mb-0 p-0 mt-2 color">{t("InputsC.sAppliance")}</h3>
          <hr />
-        <h4 className="text-left mb-3 mt-0 bordeColor color">{t("InputsC.cSettings")}</h4>
+        <h4 className="text-left mb-2 mt-0 bordeColor color">{t("InputsC.cSettings")}</h4>
         <div className="form-group row my-1 se">
           <label for="inputEmail3" class="col-sm-5 col-form-label mitexto">{t("InputsC.loadType")}</label>
           <div class="col-sm-7">
-            <select class="custom-select custom-select mitexto"  autocomplete="off" onChange={handleLoadType}>
+            <select class="custom-select mitexto"  autocomplete="off" onChange={handleLoadType}>
               <option selected class="mitexto">{t("InputsC.choose")}</option>
               <option value="0" class="mitexto">{t("InputsC.kitchen")}</option>
               <option value="1" class="mitexto">{t("InputsC.bedroom")}</option>
@@ -193,8 +193,8 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div className="form-group row my-1 se">
           <label for="inputEmail3" class="col-sm-5 col-form-label mitexto">Motor</label>
           <div class="col-sm-7">
-            <select name="SelectOptions" id="SelectOptions" class="custom-select custom-select" required autocomplete="off">
-                <option value="" selected class="mitexto">{t("InputsC.choose")}</option>
+            <select name="SelectOptions" id="SelectOptions" class="custom-select mitexto" required autocomplete="off">
+                <option selected class="mitexto">{t("InputsC.choose")}</option>
                 <option value="Div1" class="mitexto">Div 1</option>
                 <option value="Div2" class="mitexto">Div 2</option>
             </select>
@@ -213,13 +213,13 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
             </div>
         </div>
         
-        <div class="form-group row my-0">
+        <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.powerW")}</label>
           <div class="col-sm-7 mx-0">
             <input type="number"  class="form-control mitexto" id="inputEmail3" autocomplete="off" value={report.power} autocomplete="nope" onChange={handlePower}/>
           </div>
         </div>
-        <div class="form-group row my-0">
+        <div class="form-group row my-1 se">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.loadP")}</label>
           <div class="col-sm-7 mx-0">
           <select class="custom-select custom-select"  autocomplete="off" onChange={handleLoadPhases}>
@@ -309,7 +309,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>enviarDatos()}>{t("InputsC.compute")}</button></div>
+          <div className="col-4 mitexto"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>enviarDatos()}>{t("InputsC.compute")}</button></div>
         </div> 
         <div className="col-4">
             {/* <button className="btn btn-primary mt-2 gray" onClick={()=>console.log(report)}>algo</button> */}

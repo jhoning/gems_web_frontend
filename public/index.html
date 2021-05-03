@@ -86,4 +86,32 @@ $(".restablecer").on("click", function() {
 }); 
 </script>
 
+<script>
+  // Defino un tamaño de letra inicial de 12px
+function tamañoLetra() {
+  size = $(".mitexto1" ).css("font-size");
+  size = parseInt(size, 10);
+  $( ".tamaño-actual1" ).text(size);
+}
+
+// Obtengo el tamaño de letra inicial de 12px 
+tamañoLetra();
+
+// Función para aumentar el tamaño del texto (fuente) 
+$(".aumentar1").on("click", function() { 
+  if ((size + 2) <= 47) {
+    $(".mitexto1").css("font-size", "+=2");
+    $(".tamaño-actual1").text(size += 2);
+  }
+});
+
+// Función para restablecer el tamaño del texto (fuente) al tamaño inicial 
+$(".restablecer1").on("click", function() {
+  $(".mitexto1").css("font-size", "12px");
+  size = $(".mitexto1" ).css("font-size");
+  size = parseInt(size, 10);
+  $( ".tamaño-actual1" ).text(size);
+}); 
+</script>
+
 </html>

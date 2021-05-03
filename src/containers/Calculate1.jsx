@@ -57,12 +57,12 @@ const Calculate1 = () => {
               {t("Calculate.amp")}
             </a>
             <div class="btn-toolbar f-r mt10 mr12" role="toolbar" aria-label="Botones">
-              <img src={max} class="aumentar mr-2 ba" alt=""/>
-              <img src={min} class="restablecer bam" alt=""/>
+              <img src={max} class="aumentar1 mr-2 ba" alt=""/>
+              <img src={min} class="restablecer1 bam" alt=""/>
             </div>
             <div>
               <ReactToPrint
-                trigger={() => <button class="pade btn btn-primary mt-2 gray">{t("Calculate.print")}</button>}
+                trigger={() => <button class="pade btn btn-primary mt-2 gray mitexto1">{t("Calculate.print")}</button>}
                 content={() => componentRef.current}
               />
               <div class="calculo" ref={componentRef}>
