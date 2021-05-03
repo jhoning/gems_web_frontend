@@ -8,6 +8,8 @@ import InputsCalculate from '../components/InputsCalculate'
 import MenuTree from '../components/MenuTree'
 import Report from '../components/Report';
 import { useRef } from 'react';
+import max from '../img/ampliar-texto.png';
+import min from '../img/disminuir.png';
 import ReactToPrint from 'react-to-print';
 import NavTree from '../components/NavTree';
 const Calculate1 = () => {
@@ -50,10 +52,14 @@ const Calculate1 = () => {
           </div>
           <InputsCalculate values={values} setValues={setValues} setArr={setArr} arr={arr} />
           <div className="w45 p-0 report" id="report">
-            <a onClick={() => amplio()} class="point amp mt10">
+            <a onClick={() => amplio()} class="point amp mr70 mt10">
               <i class="fa fa-expand mr5" aria-hidden="true"></i>
               {t("Calculate.amp")}
             </a>
+            <div class="btn-toolbar f-r mt10 mr12" role="toolbar" aria-label="Botones">
+              <img src={max} class="aumentar mr-2 ba" alt=""/>
+              <img src={min} class="restablecer bam" alt=""/>
+            </div>
             <div>
               <ReactToPrint
                 trigger={() => <button class="pade btn btn-primary mt-2 gray">{t("Calculate.print")}</button>}

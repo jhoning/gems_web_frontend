@@ -102,6 +102,25 @@ th {
     cursor: pointer;
 }
 
+.mt10 {
+    margin-top: 10px;
+}
+
+.mr12{
+    margin-right: 12px;
+}
+
+.mr70 {
+    margin-right: 70px !important;
+}
+.bam {
+    width: 20px;
+    height: 18px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+
 .f-r {
     float: right;
 }

@@ -165,7 +165,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
 
         <div class="btn-toolbar f-r mt5" role="toolbar" aria-label="Botones">
           <img src={max} class="aumentar mr-2 ba" alt=""/>
-          <img src={min} class="restablecer ba" alt=""/>
+          <img src={min} class="restablecer bam" alt=""/>
         </div>
 
         <div class="db">
@@ -197,7 +197,6 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
                 <option value="" selected class="mitexto">{t("InputsC.choose")}</option>
                 <option value="Div1" class="mitexto">Div 1</option>
                 <option value="Div2" class="mitexto">Div 2</option>
-                <option value="Div3" class="mitexto">Div 3</option>
             </select>
           </div>
         </div>
@@ -211,11 +210,6 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
             <div class="Div2">
               <div class="col-sm-5"></div>
               <input type="number" placeholder="Contenido 2" class="form-control ml50 mitexto" autocomplete="off"  autocomplete="nope" />
-            </div>
-    
-            <div class="Div3">
-              <div class="col-sm-5"></div>
-              <input type="number" placeholder="Contenido 3" class="form-control ml50 mitexto" autocomplete="off" autocomplete="nope" />
             </div>
         </div>
         

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+
 const Report = React.forwardRef(({arr}) => {
   const [t] = useTranslation("global")
   return (
@@ -12,7 +13,6 @@ const Report = React.forwardRef(({arr}) => {
                     <th scope="col-4" >{t("Calculate.project")}</th>
                   </tr>
                   <tr>
-
                   </tr>
                 </thead>
                 <br />
