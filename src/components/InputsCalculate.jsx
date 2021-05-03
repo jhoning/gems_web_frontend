@@ -77,6 +77,17 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
       cancelButtonText: `${t("Option.cancel")}`
     })
   }
+  const alertreport = () => {
+    Swal.fire({
+      title: '¿Desea agregarlos al reporte?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: `${t("Option.accept")}`,
+      cancelButtonText: `${t("Option.cancel")}`
+    })
+  }
 
   const handlePipe_material = (e) => {
     
@@ -150,7 +161,8 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         {t("Calculate.amp")}
         </a>
 
-    <button onClick={() => alert()}>Alerta</button>
+    <button onClick={() => alert()}>Alerta cuando hay cambios</button>
+    <button onClick={() => alertreport()}>Alerta de agregar al reporte</button>
     
       <div className="container mb-1 ">
         <h3 className="text-center mb-0 p-0 mt-2 color">{t("InputsC.sAppliance")}</h3>

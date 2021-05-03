@@ -9,7 +9,7 @@
         "password": "Contraseña",
         "submitt": "Enviar",
         "example": "Ejemplo123@gmail.com",
-        "ryc": "Registra tu cuenta",
+        "ryc": "Registra tu cuenta", 
         "register": "Registrar",
         "calculate": "Calcular",
         "es": "Español",
@@ -125,7 +125,8 @@
         "error": "Ha ocurrido un error",
         "exist": "Datos actualizados de forma exitosa",
         "delete": "Eliminado",
-        "mCal": "¿Desea calcular esos cambios?"
+        "mCal": "¿Desea calcular esos cambios?",
+        "mReport": "¿Desea agregarlos al reporte?"
     },
     "Board": {
         "nTab": "Nueva pestaña"

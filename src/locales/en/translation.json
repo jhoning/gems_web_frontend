@@ -8,7 +8,7 @@
         "username": "Username",
         "password": "Password",
         "submitt": "Login",
-        "example": "Example123@gmail.com",
+        "example": "Example123@gmail.com", 
         "ryc": "Register your account",
         "register": "Register",
         "calculate": "Calculate",
@@ -125,7 +125,8 @@
         "error": "An error has occurred",
         "exist": "Data updated successfully",
         "delete": "Deleted!",
-        "mCal": "Do you want to calculate those changes?"
+        "mCal": "Do you want to calculate those changes?",
+        "mReport": "Do you want to add them to report?"
     },
     "Board": {
         "nTab": "New Tab"
