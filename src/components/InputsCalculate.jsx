@@ -163,15 +163,16 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         {t("Calculate.amp")}
         </a>
 
-        <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Botones">
+        <div class="btn-toolbar f-r mt5" role="toolbar" aria-label="Botones">
           <img src={max} class="aumentar mr-2 ba" alt=""/>
-          <img src={min} class="restablecer mr-1 ba" alt=""/>
-          {/* <button type="button" class="aumentar btn btn-dark mr-1">Aumentar</button> */}
-          {/* <button type="button" class="restablecer btn btn-danger">Disminuir</button> */}
+          <img src={min} class="restablecer ba" alt=""/>
         </div>
 
-    <button onClick={() => alert()}>Alerta cuando hay cambios</button>
-    <button onClick={() => alertreport()}>Alerta de agregar al reporte</button>
+        <div class="db">
+          <button class="mr-2" onClick={() => alert()}>Alerta cambios</button>
+          <button onClick={() => alertreport()}>Alerta reporte</button>
+        </div>
+    
     
       <div className="container mb-1 ">
         <h3 className="text-center mb-0 p-0 mt-2 color">{t("InputsC.sAppliance")}</h3>

@@ -93,9 +93,17 @@ th {
     margin-left: 0px;
 }
 
+.mt5 {
+    margin-top: 5px;
+}
+
 .ba {
-    width: 35px;
+    width: 20px;
     cursor: pointer;
+}
+
+.f-r {
+    float: right;
 }
 
 .nav-side-menu ul .sub-menu li:hover,
