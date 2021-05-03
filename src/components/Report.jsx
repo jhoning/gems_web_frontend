@@ -1,10 +1,14 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { useTranslation } from 'react-i18next';
-const Report = React.forwardRef(({arr}) => {
+const Report = React.forwardRef(({arr,numeroDeCircuits},) => {
   const [t] = useTranslation("global")
+  useEffect(() => {
+   
+  }, [numeroDeCircuits])
   return (
     <>
         <div className="jumbotron calculoAltoMin ">
+          <button onClick={()=>console.log(numeroDeCircuits)}>verrrr</button>
               <h2 className="text-center color">{t("Calculate.report")}</h2>
               <table border="1" class="table table-bordered table-sm table-striped calculo">
                 <thead class="table-secondary"> 
@@ -37,19 +41,49 @@ const Report = React.forwardRef(({arr}) => {
                 <tbody>
 
 
-                  {arr.map((item) => {
+                  {
+                    numeroDeCircuits != undefined?
+                  numeroDeCircuits.map((item,i) => {
                     return <tr>
-                      <th scope="col" className="px-2">{parseFloat(item.cable_width + 2).toFixed(1)}</th>
-                      <th scope="col" className="px-2">{parseFloat(item.current * 5).toFixed(1)}</th>
-                      <th scope="col" className="px-2">{parseFloat(item.pipe_diameter * 22).toFixed(1)}</th>
-                      <th scope="col" className="px-2">{parseFloat(item.protection_device + 8).toFixed(1)}</th>
-                      <th scope="col" className="px-2">{parseFloat(item.voltaje_drop + 14).toFixed(1)}</th>
-                      <th scope="col" className="px-2">{parseFloat(item.voltaje_drop + 9).toFixed(1)}</th>
-                      <th scope="col" className="px-2">{parseFloat(item.current + 8).toFixed(1)}</th>
+                      <th scope="col" className="px-2">{numeroDeCircuits[i].name +" "+ numeroDeCircuits[i].id}{/* {parseFloat(item.cable_width + 2).toFixed(1)} */}</th>
+                      {/* 
+                        branch:
+                          es el nombre del circuito;
+                        Luminaries:
+                          el tipo de carga
+                        canalization:
+                          1/2,3/4,1,1 1/2,2,3,4,5,6 inch"
+                          material de la tuberia: pvc, aluminio o acero;
+                          fases:
+                          return (neutralWire?cablePerphases:cablePherfases + 1) + aisolation.state + "- CU"
+                        ground:
+                          es un output falta crearlo;
+                        breaker:
+                          cablePerphases  `x +${protection_device}` + "-A"
+                        power:
+                         toInt(power.value) 
+
+
+                      */} 
+                      <th scope="col" className="px-2">
+                        {numeroDeCircuits[i].loadType == 0? "Kitchen":null} 
+                        {numeroDeCircuits[i].loadType == 1? "Bedroom":null}
+                        {numeroDeCircuits[i].loadType == 2? "Washroom":null}{/* {parseFloat(item.current * 5).toFixed(1)} */}</th>
+                      <th scope="col" className="px-2">  
+                        {numeroDeCircuits[i].pipe_material == 0? "1/2 inch PVC":null} 
+                        {numeroDeCircuits[i].pipe_material == 1? "1/2 inch Aluminum":null} 
+                        {numeroDeCircuits[i].pipe_material == 2? "1/2 inch Steel":null} 
+                      </th>
+                      <th scope="col" className="px-2">{
+                   /*    numeroDeCircuits[i].
+                      (neutralWire?cablePerphases:cablePherfases + 1) + aisolation.state + "- CU" */}</th>
+                      <th scope="col" className="px-2">{parseFloat(item.voltaje_drop + 14).toFixed(1)}#-Cobre</th>
+                      <th scope="col" className="px-2">{   numeroDeCircuits[i].perPhase + `Prueba` + "-A"}</th>
+                      <th scope="col" className="px-2">{numeroDeCircuits[i].power}</th>
 
 
                     </tr>
-                  })}
+                  }):null}
 
 
 

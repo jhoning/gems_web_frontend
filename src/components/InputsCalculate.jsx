@@ -4,13 +4,17 @@ import { useTranslation } from 'react-i18next';
 import '../css/userSettings.css'
 import {useState,useEffect} from 'react'
 import axios from 'axios'
-const InputsCalculate = ({values,setValues,setArr,arr}) => {
+const InputsCalculate = ({values,setValues,setArr,arr,circuitActual}) => {
+  const [boardPadre,setBoardPadre] = useState()
   const [respuesta,setRespuesta] = useState({
     current: 0,
-    cable_width: 0,
-    pipe_diameter: 0,
+    cable_width: "0",
+    pipe_diameter: "0",
     protection_device: 0,
-    voltage_drop: 0
+    voltage_drop: 0,
+     circuit:{
+      id:circuitActual
+    } 
 })
   const [t] = useTranslation("global")
   const token = localStorage.getItem('token')
@@ -42,13 +46,39 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
     await authAxios.get('/report').then((resp)=>setArr(resp.data));
   }  
   const enviarDatos = async() => {
-    await authAxios.post('/report/listForm',report).then(res=>{setRespuesta(res.data);console.log(res)}).catch(err=>console.log(err))
+    await authAxios.post('/report/listForm',report).then(res=>{setRespuesta({...res.data,pipe_diameter:"15", circuit:{
+      id:1,
+      name:"cirt"
+    } });console.log(respuesta)}).catch(err=>console.log(err))
+  }
+  const actualizarCircuit = async()=>{
+    await authAxios.get('/circuit/'+circuitActual).then(res => res.data.board_padre).then(res=> actualizarCircuit2(res))
+    
+      /* await authAxios.patch('/circuit/'+circuitActual,{id:circuitActual,...report,board_padre:{
+       id:boardPadre.id,
+       name:boardPadre.name
+     }
+     
+    }).then(res => console.log(res)); */
+  }
+  const actualizarCircuit2 = async(res)=>{
+   
+      setTimeout(async()=>{      
+         await authAxios.patch('/circuit/'+circuitActual,{id:circuitActual,...report,board_padre:{
+        id:res.id,
+        name:res.name
+      }
+      
+     }).then(res => console.log(res)); },1000)
+
   }
   const reportGenerate =  async() => {
     setArr([...arr,respuesta])
     console.log(values)
     console.log(arr)
-     await authAxios.post('/report',respuesta).catch(err => console.log(err)) 
+     await authAxios.post('/report',{...respuesta,pipe_diameter:"15",circuit:{
+      id:1,
+      name:"cirt"}}).catch(err => console.log(err)) 
   }
 
   const amp = () => {
@@ -128,6 +158,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
 
   return (
     <div className="w30 overflow-auto calculoAlto" id="reporte">
+      <button onClick={()=>{console.log(report)}}>ver result</button>
       <div  autocomplete="off">
         <a onClick={() => amp()} class="point amp1">
         <i class="fa fa-expand mr5" aria-hidden="true"></i>
@@ -289,7 +320,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-          <div className="col-4"><button className="btn btn-primary mt-2 gray" onClick={()=>{reportGenerate();console.log(report)}}>{t("Calculate.report")}</button></div>
+          <div className="col-4"><button className="btn btn-primary mt-2 gray" onClick={()=>{reportGenerate();console.log(report);actualizarCircuit();/* actualizarCircuit2() */ }}>{t("Calculate.report")}</button></div>
         </div>
       </div>
       </div>
