@@ -93,6 +93,11 @@ th {
     margin-left: 0px;
 }
 
+.ba {
+    width: 35px;
+    cursor: pointer;
+}
+
 .nav-side-menu ul .sub-menu li:hover,
 .nav-side-menu li .sub-menu li:hover {
     background-color: grey;
@@ -355,6 +360,11 @@ td {
 .pade {
     margin-top: 15px;
     margin-left: 20px;
+}
+
+.tamaño-actual {
+	font-weight: bold;
+	font-size: 14px !important;
 }
 
 

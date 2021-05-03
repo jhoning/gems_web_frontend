@@ -3,6 +3,8 @@ import '../css/calculo.css'
 import { useTranslation } from 'react-i18next';
 import '../css/userSettings.css'
 import '../css/sweetalert2.min.css'
+import max from '../img/ampliar-texto.png';
+import min from '../img/disminuir.png';
 import {useState,useEffect} from 'react'
 import axios from 'axios'
 const Swal = require('sweetalert2')
@@ -161,6 +163,13 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         {t("Calculate.amp")}
         </a>
 
+        <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Botones">
+          <img src={max} class="aumentar mr-2 ba" alt=""/>
+          <img src={min} class="restablecer mr-1 ba" alt=""/>
+          {/* <button type="button" class="aumentar btn btn-dark mr-1">Aumentar</button> */}
+          {/* <button type="button" class="restablecer btn btn-danger">Disminuir</button> */}
+        </div>
+
     <button onClick={() => alert()}>Alerta cuando hay cambios</button>
     <button onClick={() => alertreport()}>Alerta de agregar al reporte</button>
     
@@ -169,25 +178,25 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
          <hr />
         <h4 className="text-left mb-3 mt-0 bordeColor color">{t("InputsC.cSettings")}</h4>
         <div className="form-group row my-1 se">
-          <label for="inputEmail3" class="col-sm-5 col-form-label">{t("InputsC.loadType")}</label>
+          <label for="inputEmail3" class="col-sm-5 col-form-label mitexto">{t("InputsC.loadType")}</label>
           <div class="col-sm-7">
-            <select class="custom-select custom-select"  autocomplete="off" onChange={handleLoadType}>
-              <option selected>{t("InputsC.choose")}</option>
-              <option value="0">{t("InputsC.kitchen")}</option>
-              <option value="1">{t("InputsC.bedroom")}</option>
-              <option value="2">{t("InputsC.washroom")}</option>
+            <select class="custom-select custom-select mitexto"  autocomplete="off" onChange={handleLoadType}>
+              <option selected class="mitexto">{t("InputsC.choose")}</option>
+              <option value="0" class="mitexto">{t("InputsC.kitchen")}</option>
+              <option value="1" class="mitexto">{t("InputsC.bedroom")}</option>
+              <option value="2" class="mitexto">{t("InputsC.washroom")}</option>
             </select>
           </div>
         </div>
 
         <div className="form-group row my-1 se">
-          <label for="inputEmail3" class="col-sm-5 col-form-label">Motor</label>
+          <label for="inputEmail3" class="col-sm-5 col-form-label mitexto">Motor</label>
           <div class="col-sm-7">
             <select name="SelectOptions" id="SelectOptions" class="custom-select custom-select" required autocomplete="off">
-                <option value="" selected>{t("InputsC.choose")}</option>
-                <option value="Div1">Div 1</option>
-                <option value="Div2">Div 2</option>
-                <option value="Div3">Div 3</option>
+                <option value="" selected class="mitexto">{t("InputsC.choose")}</option>
+                <option value="Div1" class="mitexto">Div 1</option>
+                <option value="Div2" class="mitexto">Div 2</option>
+                <option value="Div3" class="mitexto">Div 3</option>
             </select>
           </div>
         </div>
@@ -195,118 +204,108 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div class="DivPai form-group row my-1 se">
             <div class="Div1">
               <div class="col-sm-5"></div>
-              <input type="number" placeholder="Contenido 1" class="form-control ml50" autocomplete="off"  autocomplete="nope" />
+              <input type="number" placeholder="Contenido 1" class="form-control ml50 mitexto" autocomplete="off"  autocomplete="nope" />
             </div>
     
             <div class="Div2">
               <div class="col-sm-5"></div>
-              <input type="number" placeholder="Contenido 2" class="form-control ml50" autocomplete="off"  autocomplete="nope" />
+              <input type="number" placeholder="Contenido 2" class="form-control ml50 mitexto" autocomplete="off"  autocomplete="nope" />
             </div>
     
             <div class="Div3">
               <div class="col-sm-5"></div>
-              <input type="number" placeholder="Contenido 3" class="form-control ml50" autocomplete="off" autocomplete="nope" />
+              <input type="number" placeholder="Contenido 3" class="form-control ml50 mitexto" autocomplete="off" autocomplete="nope" />
             </div>
         </div>
-
-        {/* <form action="#">
-            <select name="SelectOptions" id="SelectOptions" required>
-                <option value="">Selecione</option>
-                <option value="Div1">Div 1</option>
-                <option value="Div2">Div 2</option>
-                <option value="Div3">Div 3</option>
-            </select>
-        </form> */}
-    
         
         <div class="form-group row my-0">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.powerW")}</label>
+          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.powerW")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="number"  class="form-control" id="inputEmail3" autocomplete="off" value={report.power} autocomplete="nope" onChange={handlePower}/>
+            <input type="number"  class="form-control mitexto" id="inputEmail3" autocomplete="off" value={report.power} autocomplete="nope" onChange={handlePower}/>
           </div>
         </div>
         <div class="form-group row my-0">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.loadP")}</label>
+          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.loadP")}</label>
           <div class="col-sm-7 mx-0">
           <select class="custom-select custom-select"  autocomplete="off" onChange={handleLoadPhases}>
-              <option selected>{t("InputsC.choose")}</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
+              <option selected class="mitexto">{t("InputsC.choose")}</option>
+              <option value="1" class="mitexto">1</option>
+              <option value="2" class="mitexto">2</option>
+              <option value="3" class="mitexto">3</option>
             </select>
           </div>
         </div>
         <div class="form-group row my-0">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.cablesP")}</label>
+          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.cablesP")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="number" class="form-control" id="inputEmail3" autocomplete="off" value={report.perPhases} onChange={handlePerPhases}/>
+            <input type="number" class="form-control mitexto" id="inputEmail3" autocomplete="off" value={report.perPhases} onChange={handlePerPhases}/>
           </div>
         </div>
         <div class="form-group row my-1">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.distance")}</label>
+          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.distance")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="number" class="form-control" id="inputEmail3"  autocomplete="off" onChange={handleDistance}/>
+            <input type="number" class="form-control mitexto" id="inputEmail3"  autocomplete="off" onChange={handleDistance}/>
           </div>
         </div>
         <div class="form-group row my-1">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.powerF")}</label>
+          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.powerF")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="number" step=".1" min="0" max="1" class="form-control" id="inputEmail3" value={report.powerFactor} autocomplete="off" onChange={handlePowerFactor} />
+            <input type="number" step=".1" min="0" max="1" class="form-control mitexto" id="inputEmail3" value={report.powerFactor} autocomplete="off" onChange={handlePowerFactor} />
           </div>
         </div>
         <div class="form-group row my-1">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.voltage")} (%)</label>
+          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.voltage")} (%)</label>
           <div class="col-sm-7 mx-0">
-            <input type="number" class="form-control" id="inputEmail3" autocomplete="off" onChange={handleVoltageDrop} />
+            <input type="number" class="form-control mitexto" id="inputEmail3" autocomplete="off" onChange={handleVoltageDrop} />
           </div>
         </div>
         <div class="form-group row my-1">
-        <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.sVoltage")} (V)</label>
+        <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.sVoltage")} (V)</label>
         <div class="col-sm-7">
             <select class="custom-select custom-select"  autocomplete="off" onChange={handleSystem_voltage}>
-              <option selected>{t("InputsC.choose")}</option>
-              <option value="120" data-bs-toggle="tooltip" data-bs-placement="right" title="120">120</option>
-              <option value="208" data-bs-toggle="tooltip" data-bs-placement="right" title="208">208</option>
-              <option value="220" data-bs-toggle="tooltip" data-bs-placement="right" title="220">220</option>
+              <option selected class="mitexto">{t("InputsC.choose")}</option>
+              <option value="120" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title="120">120</option>
+              <option value="208" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title="208">208</option>
+              <option value="220" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title="220">220</option>
             </select>
           </div>
         </div>
         <div className="form-group row my-1 se">
-          <label for="inputEmail3" class="col-sm-5 col-form-label">{t("InputsC.aisolation")}</label>
+          <label for="inputEmail3" class="col-sm-5 col-form-label mitexto">{t("InputsC.aisolation")}</label>
           <div class="col-sm-7">
             <select class="custom-select custom-select"  autocomplete="off" onChange={handleAisolation}>
-              <option selected>{t("InputsC.choose")}</option>
-              <option value="0" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.tw")}>TW</option>
-              <option value="1" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.thwn")}>THWN</option>
-              <option value="2" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.thhn")}>THHN</option>
+              <option selected class="mitexto">{t("InputsC.choose")}</option>
+              <option value="0" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.tw")}>TW</option>
+              <option value="1" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.thwn")}>THWN</option>
+              <option value="2" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.thhn")}>THHN</option>
             </select>
           </div>
         </div>
         <div class="form-group row my-1">
-        <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.temperature")} (°C)</label>
+        <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.temperature")} (°C)</label>
           <div class="col-sm-7 mx-0">
-          <input type="number" class="form-control" id="inputEmail3"  autocomplete="off" value={report.temperature} onChange={handleTemperature}/>
+          <input type="number" class="form-control mitexto" id="inputEmail3"  autocomplete="off" value={report.temperature} onChange={handleTemperature}/>
           </div>
         </div>
 
         <div class="form-group row my-1">
-        <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.neutral")}</label>
+        <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.neutral")}</label>
         <div class="col-sm-7">
             <select class="custom-select custom-select"  autocomplete="off" onChange={handleFeeder_include_neutral_wire}>
-              <option value={true} selected data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.yes")}>{t("Option.yes")}</option>
-              <option value={false} data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.no")}>{t("Option.no")}</option>
+              <option class="mitexto" value={true} selected data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.yes")}>{t("Option.yes")}</option>
+              <option class="mitexto" value={false} data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.no")}>{t("Option.no")}</option>
             </select>
           </div>
         </div>
 
         <div class="form-group row my-1">
-        <label for="inputEmail3" class="col-sm-5 col-form-label mx-0">{t("InputsC.conduit")}</label>
+        <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.conduit")}</label>
           <div class="col-sm-7 mx-0">
             <select class="custom-select custom-select"  autocomplete="off" onChange={handlePipe_material}>
-            <option selected>{t("InputsC.choose")}</option>
-              <option value="0" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.PVC")}>{t("Option.PVC")}</option>
-              <option value="1" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.aluminum")}>{t("Option.aluminum")}</option>
-              <option value="2" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.steel")}>{t("Option.steel")}</option>
+            <option selected class="mitexto">{t("InputsC.choose")}</option>
+              <option value="0" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.PVC")}>{t("Option.PVC")}</option>
+              <option value="1" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.aluminum")}>{t("Option.aluminum")}</option>
+              <option value="2" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.steel")}>{t("Option.steel")}</option>
 
             </select>
           </div>
@@ -315,7 +314,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-          <div className="col-4"><button className="btn btn-primary mt-2 gray" onClick={()=>enviarDatos()}>{t("InputsC.compute")}</button></div>
+          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>enviarDatos()}>{t("InputsC.compute")}</button></div>
         </div> 
         <div className="col-4">
             {/* <button className="btn btn-primary mt-2 gray" onClick={()=>console.log(report)}>algo</button> */}
@@ -323,39 +322,39 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <hr />
         <h3 className="text-left mb-1 bordeColor p-1 color">{t("InputsC.results")}</h3>
         <div class="form-group row my-1">
-          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2 " >{t("InputsC.current")}</label>
+          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2 mitexto" >{t("InputsC.current")}</label>
           <div class="col-sm-8 mx-0">
-            <input type="text" class="form-control text-right mt-2" id="inputEmail3" placeholder="0"  autocomplete="off" onChange={ e => setValues({...values,current: e.target.value}) } value={parseFloat(respuesta.current).toFixed(2)}/>
+            <input type="text" class="form-control text-right mt-2 mitexto mitexto" id="inputEmail3" placeholder="0"  autocomplete="off" onChange={ e => setValues({...values,current: e.target.value}) } value={parseFloat(respuesta.current).toFixed(2)}/>
           </div>
         </div>
         <div class="form-group row my-3">
-          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2" >{t("InputsC.cable")}</label>
+          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2 mitexto" >{t("InputsC.cable")}</label>
           <div class="col-sm-8 mx-0">
-            <input type="text" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,cable_width: e.target.value}) } value={parseFloat(respuesta.cable_width).toFixed(2)}/>
+            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,cable_width: e.target.value}) } value={parseFloat(respuesta.cable_width).toFixed(2)}/>
           </div>
         </div>
         <div class="form-group row my-0">
-          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0">{t("InputsC.pipeD")}</label>
+          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mitexto">{t("InputsC.pipeD")}</label>
           <div class="col-sm-8 mx-0">
-            <input type="text" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,pipe_diameter: e.target.value}) } value={parseFloat(respuesta.pipe_diameter).toFixed(2)}/>
+            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,pipe_diameter: e.target.value}) } value={parseFloat(respuesta.pipe_diameter).toFixed(2)}/>
           </div>
         </div>
         <div class="form-group row my-0">
-          <label for="inputEmail3" class="col-sm-4 col-form-label my-0">{t("InputsC.protectionD")}</label>
+          <label for="inputEmail3" class="col-sm-4 col-form-label my-0 mitexto">{t("InputsC.protectionD")}</label>
           <div class="col-sm-8 my-0">
-            <input type="text" class="form-control text-right mt-2" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,protection_device: e.target.value}) } value={parseFloat(respuesta.protection_device).toFixed(2)}/>
+            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,protection_device: e.target.value}) } value={parseFloat(respuesta.protection_device).toFixed(2)}/>
           </div>
         </div>
         <div class="form-group row my-1">
-          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0">{t("InputsC.voltage")}</label>
+          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mitexto">{t("InputsC.voltage")}</label>
           <div class="col-sm-8 mx-0">
-            <input type="text" class="form-control text-right" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,voltaje_drop: e.target.value}) } value={parseFloat(respuesta.voltage_drop).toFixed(2)}/>
+            <input type="text" class="form-control text-right mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,voltaje_drop: e.target.value}) } value={parseFloat(respuesta.voltage_drop).toFixed(2)}/>
           </div>
         </div>
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-          <div className="col-4"><button className="btn btn-primary mt-2 gray" onClick={()=>{reportGenerate();console.log(report)}}>{t("Calculate.report")}</button></div>
+          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>{reportGenerate();console.log(report)}}>{t("Calculate.report")}</button></div>
         </div>
       </div>
       </div>
