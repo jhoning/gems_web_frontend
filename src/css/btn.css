@@ -181,6 +181,15 @@
     padding: 0.143rem 0 0 4px !important;
 }
 
+.btn {
+    padding: 0.1rem .75rem !important;
+    font-size: 14px !important;
+}
+
+.mb7 {
+    margin-bottom: 7px;
+}
+
 @media (max-width: 500px) {
     .calculoAlto {
         width: 69% !important;

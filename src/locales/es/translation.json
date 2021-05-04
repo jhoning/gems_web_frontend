@@ -78,7 +78,7 @@
         "power": "Potencia",
         "amp": "Ver completo", 
         "print": "¡Imprimir!"
-    },
+    }, 
     "InputsC": {
         "sAppliance": "Tomacorriente especial",
         "cSettings": "Configuraciones de circuito",
@@ -138,6 +138,8 @@
         "aluminum": "Aluminio",
         "steel": "Acero",
         "accept": "Aceptar",
-        "cancel": "Cancelar"
+        "cancel": "Cancelar",
+        "cM": "Trabaja de forma continua",
+        "sV": "Servicio variable "
     }
 }

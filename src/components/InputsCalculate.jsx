@@ -194,22 +194,21 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
           <div class="col-sm-7">
             <select name="SelectOptions" id="SelectOptions" class="custom-select mitexto" required autocomplete="off">
                 <option selected class="mitexto">{t("InputsC.choose")}</option>
-                <option value="Div1" class="mitexto">Div 1</option>
-                <option value="Div2" class="mitexto">Div 2</option>
+                <option value="Div1" class="mitexto">{t("Option.cM")}</option>
+                <option value="Div2" class="mitexto">{t("Option.sV")}</option>
             </select>
           </div>
         </div>
 
-        <div class="DivPai form-group row my-1 se">
-            <div class="Div1">
-              <div class="col-sm-5"></div>
-              <input type="number" placeholder="Contenido 1" class="form-control ml50 mitexto" autocomplete="off"  autocomplete="nope" />
-            </div>
-    
-            <div class="Div2">
-              <div class="col-sm-5"></div>
-              <input type="number" placeholder="Contenido 2" class="form-control ml50 mitexto" autocomplete="off"  autocomplete="nope" />
-            </div>
+        {/* Este codigo muestra los dos div ocultos de Motor */}
+        <div class="DivPai form-group row my-0">
+          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto"></label>
+          <div class="Div1 col-sm-7 mx-0">
+            <input type="number" class="form-control mitexto"  id="inputDatos" value="DATO"  autocomplete="off"  autocomplete="nope" />
+          </div>
+          <div class="Div2 col-sm-7 mx-0">
+            <input type="number" class="form-control mitexto" autocomplete="off"  autocomplete="nope" />
+          </div>
         </div>
         
         <div class="form-group row my-1">

@@ -138,6 +138,8 @@
         "aluminum": "Aluminum",
         "steel": "Steel",
         "accept": "Accept",
-        "cancel": "Cancel"
+        "cancel": "Cancel",
+        "cM": "Continuous duty motor",
+        "sV": "Variable duty motor"
     }
 }
