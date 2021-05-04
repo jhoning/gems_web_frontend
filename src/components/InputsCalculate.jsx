@@ -167,7 +167,6 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
           <img src={max} class="aumentar mr-2 ba" alt=""/>
           <img src={min} class="restablecer bam" alt=""/>
         </div>
-
         <div class="db">
           <button class="mr-2" onClick={() => alert()}>Alerta cambios</button>
           <button onClick={() => alertreport()}>Alerta reporte</button>

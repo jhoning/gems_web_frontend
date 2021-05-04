@@ -120,8 +120,37 @@
     float: right;
 }
 
+/*Este boton es el azul para ver más*/
+.plus {
+    background: url("/src/img/plus.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
+/*Este icono es de un tablero sin el boton rojo de + */
 .tab {
+    background: url("/src/img/icon2.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
+/*Este icono es de un tablero con el + para agregar */
+.tabplus {
     background: url("/src/img/iconplus.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
+
+/*Este icono es el circuito de 3 puntos */
+.circuit {
+    background: url("/src/img/icon1.svg");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;

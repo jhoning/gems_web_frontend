@@ -162,7 +162,7 @@ const NavTree = ({idCircuits})=> {
     let aux = [...arrBoardsPrincipales]
     for (let i = 0;i<arrBoardsInfo.length;i++) {
       if(arrBoardsInfo[i].board_padre != null) {
-        for
+        for 
       }
     }
   } */
