@@ -259,3 +259,75 @@ html {
 .calculoAlto::-webkit-scrollbar-thumb:active {
     background-color: #999999;
 }
+
+/* Nav tree*/
+.p-tree {
+    padding: 0 !important;
+    max-width: 150px;
+    margin: 0 auto;
+    overflow-x: scroll !important;
+}
+
+.p-tree-container {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow: auto;
+    min-height: 60px;
+}
+
+.p-treenode-content {
+    height: auto;
+}
+
+.nvT .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 3px 5px;
+    clear: both;
+    font-weight: 400;
+    font-size: 12px !important;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+.nvT .dropdown-menu {
+    padding: 0px !important;
+    position: absolute;
+    transform: translate3d(-97px, 21px, 0px);
+    top: 0px;
+    left: 0px;
+    will-change: transform;
+}
+    
+.ban {
+    width: 21px;
+    margin-right: 3px;
+}
+    
+.gb {
+    padding: 7px !important;
+}
+
+.nvT .nav-item a {
+    font-size: 13px;
+}
+.p-treenode-children {
+    padding-left: 0 !important;
+}
+.p-treenode-label > div {
+    height: auto !important;
+    padding: 0px 0px 0px !important;
+    margin: 0px 6px 0px 0px !important;
+}
+.p-treenode-label > div > span {
+    font-size: 14px;
+}
+.pi {
+    font-size: 12px !important;
+}
+.p-treenode-icon {
+    font-size: 14px;
+}

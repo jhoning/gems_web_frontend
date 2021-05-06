@@ -41,6 +41,10 @@ const NavTree = ({ idCircuits,setArr,setConsultaBoard,setCircuitActual,circuitAc
       /*     console.log('hola olis') */
     }, 2000)
   }, [mount])
+
+  const consultarCircuit = async(id1)=> {
+    await authAxios.get('/circuit/'+ id1).then(res=>{setEstadoInputs(res.data.report);console.log(res.data.report)})
+  }
   const obtenerReportes = async(id1) => {
     await authAxios.get(`/board/${id1}`).then((resp)=>setConsultaBoard(resp.data)).catch(err => console.log(err));
   }  
@@ -196,7 +200,10 @@ const NavTree = ({ idCircuits,setArr,setConsultaBoard,setCircuitActual,circuitAc
       return (
         <div style={{ height: '70px', padding: '20px 0 0 0px', margin: '0px 6px 0 0' }}>
      
-           <span onClick={() => {obtenerReportes(node.key);if(node.icon == 'pi pi-fw pi-sliders-h'){consultarBoard(node.key)};setCircuitActual(node.key);console.log(circuitActual)}}>{node.label}</span>
+           <span onClick={() => {
+             obtenerReportes(node.key);if(node.icon == 'pi pi-fw pi-sliders-h'){consultarBoard(node.key)};setCircuitActual(node.key);console.log(circuitActual);consultarCircuit(node.key)}
+
+             }>{node.label}</span>
         
         
           {/* <a className="ml4 " onClick={()=>{

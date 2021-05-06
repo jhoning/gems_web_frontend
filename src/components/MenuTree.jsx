@@ -247,7 +247,7 @@ const MenuTree = ({idCircuits}) => {
               setBoards(recorre(boards,node.key))
               crearCircuit(node.key)
           }}><img class="ban1" src={plus} /></a>   */}
-          <ul class="navbar-nav idioma mr-md-1 fr">
+          <ul class="navbar-nav idioma nvT mr-md-1 fr">
         <li class="nav-item dropdown language-dropdown">
             <a class="" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <img class="ban" src={plus} />

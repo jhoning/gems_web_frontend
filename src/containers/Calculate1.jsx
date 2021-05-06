@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from "react-router";
 import Footer from '../components/Footer'
 import Header from '../components/HeaderT'
@@ -10,6 +10,14 @@ import Report from '../components/Report';
 import { useRef } from 'react';
 import ReactToPrint from 'react-to-print';
 import NavTree from '../components/NavTree';
+import axios from 'axios';
+const token = localStorage.getItem('token')
+const authAxios = axios.create({
+  baseURL: 'http://localhost:4000',
+  headers: {
+    "auth-token": `${token}`
+  }
+})
 const Calculate1 = () => {
   let { id1 } = useParams();
   console.log(id1);
@@ -26,8 +34,35 @@ const Calculate1 = () => {
   const componentRef = useRef();
   const [consultaBoard,setConsultaBoard] = useState();
   const [circuitActual,setCircuitActual] = useState(null);
-  const [estadoInputs,setEstadoInputs] = useState()
-  const [numeroDeCircuits,setNumeroDeCircuits] = useState()
+  const [estadoInputs,setEstadoInputs] = useState({
+    loadType:0,
+    power: 0,
+    distance: "0",
+    powerFactor: 0.2,
+    voltageDrop: "0",
+    aisolation:"0",
+    temperature:21,
+    loadPhases:"0",
+    perPhase:"0",
+    feeder_include_neutral_wire:true,
+    pipe_material:"0",
+    system_voltage:"0",});
+  const [numeroDeCircuits,setNumeroDeCircuits] = useState();
+  const [consultaReportes,setConsultaReportes] = useState();
+  const [arregloIdReportes,setArrgloIdReportes] = useState([]);
+
+  useEffect(() => {
+    
+      
+   
+    
+ 
+  }, [numeroDeCircuits])
+
+  const reporteConsulta = async(id1)=>{
+    await authAxios.get('/circuit/'+id1).then(res =>setArrgloIdReportes([...arregloIdReportes,res.data])).catch(err => console.log(err))
+  }
+
   const amplio = () => {
     if (document.getElementById("report").style.width === '55%') {
       document.getElementById("reporte").style.width = '30%';
@@ -47,9 +82,10 @@ const Calculate1 = () => {
         <div className="row grid">
           <div className="col-2 gb">
             {/* <MenuTree idCircuits={id1} /> */}
+            <button onClick={()=>{console.log(arregloIdReportes)}}>ver reportes</button>
             <NavTree idCircuits={id1} setArr={setArr} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}/>
           </div>
-          <InputsCalculate values={values} setValues={setValues} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} />
+          <InputsCalculate values={values} setValues={setValues} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} />
           <div className="w45 p-0 report" id="report">
             <a onClick={() => amplio()} class="point amp mt10">
               <i class="fa fa-expand mr5" aria-hidden="true"></i>
@@ -62,7 +98,7 @@ const Calculate1 = () => {
                 content={() => componentRef.current}
               />
               <div class="calculo" ref={componentRef}>
-                <Report arr={arr} numeroDeCircuits={numeroDeCircuits}/>
+                <Report arr={arr} numeroDeCircuits={numeroDeCircuits} numeroReportes={arregloIdReportes}/>
               </div>
 
             </div>
