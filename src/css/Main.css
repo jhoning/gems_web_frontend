@@ -6,6 +6,11 @@ html {
     height: 100vh;
 }
 
+.nav-link {
+    display: block;
+    padding: .3rem 5px !important;
+}
+
 .fondo {
     width: 100%;
     padding-top: 10px !important;

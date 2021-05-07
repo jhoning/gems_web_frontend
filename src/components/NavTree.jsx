@@ -14,7 +14,7 @@ import { Tree } from 'primereact/tree';
 const token = localStorage.getItem('token')
 const authAxios = axios.create({
   baseURL: 'http://localhost:4000',
-  headers: {
+  headers: { 
     "auth-token": `${token}`
   }
 })  
