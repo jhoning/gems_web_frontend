@@ -52,7 +52,7 @@ html {
         font-size: 14px;
     }
     .logo {
-        width: 110px;
+        width: 100px;
     }
     .header a, .header1 a{
         font-size: 14px;
@@ -81,7 +81,7 @@ html {
 @media (max-width: 600px) {
     .header .idioma {
         margin-bottom: .5rem!important;
-        margin-top: .6rem !important;
+        margin-top: .3rem !important;
     }
     .header {
         display: block !important;
@@ -175,7 +175,7 @@ html {
 
 @media (max-width: 420px){
     .header nav {
-        margin-left: 20px !important;
+        margin-left: 7px !important;
     }
     .header1 nav {
         margin-left: 20px !important;
@@ -189,6 +189,9 @@ html {
     .header {
         display: flex !important;
         height: auto !important;
+    }
+    .form-control {
+        font-size: 13px !important;
     }
     .nav-link {
         padding: 5px 0 5px 0 !important;
@@ -221,7 +224,10 @@ html {
             height: 90px !important;
         }
         .header1 nav {
-            margin-left: 0px !important;
+            margin-left: 17px !important;
+        }
+        .p-tree {
+            width: 340px;
         }
         .header1 .line {
             margin-left: 1px !important;
@@ -240,7 +246,7 @@ html {
 }
 
 .line, .check {
-    padding: 3px 0.75rem !important;
+    padding: 3px 0.5rem !important;
 }
 .btn-outline-light {
     border-color: #e3e3e3;
