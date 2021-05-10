@@ -104,7 +104,7 @@ const Report = React.forwardRef(({arr,numeroDeCircuits},) => {
                         {item.pipe_material == 2? "1/2 inch Steel":null} 
                       </th>
                       <th scope="col" className="px-2">{
-                        item.feeder_include_neutral_wire?item.perPhase+1+" "+ THW[item.aisolation]+ '-CU':item.perPhase+ " "+ THW[item.aisolation]+ '-CU'
+                        item.feeder_include_neutral_wire?item.perPhase+1+"#"+ THW[item.aisolation]+ '-CU':item.perPhase+ "#"+ THW[item.aisolation]+ '-CU'
                    /*    numeroDeCircuits[i].
                       (neutralWire?cablePerphases:cablePherfases + 1) + aisolation.state + "- CU" */}</th>
                       <th scope="col" className="px-2">{parseFloat(item.voltaje_drop + 14).toFixed(1)}#-Cobre</th>
