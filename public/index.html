@@ -25,7 +25,10 @@
     -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>T-board</title>
-</head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+  </head>
 
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -41,6 +44,75 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     
+    
 </body>
+
+<script>
+$(document).ready(function() {
+    $('#SelectOptions').on('change',function(){
+        var SelectValue='.'+$(this).val();
+        $('.DivPai div').hide();
+        $(SelectValue).toggle();
+    });
+});
+
+</script>
+
+<script>
+  // Defino un tamaño de letra inicial de 12px
+function tamañoLetra() {
+  size = $(".mitexto" ).css("font-size");
+  size = parseInt(size, 10);
+  $( ".tamaño-actual" ).text(size);
+}
+
+// Obtengo el tamaño de letra inicial de 12px 
+tamañoLetra();
+
+// Función para aumentar el tamaño del texto (fuente) 
+$(".aumentar").on("click", function() { 
+  if ((size + 2) <= 47) {
+    $(".mitexto").css("font-size", "+=2");
+    $(".tamaño-actual").text(size += 2);
+  }
+});
+
+// Función para restablecer el tamaño del texto (fuente) al tamaño inicial 
+$(".restablecer").on("click", function() {
+  $(".mitexto").css("font-size", "12px");
+  size = $(".mitexto" ).css("font-size");
+  size = parseInt(size, 10);
+  $( ".tamaño-actual" ).text(size);
+}); 
+</script>
+
+<script>
+  // Defino un tamaño de letra inicial de 12px
+function tamañoLetra() {
+  size = $(".mitexto1" ).css("font-size");
+  size = parseInt(size, 10);
+  $( ".tamaño-actual1" ).text(size);
+}
+
+// Obtengo el tamaño de letra inicial de 12px 
+tamañoLetra();
+
+// Función para aumentar el tamaño del texto (fuente) 
+$(".aumentar1").on("click", function() { 
+  if ((size + 2) <= 47) {
+    $(".mitexto1").css("font-size", "+=2");
+    $(".tamaño-actual1").text(size += 2);
+  }
+});
+
+// Función para restablecer el tamaño del texto (fuente) al tamaño inicial 
+$(".restablecer1").on("click", function() {
+  $(".mitexto1").css("font-size", "12px");
+  size = $(".mitexto1" ).css("font-size");
+  size = parseInt(size, 10);
+  $( ".tamaño-actual1" ).text(size);
+}); 
+</script>
+
 
 </html>

@@ -14,7 +14,7 @@ import { Tree } from 'primereact/tree';
 const token = localStorage.getItem('token')
 const authAxios = axios.create({
   baseURL: 'http://localhost:4000',
-  headers: {
+  headers: { 
     "auth-token": `${token}`
   }
 })
@@ -179,6 +179,7 @@ const NavTree = ({ idCircuits,setArr,setConsultaBoard,setCircuitActual,circuitAc
     SetArrBoardsPrincipales(aux)
 
   }
+<<<<<<< HEAD
 
   /*  const generarHijos = async() => {
      let aux = [...arrBoardsPrincipales]
@@ -190,6 +191,19 @@ const NavTree = ({ idCircuits,setArr,setConsultaBoard,setCircuitActual,circuitAc
    } */
   const registrarBoard1 = async (name1, id) => {
     await authAxios.post('/board', { name: "Nuevo*", project: arrBoards, }).then(res => console.log(res)).catch(err => console.log(err))
+=======
+  
+ /*  const generarHijos = async() => {
+    let aux = [...arrBoardsPrincipales]
+    for (let i = 0;i<arrBoardsInfo.length;i++) {
+      if(arrBoardsInfo[i].board_padre != null) {
+        for 
+      }
+    }
+  } */
+  const registrarBoard1 = async(name1,id)=>{
+    await authAxios.post('/board',{name: "Nuevo*",project: arrBoards,}).then(res =>console.log(res)).catch(err => console.log(err))
+>>>>>>> b53d1aa315e2d8859598fbf63e8d99631bbcb7c0
   }
   const registrarBoard = async (name1, id) => {
     await authAxios.post('/board', { name: "Nuev", project: arrBoards, board_padre: { id: name1, name: id } }).then(res => console.log(res)).catch(err => console.log(err))

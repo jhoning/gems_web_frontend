@@ -26,10 +26,10 @@ const Header = () => {
       <ul class="navbar-nav idioma mr-md-1">
         <li class="nav-item dropdown language-dropdown">
           {
-            idioma == "en"? <a class="nav-link dropdown-toggle d-flex align-items-center leng text-dark" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+            idioma == "en"? <a class="nav-link dropdown-toggle d-flex align-items-center leng idioma text-dark" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <img class="ban" src={en} />
-              <span class="profile-text font-weight-medium d-none d-md-block">{t("Header.en")}</span>
-            </a> : <a class="nav-link dropdown-toggle d-flex align-items-center leng text-dark" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+              <span class="profile-text font-weight-medium  d-md-block">{t("Header.en")}</span>
+            </a> : <a class="nav-link dropdown-toggle d-flex align-items-center leng idioma text-dark" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <img class="ban" src={es} />
               <span class="text-dark">{t("Header.es")}</span>
             </a>

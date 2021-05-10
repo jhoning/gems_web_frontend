@@ -25,7 +25,7 @@
 }
 
 .ban {
-    width: 25px;
+    width: 22px;
     margin-right: 10px;
 }
 
@@ -46,6 +46,11 @@
 .leng {
     padding-right: 20px !important;
 }
+
+.idioma .nav-item a {
+    font-size: 14px;
+}
+
 
 .dropdown-menu-left {
     background: rgb(231 231 231) !important;
@@ -120,8 +125,37 @@
     float: right;
 }
 
+/*Este boton es el azul para ver más*/
+.plus {
+    background: url("/src/img/plus.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
+/*Este icono es de un tablero sin el boton rojo de + */
 .tab {
+    background: url("/src/img/icon2.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
+/*Este icono es de un tablero con el + para agregar */
+.tabplus {
     background: url("/src/img/iconplus.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
+
+/*Este icono es el circuito de 3 puntos */
+.circuit {
+    background: url("/src/img/icon1.svg");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -150,6 +184,27 @@
 
 .p-tree .p-tree-container .p-treenode {
     padding: 0.143rem 0 0 4px !important;
+}
+
+.btn {
+    padding: 4px 5px !important;
+    font-size: 14px !important;
+}
+
+.text-dark {
+    font-size: 14px !important;
+}
+
+.mb7 {
+    margin-bottom: 7px;
+}
+
+h3 {
+    font-size: 1.50rem !important;
+}
+
+.mb2 {
+    margin-bottom: 1.4rem;
 }
 
 @media (max-width: 500px) {

@@ -8,6 +8,8 @@ import InputsCalculate from '../components/InputsCalculate';
 import MenuTree from '../components/MenuTree'
 import Report from '../components/Report';
 import { useRef } from 'react';
+import max from '../img/ampliar-texto.png';
+import min from '../img/disminuir.png';
 import ReactToPrint from 'react-to-print';
 import NavTree from '../components/NavTree';
 import axios from 'axios';
@@ -87,14 +89,18 @@ const Calculate1 = () => {
           </div>
           <InputsCalculate values={values} setValues={setValues} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} />
           <div className="w45 p-0 report" id="report">
-            <a onClick={() => amplio()} class="point amp mt10">
+            <a onClick={() => amplio()} class="point amp mr70 mt10">
               <i class="fa fa-expand mr5" aria-hidden="true"></i>
               {t("Calculate.amp")}
             </a>
+            <div class="btn-toolbar f-r mt10 mr12" role="toolbar" aria-label="Botones">
+              <img src={max} class="aumentar1 mr-2 ba" alt=""/>
+              <img src={min} class="restablecer1 bam" alt=""/>
+            </div>
             <div>
               <button onClick={()=>console.log(numeroDeCircuits)}>!!</button>
               <ReactToPrint
-                trigger={() => <button class="pade btn btn-primary mt-2 gray">{t("Calculate.print")}</button>}
+                trigger={() => <button class="pade btn btn-primary mt-2 gray mitexto1">{t("Calculate.print")}</button>}
                 content={() => componentRef.current}
               />
               <div class="calculo" ref={componentRef}>

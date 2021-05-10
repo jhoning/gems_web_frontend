@@ -9,14 +9,14 @@
         "password": "Contraseña",
         "submitt": "Enviar",
         "example": "Ejemplo123@gmail.com",
-        "ryc": "Registra tu cuenta",
+        "ryc": "Registra tu cuenta", 
         "register": "Registrar",
         "calculate": "Calcular",
         "es": "Español",
         "en": "Inglés",
         "forgotP": "¿Olvidó su contraseña?",
-        "Access": "Ingresar"
-    },
+        "access": "Ingresar"
+    }, 
     "HeaderT": {
         "log_out": "Cerrar sesión",
         "projects": "Proyectos",
@@ -78,7 +78,7 @@
         "power": "Potencia",
         "amp": "Ver completo", 
         "print": "¡Imprimir!"
-    },
+    }, 
     "InputsC": {
         "sAppliance": "Tomacorriente especial",
         "cSettings": "Configuraciones de circuito",
@@ -124,7 +124,9 @@
         "recoverE": "Este correo no esta registrado",
         "error": "Ha ocurrido un error",
         "exist": "Datos actualizados de forma exitosa",
-        "delete": "Eliminado"
+        "delete": "Eliminado",
+        "mCal": "¿Desea calcular esos cambios?",
+        "mReport": "¿Desea agregarlos al reporte?"
     },
     "Board": {
         "nTab": "Nueva pestaña"
@@ -134,6 +136,10 @@
         "no": "No",
         "PVC": "PVC",
         "aluminum": "Aluminio",
-        "steel": "Acero"
+        "steel": "Acero",
+        "accept": "Aceptar",
+        "cancel": "Cancelar",
+        "cM": "Trabaja de forma continua",
+        "sV": "Servicio variable "
     }
 }

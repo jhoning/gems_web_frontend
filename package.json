@@ -22,7 +22,11 @@
         "react-scripts": "4.0.2",
         "react-simple-tree-menu": "^1.1.18",
         "react-to-print": "^2.12.3",
+<<<<<<< HEAD
         "sweetalert2": "^10.16.7",
+=======
+        "sweetalert2": "^10.16.6",
+>>>>>>> b53d1aa315e2d8859598fbf63e8d99631bbcb7c0
         "web-vitals": "^1.1.0"
     },
     "scripts": {

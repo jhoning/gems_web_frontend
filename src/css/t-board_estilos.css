@@ -9,6 +9,10 @@
     padding-right: 0px !important;
 }
 
+.list-group-item {
+    padding: .5rem 1.25rem;
+}
+
 .altoCompleto .form-control {
     background-color: #fdfdfd !important;
 }
@@ -80,7 +84,6 @@
 
 .sideBar {
     margin-left: 0px !important;
-    padding: 10px 5px !important;
 }
 
 .board input {
@@ -90,6 +93,9 @@
 .fa-edit {
     margin-right: 10px;
     color: #007bff;
+}
+.pad51 {
+    padding: .5rem 1rem !important;
 }
 
 .fa-trash {

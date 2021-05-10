@@ -9,7 +9,7 @@ import Footer from './Footer';
 import { useHistory } from 'react-router';
 
 const MessageEmail = () => { 
-  const history = useHistory();
+  const history = useHistory(); 
   const [t] = useTranslation("global")
   let { token } = useParams(); 
   const authAxios = axios.create({

@@ -142,7 +142,7 @@ const Login = () => {
               <div id="login-box" className="col-md-12">
                 <h3 className="text-center mb2">{t("Header.logeo")}</h3>
                 <form onSubmit={submitHandler} id="formulario" class="logeo">
-                  <div className="container">
+                  <div className="logea">
                     {/* <div class="form-group ">
                       <i class="fa fa-user"></i>
                       <input type="text" name="email" id="email" placeholder={t("Header.example")}  className="form-control"  onChange={e => handlePaste(e)} />
@@ -152,7 +152,7 @@ const Login = () => {
 
                     <div class="form__div ">
                         <i class="fa fa-user"></i>
-                        <input type="email" name="email" id="email"  class="form__input form-control" placeholder=" " onChange={e => handlePaste(e)} />
+                        <input type="email" name="email" id="email"  class="form__input" placeholder=" " onChange={e => handlePaste(e)} />
                         <label for="" class="form__label">{t("Header.email")}</label>
                         <div class="invalid-feedback">{t("userS.eInvalid")}</div>
                     </div>
@@ -164,7 +164,7 @@ const Login = () => {
                         <span class="fa fa-fw fa-eye-slash password-icon show-password eye lg3"></span>
                     </div>
 
-                    <div className="form-group text-center mt-3">
+                    <div className="form-group text-center mt0">
                       <button className="boton btn btn-primary " onClick={() => {logear();console.log(login)}}>{t("Header.submitt")} </button>
 
                     </div>
