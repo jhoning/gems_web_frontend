@@ -1,6 +1,5 @@
 import React,{useEffect,useState} from 'react';
 import { useTranslation } from 'react-i18next';
-<<<<<<< HEAD
 import axios from 'axios';
 const token = localStorage.getItem('token')
 const authAxios = axios.create({
@@ -11,10 +10,6 @@ const authAxios = axios.create({
 })
 
 const Report = React.forwardRef(({arr,numeroDeCircuits},) => {
-=======
-
-const Report = React.forwardRef(({arr}) => {
->>>>>>> b53d1aa315e2d8859598fbf63e8d99631bbcb7c0
   const [t] = useTranslation("global")
   const [consultaCircuitos,setConsultaCircuitos] = useState([])
   const [estado,setEstado] = useState([])
@@ -42,14 +37,9 @@ const Report = React.forwardRef(({arr}) => {
   return (
     <>
         <div className="jumbotron calculoAltoMin ">
-<<<<<<< HEAD
           <button onClick={()=>console.log(numeroDeCircuits)}>verrrr</button>
               <h2 className="text-center color">{t("Calculate.report")}</h2>
               <table border="1" class="table table-bordered table-sm table-striped calculo">
-=======
-              <h2 className="text-center color mitexto1">{t("Calculate.report")}</h2>
-              <table border="1" class="mitexto1 table table-bordered table-sm table-striped calculo">
->>>>>>> b53d1aa315e2d8859598fbf63e8d99631bbcb7c0
                 <thead class="table-secondary"> 
                   <tr class="borde1">
                     <th scope="col-4" className="px-2 mitexto1">{t("Calculate.project")}</th>
@@ -83,7 +73,6 @@ const Report = React.forwardRef(({arr}) => {
                     estado != undefined || numeroDeCircuits != [] ?
                 estado.map((item,i) => {
                     return <tr>
-<<<<<<< HEAD
                       <th scope="col" className="px-2">{/* numeroDeCircuits != []?numeroDeCircuits[i].name +" "+ numeroDeCircuits[i].id:null */}{/* {parseFloat(item.cable_width + 2).toFixed(1)} */}</th>
                       {/* 
                         branch:
@@ -120,15 +109,6 @@ const Report = React.forwardRef(({arr}) => {
                       <th scope="col" className="px-2">{parseFloat(item.voltaje_drop + 14).toFixed(1)}#-Cobre</th>
                       <th scope="col" className="px-2">{  item.perPhase + `${item.protection_device}` + "-A"}</th>
                       <th scope="col" className="px-2">{item.power}</th>
-=======
-                      <th scope="col" className="px-2 mitexto1">{parseFloat(item.cable_width + 2).toFixed(1)}</th>
-                      <th scope="col" className="px-2 mitexto1">{parseFloat(item.current * 5).toFixed(1)}</th>
-                      <th scope="col" className="px-2 mitexto1">{parseFloat(item.pipe_diameter * 22).toFixed(1)}</th>
-                      <th scope="col" className="px-2 mitexto1">{parseFloat(item.protection_device + 8).toFixed(1)}</th>
-                      <th scope="col" className="px-2 mitexto1">{parseFloat(item.voltaje_drop + 14).toFixed(1)}</th>
-                      <th scope="col" className="px-2 mitexto1">{parseFloat(item.voltaje_drop + 9).toFixed(1)}</th>
-                      <th scope="col" className="px-2 mitexto1">{parseFloat(item.current + 8).toFixed(1)}</th>
->>>>>>> b53d1aa315e2d8859598fbf63e8d99631bbcb7c0
 
 
                     </tr>

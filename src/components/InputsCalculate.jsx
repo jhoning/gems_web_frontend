@@ -7,14 +7,9 @@ import max from '../img/ampliar-texto.png';
 import min from '../img/disminuir.png';
 import {useState,useEffect} from 'react'
 import axios from 'axios'
-<<<<<<< HEAD
-const InputsCalculate = ({values,setValues,setArr,arr,circuitActual,estadoInputs}) => {
-  const [boardPadre,setBoardPadre] = useState()
-=======
 const Swal = require('sweetalert2')
 
-const InputsCalculate = ({values,setValues,setArr,arr}) => {
->>>>>>> b53d1aa315e2d8859598fbf63e8d99631bbcb7c0
+const InputsCalculate = ({values,setValues,setArr,arr,circuitActual,estadoInputs}) => {
   const [respuesta,setRespuesta] = useState({
     current: 0,
     cable_width: "0",
@@ -427,11 +422,7 @@ const [report,setReport] = useState({
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-<<<<<<< HEAD
           <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>{reportGenerate();console.log(report);/* actualizarCircuit() */;/* actualizarCircuit2() */ }}>{t("Calculate.report")}</button></div>
-=======
-          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>{reportGenerate();console.log(report)}}>{t("Calculate.report")}</button></div>
->>>>>>> b53d1aa315e2d8859598fbf63e8d99631bbcb7c0
         </div>
       </div>
       </div>
