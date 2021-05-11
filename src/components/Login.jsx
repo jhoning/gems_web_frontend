@@ -152,7 +152,7 @@ const Login = () => {
 
                     <div class="form__div ">
                         <i class="fa fa-user"></i>
-                        <input type="email" name="email" id="email"  class="form__input form-control" placeholder=" " onChange={e => handlePaste(e)} />
+                        <input type="email" name="email" id="email"  class="form__input" placeholder=" " onChange={e => handlePaste(e)} />
                         <label for="" class="form__label">{t("Header.email")}</label>
                         <div class="invalid-feedback">{t("userS.eInvalid")}</div>
                     </div>

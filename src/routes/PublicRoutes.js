@@ -1,4 +1,4 @@
-import React from 'react'
+/* import React from 'react'
 import { BrowserRouter, Switch, Route,Redirect } from 'react-router-dom'
 import { LoginForm } from '../containers/LoginForm';
 import Register from '../components/Register';
@@ -25,3 +25,4 @@ const PublicRoutes = () => {
 }
 
 export default PublicRoutes
+ */

@@ -70,7 +70,7 @@
         "project": "Project",
         "bCircuits": "Branch Circuits",
         "branch": "Branch",
-        "bType": "Branch Type",
+        "bType": "Load Type",
         "canalization": "Canalization",
         "fases": "Fases",
         "ground": "Ground",

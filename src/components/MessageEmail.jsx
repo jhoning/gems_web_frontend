@@ -19,14 +19,15 @@ const MessageEmail = () => {
     }
   })  
   useEffect(() => {
+    console.log(token)
     confirm()
   }, [])
   const confirm = async()=>{
-    await authAxios.post('/auth/verifyUser')
+    await authAxios.post('/auth/verifyUser').then(res => console.log(res)).catch(err => console.log(err))
   }
   return ( 
     <div className="app">
-      <Header/>
+      <Header />
       <div className="card mx-auto my-8 formMessage wrapper fadeInDown">
         <div className="card-body pg">
           <div id="message-row" className="row justify-content-center align-items-center">

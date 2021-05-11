@@ -83,8 +83,10 @@ const T_board = () => {
                 <li className="nav-item"><a href="" className="nav-link text-white">{t("HeaderT.projectsS")}</a></li>
 
               </ul>
-              <input type="text" name="text" placeholder={t("HeaderT.idPass")} className="form-control new" value={nameProject}  onKeyDown={(e) =>handleKeyDown(e)} onChange={e => { setNameProject(e.target.value) }}  />
-              <button className="btn btn-primary mt-3" onClick={() => {crearProject();console.log(name1)}}>{t("HeaderT.projectsNews")}</button>
+              <div className="nav-link">
+                <input type="text" name="text" placeholder={t("HeaderT.idPass")} className="form-control new" value={nameProject}  onKeyDown={(e) =>handleKeyDown(e)} onChange={e => { setNameProject(e.target.value) }}  />
+              </div>
+              <button className="btn btn-primary mt-2" onClick={() => {crearProject();console.log(name1)}}>{t("HeaderT.projectsNews")}</button>
             </div>
           </nav>
           <div className="col-10 altoCompleto vt">

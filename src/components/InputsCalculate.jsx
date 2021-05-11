@@ -9,13 +9,27 @@ import {useState,useEffect} from 'react'
 import axios from 'axios'
 const Swal = require('sweetalert2')
 
-const InputsCalculate = ({values,setValues,setArr,arr}) => {
+const InputsCalculate = ({values,setValues,setArr,arr,circuitActual,estadoInputs}) => {
   const [respuesta,setRespuesta] = useState({
-    current: "0",
+    current: 0,
     cable_width: "0",
     pipe_diameter: "0",
-    protection_device: "0",
-    voltage_drop: "0"
+    protection_device: 0,
+    voltage_drop: 0,
+})
+const [report,setReport] = useState({
+  loadType:"",
+  power: 0,
+  distance: "",
+  powerFactor: 0,
+  voltageDrop: "",
+  aisolation:"",
+  temperature:21,
+  loadPhases:"",
+  perPhase:"",
+  feeder_include_neutral_wire:true,
+  pipe_material:"",
+  system_voltage:"",
 })
   const [t] = useTranslation("global")
   const token = localStorage.getItem('token')
@@ -27,33 +41,81 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
   })  
   
   useEffect(() => {
+   
+    setReport({...estadoInputs,powerFactor:0})
+    console.log({
+      loadType:report.loadType,
+      power: report.power,
+      distance: report.distance,
+      powerFactor: 0.1,
+      voltageDrop: report.voltageDrop,
+      aisolation:report.aisolation,
+      temperature:21,
+      loadPhases:report.loadPhases,
+      perPhase:report.perPhase,
+      feeder_include_neutral_wire:report.feeder_include_neutral_wire,
+      pipe_material:report.pipe_material,
+      system_voltage:report.system_voltage})
      obtenerReportes(); 
-  }, []);
-  const [report,setReport] = useState({
-    loadType:"",
-    power: 0,
-    distance: "",
-    powerFactor: 0,
-    voltageDrop: "",
-    aisolation:"",
-    temperature:21,
-    loadPhases:"",
-    perPhase:"",
-    feeder_include_neutral_wire:true,
-    pipe_material:"",
-    system_voltage:"",
-  })
+  }, [estadoInputs]);
+ 
   const obtenerReportes = async() => {
     await authAxios.get('/report').then((resp)=>setArr(resp.data));
   }  
-  const enviarDatos = async() => {
-    await authAxios.post('/report/listForm',report).then(res=>{setRespuesta(res.data);console.log(res)}).catch(err=>console.log(err))
+  const enviarDatos = async(id1) => {
+    await authAxios.post('/report/listForm',{
+    loadType:report.loadType,
+    power: report.power,
+    distance: report.distance,
+    powerFactor: report.powerFactor,
+    voltageDrop: report.voltageDrop,
+    aisolation:report.aisolation,
+    temperature:21,
+    loadPhases:report.loadPhases,
+    perPhase:report.perPhase,
+    feeder_include_neutral_wire:report.feeder_include_neutral_wire,
+    pipe_material:report.pipe_material,
+    system_voltage:report.system_voltage}).then(res=>{setRespuesta({...res.data });console.log(respuesta)}).catch(err=>console.log(err))
+  }
+  const actualizarCircuit = async()=>{
+    await authAxios.get('/circuit/'+circuitActual).then(res => res.data.board_padre).then(res=> actualizarCircuit2(res))
+    
+      /* await authAxios.patch('/circuit/'+circuitActual,{id:circuitActual,...report,board_padre:{
+       id:boardPadre.id,
+       name:boardPadre.name
+     }
+     
+    }).then(res => console.log(res)); */
+  }
+  const actualizarCircuit2 = async(res)=>{
+   
+      setTimeout(async()=>{      
+         await authAxios.patch('/circuit/'+circuitActual,{id:circuitActual,...report,board_padre:{
+        id:res.id,
+        name:res.name
+      }
+      
+     }).then(res => console.log(res)); },1000)
+
   }
   const reportGenerate =  async() => {
     setArr([...arr,respuesta])
     console.log(values)
     console.log(arr)
-     await authAxios.post('/report',respuesta).catch(err => console.log(err)) 
+     await authAxios.post('/report',{ loadType:report.loadType,
+      power: report.power,
+      distance: report.distance,
+      powerFactor: report.powerFactor,
+      voltageDrop: report.voltageDrop,
+      aisolation:report.aisolation,
+      temperature:21,
+      loadPhases:report.loadPhases,
+      perPhase:report.perPhase,
+      feeder_include_neutral_wire:report.feeder_include_neutral_wire,
+      pipe_material:report.pipe_material,
+      system_voltage:report.system_voltage,...respuesta,circuit:{
+       id:circuitActual
+     }}).then(res=> console.log('exito!!!')).catch(err => console.log(err)) 
   }
 
   const amp = () => {
@@ -155,8 +217,21 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
 
   
 
-  return (
+  return (<>
     <div className="w30 overflow-auto calculoAlto" id="reporte">
+      <button onClick={()=>{console.log({
+      loadType:report.loadType,
+      power: report.power,
+      distance: report.distance,
+      powerFactor: 0.1,
+      voltageDrop: report.voltageDrop,
+      aisolation:report.aisolation,
+      temperature:21,
+      loadPhases:report.loadPhases,
+      perPhase:report.perPhase,
+      feeder_include_neutral_wire:report.feeder_include_neutral_wire,
+      pipe_material:report.pipe_material,
+      system_voltage:report.system_voltage})}}>ver result</button>
       <div  autocomplete="off">
         <a onClick={() => amp()} class="point amp1">
         <i class="fa fa-expand mr5" aria-hidden="true"></i>
@@ -180,7 +255,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div className="form-group row my-1 se">
           <label for="inputEmail3" class="col-sm-5 col-form-label mitexto">{t("InputsC.loadType")}</label>
           <div class="col-sm-7">
-            <select class="custom-select mitexto"  autocomplete="off" onChange={handleLoadType}>
+            <select class="custom-select custom-select"  autocomplete="off" onChange={handleLoadType} value={report != null?report.loadType:null}>
               <option selected class="mitexto">{t("InputsC.choose")}</option>
               <option value="0" class="mitexto">{t("InputsC.kitchen")}</option>
               <option value="1" class="mitexto">{t("InputsC.bedroom")}</option>
@@ -214,13 +289,13 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.powerW")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="number"  class="form-control mitexto" id="inputEmail3" autocomplete="off" value={report.power} autocomplete="nope" onChange={handlePower}/>
+            <input type="number"  class="form-control mitexto" id="inputEmail3" autocomplete="off" value={report != null?report.power:null} autocomplete="nope" onChange={handlePower} />
           </div>
         </div>
         <div class="form-group row my-1 se">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.loadP")}</label>
           <div class="col-sm-7 mx-0">
-          <select class="custom-select custom-select"  autocomplete="off" onChange={handleLoadPhases}>
+          <select class="custom-select custom-select"  autocomplete="off" onChange={handleLoadPhases} value={report != null?report.loadPhases:null}>
               <option selected class="mitexto">{t("InputsC.choose")}</option>
               <option value="1" class="mitexto">1</option>
               <option value="2" class="mitexto">2</option>
@@ -231,31 +306,31 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div class="form-group row my-0">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.cablesP")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="number" class="form-control mitexto" id="inputEmail3" autocomplete="off" value={report.perPhases} onChange={handlePerPhases}/>
+            <input type="number" class="form-control mitexto" id="inputEmail3" autocomplete="off" value={report != null?report.perPhase:null} onChange={handlePerPhases}/>
           </div>
         </div>
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.distance")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="number" class="form-control mitexto" id="inputEmail3"  autocomplete="off" onChange={handleDistance}/>
+            <input type="number" class="form-control mitexto" id="inputEmail3"  autocomplete="off" value={report != null?report.distance:null} onChange={handleDistance}/>
           </div>
         </div>
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.powerF")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="number" step=".1" min="0" max="1" class="form-control mitexto" id="inputEmail3" value={report.powerFactor} autocomplete="off" onChange={handlePowerFactor} />
+            <input type="number" step=".1" min="0" max="1" class="form-control mitexto" id="inputEmail3" value={report != null?report.powerFactor:null} autocomplete="off" onChange={handlePowerFactor} />
           </div>
         </div>
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.voltage")} (%)</label>
           <div class="col-sm-7 mx-0">
-            <input type="number" class="form-control mitexto" id="inputEmail3" autocomplete="off" onChange={handleVoltageDrop} />
+            <input type="number" class="form-control mitexto" id="inputEmail3" autocomplete="off" onChange={handleVoltageDrop} value={report != null?report.voltageDrop:null} />
           </div>
         </div>
         <div class="form-group row my-1">
         <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.sVoltage")} (V)</label>
         <div class="col-sm-7">
-            <select class="custom-select custom-select"  autocomplete="off" onChange={handleSystem_voltage}>
+            <select class="custom-select custom-select"  autocomplete="off" value={report != null?report.system_voltage:null}onChange={handleSystem_voltage}>
               <option selected class="mitexto">{t("InputsC.choose")}</option>
               <option value="120" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title="120">120</option>
               <option value="208" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title="208">208</option>
@@ -266,7 +341,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div className="form-group row my-1 se">
           <label for="inputEmail3" class="col-sm-5 col-form-label mitexto">{t("InputsC.aisolation")}</label>
           <div class="col-sm-7">
-            <select class="custom-select custom-select"  autocomplete="off" onChange={handleAisolation}>
+            <select class="custom-select custom-select"  autocomplete="off" value={report != null?report.aisolation:null} onChange={handleAisolation}>
               <option selected class="mitexto">{t("InputsC.choose")}</option>
               <option value="0" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.tw")}>TW</option>
               <option value="1" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.thwn")}>THWN</option>
@@ -277,14 +352,14 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div class="form-group row my-1">
         <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.temperature")} (°C)</label>
           <div class="col-sm-7 mx-0">
-          <input type="number" class="form-control mitexto" id="inputEmail3"  autocomplete="off" value={report.temperature} onChange={handleTemperature}/>
+          <input type="number" class="form-control mitexto" id="inputEmail3"  autocomplete="off" value={report != null?report.temperature:null} onChange={handleTemperature}/>
           </div>
         </div>
 
         <div class="form-group row my-1">
         <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.neutral")}</label>
         <div class="col-sm-7">
-            <select class="custom-select custom-select"  autocomplete="off" onChange={handleFeeder_include_neutral_wire}>
+            <select class="custom-select custom-select"  autocomplete="off" value={report != null?report.feeder_include_neutral_wire:true} onChange={handleFeeder_include_neutral_wire}>
               <option class="mitexto" value={true} selected data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.yes")}>{t("Option.yes")}</option>
               <option class="mitexto" value={false} data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.no")}>{t("Option.no")}</option>
             </select>
@@ -294,7 +369,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div class="form-group row my-1">
         <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.conduit")}</label>
           <div class="col-sm-7 mx-0">
-            <select class="custom-select custom-select"  autocomplete="off" onChange={handlePipe_material}>
+            <select class="custom-select custom-select"  autocomplete="off" value={report != null?report.pipe_material:null} onChange={handlePipe_material}>
             <option selected class="mitexto">{t("InputsC.choose")}</option>
               <option value="0" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.PVC")}>{t("Option.PVC")}</option>
               <option value="1" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.aluminum")}>{t("Option.aluminum")}</option>
@@ -307,7 +382,7 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-          <div className="col-4 mitexto"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>enviarDatos()}>{t("InputsC.compute")}</button></div>
+          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>enviarDatos(circuitActual)}>{t("InputsC.compute")}</button></div>
         </div> 
         <div className="col-4">
             {/* <button className="btn btn-primary mt-2 gray" onClick={()=>console.log(report)}>algo</button> */}
@@ -347,11 +422,12 @@ const InputsCalculate = ({values,setValues,setArr,arr}) => {
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>{reportGenerate();console.log(report)}}>{t("Calculate.report")}</button></div>
+          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>{reportGenerate();console.log(report);/* actualizarCircuit() */;/* actualizarCircuit2() */ }}>{t("Calculate.report")}</button></div>
         </div>
       </div>
       </div>
     </div>
+  </>
   )
 }
 

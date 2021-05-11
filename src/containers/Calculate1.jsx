@@ -1,10 +1,10 @@
 import React from 'react';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from "react-router";
 import Footer from '../components/Footer'
 import Header from '../components/HeaderT'
 import { useTranslation } from 'react-i18next';
-import InputsCalculate from '../components/InputsCalculate'
+import InputsCalculate from '../components/InputsCalculate';
 import MenuTree from '../components/MenuTree'
 import Report from '../components/Report';
 import { useRef } from 'react';
@@ -12,9 +12,17 @@ import max from '../img/ampliar-texto.png';
 import min from '../img/disminuir.png';
 import ReactToPrint from 'react-to-print';
 import NavTree from '../components/NavTree';
+import axios from 'axios';
+const token = localStorage.getItem('token')
+const authAxios = axios.create({
+  baseURL: 'http://localhost:4000',
+  headers: {
+    "auth-token": `${token}`
+  }
+})
 const Calculate1 = () => {
   let { id1 } = useParams();
-  console.log(id1)
+  console.log(id1);
   const [t] = useTranslation("global")
   const [values, setValues] = useState({
     current: "",
@@ -24,10 +32,38 @@ const Calculate1 = () => {
     voltaje_drop: "",
     circuit: {},
   });
-  const [arr, setArr] = useState([])
+  const [arr, setArr] = useState([]);
   const componentRef = useRef();
+  const [consultaBoard,setConsultaBoard] = useState();
+  const [circuitActual,setCircuitActual] = useState(null);
+  const [estadoInputs,setEstadoInputs] = useState({
+    loadType:0,
+    power: 0,
+    distance: "0",
+    powerFactor: 0.2,
+    voltageDrop: "0",
+    aisolation:"0",
+    temperature:21,
+    loadPhases:"0",
+    perPhase:"0",
+    feeder_include_neutral_wire:true,
+    pipe_material:"0",
+    system_voltage:"0",});
+  const [numeroDeCircuits,setNumeroDeCircuits] = useState();
+  const [consultaReportes,setConsultaReportes] = useState();
+  const [arregloIdReportes,setArrgloIdReportes] = useState([]);
 
+  useEffect(() => {
+    
+      
+   
+    
+ 
+  }, [numeroDeCircuits])
 
+  const reporteConsulta = async(id1)=>{
+    await authAxios.get('/circuit/'+id1).then(res =>setArrgloIdReportes([...arregloIdReportes,res.data])).catch(err => console.log(err))
+  }
 
   const amplio = () => {
     if (document.getElementById("report").style.width === '55%') {
@@ -40,7 +76,7 @@ const Calculate1 = () => {
     } 
   }
 
-
+  console.log(circuitActual)
   return (
     <div>
       <Header />
@@ -48,9 +84,10 @@ const Calculate1 = () => {
         <div className="row grid">
           <div className="col-2 gb">
             {/* <MenuTree idCircuits={id1} /> */}
-            <NavTree idCircuits={id1}/>
+            <button onClick={()=>{console.log(arregloIdReportes)}}>ver reportes</button>
+            <NavTree idCircuits={id1} setArr={setArr} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}/>
           </div>
-          <InputsCalculate values={values} setValues={setValues} setArr={setArr} arr={arr} />
+          <InputsCalculate values={values} setValues={setValues} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} />
           <div className="w45 p-0 report" id="report">
             <a onClick={() => amplio()} class="point amp mr70 mt10">
               <i class="fa fa-expand mr5" aria-hidden="true"></i>
@@ -61,18 +98,16 @@ const Calculate1 = () => {
               <img src={min} class="restablecer1 bam" alt=""/>
             </div>
             <div>
+              <button onClick={()=>console.log(numeroDeCircuits)}>!!</button>
               <ReactToPrint
                 trigger={() => <button class="pade btn btn-primary mt-2 gray mitexto1">{t("Calculate.print")}</button>}
                 content={() => componentRef.current}
               />
               <div class="calculo" ref={componentRef}>
-                <Report arr={arr} />
+                <Report arr={arr} numeroDeCircuits={numeroDeCircuits} numeroReportes={arregloIdReportes}/>
               </div>
 
             </div>
-
-
-
             {/* <button className="btn btn-primary " onClick={() => amplio()}> Ver </button> */}
 
 
