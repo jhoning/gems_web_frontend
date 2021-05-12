@@ -61,7 +61,7 @@
         "fText2": "Para obtener más información sobre los términos de privacidad de T-board, consulte la",
         "terms": "Términos de servicio.",
         "pState": "Declaracion de privacidad.",
-        "code": "Ingrese su código por favor",
+        "code": "Ingrese su código por favor", 
         "cMess": "Ingrese el código que se envió a su correo electrónico para restablecer su contraseña",
         "cNumber": "Ingrese su código aquí"
     },
@@ -140,6 +140,6 @@
         "accept": "Aceptar",
         "cancel": "Cancelar",
         "cM": "Trabaja de forma continua",
-        "sV": "Servicio variable "
+        "sV": "Con servicio variable "
     }
 }

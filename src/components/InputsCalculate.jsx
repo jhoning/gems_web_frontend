@@ -255,34 +255,23 @@ const [report,setReport] = useState({
         <div className="form-group row my-1 se">
           <label for="inputEmail3" class="col-sm-5 col-form-label mitexto">{t("InputsC.loadType")}</label>
           <div class="col-sm-7">
-            <select class="custom-select custom-select"  autocomplete="off" onChange={handleLoadType} value={report != null?report.loadType:null}>
+            <select name="SelectOptions" id="SelectOptions" class="custom-select custom-select mitexto"  autocomplete="off" onChange={handleLoadType} value={report != null?report.loadType:null}>
               <option selected class="mitexto">{t("InputsC.choose")}</option>
               <option value="0" class="mitexto">{t("InputsC.kitchen")}</option>
               <option value="1" class="mitexto">{t("InputsC.bedroom")}</option>
               <option value="2" class="mitexto">{t("InputsC.washroom")}</option>
-            </select>
-          </div>
-        </div>
-
-        <div className="form-group row my-1 se">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mitexto">Motor</label>
-          <div class="col-sm-7">
-            <select name="SelectOptions" id="SelectOptions" class="custom-select mitexto" required autocomplete="off">
-                <option selected class="mitexto">{t("InputsC.choose")}</option>
-                <option value="Div1" class="mitexto">{t("Option.cM")}</option>
-                <option value="Div2" class="mitexto">{t("Option.sV")}</option>
+              <option value="Div1" class="mitexto">Motor</option>
             </select>
           </div>
         </div>
 
         {/* Este codigo muestra los dos div ocultos de Motor */}
         <div class="DivPai form-group row my-0">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto"></label>
-          <div class="Div1 col-sm-7 mx-0">
-            <input type="number" class="form-control mitexto"  id="inputDatos" value="DATO"  autocomplete="off"  autocomplete="nope" />
-          </div>
-          <div class="Div2 col-sm-7 mx-0">
-            <input type="number" class="form-control mitexto" autocomplete="off"  autocomplete="nope" />
+          <div class="Div1 mt-1">
+            <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto f-l">{t("Option.cM")} / {t("Option.sV")}</label>
+            <div class="col-sm-7 mx-0 Div1 f-l">
+              <input type="number" class="form-control mitexto mt-1"  id="inputDatos" value="DATO"  autocomplete="off"  autocomplete="nope" />
+            </div>
           </div>
         </div>
         
