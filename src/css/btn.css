@@ -189,6 +189,10 @@
     margin-top: -2px !important;
 }
 
+.p-tree .p-treenode-children {
+    padding: 0 0 0 0rem !important;
+}
+
 .p-treenode-label > div > span {
     font-size: 15px;
 }
@@ -212,6 +216,10 @@
 
 .mr-md-1, .mx-md-1 {
     margin-right: 0px !important;
+}
+
+.form-control .mitexto {
+    font-size: 12px;
 }
 
 .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler:enabled:hover {
