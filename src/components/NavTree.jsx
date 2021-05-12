@@ -257,7 +257,7 @@ const NavTree = ({ idCircuits,setArr,setConsultaBoard,setCircuitActual,circuitAc
   return (
     <>
       <button onClick={()=>console.log(circuitActual)}>ver circuit actual</button>
-      <button className='btn btn-primary' onClick={() => {
+      <button className='btn btn-primary mb-2 mt-2' onClick={() => {
         registrarBoard1()
         setMount(false)
 

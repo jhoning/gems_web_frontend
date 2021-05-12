@@ -74,7 +74,7 @@ const T_board = () => {
     <div className="container-fluid tbo">
       <div className=" mb-3">
         <div className="row" >
-          <nav className="col-3 col-md-2 col-sm-2 gris sidebar altoCompleto mx-0">
+          <nav className="col-3 col-md-2 col-sm-2 gris sidebar altoCompleto mx-0 pt-3">
             <div className="sidebar-sticky sideBar board text-center" >
               <ul className="nav flex-column text-left">
 
@@ -92,7 +92,7 @@ const T_board = () => {
           <div className="col-10 altoCompleto vt">
             <div className="jumbotron p-2 mb-0">
               <div className="container mb-1">
-                <div className="row">
+                <div className="row mb-2">
                   <div className="col-3"></div>
                   <div className="col-6">
                     <input className="form-control wh" type="text" placeholder={t("HeaderT.search_projects")}></input>
