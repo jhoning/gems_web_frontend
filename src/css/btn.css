@@ -168,6 +168,21 @@
     height: 25px;
 }
 
+.p-treenode, .p-treenode-leaf {
+    cursor: pointer;
+}
+.p-treenode:hover, .p-treenode-leaf:hover {
+    background: rgb(226, 226, 226);
+}
+
+.p-treenode-content:focus {
+    background: rgb(226, 226, 226);
+}
+
+:target {
+    color: red;
+  }
+
 .p-treenode-content {
     height: 25px;
 }
