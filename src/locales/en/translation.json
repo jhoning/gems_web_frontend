@@ -64,7 +64,7 @@
         "code": "Please enter your code",
         "cMess": "Enter the code sent to your email to reset your password",
         "cNumber": "Your code"
-    },
+    }, 
     "Calculate": {
         "report": "Report",
         "project": "Project",
@@ -139,7 +139,7 @@
         "steel": "Steel",
         "accept": "Accept",
         "cancel": "Cancel",
-        "cM": "Continuous duty motor",
+        "cM": "Continuous",
         "sV": "Variable duty motor"
     }
 }

@@ -217,7 +217,7 @@ const NavTree = ({ idCircuits,setArr,setConsultaBoard,setCircuitActual,circuitAc
             setBoards(recorre(boards,node.key))
             crearCircuit(node.key)
         }}><img class="ban1" src={plus} /></a>   */}
-          <ul class="navbar-nav idioma mr-md-1 fr">
+          <ul class="navbar-nav idioma mr-md-1 fr mt3">
             <li class="nav-item dropdown language-dropdown">
               <a class="" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                 <img class="ban" src={plus} />
@@ -257,7 +257,7 @@ const NavTree = ({ idCircuits,setArr,setConsultaBoard,setCircuitActual,circuitAc
   return (
     <>
       <button onClick={()=>console.log(circuitActual)}>ver circuit actual</button>
-      <button className='btn btn-primary' onClick={() => {
+      <button className='btn btn-primary mb-2 mt-2' onClick={() => {
         registrarBoard1()
         setMount(false)
 

@@ -333,7 +333,10 @@ html {
     to {right: 0; opacity: 0;}
   }
 
-  .Div1,.Div2,.Div3{display:none;}
+  .Div1,.Div2,.Div3{
+      display:none;
+      width: 100%;
+    }
 
   .ml50 {
     margin-left: 60%;

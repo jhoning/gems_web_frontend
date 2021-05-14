@@ -234,7 +234,7 @@ const MenuTree = ({idCircuits}) => {
     
     if (node.label) {
       return (
-        <div  style={{height: '70px',padding: '20px 0 0 0px',margin:'0px 6px 0 0'}}>
+        <div  style={{height: '70px',padding: '24px 0 0 0px',margin:'0px 6px 0 0'}}>
           <span onClick={()=>console.log('ola')}>{node.label}</span>
           {/* <a className="ml4 " onClick={()=>{
           console.log(circuits)
