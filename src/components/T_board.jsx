@@ -106,7 +106,7 @@ const T_board = () => {
                   name1 == null? null : name1.map((item,i) => {
                   
                     return <li className="list-group-item d-flex justify-content-between align-items-center"> 
-                    <a class="col-md-10" id={item.id+"a"}href={`http://localhost:3004/calculate/${item.id}`}>{item.name}</a> 
+                    <a class="col-md-10" id={item.id+"a"}href={`http://localhost:3004/calculate/${item.id}/${item.name}`}>{item.name}</a> 
                     <input type="text" class="edit" style={{ display: "none",height: "35px" }} id={item.id+"i"} onChange={e => { setAux1({ ...aux1, name: e.target.value });console.log(aux1)}} onKeyDown={(e) =>handleKeyDown1(e,item.id)}/>
                       <div class="col-md-1 controls">
              
