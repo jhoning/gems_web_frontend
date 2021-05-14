@@ -21,7 +21,7 @@ const authAxios = axios.create({
   }
 })
 const Calculate1 = () => {
-  let { id1 } = useParams();
+  let { id1 ,name } = useParams();
   console.log(id1);
   const [t] = useTranslation("global")
   const [values, setValues] = useState({
@@ -34,20 +34,21 @@ const Calculate1 = () => {
   });
   const [arr, setArr] = useState([]);
   const componentRef = useRef();
+  const [nameProject,setNameProject] = useState(name)
   const [consultaBoard,setConsultaBoard] = useState();
   const [circuitActual,setCircuitActual] = useState(null);
   const [estadoInputs,setEstadoInputs] = useState({
     loadType:0,
     power: 0,
     distance: "0",
-    powerFactor: 0.2,
+    powerFactor: 0,
     voltageDrop: "0",
     aisolation:"0",
-    temperature:21,
+    temperature:0,
     loadPhases:"0",
     perPhase:"0",
-    feeder_include_neutral_wire:true,
-    pipe_material:"0",
+    feeder_include_neutral_wire:"true",
+    pipe_material:0,
     system_voltage:"0",});
   const [numeroDeCircuits,setNumeroDeCircuits] = useState();
   const [consultaReportes,setConsultaReportes] = useState();
@@ -85,9 +86,9 @@ const Calculate1 = () => {
           <div className="col-2 gb">
             {/* <MenuTree idCircuits={id1} /> */}
             <button onClick={()=>{console.log(arregloIdReportes)}}>ver reportes</button>
-            <NavTree idCircuits={id1} setArr={setArr} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}/>
+            <NavTree idCircuits={id1} setArr={setArr} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
           </div>
-          <InputsCalculate values={values} setValues={setValues} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} />
+          <InputsCalculate values={values} setValues={setValues} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
           <div className="w45 p-0 report" id="report">
             <a onClick={() => amplio()} class="point amp mr70 mt10">
               <i class="fa fa-expand mr5" aria-hidden="true"></i>
@@ -104,7 +105,7 @@ const Calculate1 = () => {
                 content={() => componentRef.current}
               />
               <div class="calculo" ref={componentRef}>
-                <Report arr={arr} numeroDeCircuits={numeroDeCircuits} numeroReportes={arregloIdReportes}/>
+                <Report arr={arr} numeroDeCircuits={numeroDeCircuits} numeroReportes={arregloIdReportes} name={nameProject}/>
               </div>
 
             </div>

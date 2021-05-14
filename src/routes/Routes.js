@@ -23,7 +23,7 @@ export default function Routes() {
         <Route path="/change/:token" children={ChangePassword}/>
         <Route exact path="/t_board" component={Home_tboard}/>
         <Route exact path="/user_settings" component={UserSettings}/>
-        <Route path="/calculate/:id1" component={Calculate1} />
+        <Route path="/calculate/:id1/:name" component={Calculate1} />
      </Switch>
     </BrowserRouter>
   );  
