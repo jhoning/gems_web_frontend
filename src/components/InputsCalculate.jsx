@@ -240,7 +240,7 @@ const [report,setReport] = useState({
 
         <div class="btn-toolbar f-r mt5" role="toolbar" aria-label="Botones">
           <img src={max} class="aumentar mr-2 ba" alt=""/>
-          <img src={min} class="restablecer bam" alt=""/>
+          <img src={min} class="disminuir bam" alt=""/>
         </div>
         <div class="db">
           <button class="mr-2" onClick={() => alert()}>Alerta cambios</button>
