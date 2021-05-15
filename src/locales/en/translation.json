@@ -9,7 +9,7 @@
         "password": "Password",
         "submitt": "Login",
         "example": "Example123@gmail.com", 
-        "ryc": "Register your account",
+        "ryc": "Register your account", 
         "register": "Register",
         "calculate": "Calculate",
         "es": "Spanish",
@@ -84,6 +84,7 @@
         "cSettings": "Circuit settings",
         "loadType": "Load type",
         "choose": "Choose",
+        "aCond": "Air-conditioning",
         "kitchen": "Kitchen",
         "bedroom": "Bedroom",
         "washroom": "Washroom",
@@ -126,7 +127,7 @@
         "exist": "Data updated successfully",
         "delete": "Deleted!",
         "mCal": "Do you want to calculate those changes?",
-        "mReport": "Do you want to add them to report?"
+        "mReport": "Do you want to add the calculated circuit to the report?"
     },
     "Board": {
         "nTab": "New Tab"
@@ -139,7 +140,7 @@
         "steel": "Steel",
         "accept": "Accept",
         "cancel": "Cancel",
-        "cM": "Continuous",
-        "sV": "Variable duty motor"
+        "cM": "Continuos duty cicle",
+        "sV": "Variable duty cicle"
     }
 }

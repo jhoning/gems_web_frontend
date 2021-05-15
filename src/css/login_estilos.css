@@ -302,7 +302,7 @@ h5 {
   position: relative;
   width: 200% !important;
   margin-top: .25rem;
-  font-size: 70% !important;
+  font-size: 82% !important;
   color: #dc3545;
 }
 
@@ -343,13 +343,17 @@ h5 {
   margin-top: 25px;
 }
 
+.logeo .invalid-feedback {
+  font-size: 110% !important;
+}
+
 .invalid-feedback {
   margin: 0;
   padding: 0;
   position: absolute;
   top: 46px;
   margin-top: -5px !important;
-  font-size: 60% !important;
+  font-size: 82% !important;
   font-weight: 400;
   background: white;
     position: absolute;

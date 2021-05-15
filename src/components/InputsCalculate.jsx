@@ -143,7 +143,7 @@ const [report,setReport] = useState({
   }
   const alertreport = () => {
     Swal.fire({
-      title: '¿Desea agregarlos al reporte?',
+      title: `${t("Alerts.mReport")}`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -254,24 +254,23 @@ const [report,setReport] = useState({
         <h4 className="text-left mb-2 mt-0 bordeColor color">{t("InputsC.cSettings")}</h4>
         <div className="form-group row my-1 se">
           <label for="inputEmail3" class="col-sm-5 col-form-label mitexto">{t("InputsC.loadType")}</label>
-          <div class="col-sm-7">
-            <select name="SelectOptions" id="SelectOptions" class="custom-select custom-select mitexto"  autocomplete="off" onChange={handleLoadType} value={report != null?report.loadType:null}>
+          <div class="col-sm-7 span4" id="selDiv">
+            <select name="id_tipo_contacto" id="id_tipo_contacto" class="custom-select custom-select mitexto SelectOptions"  autocomplete="off" onChange={handleLoadType} value={report != null?report.loadType:null}>
               <option selected class="mitexto">{t("InputsC.choose")}</option>
               <option value="0" class="mitexto">{t("InputsC.kitchen")}</option>
-              <option value="1" class="mitexto">{t("InputsC.bedroom")}</option>
-              <option value="2" class="mitexto">{t("InputsC.washroom")}</option>
-              <option value="Div1" class="mitexto">Motor</option>
+              <option value="0" class="mitexto">{t("InputsC.aCond")}</option>
+              <option value="3" class="mitexto">Motor</option>
             </select>
           </div>
         </div>
 
-        {/* Este codigo muestra los dos div ocultos de Motor */}
-        <div class="DivPai form-group row my-0">
-          <div class="Div1 mt-1">
-            <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto f-l">{t("Option.cM")} / {t("Option.sV")}</label>
-            <div class="col-sm-7 mx-0 Div1 f-l">
-              <input type="number" class="form-control mitexto mt-1"  id="inputDatos" value="DATO"  autocomplete="off"  autocomplete="nope" />
-            </div>
+        <div id="3" class="formulario none mt-1 p15 bgg">
+          <label for="inputEmail3" class="col-sm-4 col-form-label mitexto f-l p0">{t("InputsC.choose")}</label>
+          <div class="col-sm-8 span4 f-l m4">
+            <select class="custom-select custom-select mitexto"  autocomplete="off" onChange={handleLoadPhases} value={report != null?report.loadPhases:null}>
+              <option selected value="1" class="mitexto">{t("Option.cM")}</option>
+              <option value="2" class="mitexto">{t("Option.sV")}</option>
+            </select>
           </div>
         </div>
         
@@ -284,7 +283,7 @@ const [report,setReport] = useState({
         <div class="form-group row my-1 se">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.loadP")}</label>
           <div class="col-sm-7 mx-0">
-          <select class="custom-select custom-select"  autocomplete="off" onChange={handleLoadPhases} value={report != null?report.loadPhases:null}>
+          <select class="custom-select custom-select mitexto"  autocomplete="off" onChange={handleLoadPhases} value={report != null?report.loadPhases:null}>
               <option selected class="mitexto">{t("InputsC.choose")}</option>
               <option value="1" class="mitexto">1</option>
               <option value="2" class="mitexto">2</option>
@@ -319,7 +318,7 @@ const [report,setReport] = useState({
         <div class="form-group row my-1">
         <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.sVoltage")} (V)</label>
         <div class="col-sm-7">
-            <select class="custom-select custom-select"  autocomplete="off" value={report != null?report.system_voltage:null}onChange={handleSystem_voltage}>
+            <select class="custom-select custom-select mitexto"  autocomplete="off" value={report != null?report.system_voltage:null}onChange={handleSystem_voltage}>
               <option selected class="mitexto">{t("InputsC.choose")}</option>
               <option value="120" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title="120">120</option>
               <option value="208" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title="208">208</option>
@@ -330,7 +329,7 @@ const [report,setReport] = useState({
         <div className="form-group row my-1 se">
           <label for="inputEmail3" class="col-sm-5 col-form-label mitexto">{t("InputsC.aisolation")}</label>
           <div class="col-sm-7">
-            <select class="custom-select custom-select"  autocomplete="off" value={report != null?report.aisolation:null} onChange={handleAisolation}>
+            <select class="custom-select custom-select mitexto"  autocomplete="off" value={report != null?report.aisolation:null} onChange={handleAisolation}>
               <option selected class="mitexto">{t("InputsC.choose")}</option>
               <option value="0" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.tw")}>TW</option>
               <option value="1" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.thwn")}>THWN</option>
@@ -348,7 +347,7 @@ const [report,setReport] = useState({
         <div class="form-group row my-1">
         <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.neutral")}</label>
         <div class="col-sm-7">
-            <select class="custom-select custom-select"  autocomplete="off" value={report != null?report.feeder_include_neutral_wire:true} onChange={handleFeeder_include_neutral_wire}>
+            <select class="custom-select custom-select mitexto"  autocomplete="off" value={report != null?report.feeder_include_neutral_wire:true} onChange={handleFeeder_include_neutral_wire}>
               <option class="mitexto" value={true} selected data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.yes")}>{t("Option.yes")}</option>
               <option class="mitexto" value={false} data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.no")}>{t("Option.no")}</option>
             </select>
@@ -358,7 +357,7 @@ const [report,setReport] = useState({
         <div class="form-group row my-1">
         <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.conduit")}</label>
           <div class="col-sm-7 mx-0">
-            <select class="custom-select custom-select"  autocomplete="off" value={report != null?report.pipe_material:null} onChange={handlePipe_material}>
+            <select class="custom-select custom-select mitexto"  autocomplete="off" value={report != null?report.pipe_material:null} onChange={handlePipe_material}>
             <option selected class="mitexto">{t("InputsC.choose")}</option>
               <option value="0" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.PVC")}>{t("Option.PVC")}</option>
               <option value="1" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.aluminum")}>{t("Option.aluminum")}</option>
@@ -381,7 +380,7 @@ const [report,setReport] = useState({
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2 mitexto" >{t("InputsC.current")}</label>
           <div class="col-sm-8 mx-0">
-            <input type="text" class="form-control text-right mt-2 mitexto mitexto" id="inputEmail3" placeholder="0"  autocomplete="off" onChange={ e => setValues({...values,current: e.target.value}) } value={parseFloat(respuesta.current).toFixed(2)}/>
+            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3" placeholder="0"  autocomplete="off" onChange={ e => setValues({...values,current: e.target.value}) } value={parseFloat(respuesta.current).toFixed(2)}/>
           </div>
         </div>
         <div class="form-group row my-3">

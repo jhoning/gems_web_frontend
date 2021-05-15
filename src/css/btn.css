@@ -238,6 +238,12 @@
     font-size: 12px;
 }
 
+.bgg {
+    box-shadow: 0 0px 3px 2px rgb(188 227 255), 0 0px 0px 0 rgb(188 227 255) !important;
+    padding: 10px 0 10px 10px;
+    border-radius: 5px;
+}
+
 .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler:enabled:hover {
     color: #495057;
     border-color: transparent;
@@ -256,7 +262,7 @@
 
 .btn {
     padding: 4px 5px !important;
-    font-size: 1rem;
+    font-size: 14px !important;
 }
 
 .text-dark {

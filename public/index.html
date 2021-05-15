@@ -48,15 +48,19 @@
 </body>
 
 <script>
-$(document).ready(function() {
-    $('#SelectOptions').on('change',function(){
-        var SelectValue='.'+$(this).val();
-        $('.DivPai div').hide();
-        $(SelectValue).toggle();
-    });
+ $("#id_tipo_contacto").on('change', function(){
+    $('.formulario').hide();
+    $('#' + this.value).show();
 });
-
 </script>
+
+<script language="JavaScript">
+  if(window.screen.availWidth == 1480)window.parent.document.body.style.zoom="100%"
+  if(window.screen.availWidth == 1152)window.parent.document.body.style.zoom="100%"
+  if(window.screen.availWidth == 1024)window.parent.document.body.style.zoom="100%"
+  if(window.screen.availWidth == 800)window.parent.document.body.style.zoom="100%";
+  if(window.screen.availWidth == 640)window.parent.document.body.style.zoom="100%"
+  </script>
 
 <script>
   // Defino un tamaño de letra inicial de 12px
