@@ -9,7 +9,7 @@ const authAxios = axios.create({
   }
 })
 
-const Report = React.forwardRef(({arr,numeroDeCircuits},) => {
+const Report = React.forwardRef(({arr,numeroDeCircuits,name},) => {
   const [t] = useTranslation("global")
   const [consultaCircuitos,setConsultaCircuitos] = useState([])
   const [estado,setEstado] = useState([])
@@ -32,17 +32,17 @@ const Report = React.forwardRef(({arr,numeroDeCircuits},) => {
   }, [numeroDeCircuits])
   
   const consultarCircuit = async(id1)=> {
-    await authAxios.get('/circuit/'+ id1).then(res => res.data.report.loadType != null? setEstado(estado => [...estado,res.data.report]):null).catch(err => setEstado(estado => [...estado]))
+    await authAxios.get('/circuit/'+ id1).then(res => res.data.report.loadType != null? setEstado(estado => [...estado,{...res.data.report, name:res.data.name}]):null).catch(err => setEstado(estado => [...estado]))
   }
   return (
     <>
         <div className="jumbotron calculoAltoMin ">
-          <button onClick={()=>console.log(numeroDeCircuits)}>verrrr</button>
+          <button onClick={()=>console.log(estado)}>verrrr</button>
               <h2 className="text-center color">{t("Calculate.report")}</h2>
               <table border="1" class="table table-bordered table-sm table-striped calculo">
                 <thead class="table-secondary"> 
                   <tr class="borde1">
-                    <th scope="col-4" className="px-2 mitexto1">{t("Calculate.project")}</th>
+                    <th scope="col-4" className="px-2 mitexto1">{t("Calculate.project")+": " +name}</th>
                   </tr>
                   <tr>
                   </tr>
@@ -73,7 +73,9 @@ const Report = React.forwardRef(({arr,numeroDeCircuits},) => {
                     estado != undefined || numeroDeCircuits != [] ?
                 estado.map((item,i) => {
                     return <tr>
-                      <th scope="col" className="px-2">{/* numeroDeCircuits != []?numeroDeCircuits[i].name +" "+ numeroDeCircuits[i].id:null */}{/* {parseFloat(item.cable_width + 2).toFixed(1)} */}</th>
+                      <th scope="col" className="px-2">{
+                        item.name
+                      /* numeroDeCircuits != []?numeroDeCircuits[i].name +" "+ numeroDeCircuits[i].id:null */}{/* {parseFloat(item.cable_width + 2).toFixed(1)} */}</th>
                       {/* 
                         branch:
                           es el nombre del circuito;
@@ -98,9 +100,9 @@ const Report = React.forwardRef(({arr,numeroDeCircuits},) => {
                         {item.loadType == 1? "Bedroom":null}
                         {item.loadType == 2? "Washroom":null}{/* {parseFloat(item.current * 5).toFixed(1)} */}</th>
                       <th scope="col" className="px-2">  
-                        {item.pipe_material == 0? "1/2 inch PVC":null} 
-                        {item.pipe_material == 1? "1/2 inch Aluminum":null} 
-                        {item.pipe_material == 2? "1/2 inch Steel":null} 
+                        {item.pipe_material == 0? item.pipe_diameter + " inch PVC":null} 
+                        {item.pipe_material == 1? item.pipe_diameter + " inch Aluminum":null} 
+                        {item.pipe_material == 2? item.pipe_diameter + " inch Steel":null} 
                       </th>
                       <th scope="col" className="px-2">{
                         item.feeder_include_neutral_wire?item.perPhase+1+" "+ THW[item.aisolation]+ '-CU':item.perPhase+ " "+ THW[item.aisolation]+ '-CU'

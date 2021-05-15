@@ -9,7 +9,7 @@ import {useState,useEffect} from 'react'
 import axios from 'axios'
 const Swal = require('sweetalert2')
 
-const InputsCalculate = ({values,setValues,setArr,arr,circuitActual,estadoInputs}) => {
+const InputsCalculate = ({values,setValues,setArr,arr,circuitActual,estadoInputs, name,setNameProject, id}) => {
   const [respuesta,setRespuesta] = useState({
     current: 0,
     cable_width: "0",
@@ -28,7 +28,7 @@ const [report,setReport] = useState({
   loadPhases:"",
   perPhase:"",
   feeder_include_neutral_wire:true,
-  pipe_material:"",
+  pipe_material:"0",
   system_voltage:"",
 })
   const [t] = useTranslation("global")
@@ -42,15 +42,15 @@ const [report,setReport] = useState({
   
   useEffect(() => {
    
-    setReport({...estadoInputs,powerFactor:0})
+    setReport({...estadoInputs})
     console.log({
       loadType:report.loadType,
       power: report.power,
       distance: report.distance,
-      powerFactor: 0.1,
+      powerFactor: report.powerFactor,
       voltageDrop: report.voltageDrop,
       aisolation:report.aisolation,
-      temperature:21,
+      temperature:report.temperature,
       loadPhases:report.loadPhases,
       perPhase:report.perPhase,
       feeder_include_neutral_wire:report.feeder_include_neutral_wire,
@@ -67,15 +67,18 @@ const [report,setReport] = useState({
     loadType:report.loadType,
     power: report.power,
     distance: report.distance,
-    powerFactor: report.powerFactor,
+    powerFactor: parseFloat(report.powerFactor) ,
     voltageDrop: report.voltageDrop,
     aisolation:report.aisolation,
-    temperature:21,
+    temperature:report.temperature,
     loadPhases:report.loadPhases,
     perPhase:report.perPhase,
     feeder_include_neutral_wire:report.feeder_include_neutral_wire,
     pipe_material:report.pipe_material,
     system_voltage:report.system_voltage}).then(res=>{setRespuesta({...res.data });console.log(respuesta)}).catch(err=>console.log(err))
+  }
+  const cambiarNombreProject = async()=> {
+    await authAxios.patch('/project/'+id,{name:name}).then(res=>{console.log(res);alert('exito')}).catch(err => console.log(err))
   }
   const actualizarCircuit = async()=>{
     await authAxios.get('/circuit/'+circuitActual).then(res => res.data.board_padre).then(res=> actualizarCircuit2(res))
@@ -108,7 +111,7 @@ const [report,setReport] = useState({
       powerFactor: report.powerFactor,
       voltageDrop: report.voltageDrop,
       aisolation:report.aisolation,
-      temperature:21,
+      temperature:report.temperature,
       loadPhases:report.loadPhases,
       perPhase:report.perPhase,
       feeder_include_neutral_wire:report.feeder_include_neutral_wire,
@@ -219,19 +222,19 @@ const [report,setReport] = useState({
 
   return (<>
     <div className="w30 overflow-auto calculoAlto" id="reporte">
-      <button onClick={()=>{console.log({
+      <button onClick={()=>{console.log(report/* {
       loadType:report.loadType,
       power: report.power,
       distance: report.distance,
-      powerFactor: 0.1,
+      powerFactor: report.powerFactor,
       voltageDrop: report.voltageDrop,
       aisolation:report.aisolation,
-      temperature:21,
+      temperature:report.temperature,
       loadPhases:report.loadPhases,
       perPhase:report.perPhase,
       feeder_include_neutral_wire:report.feeder_include_neutral_wire,
       pipe_material:report.pipe_material,
-      system_voltage:report.system_voltage})}}>ver result</button>
+      system_voltage:report.system_voltage} */)}}>ver result</button>
       <div  autocomplete="off">
         <a onClick={() => amp()} class="point amp1">
         <i class="fa fa-expand mr5" aria-hidden="true"></i>
@@ -249,8 +252,15 @@ const [report,setReport] = useState({
     
     
       <div className="container mb-1 ">
-        <h3 className="text-left mb-0 p-0 mt-2 color">{t("InputsC.sAppliance")}</h3>
+        <h3 className="text-left mb-3 p-0 mt-2 color">{t("InputsC.sAppliance")}</h3>
+        <label htmlFor="">Name project</label>
+        <div class="input-group" style={{width:'150px'}}>
+ 
+          <input className='form-control' type="text" placeholder={name} onChange={e => setNameProject(e.target.value)}  aria-describedby="sizing-addon2"/>
+          <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" onClick={()=>{cambiarNombreProject()}}></i>
+        </div>
          <hr />
+
         <h4 className="text-left mb-2 mt-0 bordeColor color">{t("InputsC.cSettings")}</h4>
         <div className="form-group row my-1 se">
           <label for="inputEmail3" class="col-sm-5 col-form-label mitexto">{t("InputsC.loadType")}</label>
@@ -357,9 +367,8 @@ const [report,setReport] = useState({
         <div class="form-group row my-1">
         <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.conduit")}</label>
           <div class="col-sm-7 mx-0">
-            <select class="custom-select custom-select mitexto"  autocomplete="off" value={report != null?report.pipe_material:null} onChange={handlePipe_material}>
-            <option selected class="mitexto">{t("InputsC.choose")}</option>
-              <option value="0" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.PVC")}>{t("Option.PVC")}</option>
+            <select class="custom-select custom-select"  autocomplete="off" value={report != null?report.pipe_material:0} onChange={handlePipe_material}>
+              <option value="0" selected class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.PVC")}>{t("Option.PVC")}</option>
               <option value="1" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.aluminum")}>{t("Option.aluminum")}</option>
               <option value="2" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.steel")}>{t("Option.steel")}</option>
 
