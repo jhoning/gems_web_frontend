@@ -210,7 +210,7 @@
 }
 
 .p-treenode-label > div > span {
-    font-size: 15px;
+    font-size: 1rem;
 }
 
 .p-tree-toggler-icon {
@@ -261,8 +261,7 @@
 }
 
 .btn {
-    padding: 4px 5px !important;
-    font-size: 14px !important;
+    padding: 4px 8px !important;
 }
 
 .text-dark {
@@ -288,6 +287,9 @@ h3 {
     }
     .calculoAlto {
         max-height: 40vh !important;
+    }
+    .p-treenode-label > div > span {
+        font-size: 15px;
     }
 }
 
