@@ -278,6 +278,11 @@ hr {
     transition: border-color .15s ease-in-out,box-sh
 }
 
+.mu {
+    padding-right: 0px !important;
+    padding-left: 7px !important;
+}
+
 .none {
     display: none;
 }
@@ -510,15 +515,29 @@ td {
         display: grid !important;
     }
     .tbo .col-2 {
-        max-width: 80% !important;
+        max-width: 79% !important;
         max-height: 30vh;
         overflow-x: scroll;
     }
     .overflow-auto {
-        width: 80% !important;
+        width: 79% !important;
     }
     .report {
-        width: 80% !important;
+        width: 79% !important;
+    }
+}
+
+@media (max-width: 411px) {
+    .tbo .col-2 {
+        max-width: 78% !important;
+        max-height: 24vh;
+        overflow-x: scroll;
+    }
+    .overflow-auto {
+        width: 78% !important;
+    }
+    .report {
+        width: 78% !important;
     }
 }
 
@@ -528,15 +547,15 @@ td {
         display: grid !important;
     }
     .tbo .col-2 {
-        max-width: 75% !important;
-        max-height: 30vh;
+        max-width: 71% !important;
+        max-height: 25vh;
         overflow-x: scroll;
     }
     .overflow-auto {
-        width: 75% !important;
+        width: 71% !important;
     }
     .report {
-        width: 75% !important;
+        width: 71% !important;
     }
 }
 

@@ -274,9 +274,9 @@ const [report,setReport] = useState({
           </div>
         </div>
 
-        <div id="3" class="formulario none mt-1 p15 bgg">
-          <label for="inputEmail3" class="col-sm-4 col-form-label mitexto f-l p0">{t("InputsC.choose")}</label>
-          <div class="col-sm-8 span4 f-l m4">
+        <div id="2" class="formulario none mt-1 p15 bgg">
+          <label for="inputEmail3" class="col-sm-5 col-form-label mitexto f-l p0">{t("InputsC.choose")}</label>
+          <div class="col-sm-7 span4 f-l m4 mu">
             <select class="custom-select custom-select mitexto"  autocomplete="off" onChange={handleLoadPhases} value={report != null?report.loadPhases:null}>
               <option selected value="1" class="mitexto">{t("Option.cM")}</option>
               <option value="2" class="mitexto">{t("Option.sV")}</option>
