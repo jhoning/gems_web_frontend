@@ -266,10 +266,10 @@ const [report,setReport] = useState({
           <label for="inputEmail3" class="col-sm-5 col-form-label mitexto">{t("InputsC.loadType")}</label>
           <div class="col-sm-7 span4" id="selDiv">
             <select name="id_tipo_contacto" id="id_tipo_contacto" class="custom-select custom-select mitexto SelectOptions"  autocomplete="off" onChange={handleLoadType} value={report != null?report.loadType:null}>
-              <option selected class="mitexto">{t("InputsC.choose")}</option>
+              <option selected  class="mitexto">{t("InputsC.choose")}</option>
               <option value="0" class="mitexto">{t("InputsC.kitchen")}</option>
-              <option value="0" class="mitexto">{t("InputsC.aCond")}</option>
-              <option value="3" class="mitexto">Motor</option>
+              <option value="1" class="mitexto">{t("InputsC.aCond")}</option>
+              <option value="2" class="mitexto">Motor</option>
             </select>
           </div>
         </div>

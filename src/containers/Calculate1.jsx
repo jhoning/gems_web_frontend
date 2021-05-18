@@ -11,7 +11,7 @@ import { useRef } from 'react';
 import max from '../img/ampliar-texto.png';
 import min from '../img/disminuir.png';
 import ReactToPrint from 'react-to-print';
-import NavTree from '../components/NavTree';
+import TreeNav from '../components/TreeNav';
 import axios from 'axios';
 const token = localStorage.getItem('token')
 const authAxios = axios.create({
@@ -86,7 +86,7 @@ const Calculate1 = () => {
           <div className="col-2 gb">
             {/* <MenuTree idCircuits={id1} /> */}
             <button onClick={()=>{console.log(arregloIdReportes)}}>ver reportes</button>
-            <NavTree idCircuits={id1} setArr={setArr} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
+            <TreeNav idCircuits={id1} setArr={setArr} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
           </div>
           <InputsCalculate values={values} setValues={setValues} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
           <div className="w45 p-0 report" id="report">

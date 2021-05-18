@@ -67,14 +67,10 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name},) => {
                   </tr>
                 </thead>
                 <tbody>
-
-
-                  {
-                    estado != undefined || numeroDeCircuits != [] ?
-                estado.map((item,i) => {
-                    return <tr>
-                      <th scope="col" className="px-2">{
-                        item.name
+                  
+                <tr>
+                      <th scope="col" className="px-2"> noombre{
+               
                       /* numeroDeCircuits != []?numeroDeCircuits[i].name +" "+ numeroDeCircuits[i].id:null */}{/* {parseFloat(item.cable_width + 2).toFixed(1)} */}</th>
                       {/* 
                         branch:
@@ -96,25 +92,220 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name},) => {
 
                       */} 
                       <th scope="col" className="px-2">
-                        {item.loadType == 0? "Kitchen":null} 
-                        {item.loadType == 1? "Bedroom":null}
-                        {item.loadType == 2? "Washroom":null}{/* {parseFloat(item.current * 5).toFixed(1)} */}</th>
-                      <th scope="col" className="px-2">  
-                        {item.pipe_material == 0? item.pipe_diameter + " inch PVC":null} 
-                        {item.pipe_material == 1? item.pipe_diameter + " inch Aluminum":null} 
-                        {item.pipe_material == 2? item.pipe_diameter + " inch Steel":null} 
+                      Kitchen"
                       </th>
-                      <th scope="col" className="px-2">{
-                        item.feeder_include_neutral_wire?item.perPhase+1+" "+ THW[item.aisolation]+ '-CU':item.perPhase+ " "+ THW[item.aisolation]+ '-CU'
-                   /*    numeroDeCircuits[i].
-                      (neutralWire?cablePerphases:cablePherfases + 1) + aisolation.state + "- CU" */}</th>
-                      <th scope="col" className="px-2">{parseFloat(item.voltaje_drop + 14).toFixed(1)}#-Cobre</th>
-                      <th scope="col" className="px-2">{  item.perPhase + `${item.protection_device}` + "-A"}</th>
-                      <th scope="col" className="px-2">{item.power}</th>
+                      <th scope="col" className="px-2">  
+                        232323 +  inch PVC
+                      
+                      </th>
+                      <th scope="col" className="px-2">
+                      13 THW steel-CU</th>
+               
+                      <th scope="col" className="px-2">{parseFloat( 14).toFixed(1)}#-Cobre</th>
+                      <th scope="col" className="px-2">{  2 + `3232` + "-A"}</th>
+                      <th scope="col" className="px-2">{3232}</th>
 
 
                     </tr>
-                  }):null}
+                <tr>
+                      <th scope="col" className="px-2"> noombre{
+               
+                      /* numeroDeCircuits != []?numeroDeCircuits[i].name +" "+ numeroDeCircuits[i].id:null */}{/* {parseFloat(item.cable_width + 2).toFixed(1)} */}</th>
+                      {/* 
+                        branch:
+                          es el nombre del circuito;
+                        Luminaries:
+                          el tipo de carga
+                        canalization:
+                          1/2,3/4,1,1 1/2,2,3,4,5,6 inch"
+                          material de la tuberia: pvc, aluminio o acero;
+                          fases:
+                          return (neutralWire?cablePerphases:cablePherfases + 1) + aisolation.state + "- CU"
+                        ground:
+                          es un output falta crearlo;
+                        breaker:
+                          cablePerphases  `x +${protection_device}` + "-A"
+                        power:
+                         toInt(power.value) 
+
+
+                      */} 
+                      <th scope="col" className="px-2">
+                      Kitchen"
+                      </th>
+                      <th scope="col" className="px-2">  
+                        232323 +  inch PVC
+                      
+                      </th>
+                      <th scope="col" className="px-2">
+                      13 THW steel-CU</th>
+               
+                      <th scope="col" className="px-2">{parseFloat( 14).toFixed(1)}#-Cobre</th>
+                      <th scope="col" className="px-2">{  2 + `3232` + "-A"}</th>
+                      <th scope="col" className="px-2">{3232}</th>
+
+
+                    </tr>
+                <tr>
+                      <th scope="col" className="px-2"> noombre{
+               
+                      /* numeroDeCircuits != []?numeroDeCircuits[i].name +" "+ numeroDeCircuits[i].id:null */}{/* {parseFloat(item.cable_width + 2).toFixed(1)} */}</th>
+                      {/* 
+                        branch:
+                          es el nombre del circuito;
+                        Luminaries:
+                          el tipo de carga
+                        canalization:
+                          1/2,3/4,1,1 1/2,2,3,4,5,6 inch"
+                          material de la tuberia: pvc, aluminio o acero;
+                          fases:
+                          return (neutralWire?cablePerphases:cablePherfases + 1) + aisolation.state + "- CU"
+                        ground:
+                          es un output falta crearlo;
+                        breaker:
+                          cablePerphases  `x +${protection_device}` + "-A"
+                        power:
+                         toInt(power.value) 
+
+
+                      */} 
+                      <th scope="col" className="px-2">
+                      Kitchen"
+                      </th>
+                      <th scope="col" className="px-2">  
+                        232323 +  inch PVC
+                      
+                      </th>
+                      <th scope="col" className="px-2">
+                      13 THW steel-CU</th>
+               
+                      <th scope="col" className="px-2">{parseFloat( 14).toFixed(1)}#-Cobre</th>
+                      <th scope="col" className="px-2">{  2 + `3232` + "-A"}</th>
+                      <th scope="col" className="px-2">{3232}</th>
+
+
+                    </tr>
+                <tr>
+                      <th scope="col" className="px-2"> noombre{
+               
+                      /* numeroDeCircuits != []?numeroDeCircuits[i].name +" "+ numeroDeCircuits[i].id:null */}{/* {parseFloat(item.cable_width + 2).toFixed(1)} */}</th>
+                      {/* 
+                        branch:
+                          es el nombre del circuito;
+                        Luminaries:
+                          el tipo de carga
+                        canalization:
+                          1/2,3/4,1,1 1/2,2,3,4,5,6 inch"
+                          material de la tuberia: pvc, aluminio o acero;
+                          fases:
+                          return (neutralWire?cablePerphases:cablePherfases + 1) + aisolation.state + "- CU"
+                        ground:
+                          es un output falta crearlo;
+                        breaker:
+                          cablePerphases  `x +${protection_device}` + "-A"
+                        power:
+                         toInt(power.value) 
+
+
+                      */} 
+                      <th scope="col" className="px-2">
+                      Kitchen"
+                      </th>
+                      <th scope="col" className="px-2">  
+                        232323 +  inch PVC
+                      
+                      </th>
+                      <th scope="col" className="px-2">
+                      13 THW steel-CU</th>
+               
+                      <th scope="col" className="px-2">{parseFloat( 14).toFixed(1)}#-Cobre</th>
+                      <th scope="col" className="px-2">{  2 + `3232` + "-A"}</th>
+                      <th scope="col" className="px-2">{3232}</th>
+
+
+                    </tr>
+                <tr>
+                      <th scope="col" className="px-2"> noombre{
+               
+                      /* numeroDeCircuits != []?numeroDeCircuits[i].name +" "+ numeroDeCircuits[i].id:null */}{/* {parseFloat(item.cable_width + 2).toFixed(1)} */}</th>
+                      {/* 
+                        branch:
+                          es el nombre del circuito;
+                        Luminaries:
+                          el tipo de carga
+                        canalization:
+                          1/2,3/4,1,1 1/2,2,3,4,5,6 inch"
+                          material de la tuberia: pvc, aluminio o acero;
+                          fases:
+                          return (neutralWire?cablePerphases:cablePherfases + 1) + aisolation.state + "- CU"
+                        ground:
+                          es un output falta crearlo;
+                        breaker:
+                          cablePerphases  `x +${protection_device}` + "-A"
+                        power:
+                         toInt(power.value) 
+
+
+                      */} 
+                      <th scope="col" className="px-2">
+                      Kitchen"
+                      </th>
+                      <th scope="col" className="px-2">  
+                        232323 +  inch PVC
+                      
+                      </th>
+                      <th scope="col" className="px-2">
+                      13 THW steel-CU</th>
+               
+                      <th scope="col" className="px-2">{parseFloat( 14).toFixed(1)}#-Cobre</th>
+                      <th scope="col" className="px-2">{  2 + `3232` + "-A"}</th>
+                      <th scope="col" className="px-2">{3232}</th>
+
+
+                    </tr>
+                <tr>
+                      <th scope="col" className="px-2"> noombre{
+               
+                      /* numeroDeCircuits != []?numeroDeCircuits[i].name +" "+ numeroDeCircuits[i].id:null */}{/* {parseFloat(item.cable_width + 2).toFixed(1)} */}</th>
+                      {/* 
+                        branch:
+                          es el nombre del circuito;
+                        Luminaries:
+                          el tipo de carga
+                        canalization:
+                          1/2,3/4,1,1 1/2,2,3,4,5,6 inch"
+                          material de la tuberia: pvc, aluminio o acero;
+                          fases:
+                          return (neutralWire?cablePerphases:cablePherfases + 1) + aisolation.state + "- CU"
+                        ground:
+                          es un output falta crearlo;
+                        breaker:
+                          cablePerphases  `x +${protection_device}` + "-A"
+                        power:
+                         toInt(power.value) 
+
+
+                      */} 
+                      <th scope="col" className="px-2">
+                      Kitchen"
+                      </th>
+                      <th scope="col" className="px-2">  
+                        232323 +  inch PVC
+                      
+                      </th>
+                      <th scope="col" className="px-2">
+                      13 THW steel-CU</th>
+               
+                      <th scope="col" className="px-2">{parseFloat( 14).toFixed(1)}#-Cobre</th>
+                      <th scope="col" className="px-2">{  2 + `3232` + "-A"}</th>
+                      <th scope="col" className="px-2">{3232}</th>
+
+
+                    </tr>
+            
+
+            
+                  
 
 
 
