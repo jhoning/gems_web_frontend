@@ -214,7 +214,7 @@ body {
     position: relative !important;
     border-radius: 6px;
     max-height: 80vh;
-    height: 100%;
+    overflow-y: scroll;
     border: none;
     margin-top: 15px !important;
     margin-left: 10px;
@@ -498,15 +498,15 @@ td {
         display: grid !important;
     }
     .tbo .col-2 {
-        max-width: 85% !important;
+        max-width: 95% !important;
         max-height: 30vh;
         overflow-x: scroll;
     }
     .overflow-auto {
-        width: 85% !important;
+        width: 93% !important;
     }
     .report {
-        width: 85% !important;
+        width: 95% !important;
     }
 }
 
@@ -547,15 +547,15 @@ td {
         display: grid !important;
     }
     .tbo .col-2 {
-        max-width: 71% !important;
+        max-width: 93% !important;
         max-height: 25vh;
         overflow-x: scroll;
     }
     .overflow-auto {
-        width: 71% !important;
+        width: 93% !important;
     }
     .report {
-        width: 71% !important;
+        width: 93% !important;
     }
 }
 
