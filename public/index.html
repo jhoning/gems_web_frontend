@@ -66,7 +66,7 @@
   // Defino un tamaño de letra inicial de 12px
 function tamañoLetra() {
   size = $(".mitexto" ).css("font-size");
-  size = parseInt(size, 10);
+  size = parseInt(size, 12);
   $( ".tamaño-actual" ).text(size);
 }
 
@@ -75,14 +75,14 @@ tamañoLetra();
 
 // Función para aumentar el tamaño del texto (fuente) 
 $(".aumentar").on("click", function() { 
-  if ((size + 2) <= 47) {
+  if ((size + 2) = 20) {
     $(".mitexto").css("font-size", "+=2");
     $(".tamaño-actual").text(size += 2);
   }
 });
 // Función para disminuir el tamaño del texto (fuente) 
 $(".disminuir").on("click", function() {
-  if ((size - 2) >= 13) {
+  if ((size - 2) = 12) {
     $(".mitexto").css("font-size", "-=2");
     $(".tamaño-actual").text(size -= 1);
   }
