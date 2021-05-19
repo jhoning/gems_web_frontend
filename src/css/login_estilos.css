@@ -98,7 +98,6 @@ a.underlineHover {
 
 .btn {
     padding: 4px 12px;
-    font-size: 15px;
     line-height: 20px;
 }
 
@@ -344,7 +343,7 @@ h5 {
 }
 
 .logeo .invalid-feedback {
-  font-size: 110% !important;
+  font-size: 112% !important;
 }
 
 .invalid-feedback {
