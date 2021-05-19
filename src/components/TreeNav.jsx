@@ -19,7 +19,7 @@ const authAxios = axios.create({
   }
 })
 
-const TreeNav = ({ idCircuits }) => {
+const TreeNav = ({ idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard }) => {
   const [t] = useTranslation("global")
   const [proyectoData, setProyectoData] = useState()
   const [mount, setMount] = useState(false)
@@ -67,9 +67,9 @@ const TreeNav = ({ idCircuits }) => {
       const circuitos = item.circuits.map(item => {
         return {
           "key": item.id,
-          "label": 'soy un circuito',
-          "data": 'soy un circuito',
-          "icon": "pi pi-fw pi-cog",
+          "label": 'circuito',
+          "data": 'circuito',
+          "icon": "circuit",
           "children": [],
         }
       })
@@ -78,7 +78,7 @@ const TreeNav = ({ idCircuits }) => {
         "key": item.id,
         "label": item.name,
         "data": item.name,
-        "icon": "pi pi-fw pi-sliders-h",
+        "icon": "tab",
         "children": [...circuitos],
       }
     })
@@ -93,17 +93,17 @@ const TreeNav = ({ idCircuits }) => {
     del navtree ya antes generada(solo con tablero null)*/
     console.log('Tableros hijos: ', aux_padre_id);
     const start = (node, id, id_hijo,aux) => {
-      console.log('arreglo de circuitos por tablero: ',aux)
-      console.log(id, id_hijo)
+     /*  console.log('arreglo de circuitos por tablero: ',aux)
+      console.log(id, id_hijo) */
       if (node.key == id) {
        let circuitos =[]
         if(aux){
            circuitos = aux.map(item => {
             return {
               "key": item.id,
-              "label": 'soy un circuito',
-              "data": 'soy un circuito',
-              "icon": "pi pi-fw pi-cog",
+              "label": 'circuito',
+              "data": 'circuito',
+              "icon": "circuit",
               "children": [],
             }
           })
@@ -113,7 +113,7 @@ const TreeNav = ({ idCircuits }) => {
             "key": id_hijo,
             "label": "Nuevo hijo" + id_hijo,
             "data": "Nuevo hijo",
-            "icon": "pi pi-fw pi-sliders-h",
+            "icon": "tab",
             "children": [...circuitos ],
           })
         }else {
@@ -121,7 +121,7 @@ const TreeNav = ({ idCircuits }) => {
             "key": id_hijo,
             "label": "Nuevo hijo" + id_hijo,
             "data": "Nuevo hijo",
-            "icon": "pi pi-fw pi-sliders-h",
+            "icon": "tab",
             "children": [],
           })
         }
@@ -148,20 +148,27 @@ const TreeNav = ({ idCircuits }) => {
     console.log(aux_padre_null);
     setArr([{
       "key": "999999",
-          "label": 'tablero Principal',
-          "data": 'soy un circuito',
-          "icon": "pi pi-fw pi-cog",
+          "label": 'tablero P',
+          "data": 'circuito',
+          "icon": "tab",
           "children": [...aux_padre_null],
       
      }])
   }
+  const obtenerReportes = async(id1) => {
+    await authAxios.get(`/board/${id1}`).then((resp)=>setConsultaBoard(resp.data)).catch(err => console.log(err));
+  }  
+  const consultarBoard = async(id1)=>{
+    await authAxios.get(`/board/${id1}`).then((resp)=>{setNumeroDeCircuits(resp.data.circuits)}).catch(err => console.log(err));
+  }
+
   const nodeTemplate = (node) => {
     if (node.label) {
       return (
         <div style={{ height: '70px', padding: '20px 0 0 0px', margin: '0px 6px 0 0' }}>
 
           <span onClick={() => {
-           /*  obtenerReportes(node.key); if (node.icon == 'pi pi-fw pi-sliders-h') { consultarBoard(node.key) }; setCircuitActual(node.key); console.log(circuitActual); consultarCircuit(node.key) */
+            /* obtenerReportes(node.key) */; if (node.icon == 'tab') {setCircuitActual(node.key) ;consultarBoard(node.key)  }; ; console.log(circuitActual); /* consultarCircuit(node.key)  */
           }
 
           }>{node.label}</span>

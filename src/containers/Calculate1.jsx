@@ -53,15 +53,24 @@ const Calculate1 = () => {
   const [numeroDeCircuits,setNumeroDeCircuits] = useState();
   const [consultaReportes,setConsultaReportes] = useState();
   const [arregloIdReportes,setArrgloIdReportes] = useState([]);
+  const [arregloDeIdCircuitos,setArregloDeIdCircuitos] = useState()
 
   useEffect(() => {
+    setTimeout(console.log('Arreglo de Reportes',numeroDeCircuits),2000)
     
-      
-   
+   if(numeroDeCircuits && circuitActual){
+     let aux
+     numeroDeCircuits.forEach(element => {
+       console.log('este es una consiltaa',element)
+     });
+     setConsultaReportes(aux)
+   }
+   console.log('este es una consulta',consultaReportes)
     
  
   }, [numeroDeCircuits])
 
+  
   const reporteConsulta = async(id1)=>{
     await authAxios.get('/circuit/'+id1).then(res =>setArrgloIdReportes([...arregloIdReportes,res.data])).catch(err => console.log(err))
   }

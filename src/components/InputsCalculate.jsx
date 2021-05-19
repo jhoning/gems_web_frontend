@@ -78,7 +78,7 @@ const [report,setReport] = useState({
     system_voltage:report.system_voltage}).then(res=>{setRespuesta({...res.data });console.log(respuesta)}).catch(err=>console.log(err))
   }
   const cambiarNombreProject = async()=> {
-    await authAxios.patch('/project/'+id,{name:name}).then(res=>{console.log(res);alert('exito')}).catch(err => console.log(err))
+    await authAxios.patch('/project/'+id,{name:name}).then(res=>{console.log(res)}).catch(err => console.log(err))
   }
   const actualizarCircuit = async()=>{
     await authAxios.get('/circuit/'+circuitActual).then(res => res.data.board_padre).then(res=> actualizarCircuit2(res))
@@ -102,10 +102,11 @@ const [report,setReport] = useState({
 
   }
   const reportGenerate =  async() => {
-    setArr([...arr,respuesta])
+    
     console.log(values)
     console.log(arr)
-     await authAxios.post('/report',{ loadType:report.loadType,
+    await authAxios.post('/report',{ 
+      loadType:report.loadType,
       power: report.power,
       distance: report.distance,
       powerFactor: report.powerFactor,
@@ -118,7 +119,24 @@ const [report,setReport] = useState({
       pipe_material:report.pipe_material,
       system_voltage:report.system_voltage,...respuesta,circuit:{
        id:circuitActual
-     }}).then(res=> console.log('exito!!!')).catch(err => console.log(err)) 
+    }
+    }).then(res=> console.log('exito!!!')).catch(err => console.log(err)) 
+    
+    setArr(item => [...item,{
+      loadType:report.loadType,
+      power: report.power,
+      distance: report.distance,
+      powerFactor: report.powerFactor,
+      voltageDrop: report.voltageDrop,
+      aisolation:report.aisolation,
+      temperature:report.temperature,
+      loadPhases:report.loadPhases,
+      perPhase:report.perPhase,
+      feeder_include_neutral_wire:report.feeder_include_neutral_wire,
+      pipe_material:report.pipe_material,
+      system_voltage:report.system_voltage,
+      ...respuesta
+    }])
   }
 
   const amp = () => {
@@ -393,7 +411,7 @@ const [report,setReport] = useState({
           </div>
         </div>
         <div class="form-group row my-3">
-          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2 mitexto" >{t("InputsC.cable")}</label>
+          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2 mitexto" >{t("InputsC.cable")}(AWG)</label>
           <div class="col-sm-8 mx-0">
             <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,cable_width: e.target.value}) } value={parseFloat(respuesta.cable_width).toFixed(2)}/>
           </div>
@@ -411,7 +429,7 @@ const [report,setReport] = useState({
           </div>
         </div>
         <div class="form-group row my-1">
-          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mitexto">{t("InputsC.voltage")}</label>
+          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mitexto">{t("InputsC.voltage")}%</label>
           <div class="col-sm-8 mx-0">
             <input type="text" class="form-control text-right mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,voltaje_drop: e.target.value}) } value={parseFloat(respuesta.voltage_drop).toFixed(2)}/>
           </div>

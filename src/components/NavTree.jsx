@@ -201,7 +201,7 @@ const NavTree = ({ idCircuits,setArr,setConsultaBoard,setCircuitActual,circuitAc
         <div style={{ height: '70px', padding: '20px 0 0 0px', margin: '0px 6px 0 0' }}>
      
            <span onClick={() => {
-             obtenerReportes(node.key);if(node.icon == 'pi pi-fw pi-sliders-h'){consultarBoard(node.key)};setCircuitActual(node.key);console.log(circuitActual);consultarCircuit(node.key)}
+             obtenerReportes(node.key);if(node.icon == 'tab'){consultarBoard(node.key)};setCircuitActual(node.key);console.log('este es ::',circuitActual);consultarCircuit(node.key)}
 
              }>{node.label}</span>
         
