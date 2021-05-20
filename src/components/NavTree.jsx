@@ -19,7 +19,7 @@ const authAxios = axios.create({
   }
 })
 
-const NavTree = ({ idCircuits,setArr,setConsultaBoard,setCircuitActual,circuitActual,setEstadoInputs,setNumeroDeCircuits }) => {
+const NavTree = ({setCircuitActual1,circuitActual1, idCircuits,setArr,setConsultaBoard,setCircuitActual,circuitActual,setEstadoInputs,setNumeroDeCircuits }) => {
   const [t] = useTranslation("global")
   const [arrBoards, SetArrBoards] = useState()
   const [arrBoardsInfo, SetArrBoardsInfo] = useState([])
@@ -201,7 +201,7 @@ const NavTree = ({ idCircuits,setArr,setConsultaBoard,setCircuitActual,circuitAc
         <div style={{ height: '70px', padding: '20px 0 0 0px', margin: '0px 6px 0 0' }}>
      
            <span onClick={() => {
-             obtenerReportes(node.key);if(node.icon == 'tab'){consultarBoard(node.key)};setCircuitActual(node.key);console.log('este es ::',circuitActual);consultarCircuit(node.key)}
+             if(node.icon == 'circuit'){setCircuitActual1(node.key)};obtenerReportes(node.key);if(node.icon == 'tab'){consultarBoard(node.key)};setCircuitActual(node.key);console.log('este es ::',circuitActual);consultarCircuit(node.key)}
 
              }>{node.label}</span>
         
@@ -256,7 +256,7 @@ const NavTree = ({ idCircuits,setArr,setConsultaBoard,setCircuitActual,circuitAc
   }
   return (
     <>
-      <button onClick={()=>console.log(circuitActual)}>ver circuit actual</button>
+      <button onClick={()=>console.log(circuitActual1)}> circuit actual</button>
       <button className='btn btn-primary mb-2 mt-2' onClick={() => {
         registrarBoard1()
         setMount(false)

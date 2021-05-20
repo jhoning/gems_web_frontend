@@ -9,7 +9,7 @@ import {useState,useEffect} from 'react'
 import axios from 'axios'
 const Swal = require('sweetalert2')
 
-const InputsCalculate = ({values,setValues,setArr,arr,circuitActual,estadoInputs, name,setNameProject, id}) => {
+const InputsCalculate = ({values,setValues,setArr,arr,circuitActual,circuitActual1,estadoInputs, name,setNameProject, id}) => {
   const [respuesta,setRespuesta] = useState({
     current: 0,
     cable_width: "0",
@@ -60,7 +60,7 @@ const [report,setReport] = useState({
   }, [estadoInputs]);
  
   const obtenerReportes = async() => {
-    await authAxios.get('/report').then((resp)=>setArr(resp.data));
+    await authAxios.get('/report').then((resp)=>{setArr(resp.data)});
   }  
   const enviarDatos = async(id1) => {
     await authAxios.post('/report/listForm',{
@@ -102,7 +102,7 @@ const [report,setReport] = useState({
 
   }
   const reportGenerate =  async() => {
-    
+    console.log(respuesta)
     console.log(values)
     console.log(arr)
     await authAxios.post('/report',{ 
@@ -117,12 +117,16 @@ const [report,setReport] = useState({
       perPhase:report.perPhase,
       feeder_include_neutral_wire:report.feeder_include_neutral_wire,
       pipe_material:report.pipe_material,
-      system_voltage:report.system_voltage,...respuesta,circuit:{
-       id:circuitActual
+      system_voltage:report.system_voltage,
+      cable_width: respuesta.cable_width,
+      current:respuesta.current,
+      pipe_diameter:respuesta.pipe_diameter,
+      protection_device:respuesta.protection_device,
+      voltage_drop:respuesta.voltage_drop
+      ,circuit:{
+       id:circuitActual1
     }
-    }).then(res=> console.log('exito!!!')).catch(err => console.log(err)) 
-    
-    setArr(item => [...item,{
+    }).then(res=> console.log('exito!!!')).catch(err => console.log({ 
       loadType:report.loadType,
       power: report.power,
       distance: report.distance,
@@ -135,7 +139,31 @@ const [report,setReport] = useState({
       feeder_include_neutral_wire:report.feeder_include_neutral_wire,
       pipe_material:report.pipe_material,
       system_voltage:report.system_voltage,
-      ...respuesta
+      cable_width: respuesta.cable_width,
+      current:respuesta.current,
+      pipe_diameter:respuesta.pipe_diameter,
+      protection_device:respuesta.protection_device,
+      voltage_drop:respuesta.voltage_drop
+      ,circuit:{
+       id:circuitActual1
+    }})) 
+    
+    setArr(item => [...item,{
+      id:circuitActual,
+      loadType:report.loadType,
+      power: report.power,
+      distance: report.distance,
+      powerFactor: report.powerFactor,
+      voltageDrop: report.voltageDrop,
+      aisolation:report.aisolation,
+      temperature:report.temperature,
+      loadPhases:report.loadPhases,
+      perPhase:report.perPhase,
+      feeder_include_neutral_wire:report.feeder_include_neutral_wire,
+      pipe_material:report.pipe_material,
+      system_voltage:report.system_voltage,
+      ...respuesta,circuit:{
+        id:circuitActual1}
     }])
   }
 

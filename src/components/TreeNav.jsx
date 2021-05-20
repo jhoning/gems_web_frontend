@@ -19,7 +19,7 @@ const authAxios = axios.create({
   }
 })
 
-const TreeNav = ({ idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard }) => {
+const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard }) => {
   const [t] = useTranslation("global")
   const [proyectoData, setProyectoData] = useState()
   const [mount, setMount] = useState(false)
@@ -156,10 +156,10 @@ const TreeNav = ({ idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits
      }])
   }
   const obtenerReportes = async(id1) => {
-    await authAxios.get(`/board/${id1}`).then((resp)=>setConsultaBoard(resp.data)).catch(err => console.log(err));
+    await authAxios.get(`/board/${id1}`).then((resp)=>{setConsultaBoard(resp.data)}).catch(err => console.log(err));
   }  
   const consultarBoard = async(id1)=>{
-    await authAxios.get(`/board/${id1}`).then((resp)=>{setNumeroDeCircuits(resp.data.circuits)}).catch(err => console.log(err));
+    await authAxios.get(`/board/${id1}`).then((resp)=>{setNumeroDeCircuits(resp.data.circuits);console.log(resp.data.circuits)}).catch(err => console.log(err));
   }
 
   const nodeTemplate = (node) => {
@@ -168,6 +168,7 @@ const TreeNav = ({ idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits
         <div style={{ height: '70px', padding: '20px 0 0 0px', margin: '0px 6px 0 0' }}>
 
           <span onClick={() => {
+            if (node.icon == 'circuit') {setCircuitActual1(node.key);console.log(circuitActual1) }
             /* obtenerReportes(node.key) */; if (node.icon == 'tab') {setCircuitActual(node.key) ;consultarBoard(node.key)  }; ; console.log(circuitActual); /* consultarCircuit(node.key)  */
           }
 

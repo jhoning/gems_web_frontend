@@ -9,7 +9,7 @@ const authAxios = axios.create({
   }
 })
 
-const Report = React.forwardRef(({arr,numeroDeCircuits,name},) => {
+const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos},) => {
   const [t] = useTranslation("global")
   const [consultaCircuitos,setConsultaCircuitos] = useState([])
   const [estado,setEstado] = useState([])
@@ -70,7 +70,7 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name},) => {
                   
                  
                     {
-                      arr.map(item => 
+                      arregloDeIdCircuitos.map(item => 
                         <tr>
                           <th>nombre</th>
                           <th>
