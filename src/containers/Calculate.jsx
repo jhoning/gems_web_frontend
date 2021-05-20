@@ -50,10 +50,10 @@ const Calculate = () => {
             <i class="fa fa-expand mr5" aria-hidden="true"></i>
             {t("Calculate.amp")}
           </a>
-          <div class="btn-toolbar f-r mt5" role="toolbar" aria-label="Botones">
-            <img src={max} class="aumentar1 mr-2 ba" alt=""/>
-            <img src={min} class="disminuir1 bam" alt=""/>
-          </div>
+          <div class="font-controls btn-toolbar f-r mt5 aumentarFont" role="toolbar" aria-label="Botones">
+              <div class="font-control aumentarFont no-seleccionable" id="font-up">A<sup>+</sup></div>
+              <div class="font-control disminuirFont no-seleccionable" id="font-down">A<sup>-</sup></div>
+            </div>
             <div className="jumbotron calculoAltoMin ">
               <h2 className="text-center color">{t("Calculate.report")}</h2>
               <table border="1" class="table table-bordered table-sm table-striped calculo mitexto1">

@@ -90,6 +90,31 @@ $(".aumentar").on("click", function() {
 });
 </script>
 
+<script>
+$(document).ready(function(){
+  
+  // Donde queremos cambiar el tamaño de la fuente
+  var donde = $('.mitexto1');
+  var sizeFuenteOriginal = donde.css('font-size');
 
+  // Aumentar Font Size
+  $(".aumentarFont").click(function(){
+    var sizeFuenteActual = donde.css('font-size');
+   var sizeFuenteActualNum = parseFloat(sizeFuenteActual, 12);
+    var sizeFuenteNuevo = sizeFuenteActualNum*1.2;
+  donde.css('font-size', sizeFuenteNuevo);
+  return false;
+  });
+  // Disminuir Font Size
+  $(".disminuirFont").click(function(){
+    var sizeFuenteActual = donde.css('font-size');
+   var sizeFuenteActualNum = parseFloat(sizeFuenteActual, 12);
+    var sizeFuenteNuevo = sizeFuenteActualNum*0.8;
+  donde.css('font-size', sizeFuenteNuevo);
+  return false;
+  });
+  
+});
+</script>
 
 </html>
