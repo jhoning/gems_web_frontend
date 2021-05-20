@@ -41,7 +41,7 @@ const Calculate = () => {
       <Header />
       <div className="container-fluid tbo yep">
         <div className="row grid">
-          <div className="col-2 gb">
+          <div className="dos gb">
             <MenuTree idCircuits={id} />
           </div>
           <InputsCalculate idProject={id} values={values} setValues={setValues} setArr={setArr} arr={arr} />

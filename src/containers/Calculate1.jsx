@@ -101,7 +101,7 @@ const Calculate1 = () => {
       <Header />
       <div className="container-fluid tbo yep">
         <div className="row grid">
-          <div className="col-2 gb">
+          <div className="dos gb">
             {/* <MenuTree idCircuits={id1} /> */}
             <button onClick={()=>{console.log(arregloDeIdCircuitos)}}>ver reportes</button>
             <TreeNav idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
