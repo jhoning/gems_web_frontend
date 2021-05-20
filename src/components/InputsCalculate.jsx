@@ -232,7 +232,7 @@ const [report,setReport] = useState({
  
     setReport({...report,power:parseInt(e.target.value)});
   }
-
+ 
   const handleDistance = (e) => {
     setReport({...report,distance:parseInt(e.target.value)});
     console.log(report)

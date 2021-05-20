@@ -112,9 +112,9 @@ const Calculate1 = () => {
               <i class="fa fa-expand mr5" aria-hidden="true"></i>
               {t("Calculate.amp")}
             </a>
-            <div class="btn-toolbar f-r mt10 mr12" role="toolbar" aria-label="Botones">
+            <div class="btn-toolbar f-r mt5" role="toolbar" aria-label="Botones">
               <img src={max} class="aumentar1 mr-2 ba" alt=""/>
-              <img src={min} class="restablecer1 bam" alt=""/>
+              <img src={min} class="disminuir1 bam" alt=""/>
             </div>
             <div>
               <button onClick={()=>console.log(numeroDeCircuits)}>!!</button>

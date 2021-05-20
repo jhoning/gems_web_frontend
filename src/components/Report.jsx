@@ -37,10 +37,10 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos
   return (
     <>
         <div className="jumbotron calculoAltoMin ">
-          <button onClick={()=>console.log(estado)}>verrrr</button>
+          <button class="mitexto1" onClick={()=>console.log(estado)}>verrrr</button>
               <h2 className="text-center color">{t("Calculate.report")}</h2>
               <table border="1" class="table table-bordered table-sm table-striped calculo">
-                <thead class="table-secondary"> 
+                <thead class="table-secondary mitexto1"> 
                   <tr class="borde1">
                     <th scope="col-4" className="px-2 mitexto1">{t("Calculate.project")+": " +name}</th>
                   </tr>
@@ -72,27 +72,27 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos
                     {
                       arregloDeIdCircuitos.map(item => 
                         <tr>
-                          <th>nombre</th>
-                          <th>
+                          <th class="mitexto1">nombre</th>
+                          <th class="mitexto1">
                             {item.loadType == 0?'Motor':null}
                             {item.loadType == 1?'Kitchen':null} 
                             {item.loadType == 2?'Air-Conditioned':null}
                             {item.loadType == 3?'motor':null}
                           </th>
-                          <th>
+                          <th class="mitexto1">
                             {item.pipe_material == 0?item.pipe_diameter + ' Inch' + ' PVC':null}
                             {item.pipe_material == 1?item.pipe_diameter + ' Inch' + ' Aluminum':null}
                             {item.pipe_material == 2?item.pipe_diameter + ' Inch' + ' Steel':null}
                           </th>
-                          <th>
+                          <th class="mitexto1">
                             {item.aisolation == 0 ?item.perPhase + item.feeder_include_neutral_wire + ' TW' + '-CU':null}
                             {item.aisolation == 1 ?item.perPhase + item.feeder_include_neutral_wire + ' THWN'+'-CU':null}
                             {item.aisolation == 2 ?item.perPhase + item.feeder_include_neutral_wire + ' THHN'+'-CU':null}
                             
                           </th>
-                          <th>(prox)</th>
-                          <th>{  item.perPhase + `x ${item.protection_device}` + "-A"}</th>
-                          <th>{  item.power}</th>
+                          <th class="mitexto1">(prox)</th>
+                          <th class="mitexto1">{  item.perPhase + `x ${item.protection_device}` + "-A"}</th>
+                          <th class="mitexto1">{  item.power}</th>
                         </tr>
             
                       )
@@ -129,7 +129,7 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos
                 </tbody>
               </table>
 
-              <table class="table table-bordered mx-0">
+              <table class="table table-bordered mx-0 mitexto1">
                 <thead class="table-secondary">
                   <tr class="borde1">
                     <th scope="col" colspan="1" className="px-2 mitexto1">{t("Calculate.branch")}</th>
