@@ -11,7 +11,7 @@ import { useRef } from 'react';
 import max from '../img/ampliar-texto.png';
 import min from '../img/disminuir.png';
 import ReactToPrint from 'react-to-print';
-import NavTree from '../components/NavTree';
+import TreeNav from '../components/TreeNav';
 import axios from 'axios';
 const token = localStorage.getItem('token')
 const authAxios = axios.create({
@@ -37,6 +37,7 @@ const Calculate1 = () => {
   const [nameProject,setNameProject] = useState(name)
   const [consultaBoard,setConsultaBoard] = useState();
   const [circuitActual,setCircuitActual] = useState(null);
+  const [circuitActual1,setCircuitActual1] = useState(null);
   const [estadoInputs,setEstadoInputs] = useState({
     loadType:0,
     power: 0,
@@ -50,18 +51,35 @@ const Calculate1 = () => {
     feeder_include_neutral_wire:"true",
     pipe_material:0,
     system_voltage:"0",});
-  const [numeroDeCircuits,setNumeroDeCircuits] = useState();
+  const [numeroDeCircuits,setNumeroDeCircuits] = useState([]);
   const [consultaReportes,setConsultaReportes] = useState();
   const [arregloIdReportes,setArrgloIdReportes] = useState([]);
+  const [arregloDeIdCircuitos,setArregloDeIdCircuitos] = useState([])
 
   useEffect(() => {
+    setTimeout(console.log('Arreglo de Reportes',arr),2000)
+    setArregloDeIdCircuitos([])
+    console.log(arr)
+    setTimeout(()=>{
+      for (let i = 0; i < numeroDeCircuits.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+          if(numeroDeCircuits[i].id == arr[j].circuit.id){
+            setArregloDeIdCircuitos(res => [...res,arr[j]])
+          }
+          
+        }
+        
+      }
+    },2000)
     
-      
+  /*    setConsultaReportes(aux) */
    
+   console.log('este es una consulta',consultaReportes)
     
  
-  }, [numeroDeCircuits])
+  }, [numeroDeCircuits,circuitActual,arr])
 
+  
   const reporteConsulta = async(id1)=>{
     await authAxios.get('/circuit/'+id1).then(res =>setArrgloIdReportes([...arregloIdReportes,res.data])).catch(err => console.log(err))
   }
@@ -83,21 +101,22 @@ const Calculate1 = () => {
       <Header />
       <div className="container-fluid tbo yep">
         <div className="row grid">
-          <div className="col-2 gb">
+          <div className="dos gb">
             {/* <MenuTree idCircuits={id1} /> */}
-            <button onClick={()=>{console.log(arregloIdReportes)}}>ver reportes</button>
-            <NavTree idCircuits={id1} setArr={setArr} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
+            <button onClick={()=>{console.log(arregloDeIdCircuitos)}}>ver reportes</button>
+            <TreeNav idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
           </div>
-          <InputsCalculate values={values} setValues={setValues} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
+          <InputsCalculate values={values} setValues={setValues} circuitActual1={circuitActual1} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
           <div className="w45 p-0 report" id="report">
             <a onClick={() => amplio()} class="point amp mr70 mt10">
               <i class="fa fa-expand mr5" aria-hidden="true"></i>
               {t("Calculate.amp")}
             </a>
-            <div class="btn-toolbar f-r mt10 mr12" role="toolbar" aria-label="Botones">
-              <img src={max} class="aumentar1 mr-2 ba" alt=""/>
-              <img src={min} class="restablecer1 bam" alt=""/>
+            <div class="font-controls btn-toolbar f-r mt5 aumentarFont" role="toolbar" aria-label="Botones">
+              <div class="font-control aumentarFont no-seleccionable" id="font-up">A<sup>+</sup></div>
+              <div class="font-control disminuirFont no-seleccionable" id="font-down">A<sup>-</sup></div>
             </div>
+
             <div>
               <button onClick={()=>console.log(numeroDeCircuits)}>!!</button>
               <ReactToPrint
@@ -105,7 +124,7 @@ const Calculate1 = () => {
                 content={() => componentRef.current}
               />
               <div class="calculo" ref={componentRef}>
-                <Report arr={arr} numeroDeCircuits={numeroDeCircuits} numeroReportes={arregloIdReportes} name={nameProject}/>
+                <Report arr={arr} arregloDeIdCircuitos={arregloDeIdCircuitos} numeroDeCircuits={numeroDeCircuits} numeroReportes={arregloIdReportes} name={nameProject}/>
               </div>
 
             </div>

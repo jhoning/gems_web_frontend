@@ -63,31 +63,58 @@
   </script>
 
 <script>
-  // Defino un tamaño de letra inicial de 12px
+// Defino un tamaño de letra inicial de 12px para calcular
 function tamañoLetra() {
   size = $(".mitexto" ).css("font-size");
   size = parseInt(size, 10);
   $( ".tamaño-actual" ).text(size);
 }
 
-// Obtengo el tamaño de letra inicial de 12px 
+// Obtengo el tamaño de letra inicial de 16px 
 tamañoLetra();
 
-// Función para aumentar el tamaño del texto (fuente) 
-$(".aumentar").on("click", function() { 
-  if ((size + 2) <= 47) {
-    $(".mitexto").css("font-size", "+=2");
-    $(".tamaño-actual").text(size += 2);
-  }
-});
 // Función para disminuir el tamaño del texto (fuente) 
 $(".disminuir").on("click", function() {
-  if ((size - 2) >= 13) {
+  if ((size - 2) >= 12) {
     $(".mitexto").css("font-size", "-=2");
     $(".tamaño-actual").text(size -= 1);
   }
 });
+
+// Función para aumentar el tamaño del texto (fuente) 
+$(".aumentar").on("click", function() { 
+  if ((size + 2) <= 18) {
+    $(".mitexto").css("font-size", "+=2");
+    $(".tamaño-actual").text(size += 1);
+  }
+});
 </script>
 
+<script>
+$(document).ready(function(){
+  
+  // Donde queremos cambiar el tamaño de la fuente
+  var donde = $('.mitexto1');
+  var sizeFuenteOriginal = donde.css('font-size');
+
+  // Aumentar Font Size
+  $(".aumentarFont").click(function(){
+    var sizeFuenteActual = donde.css('font-size');
+   var sizeFuenteActualNum = parseFloat(sizeFuenteActual, 12);
+    var sizeFuenteNuevo = sizeFuenteActualNum*1.2;
+  donde.css('font-size', sizeFuenteNuevo);
+  return false;
+  });
+  // Disminuir Font Size
+  $(".disminuirFont").click(function(){
+    var sizeFuenteActual = donde.css('font-size');
+   var sizeFuenteActualNum = parseFloat(sizeFuenteActual, 12);
+    var sizeFuenteNuevo = sizeFuenteActualNum*0.8;
+  donde.css('font-size', sizeFuenteNuevo);
+  return false;
+  });
+  
+});
+</script>
 
 </html>

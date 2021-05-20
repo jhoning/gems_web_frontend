@@ -41,7 +41,7 @@ const Calculate = () => {
       <Header />
       <div className="container-fluid tbo yep">
         <div className="row grid">
-          <div className="col-2 gb">
+          <div className="dos gb">
             <MenuTree idCircuits={id} />
           </div>
           <InputsCalculate idProject={id} values={values} setValues={setValues} setArr={setArr} arr={arr} />
@@ -50,14 +50,16 @@ const Calculate = () => {
             <i class="fa fa-expand mr5" aria-hidden="true"></i>
             {t("Calculate.amp")}
           </a>
-          {/* <button className="btn btn-primary " onClick={() => amplio()}> Ver </button> */}
-
+          <div class="font-controls btn-toolbar f-r mt5 aumentarFont" role="toolbar" aria-label="Botones">
+              <div class="font-control aumentarFont no-seleccionable" id="font-up">A<sup>+</sup></div>
+              <div class="font-control disminuirFont no-seleccionable" id="font-down">A<sup>-</sup></div>
+            </div>
             <div className="jumbotron calculoAltoMin ">
               <h2 className="text-center color">{t("Calculate.report")}</h2>
-              <table border="1" class="table table-bordered table-sm table-striped calculo">
-                <thead class="table-secondary">
-                  <tr class="borde1">
-                    <th scope="col-4" >{t("Calculate.project")}</th>
+              <table border="1" class="table table-bordered table-sm table-striped calculo mitexto1">
+                <thead class="table-secondary mitexto1">
+                  <tr class="borde1 mitexto1">
+                    <th scope="col-4 mitexto1" >{t("Calculate.project")}</th>
                   </tr>
                   <tr>
 
@@ -73,13 +75,13 @@ const Calculate = () => {
               <table class="table table-bordered mx-0 table-sm calculo">
                 <thead class="table-secondary">
                   <tr class="borde">
-                    <th scope="col" className="px-2">{t("Calculate.branch")}</th>
-                    <th scope="col" className="px-2">{t("Calculate.bType")}</th>
-                    <th scope="col" className="px-2">{t("Calculate.canalization")}</th>
-                    <th scope="col" className="px-2">{t("Calculate.fases")}</th>
-                    <th scope="col" className="px-2">{t("Calculate.ground")}</th>
-                    <th scope="col" className="px-2">{t("Calculate.breaker")}</th>
-                    <th scope="col" className="px-2">{t("Calculate.power")}</th>
+                    <th scope="col" className="px-2 mitexto1">{t("Calculate.branch")}</th>
+                    <th scope="col" className="px-2 mitexto1">{t("Calculate.bType")}</th>
+                    <th scope="col" className="px-2 mitexto1">{t("Calculate.canalization")}</th>
+                    <th scope="col" className="px-2 mitexto1">{t("Calculate.fases")}</th>
+                    <th scope="col" className="px-2 mitexto1">{t("Calculate.ground")}</th>
+                    <th scope="col" className="px-2 mitexto1">{t("Calculate.breaker")}</th>
+                    <th scope="col" className="px-2 mitexto1">{t("Calculate.power")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -87,13 +89,13 @@ const Calculate = () => {
 
                   {arr.map((item) => {
                     return <tr>
-<th scope="col" className="px-2">{parseInt(item.cable_width + 2)}</th>
-                      <th scope="col" className="px-2">{item.current * 5}</th>
-                      <th scope="col" className="px-2">{item.pipe_diameter * 22}</th>
-                      <th scope="col" className="px-2">{item.protection_device + 8}</th>
-                      <th scope="col" className="px-2">{item.voltaje_drop + 14}</th>
-                      <th scope="col" className="px-2">{item.voltaje_drop + 9}</th>
-                      <th scope="col" className="px-2">{item.current + 8}</th>
+<th scope="col" className="px-2 mitexto1">{parseInt(item.cable_width + 2)}</th>
+                      <th scope="col" className="px-2 mitexto1">{item.current * 5}</th>
+                      <th scope="col" className="px-2 mitexto1">{item.pipe_diameter * 22}</th>
+                      <th scope="col" className="px-2 mitexto1">{item.protection_device + 8}</th>
+                      <th scope="col" className="px-2 mitexto1">{item.voltaje_drop + 14}</th>
+                      <th scope="col" className="px-2 mitexto1">{item.voltaje_drop + 9}</th>
+                      <th scope="col" className="px-2 mitexto1">{item.current + 8}</th>
 
                       
                     </tr>
@@ -107,8 +109,8 @@ const Calculate = () => {
               <table class="table table-bordered mx-0 calculo">
                 <thead class="table-secondary">
                   <tr class="borde1">
-                    <th scope="col" colspan="1" className="px-2">{t("Calculate.branch")}</th>
-                    <th scope="col" colspan="3"></th>
+                    <th scope="col" colspan="1" className="px-2 mitexto1">{t("Calculate.branch")}</th>
+                    <th scope="col" colspan="3" class="mitexto1"></th>
                   </tr>
                 </thead>
                 <tbody>

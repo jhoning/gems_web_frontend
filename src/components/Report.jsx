@@ -9,7 +9,7 @@ const authAxios = axios.create({
   }
 })
 
-const Report = React.forwardRef(({arr,numeroDeCircuits,name},) => {
+const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos},) => {
   const [t] = useTranslation("global")
   const [consultaCircuitos,setConsultaCircuitos] = useState([])
   const [estado,setEstado] = useState([])
@@ -37,10 +37,10 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name},) => {
   return (
     <>
         <div className="jumbotron calculoAltoMin ">
-          <button onClick={()=>console.log(estado)}>verrrr</button>
+          <button class="mitexto1" onClick={()=>console.log(estado)}>verrrr</button>
               <h2 className="text-center color">{t("Calculate.report")}</h2>
               <table border="1" class="table table-bordered table-sm table-striped calculo">
-                <thead class="table-secondary"> 
+                <thead class="table-secondary mitexto1"> 
                   <tr class="borde1">
                     <th scope="col-4" className="px-2 mitexto1">{t("Calculate.project")+": " +name}</th>
                   </tr>
@@ -67,16 +67,38 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name},) => {
                   </tr>
                 </thead>
                 <tbody>
-
-
-                  {
-                    estado != undefined || numeroDeCircuits != [] ?
-                estado.map((item,i) => {
-                    return <tr>
-                      <th scope="col" className="px-2">{
-                        item.name
-                      /* numeroDeCircuits != []?numeroDeCircuits[i].name +" "+ numeroDeCircuits[i].id:null */}{/* {parseFloat(item.cable_width + 2).toFixed(1)} */}</th>
-                      {/* 
+                  
+                 
+                    {
+                      arregloDeIdCircuitos.map(item => 
+                        <tr>
+                          <th class="mitexto1">nombre</th>
+                          <th class="mitexto1">
+                            {item.loadType == 0?'Motor':null}
+                            {item.loadType == 1?'Kitchen':null} 
+                            {item.loadType == 2?'Air-Conditioned':null}
+                            {item.loadType == 3?'motor':null}
+                          </th>
+                          <th class="mitexto1">
+                            {item.pipe_material == 0?item.pipe_diameter + ' Inch' + ' PVC':null}
+                            {item.pipe_material == 1?item.pipe_diameter + ' Inch' + ' Aluminum':null}
+                            {item.pipe_material == 2?item.pipe_diameter + ' Inch' + ' Steel':null}
+                          </th>
+                          <th class="mitexto1">
+                            {item.aisolation == 0 ?item.perPhase + item.feeder_include_neutral_wire + ' TW' + '-CU':null}
+                            {item.aisolation == 1 ?item.perPhase + item.feeder_include_neutral_wire + ' THWN'+'-CU':null}
+                            {item.aisolation == 2 ?item.perPhase + item.feeder_include_neutral_wire + ' THHN'+'-CU':null}
+                            
+                          </th>
+                          <th class="mitexto1">(prox)</th>
+                          <th class="mitexto1">{  item.perPhase + `x ${item.protection_device}` + "-A"}</th>
+                          <th class="mitexto1">{  item.power}</th>
+                        </tr>
+            
+                      )
+                    }
+               
+                {/* 
                         branch:
                           es el nombre del circuito;
                         Luminaries:
@@ -95,33 +117,19 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name},) => {
 
 
                       */} 
-                      <th scope="col" className="px-2">
-                        {item.loadType == 0? "Kitchen":null} 
-                        {item.loadType == 1? "Bedroom":null}
-                        {item.loadType == 2? "Washroom":null}{/* {parseFloat(item.current * 5).toFixed(1)} */}</th>
-                      <th scope="col" className="px-2">  
-                        {item.pipe_material == 0? item.pipe_diameter + " inch PVC":null} 
-                        {item.pipe_material == 1? item.pipe_diameter + " inch Aluminum":null} 
-                        {item.pipe_material == 2? item.pipe_diameter + " inch Steel":null} 
-                      </th>
-                      <th scope="col" className="px-2">{
-                        item.feeder_include_neutral_wire?item.perPhase+1+" "+ THW[item.aisolation]+ '-CU':item.perPhase+ " "+ THW[item.aisolation]+ '-CU'
-                   /*    numeroDeCircuits[i].
-                      (neutralWire?cablePerphases:cablePherfases + 1) + aisolation.state + "- CU" */}</th>
-                      <th scope="col" className="px-2">{parseFloat(item.voltaje_drop + 14).toFixed(1)}#-Cobre</th>
-                      <th scope="col" className="px-2">{  item.perPhase + `${item.protection_device}` + "-A"}</th>
-                      <th scope="col" className="px-2">{item.power}</th>
 
 
-                    </tr>
-                  }):null}
+         
+
+            
+                  
 
 
 
                 </tbody>
               </table>
 
-              <table class="table table-bordered mx-0">
+              <table class="table table-bordered mx-0 mitexto1">
                 <thead class="table-secondary">
                   <tr class="borde1">
                     <th scope="col" colspan="1" className="px-2 mitexto1">{t("Calculate.branch")}</th>
