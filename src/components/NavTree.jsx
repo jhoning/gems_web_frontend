@@ -217,7 +217,7 @@ const NavTree = ({setCircuitActual1,circuitActual1, idCircuits,setArr,setConsult
             setBoards(recorre(boards,node.key))
             crearCircuit(node.key)
         }}><img class="ban1" src={plus} /></a>   */}
-          <ul class="navbar-nav idioma mr-md-1 fr mt3">
+          <ul class="navbar-nav idioma mr-md-1 fr mt3 nav3">
             <li class="nav-item dropdown language-dropdown">
               <a class="" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                 <img class="ban" src={plus} />
