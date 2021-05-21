@@ -26,7 +26,7 @@
 
 .ban {
     width: 22px;
-    margin-right: 10px;
+    margin-right: 5px !important;
 }
 
 .ban1 {
@@ -88,8 +88,9 @@
     overflow: auto !important;
     overflow-x: scroll;
     overflow-y: scroll;
+    min-height: 70px;
     max-height: 430px;
-    padding: 4px 0px !important;
+    padding: 6px 0px !important;
 }
 
 .mt3 {
@@ -172,9 +173,9 @@
 .p-treenode, .p-treenode-leaf {
     cursor: pointer;
 }
-.p-treenode:hover, .p-treenode-leaf:hover {
+/* .p-treenode:hover, .p-treenode-leaf:hover {
     background: rgb(226, 226, 226);
-}
+} */
 
 .p-treenode-content:focus {
     background: rgb(226, 226, 226);
@@ -200,7 +201,7 @@
 }
 
 .p-treenode-label > div {
-    padding: 3px 0 0 0 !important;
+    padding: 3.5px 0 0 0 !important;
     height: 0px !important;
     margin-top: -2px !important;
 }
@@ -223,7 +224,7 @@
 
 .p-tree-container .ban {
     width: 20px;
-    margin-right: 0px;
+    margin-top: -2px;
 }
 
 .ml4 {
@@ -242,12 +243,6 @@
     box-shadow: 0 0px 3px 2px rgb(188 227 255), 0 0px 0px 0 rgb(188 227 255) !important;
     padding: 10px 0 10px 10px;
     border-radius: 5px;
-}
-
-.p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler:enabled:hover {
-    color: #495057;
-    border-color: transparent;
-    background: white !important;
 }
 
 .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler {

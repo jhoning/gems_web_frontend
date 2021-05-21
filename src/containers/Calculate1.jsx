@@ -101,7 +101,7 @@ const Calculate1 = () => {
       <Header />
       <div className="container-fluid tbo yep">
         <div className="row grid">
-          <div className="col-2 gb">
+          <div className="dos gb">
             {/* <MenuTree idCircuits={id1} /> */}
             <button onClick={()=>{console.log(arregloDeIdCircuitos)}}>ver reportes</button>
             <TreeNav idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
@@ -112,10 +112,11 @@ const Calculate1 = () => {
               <i class="fa fa-expand mr5" aria-hidden="true"></i>
               {t("Calculate.amp")}
             </a>
-            <div class="btn-toolbar f-r mt10 mr12" role="toolbar" aria-label="Botones">
-              <img src={max} class="aumentar1 mr-2 ba" alt=""/>
-              <img src={min} class="restablecer1 bam" alt=""/>
+            <div class="font-controls btn-toolbar f-r mt5 aumentarFont" role="toolbar" aria-label="Botones">
+              <div class="font-control aumentarFont no-seleccionable" id="font-up">A<sup>+</sup></div>
+              <div class="font-control disminuirFont no-seleccionable" id="font-down">A<sup>-</sup></div>
             </div>
+
             <div>
               <button onClick={()=>console.log(numeroDeCircuits)}>!!</button>
               <ReactToPrint

@@ -21,6 +21,20 @@
     background-color: #fdfdfd !important;
 }
 
+.nav3 .text-dark {
+    font-size: 14px;
+}
+
+.nav3 .dropdown-item {
+    padding: 1px 8px;
+}
+
+.nav3 .dropdown-menu {
+    padding: .1rem 0;
+    min-width: 9rem;
+    transform: translate3d(-117px, -3px, 0px);
+}
+
 .list-group {
     max-height: 65vh;
     overflow-y: auto;
