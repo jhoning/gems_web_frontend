@@ -169,13 +169,9 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
           }
 
           }>{node.label}</span>
-<<<<<<< HEAD
           { 
           node.icon == 'circuit'?null:
-          <ul class="navbar-nav idioma mr-md-1 fr mt3">
-=======
           <ul class="navbar-nav fr mt3 nav3">
->>>>>>> 22f6ed336dfa713482d2db9a5b0a0209edc37ee4
             <li class="nav-item dropdown language-dropdown">
               <a class="" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                 <img class="ban" src={plus} />

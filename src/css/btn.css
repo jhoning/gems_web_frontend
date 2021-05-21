@@ -207,11 +207,12 @@
 }
 
 .p-tree .p-treenode-children {
-    padding: 0 0 0 0rem !important;
+    padding: 0 0 0 1rem !important;
 }
 
 .p-treenode-label > div > span {
     font-size: 1rem;
+    float: left;
 }
 
 .p-tree-toggler-icon {
