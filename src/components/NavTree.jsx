@@ -199,7 +199,7 @@ const NavTree = ({setCircuitActual1,circuitActual1, idCircuits,setArr,setConsult
     if (node.label) {
       return (
         <div style={{ height: '70px', padding: '20px 0 0 0px', margin: '0px 6px 0 0' }}>
-     
+          
            <span onClick={() => {
              if(node.icon == 'circuit'){setCircuitActual1(node.key)};obtenerReportes(node.key);if(node.icon == 'tab'){consultarBoard(node.key)};setCircuitActual(node.key);console.log('este es ::',circuitActual);consultarCircuit(node.key)}
 
@@ -217,7 +217,7 @@ const NavTree = ({setCircuitActual1,circuitActual1, idCircuits,setArr,setConsult
             setBoards(recorre(boards,node.key))
             crearCircuit(node.key)
         }}><img class="ban1" src={plus} /></a>   */}
-          <ul class="navbar-nav idioma mr-md-1 fr mt3">
+          {node.icon == 'circuit'?<ul class="navbar-nav idioma mr-md-1 fr mt3">
             <li class="nav-item dropdown language-dropdown">
               <a class="" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                 <img class="ban" src={plus} />
@@ -248,7 +248,7 @@ const NavTree = ({setCircuitActual1,circuitActual1, idCircuits,setArr,setConsult
                 </a>
               </div>
             </li>
-          </ul>
+          </ul>:null}
         </div>
 
       )

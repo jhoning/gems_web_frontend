@@ -43,6 +43,7 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos
                 <thead class="table-secondary"> 
                   <tr class="borde1">
                     <th scope="col-4" className="px-2 mitexto1">{t("Calculate.project")+": " +name}</th>
+                    <th scope="col-4" className="px-2 mitexto1">{"Board"+": " }</th>
                   </tr>
                   <tr>
                   </tr>
@@ -80,9 +81,9 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos
                             {item.loadType == 3?'motor':null}
                           </th>
                           <th>
-                            {item.pipe_material == 0?item.pipe_diameter + ' Inch' + ' PVC':null}
-                            {item.pipe_material == 1?item.pipe_diameter + ' Inch' + ' Aluminum':null}
-                            {item.pipe_material == 2?item.pipe_diameter + ' Inch' + ' Steel':null}
+                            {item.pipe_material == 0?item.pipe_diameter + '" ' + ' PVC':null}
+                            {item.pipe_material == 1?item.pipe_diameter + '" ' + ' Aluminum':null}
+                            {item.pipe_material == 2?item.pipe_diameter + '" ' + ' Steel':null}
                           </th>
                           <th>
                             {item.aisolation == 0 ?item.perPhase + item.feeder_include_neutral_wire + ' TW' + '-CU':null}

@@ -47,7 +47,7 @@ const Calculate1 = () => {
     aisolation:"0",
     temperature:0,
     loadPhases:"0",
-    perPhase:"0",
+    perPhase:"1",
     feeder_include_neutral_wire:"true",
     pipe_material:0,
     system_voltage:"0",});
@@ -60,7 +60,7 @@ const Calculate1 = () => {
     setTimeout(console.log('Arreglo de Reportes',arr),2000)
     setArregloDeIdCircuitos([])
     console.log(arr)
-    setTimeout(()=>{
+    
       for (let i = 0; i < numeroDeCircuits.length; i++) {
         for (let j = 0; j < arr.length; j++) {
           if(numeroDeCircuits[i].id == arr[j].circuit.id){
@@ -70,7 +70,7 @@ const Calculate1 = () => {
         }
         
       }
-    },2000)
+   
     
   /*    setConsultaReportes(aux) */
    

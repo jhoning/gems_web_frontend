@@ -19,7 +19,7 @@ const authAxios = axios.create({
   }
 })
 
-const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard }) => {
+const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
   const [t] = useTranslation("global")
   const [proyectoData, setProyectoData] = useState()
   const [mount, setMount] = useState(false)
@@ -32,6 +32,9 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
     }, 500)
   }, [mount])
 
+  const consultarCircuit = async(id1)=> {
+    await authAxios.get('/circuit/'+ id1).then(res=>{setEstadoInputs(res.data.report);console.log(res.data.report)})
+  }
   const obtenerTableros = async () => {
     let arr = await authAxios.get('/project/' + idCircuits);
     setProyectoData(arr.data)
@@ -146,14 +149,7 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
 
     }
     console.log(aux_padre_null);
-    setArr([{
-      "key": "999999",
-          "label": 'tablero P',
-          "data": 'circuito',
-          "icon": "tab",
-          "children": [...aux_padre_null],
-      
-     }])
+    setArr([...aux_padre_null])
   }
   const obtenerReportes = async(id1) => {
     await authAxios.get(`/board/${id1}`).then((resp)=>{setConsultaBoard(resp.data)}).catch(err => console.log(err));
@@ -168,11 +164,13 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
         <div style={{ height: '70px', padding: '20px 0 0 0px', margin: '0px 6px 0 0' }}>
 
           <span onClick={() => {
-            if (node.icon == 'circuit') {setCircuitActual1(node.key);console.log(circuitActual1) }
-            /* obtenerReportes(node.key) */; if (node.icon == 'tab') {setCircuitActual(node.key) ;consultarBoard(node.key)  }; ; console.log(circuitActual); /* consultarCircuit(node.key)  */
+            if (node.icon == 'circuit') {setCircuitActual1(node.key);consultarCircuit(node.key);console.log('tablero circuito: ',circuitActual1);consultarBoard(node.key) }
+            /* obtenerReportes(node.key) */ if (node.icon == 'tab') {setCircuitActual(node.key) ;consultarBoard(node.key)  }; ; console.log('tablero actual: ',circuitActual); /* consultarCircuit(node.key)  */
           }
 
           }>{node.label}</span>
+          { 
+          node.icon == 'circuit'?null:
           <ul class="navbar-nav idioma mr-md-1 fr mt3">
             <li class="nav-item dropdown language-dropdown">
               <a class="" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
@@ -204,7 +202,7 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
                 </a>
               </div>
             </li>
-          </ul>
+          </ul>}
         </div>
 
       )

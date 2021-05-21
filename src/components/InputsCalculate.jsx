@@ -441,13 +441,13 @@ const [report,setReport] = useState({
         <div class="form-group row my-3">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2 mitexto" >{t("InputsC.cable")}(AWG)</label>
           <div class="col-sm-8 mx-0">
-            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,cable_width: e.target.value}) } value={parseFloat(respuesta.cable_width).toFixed(2)}/>
+            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,cable_width: e.target.value}) } value={parseInt(respuesta.cable_width)}/>
           </div>
         </div>
         <div class="form-group row my-0">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mitexto">{t("InputsC.pipeD")}</label>
           <div class="col-sm-8 mx-0">
-            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,pipe_diameter: e.target.value}) } value={parseFloat(respuesta.pipe_diameter).toFixed(2)}/>
+            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,pipe_diameter: e.target.value}) } value={respuesta.pipe_diameter}/>
           </div>
         </div>
         <div class="form-group row my-0">
@@ -457,7 +457,7 @@ const [report,setReport] = useState({
           </div>
         </div>
         <div class="form-group row my-1">
-          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mitexto">{t("InputsC.voltage")}%</label>
+          <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mitexto">{t("InputsC.voltage")}(%)</label>
           <div class="col-sm-8 mx-0">
             <input type="text" class="form-control text-right mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,voltaje_drop: e.target.value}) } value={parseFloat(respuesta.voltage_drop).toFixed(2)}/>
           </div>
