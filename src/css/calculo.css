@@ -249,6 +249,12 @@ body {
     font-weight: 600;
 }
 
+.calculoAlto .form-control {
+    width: 100%;
+    height: auto !important;
+    padding: 0px 10px !important;
+}
+
 .calculoAltoMin {
     min-height: 73vh;
 }
@@ -282,21 +288,6 @@ hr {
     border: 1px solid #434756 !important;
     font-size: 12px;
     font-weight: 500 !important;
-}
-.form-control {
-    display: block;
-    width: 100%;
-    height: 30px !important;
-    padding: 5px 10px !important;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-sh
 }
 
 .mu {
@@ -529,6 +520,17 @@ td {
     .report {
         width: 95% !important;
     }
+    .dos {
+        width: 94% !important;
+        height: auto !important;
+        max-width: 100% !important;
+    }
+    .calculoAltoMin {
+        min-height: 67vh !important;
+        max-height: 70vh;
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
 }
 
 @media (max-width: 414px) {
@@ -536,29 +538,29 @@ td {
         display: grid !important;
     }
     .tbo .col-2 {
-        max-width: 79% !important;
+        max-width: 93% !important;
         max-height: 30vh;
         overflow-x: scroll;
     }
     .overflow-auto {
-        width: 79% !important;
+        width: 93% !important;
     }
     .report {
-        width: 79% !important;
+        width: 93% !important;
     }
 }
 
 @media (max-width: 411px) {
     .tbo .col-2 {
-        max-width: 78% !important;
+        max-width: 93% !important;
         max-height: 24vh;
         overflow-x: scroll;
     }
     .overflow-auto {
-        width: 78% !important;
+        width: 93% !important;
     }
     .report {
-        width: 78% !important;
+        width: 93% !important;
     }
 }
 
