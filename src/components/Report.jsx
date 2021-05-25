@@ -80,17 +80,10 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos
                             {item.loadType == 2?'Air-Conditioned':null}
                             {item.loadType == 3?'motor':null}
                           </th>
-<<<<<<< HEAD
                           <th>
                             {item.pipe_material == 0?item.pipe_diameter + '" ' + ' PVC':null}
                             {item.pipe_material == 1?item.pipe_diameter + '" ' + ' Aluminum':null}
                             {item.pipe_material == 2?item.pipe_diameter + '" ' + ' Steel':null}
-=======
-                          <th class="mitexto1">
-                            {item.pipe_material == 0?item.pipe_diameter + ' Inch' + ' PVC':null}
-                            {item.pipe_material == 1?item.pipe_diameter + ' Inch' + ' Aluminum':null}
-                            {item.pipe_material == 2?item.pipe_diameter + ' Inch' + ' Steel':null}
->>>>>>> 22f6ed336dfa713482d2db9a5b0a0209edc37ee4
                           </th>
                           <th class="mitexto1">
                             {item.aisolation == 0 ?item.perPhase + item.feeder_include_neutral_wire + ' TW' + '-CU':null}

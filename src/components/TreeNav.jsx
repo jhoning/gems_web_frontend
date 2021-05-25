@@ -24,6 +24,7 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
   const [proyectoData, setProyectoData] = useState()
   const [mount, setMount] = useState(false)
   const [arr, setArr] = useState()
+  const [tablerosP,setTablerosP] = useState([]);
   
   useEffect(() => {
     obtenerTableros()
@@ -43,6 +44,7 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
       const contents = await authAxios.get('/board/' + arr.data.boards[i].id)
       aux.push(contents.data)
     }
+    setTablerosP(aux)
     console.log('mensaje: ', aux)
     generarNavTree(aux)
 
@@ -164,18 +166,27 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
         <div style={{ height: '70px', padding: '20px 0 0 0px', margin: '0px 6px 0 0' }}>
 
           <span onClick={() => {
-            if (node.icon == 'circuit') {setCircuitActual1(node.key);consultarCircuit(node.key);console.log('tablero circuito: ',circuitActual1);consultarBoard(node.key) }
-            /* obtenerReportes(node.key) */ if (node.icon == 'tab') {setCircuitActual(node.key) ;consultarBoard(node.key)  }; ; console.log('tablero actual: ',circuitActual); /* consultarCircuit(node.key)  */
+            if (node.icon == 'circuit') {setCircuitActual1(node.key);consultarCircuit(node.key);console.log('tableros:',tablerosP);
+            tablerosP.forEach(element => {
+              if(element.circuits){
+                element.circuits.forEach(item => {
+                  if(item.id == node.key){
+                    setCircuitActual(element.id)
+                    consultarBoard(element.id)
+                  }
+                });
+              }
+            });
+          
+          }else{setCircuitActual(node.key) ;consultarBoard(node.key);console.log('oasiii') }
+            /* if (node.icon == 'circuit') {setCircuitActual1(node.key);consultarCircuit(node.key);console.log('tablero circuito: ',circuitActual1);consultarBoard(node.key) } */
+            /* obtenerReportes(node.key) */ /* if (node.icon == 'tab') {setCircuitActual(node.key) ;consultarBoard(node.key)  }; ; console.log('tablero actual: ',circuitActual); */ /* consultarCircuit(node.key)  */
           }
 
           }>{node.label}</span>
-<<<<<<< HEAD
           { 
           node.icon == 'circuit'?null:
           <ul class="navbar-nav idioma mr-md-1 fr mt3">
-=======
-          <ul class="navbar-nav fr mt3 nav3">
->>>>>>> 22f6ed336dfa713482d2db9a5b0a0209edc37ee4
             <li class="nav-item dropdown language-dropdown">
               <a class="" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                 <img class="ban" src={plus} />
