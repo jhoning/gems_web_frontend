@@ -100,10 +100,14 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
     const start = (node, id, id_hijo,aux) => {
      /*  console.log('arreglo de circuitos por tablero: ',aux)
       console.log(id, id_hijo) */
+      let bandera = true
       if (node.key == id) {
+     
        let circuitos =[]
         if(aux){
-           circuitos = aux.map(item => {
+          bandera = false
+          console.log('true',aux)
+          circuitos = aux.map(item => {
             return {
               "key": item.id,
               "label": 'circuito',
@@ -112,6 +116,16 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
               "children": [],
             }
           })
+
+         /*   circuitos = aux.map(item => {
+            return {
+              "key": item.id,
+              "label": 'circuito',
+              "data": 'circuito',
+              "icon": "circuit",
+              "children": [],
+            }
+          }) */
         }
         if(circuitos){
           node.children.push({
@@ -133,7 +147,7 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
         
       }
       /*    console.log('Node',node.key) */
-      if (node.children) {
+      if (node.children && bandera) {
         node.children.forEach(function (child) {
           start(child, id, id_hijo,aux)
         }
