@@ -19,17 +19,15 @@ html {
     background: #e7e7e7  !important;
 }
 
+
 .foot {
-    /* background: #1d262d  !important; */
-    /* background: #caf6f6 !important; */
     background: #e7e7e7  !important;
     padding-top: 10px !important;
     padding-bottom: 10px !important;
     position: fixed;
     bottom: 0;
-    line-height: 31px !important;
+    line-height: 22px !important;
     height: 35px !important;
-
     display: inline-block !important;
     font-weight: 600;
     font-size: 16px;
@@ -133,6 +131,14 @@ html {
         padding-left: 2px !important;
         padding-right: 0px !important;
     }
+
+.mr-md-2 {
+    margin-right: 9px;
+}
+    
+    .text-dark {
+        font-size: 12px;
+    }
     .gray {
         background: #f5fbff;
     }
@@ -140,7 +146,9 @@ html {
         margin-left: 3px !important;
     }
     .header1 nav {
+        margin-left: 30px !important;
         width: 50px;
+
     }
     nav {
         margin-left: 50px !important;
@@ -176,9 +184,6 @@ html {
 @media (max-width: 420px){
     .header nav {
         margin-left: 7px !important;
-    }
-    .header1 nav {
-        margin-left: 20px !important;
     }
     .sidebar-sticky {
         display: block;
