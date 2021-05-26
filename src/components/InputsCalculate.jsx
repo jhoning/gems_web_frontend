@@ -9,7 +9,7 @@ import {useState,useEffect} from 'react'
 import axios from 'axios'
 const Swal = require('sweetalert2')
 
-const InputsCalculate = ({values,setValues,setArr,arr,circuitActual,circuitActual1,estadoInputs, name,setNameProject, id}) => {
+const InputsCalculate = ({values,setValues,setArr,arr,circuitActual,circuitActual1,estadoInputs,consultaCircuitoId, name,setNameProject, id}) => {
   const [respuesta,setRespuesta] = useState({
     current: 0,
     cable_width: "0",
@@ -41,7 +41,7 @@ const [report,setReport] = useState({
   })  
   
   useEffect(() => {
-   
+    console.log("super consultaa",consultaCircuitoId)
     setReport({...estadoInputs})
     console.log({
       loadType:report.loadType,
@@ -268,7 +268,7 @@ const [report,setReport] = useState({
 
   return (<>
     <div className="w30 overflow-auto calculoAlto" id="reporte">
-      <button onClick={()=>{console.log(report/* {
+      <button onClick={()=>{console.log(consultaCircuitoId/* {
       loadType:report.loadType,
       power: report.power,
       distance: report.distance,
@@ -298,11 +298,12 @@ const [report,setReport] = useState({
     
       <div className="container mb-1 ">
         <h3 className="text-left mb-3 p-0 mt-2 color">{t("InputsC.sAppliance")}</h3>
-        <label htmlFor="">Name project</label>
+        <label htmlFor="">Name Circuit </label>
         <div class="input-group" style={{width:'150px'}}>
- 
-          <input className='form-control' type="text" placeholder={name} onChange={e => setNameProject(e.target.value)}  aria-describedby="sizing-addon2"/>
-          <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" onClick={()=>{cambiarNombreProject()}}></i>
+         
+          <input className='form-control' type="text" placeholder={consultaCircuitoId.name?consultaCircuitoId.name:null} onChange={e => setNameProject(e.target.value)}  aria-describedby="sizing-addon2"/>
+         {/*  <input className='form-control' type="text" placeholder={name} onChange={e => setNameProject(e.target.value)}  aria-describedby="sizing-addon2"/>
+          <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" onClick={()=>{cambiarNombreProject()}}></i> */}
         </div>
          <hr />
 

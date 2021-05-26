@@ -13,6 +13,7 @@ import min from '../img/disminuir.png';
 import ReactToPrint from 'react-to-print';
 import TreeNav from '../components/TreeNav';
 import axios from 'axios';
+import Prueba from '../components/Prueba';
 const token = localStorage.getItem('token')
 const authAxios = axios.create({
   baseURL: 'http://localhost:4000',
@@ -34,6 +35,7 @@ const Calculate1 = () => {
   });
   const [arr, setArr] = useState([]);
   const componentRef = useRef();
+  const [consultaCircuitoId, setConsultaCircuitoId] = useState({name:""})
   const [nameProject,setNameProject] = useState(name)
   const [consultaBoard,setConsultaBoard] = useState();
   const [circuitActual,setCircuitActual] = useState(null);
@@ -55,6 +57,7 @@ const Calculate1 = () => {
   const [consultaReportes,setConsultaReportes] = useState();
   const [arregloIdReportes,setArrgloIdReportes] = useState([]);
   const [arregloDeIdCircuitos,setArregloDeIdCircuitos] = useState([])
+  const [boardActual,setBoardActual] = useState({name:''})
 
   useEffect(() => {
     setTimeout(console.log('Arreglo de Reportes',arr),2000)
@@ -64,7 +67,7 @@ const Calculate1 = () => {
       for (let i = 0; i < numeroDeCircuits.length; i++) {
         for (let j = 0; j < arr.length; j++) {
           if(numeroDeCircuits[i].id == arr[j].circuit.id){
-            setArregloDeIdCircuitos(res => [...res,arr[j]])
+            setArregloDeIdCircuitos(res => [...res,{...arr[j],name:numeroDeCircuits[i].name}])
           }
           
         }
@@ -104,9 +107,10 @@ const Calculate1 = () => {
           <div className="dos gb">
             {/* <MenuTree idCircuits={id1} /> */}
             <button onClick={()=>{console.log(arregloDeIdCircuitos)}}>ver reportes</button>
-            <TreeNav idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
+            {/* <TreeNav setBoardActual={setBoardActual} idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual} setConsultaCircuitoId={setConsultaCircuitoId} /> */}
+            <Prueba />
           </div>
-          <InputsCalculate values={values} setValues={setValues} circuitActual1={circuitActual1} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
+          <InputsCalculate consultaCircuitoId={consultaCircuitoId} values={values} setValues={setValues} circuitActual1={circuitActual1} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
           <div className="w45 p-0 report" id="report">
             <a onClick={() => amplio()} class="point amp mr70 mt10">
               <i class="fa fa-expand mr5" aria-hidden="true"></i>
@@ -124,7 +128,7 @@ const Calculate1 = () => {
                 content={() => componentRef.current}
               />
               <div class="calculo" ref={componentRef}>
-                <Report arr={arr} arregloDeIdCircuitos={arregloDeIdCircuitos} numeroDeCircuits={numeroDeCircuits} numeroReportes={arregloIdReportes} name={nameProject}/>
+                <Report boardActual={boardActual} arr={arr} arregloDeIdCircuitos={arregloDeIdCircuitos} numeroDeCircuits={numeroDeCircuits} numeroReportes={arregloIdReportes} name={nameProject}/>
               </div>
 
             </div>

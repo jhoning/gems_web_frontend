@@ -19,14 +19,21 @@ const authAxios = axios.create({
   }
 })
 
-const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
+const TreeNav = ({setBoardActual,setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs,setConsultaCircuitoId }) => {
   const [t] = useTranslation("global")
   const [proyectoData, setProyectoData] = useState()
   const [mount, setMount] = useState(false)
   const [arr, setArr] = useState()
   const [tablerosP,setTablerosP] = useState([]);
-  
+
   useEffect(() => {
+    /* setTimeout(() => {
+      
+      let aux = document.getElementsByClassName('expandido')
+      aux[1].ariaExpanded = "true";
+      console.log('select',aux[1])
+    }, 500) */
+  
     obtenerTableros()
     setTimeout(() => {
       setMount(true);
@@ -34,7 +41,7 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
   }, [mount])
 
   const consultarCircuit = async(id1)=> {
-    await authAxios.get('/circuit/'+ id1).then(res=>{setEstadoInputs(res.data.report);console.log(res.data.report)})
+    await authAxios.get('/circuit/'+ id1).then(res=>{setEstadoInputs(res.data.report,res.data.name);console.log(res.data.report);setConsultaCircuitoId(res.data)})
   }
   const obtenerTableros = async () => {
     let arr = await authAxios.get('/project/' + idCircuits);
@@ -72,8 +79,8 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
       const circuitos = item.circuits.map(item => {
         return {
           "key": item.id,
-          "label": 'circuito',
-          "data": 'circuito',
+          "label": item.name,
+          "data": item.name,
           "icon": "circuit",
           "children": [],
         }
@@ -110,8 +117,8 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
           circuitos = aux.map(item => {
             return {
               "key": item.id,
-              "label": 'circuito',
-              "data": 'circuito',
+              "label": item.name,
+              "data": item.name,
               "icon": "circuit",
               "children": [],
             }
@@ -165,13 +172,20 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
 
     }
     console.log(aux_padre_null);
-    setArr([...aux_padre_null])
+    setArr([{
+      "key": 'board_principal',
+      "label": "Tablero Principal",
+      "data": "board_principal",
+      "icon": "tab",
+      "className": "expandido",
+      "children": [...aux_padre_null],
+    }])
   }
   const obtenerReportes = async(id1) => {
     await authAxios.get(`/board/${id1}`).then((resp)=>{setConsultaBoard(resp.data)}).catch(err => console.log(err));
   }  
   const consultarBoard = async(id1)=>{
-    await authAxios.get(`/board/${id1}`).then((resp)=>{setNumeroDeCircuits(resp.data.circuits);console.log(resp.data.circuits)}).catch(err => console.log(err));
+    await authAxios.get(`/board/${id1}`).then((resp)=>{setNumeroDeCircuits(resp.data.circuits);console.log(resp.data.circuits);setBoardActual(resp.data)}).catch(err => console.log(err));
   }
 
   const nodeTemplate = (node) => {
@@ -244,7 +258,7 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
         setMount(false)
 
       }}>{t("MenuTree.addBoard")}</button>
-      <Tree value={arr} nodeTemplate={nodeTemplate} />
+      <Tree value={arr} nodeTemplate={nodeTemplate}  expandedKeys={['board_principal']}/>
     </>
   )
 }

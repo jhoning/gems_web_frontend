@@ -9,14 +9,14 @@ const authAxios = axios.create({
   }
 })
 
-const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos},) => {
+const Report = React.forwardRef(({boardActual,arr,numeroDeCircuits,name,arregloDeIdCircuitos},) => {
   const [t] = useTranslation("global")
   const [consultaCircuitos,setConsultaCircuitos] = useState([])
   const [estado,setEstado] = useState([])
   const [estado1,setEstado1] = useState([])
   const THW = ['TW','THWN','THHN']
   useEffect(() => {
-    console.log(numeroDeCircuits)
+    console.log('ahora si',boardActual)
     setEstado([])
     setEstado1([])
    
@@ -43,7 +43,7 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos
                 <thead class="table-secondary mitexto1"> 
                   <tr class="borde1">
                     <th scope="col-4" className="px-2 mitexto1">{t("Calculate.project")+": " +name}</th>
-                    <th scope="col-4" className="px-2 mitexto1">{"Board"+": " }</th>
+                    <th scope="col-4" className="px-2 mitexto1">{"Board"+": "+boardActual.name }</th>
                   </tr>
                   <tr>
                   </tr>
@@ -73,7 +73,7 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos
                     {
                       arregloDeIdCircuitos.map(item => 
                         <tr>
-                          <th class="mitexto1">nombre</th>
+                          <th class="mitexto1">{item.name}</th>
                           <th class="mitexto1">
                             {item.loadType == 0?'Motor':null}
                             {item.loadType == 1?'Kitchen':null} 
