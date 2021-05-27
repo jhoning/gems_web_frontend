@@ -181,6 +181,8 @@
     background: rgb(226, 226, 226);
 }
 
+.bak{ background-color: red; color: #fff; font-weight:bold; }
+
 :target {
     color: red;
   }
