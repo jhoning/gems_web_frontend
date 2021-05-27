@@ -36,7 +36,7 @@ const Header = () => {
     <div className="flex-column flex-md-row align-items-center px-md-4 shadow-sm fondo header1">
       <h5 className="my-0 mr-md-auto text-dark ml-md-4"><a href="/t_board"><img class="logo" src={logo}  /></a></h5>
       <nav className="my-1 my-md-0 mr-md-1">
-      <ul class="navbar-nav idioma mr-md-2">
+      <ul class="navbar-nav idioma">
         <li class="nav-item dropdown language-dropdown">
           {
             idioma == "en"? <a class="nav-link dropdown-toggle d-flex align-items-center leng text-dark" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
@@ -65,12 +65,12 @@ const Header = () => {
         </li>
       </ul>
       </nav>
-      {URLactual == "http://localhost:3004/user_settings"? null: <a className="btn btn-outline-light text-dark mx-1 mr-md-3 line" href="/user_settings">{t("userS.userS")}</a>}
+      {URLactual == "http://localhost:3004/user_settings"? null: <a className="btn btn-outline-light text-dark mx-1 mr-md-2 line" href="/user_settings">{t("userS.userS")}</a>}
       
-      {URLactual == "http://localhost:3004/t_board"?null:<a className="btn btn-outline-light text-dark mx-1 mr-md-3 line" href="/t_board">T-board</a>}
-      <a className="btn btn-outline-light mr-md-4 line text-dark"  onClick={()=>deslogear()}>{ t("HeaderT.log_out")}</a>
+      {URLactual == "http://localhost:3004/t_board"?null:<a className="btn btn-outline-light text-dark mx-1 mr-md-2 line" href="/t_board">T-board</a>}
+      <a className="btn btn-outline-light mr-md-2 line text-dark"  onClick={()=>deslogear()}>{ t("HeaderT.log_out")}</a>
         
-      <a className="text-dark anchoHelp mr-md-3 help" href="">{t("Header.help")}</a>
+      <a className="text-dark anchoHelp help" href="">{t("Header.help")}</a>
 
     </div>
   )

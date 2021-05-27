@@ -297,7 +297,7 @@ const [report,setReport] = useState({
     
     
       <div className="container mb-1 ">
-        <h3 className="text-left mb-3 p-0 mt-2 color">{t("InputsC.sAppliance")}</h3>
+        <h4 className="text-left mb-3 p-0 mt-2 color">{t("InputsC.sAppliance")}</h4>
         <label htmlFor="">Name project</label>
         <div class="input-group" style={{width:'150px'}}>
  
