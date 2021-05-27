@@ -34,6 +34,8 @@ const Calculate1 = () => {
     circuit: {},
   });
   const [arr, setArr] = useState([]);
+  const [arr1,setArr1] = useState([])
+  const [select,setSelect] = useState(0)
   const componentRef = useRef();
   const [consultaCircuitoId, setConsultaCircuitoId] = useState({name:""})
   const [nameProject,setNameProject] = useState(name)
@@ -108,9 +110,9 @@ const Calculate1 = () => {
             {/* <MenuTree idCircuits={id1} /> */}
             <button onClick={()=>{console.log(arregloDeIdCircuitos)}}>ver reportes</button>
             {/* <TreeNav setBoardActual={setBoardActual} idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual} setConsultaCircuitoId={setConsultaCircuitoId} /> */}
-            <Prueba />
+            <Prueba setSelect={setSelect} arr1={arr1}  setArr1={setArr1} />
           </div>
-          <InputsCalculate consultaCircuitoId={consultaCircuitoId} values={values} setValues={setValues} circuitActual1={circuitActual1} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
+          <InputsCalculate arr1={arr1} setArr1={setArr1}  select={select} consultaCircuitoId={consultaCircuitoId} values={values} setValues={setValues} circuitActual1={circuitActual1} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
           <div className="w45 p-0 report" id="report">
             <a onClick={() => amplio()} class="point amp mr70 mt10">
               <i class="fa fa-expand mr5" aria-hidden="true"></i>

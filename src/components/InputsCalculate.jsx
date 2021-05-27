@@ -9,7 +9,7 @@ import {useState,useEffect} from 'react'
 import axios from 'axios'
 const Swal = require('sweetalert2')
 
-const InputsCalculate = ({values,setValues,setArr,arr,circuitActual,circuitActual1,estadoInputs,consultaCircuitoId, name,setNameProject, id}) => {
+const InputsCalculate = ({arr1,setArr1,select,values,setValues,setArr,arr,circuitActual,circuitActual1,estadoInputs,consultaCircuitoId, name,setNameProject, id}) => {
   const [respuesta,setRespuesta] = useState({
     current: 0,
     cable_width: "0",
@@ -42,7 +42,10 @@ const [report,setReport] = useState({
   
   useEffect(() => {
     console.log("super consultaa",consultaCircuitoId)
-    setReport({...estadoInputs})
+    if(select != 0){
+      setReport({...arr[select-1]})
+    }
+ 
     console.log({
       loadType:report.loadType,
       power: report.power,
@@ -57,7 +60,7 @@ const [report,setReport] = useState({
       pipe_material:report.pipe_material,
       system_voltage:report.system_voltage})
      obtenerReportes(); 
-  }, [estadoInputs]);
+  }, [estadoInputs,select]);
  
   const obtenerReportes = async() => {
     await authAxios.get('/report').then((resp)=>{setArr(resp.data)});
@@ -124,7 +127,7 @@ const [report,setReport] = useState({
       protection_device:respuesta.protection_device,
       voltage_drop:respuesta.voltage_drop
       ,circuit:{
-       id:circuitActual1
+       id:select
     }
     }).then(res=> console.log('exito!!!')).catch(err => console.log({ 
       loadType:report.loadType,
@@ -145,7 +148,7 @@ const [report,setReport] = useState({
       protection_device:respuesta.protection_device,
       voltage_drop:respuesta.voltage_drop
       ,circuit:{
-       id:circuitActual1
+       id:select
     }})) 
     
     setArr(item => [...item,{
@@ -163,7 +166,7 @@ const [report,setReport] = useState({
       pipe_material:report.pipe_material,
       system_voltage:report.system_voltage,
       ...respuesta,circuit:{
-        id:circuitActual1}
+        id:select}
     }])
   }
 
@@ -301,7 +304,10 @@ const [report,setReport] = useState({
         <label htmlFor="">Name Circuit </label>
         <div class="input-group" style={{width:'150px'}}>
          
-          <input className='form-control' type="text" placeholder={consultaCircuitoId.name?consultaCircuitoId.name:null} onChange={e => setNameProject(e.target.value)}  aria-describedby="sizing-addon2"/>
+          <input className='form-control' type="text" value={select != 0?arr1[select-1].label:null} placeholder={select != 0?arr1[select-1].label:null} onChange={(e)=>{if(select !=0)setArr1(item =>{
+            item[select-1].label = e.target.value
+            return [...item]
+          })}}  aria-describedby="sizing-addon2"/>
          {/*  <input className='form-control' type="text" placeholder={name} onChange={e => setNameProject(e.target.value)}  aria-describedby="sizing-addon2"/>
           <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" onClick={()=>{cambiarNombreProject()}}></i> */}
         </div>
@@ -465,7 +471,24 @@ const [report,setReport] = useState({
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>{reportGenerate();console.log(report);/* actualizarCircuit() */;/* actualizarCircuit2() */ }}>{t("Calculate.report")}</button></div>
+          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>{ setArr(item => [...item,{
+      name:arr1[select-1].label,
+      id:circuitActual,
+      loadType:report.loadType,
+      power: report.power,
+      distance: report.distance,
+      powerFactor: report.powerFactor,
+      voltageDrop: report.voltageDrop,
+      aisolation:report.aisolation,
+      temperature:report.temperature,
+      loadPhases:report.loadPhases,
+      perPhase:report.perPhase,
+      feeder_include_neutral_wire:report.feeder_include_neutral_wire,
+      pipe_material:report.pipe_material,
+      system_voltage:report.system_voltage,
+      ...respuesta,circuit:{
+        id:select}
+    }]);/* actualizarCircuit() */;/* actualizarCircuit2() */ }}>{t("Calculate.report")}</button></div>
         </div>
       </div>
       </div>

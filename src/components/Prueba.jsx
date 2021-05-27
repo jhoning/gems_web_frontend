@@ -18,11 +18,10 @@ const authAxios = axios.create({
     "auth-token": `${token}`
   }
 })
-const Prueba = () => {
+const Prueba = ({setSelect,setArr1,arr1}) => {
   const [t] = useTranslation("global")
-  const [arr,setArr] = useState([])
   const [aux,setAux] = useState(1)
-  const [select,setSelect] = useState()
+
   const nodeTemplate = (node) => {
     if (node.label) {
       return (
@@ -38,7 +37,7 @@ const Prueba = () => {
               </a>
 
               <div class="dropdown-menu dropdown-menu-left navbar-dropdown" aria-labelledby="LanguageDropdown">
-                <a class="dropdown-item" id="id_es"  onClick={() => {setArr(item => [...item,{
+                <a class="dropdown-item" id="id_es"  onClick={() => {setArr1(item => [...item,{
                           "key": aux,
                           "label": "Circuito",
                           "data": "Circuito",
@@ -72,7 +71,7 @@ const Prueba = () => {
       "data": "Tablero Principal",
       "icon": "tab",
       "className": "expandido",
-      "children": [...arr],
+      "children": [...arr1],
     }]} nodeTemplate={nodeTemplate}/>
     </div>
   )

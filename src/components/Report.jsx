@@ -71,7 +71,7 @@ const Report = React.forwardRef(({boardActual,arr,numeroDeCircuits,name,arregloD
                   
                  
                     {
-                      arregloDeIdCircuitos.map(item => 
+                      arr.map(item => 
                         <tr>
                           <th class="mitexto1">{item.name}</th>
                           <th class="mitexto1">
