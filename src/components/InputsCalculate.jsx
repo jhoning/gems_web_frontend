@@ -328,6 +328,12 @@ const [report,setReport] = useState({
             </select>
           </div>
         </div>
+        <div class="form-group row my-1">
+          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("Calculate.gCond")}</label>
+          <div class="col-sm-7 mx-0">
+            <input type="number"  class="form-control mitexto" id="inputEmail3" autocomplete="off" value={report != null?report.power:null} autocomplete="nope" onChange={handlePower} />
+          </div>
+        </div>
         
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.powerW")}</label>

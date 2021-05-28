@@ -77,7 +77,8 @@
         "breaker": "Breaker",
         "power": "Power",
         "amp": "See full",
-        "print": "Print this out!"
+        "print": "Print this out!",
+        "gCond": "Grounding conductor"
     },
     "InputsC": {
         "sAppliance": "Special appliance",
