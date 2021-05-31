@@ -110,17 +110,9 @@ const T_board = () => {
                     <input type="text" class="edit" style={{ display: "none",height: "35px" }} id={item.id+"i"} onChange={e => { setAux1({ ...aux1, name: e.target.value });console.log(aux1)}} onKeyDown={(e) =>handleKeyDown1(e,item.id)}/>
                       <div class="col-md-1 controls">
              
-                      <a>
-                        <i class="fa fa-edit" onClick={()=>{ 
-                        if ($(`#${item.id}a`).is(':visible')) {
-                          $(`#${item.id}a`).hide();
-                          $(`#${item.id}i`).show();
-                        } else {
-                          $(`#${item.id}a`).show();
-                          $(`#${item.id}i`).hide();
-                        }
-                      }
-                      }></i>
+                      <a href={`http://localhost:3004/calculate/${item.id}/${item.name}`}>
+                        <i class="fa fa-edit" 
+                      ></i>
                       </a>
                      
                       <a>

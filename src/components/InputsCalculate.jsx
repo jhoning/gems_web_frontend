@@ -16,20 +16,21 @@ const InputsCalculate = ({values,setValues,setArr,arr,circuitActual,circuitActua
     pipe_diameter: "0",
     protection_device: 0,
     voltage_drop: 0,
+    grounding_conductor:0
 })
 const [report,setReport] = useState({
-  loadType:"",
+  loadType:0,
   power: 0,
-  distance: "",
+  distance:0,
   powerFactor: 0,
-  voltageDrop: "",
-  aisolation:"",
+  voltageDrop: 0,
+  aisolation:0,
   temperature:21,
-  loadPhases:"",
-  perPhase:"",
+  loadPhases:0,
+  perPhase:0,
   feeder_include_neutral_wire:true,
-  pipe_material:"0",
-  system_voltage:"",
+  pipe_material:0,
+  system_voltage:0,
 })
   const [t] = useTranslation("global")
   const token = localStorage.getItem('token')
@@ -75,7 +76,7 @@ const [report,setReport] = useState({
     perPhase:report.perPhase,
     feeder_include_neutral_wire:report.feeder_include_neutral_wire,
     pipe_material:report.pipe_material,
-    system_voltage:report.system_voltage}).then(res=>{setRespuesta({...res.data });console.log(respuesta)}).catch(err=>console.log(err))
+    system_voltage:report.system_voltage}).then(res=>{setRespuesta({...res.data });console.log('ListForm',res)}).catch(err=>console.log(err))
   }
   const cambiarNombreProject = async()=> {
     await authAxios.patch('/project/'+id,{name:name}).then(res=>{console.log(res)}).catch(err => console.log(err))
@@ -122,11 +123,12 @@ const [report,setReport] = useState({
       current:respuesta.current,
       pipe_diameter:respuesta.pipe_diameter,
       protection_device:respuesta.protection_device,
-      voltage_drop:respuesta.voltage_drop
+      voltage_drop:respuesta.voltage_drop,
+      grounding_conductor: respuesta.grounding_conductor
       ,circuit:{
        id:circuitActual1
     }
-    }).then(res=> console.log('exito!!!')).catch(err => console.log({ 
+    }).then(res=> console.log('exito!!!')).catch(err => console.log('report error: ',err/* "Error:", { 
       loadType:report.loadType,
       power: report.power,
       distance: report.distance,
@@ -143,10 +145,11 @@ const [report,setReport] = useState({
       current:respuesta.current,
       pipe_diameter:respuesta.pipe_diameter,
       protection_device:respuesta.protection_device,
-      voltage_drop:respuesta.voltage_drop
+      voltage_drop:respuesta.voltage_drop,
+      grounding_conductor: respuesta.grounding_conductor
       ,circuit:{
        id:circuitActual1
-    }})) 
+    }} */ )) 
     
     setArr(item => [...item,{
       id:circuitActual,
@@ -242,11 +245,9 @@ const [report,setReport] = useState({
     console.log(report)
   }
   const handlePowerFactor = (e) => {
-    if(e.target.value > 1 || e.target.value < 0 ){
-      setReport(e.target.value < 1?{...report,powerFactor: parseFloat(0).toFixed(1)}:{...report,powerFactor:parseFloat(1).toFixed(1)});
-    } else {
-      setReport({...report,powerFactor:parseFloat(e.target.value).toFixed(1)});
-    } 
+      
+      setReport({...report,powerFactor: e.target.value});
+    
   }
   const handlePerPhases = (e) => {
     if(e.target.value < 0 ){
@@ -361,7 +362,7 @@ const [report,setReport] = useState({
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.powerF")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="number" step=".1" min="0" max="1" class="form-control mitexto" id="inputEmail3" value={report != null?report.powerFactor:null} autocomplete="off" onChange={handlePowerFactor} />
+            <input type="number" step=".1" min="0" max="100" class="form-control mitexto" id="inputEmail3" value={report != null?report.powerFactor:null} autocomplete="off" onChange={handlePowerFactor} />
           </div>
         </div>
         <div class="form-group row my-1">
@@ -464,7 +465,7 @@ const [report,setReport] = useState({
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>{reportGenerate();console.log(report);/* actualizarCircuit() */;/* actualizarCircuit2() */ }}>{t("Calculate.report")}</button></div>
+          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>{reportGenerate().catch(err => err);console.log(report);/* actualizarCircuit() *//* actualizarCircuit2() */ }}>{t("Calculate.report")}</button></div>
         </div>
       </div>
       </div>

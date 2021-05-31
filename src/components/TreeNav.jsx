@@ -34,7 +34,19 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
   }, [mount])
 
   const consultarCircuit = async(id1)=> {
-    await authAxios.get('/circuit/'+ id1).then(res=>{setEstadoInputs(res.data.report);console.log(res.data.report)})
+    await authAxios.get('/circuit/'+ id1).then(res=>res.data.report != null?setEstadoInputs(res.data.report):setEstadoInputs({
+      loadType:0,
+      power: 0,
+      distance: "0",
+      powerFactor: 0,
+      voltageDrop: "0",
+      aisolation:"0",
+      temperature:0,
+      loadPhases:"0",
+      perPhase:"1",
+      feeder_include_neutral_wire:"true",
+      pipe_material:0,
+      system_voltage:"0",})).catch(err => err)
   }
   const obtenerTableros = async () => {
     let arr = await authAxios.get('/project/' + idCircuits);

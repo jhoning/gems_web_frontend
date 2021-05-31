@@ -75,9 +75,9 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos
                         <tr>
                           <th class="mitexto1">nombre</th>
                           <th class="mitexto1">
-                            {item.loadType == 0?'Motor':null}
-                            {item.loadType == 1?'Kitchen':null} 
-                            {item.loadType == 2?'Air-Conditioned':null}
+                            {item.loadType == 0?'Kitchen':null}
+                            {item.loadType == 1?'Air-Conditioned':null} 
+                            {item.loadType == 2?'Motor':null}
                             {item.loadType == 3?'motor':null}
                           </th>
                           <th class="mitexto1">
@@ -86,12 +86,15 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos
                             {item.pipe_material == 2?item.pipe_diameter + '"' + ' Steel':null}
                           </th>
                           <th class="mitexto1">
-                            {item.aisolation == 0 ?item.perPhase + item.feeder_include_neutral_wire + ' TW' + '-CU':null}
-                            {item.aisolation == 1 ?item.perPhase + item.feeder_include_neutral_wire + ' THWN'+'-CU':null}
-                            {item.aisolation == 2 ?item.perPhase + item.feeder_include_neutral_wire + ' THHN'+'-CU':null}
+                            {item.aisolation == 0 && item.feeder_include_neutral_wire == "true"?item.perPhase + ' TW' + '-CU':null}
+                            {item.aisolation == 0 && item.feeder_include_neutral_wire == "false" ?item.perPhase + 1 + ' TW' + '-CU':null}
+                            {item.aisolation == 1 && item.feeder_include_neutral_wire == "true"  ?item.perPhase + 1 + ' THWN'+'-CU':null}
+                            {item.aisolation == 1 && item.feeder_include_neutral_wire == "false"  ?item.perPhase  + ' THWN'+'-CU':null}
+                            {item.aisolation == 2 && item.feeder_include_neutral_wire == "true" ?item.perPhase + 1 + ' THHN'+'-CU':null}
+                            {item.aisolation == 2 && item.feeder_include_neutral_wire == "false" ?item.perPhase + ' THHN'+'-CU':null}
                             
                           </th>
-                          <th class="mitexto1">(prox)</th>
+                          <th class="mitexto1">{item.grounding_conductor}</th>
                           <th class="mitexto1">{  item.perPhase + `x ${item.protection_device}` + "-A"}</th>
                           <th class="mitexto1">{  item.power}</th>
                         </tr>

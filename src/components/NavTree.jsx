@@ -43,7 +43,7 @@ const NavTree = ({setCircuitActual1,circuitActual1, idCircuits,setArr,setConsult
   }, [mount])
 
   const consultarCircuit = async(id1)=> {
-    await authAxios.get('/circuit/'+ id1).then(res=>{setEstadoInputs(res.data.report);console.log(res.data.report)})
+    await authAxios.get('/circuit/'+ id1).then(res=>{setEstadoInputs(res.data.report);console.log("alorka")})
   }
   const obtenerReportes = async(id1) => {
     await authAxios.get(`/board/${id1}`).then((resp)=>setConsultaBoard(resp.data)).catch(err => console.log(err));
