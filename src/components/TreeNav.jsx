@@ -214,15 +214,11 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
           node.icon == 'circuit'?null:
           <ul class="navbar-nav fr mt3 nav3">
             <li class="nav-item dropdown language-dropdown">
-              <a class="" onClick={() => {
-              /*    obtenerReportes(node.key)*/
-                addCircuit(node.key) 
-                setMount(false)
-              }}>
-                <img class="ban" src={plus} />
-              </a>
+            <a class="" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+              <img class="ban" src={plus} />
+            </a> 
 
-              {/* <div class="dropdown-menu dropdown-menu-left navbar-dropdown" aria-labelledby="LanguageDropdown">
+              <div class="dropdown-menu dropdown-menu-left navbar-dropdown" aria-labelledby="LanguageDropdown">
                 <a class="dropdown-item" id="id_es" >
                   <div class="flag-icon-holder">
                     <img class="ban" src={circuit} />
@@ -243,7 +239,7 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
                   </div>
                 </a> 
               </div>
-              */}
+             
             </li>
           </ul>}
         </div>
