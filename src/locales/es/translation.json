@@ -77,7 +77,8 @@
         "breaker": "Interruptor",
         "power": "Potencia",
         "amp": "Ver completo", 
-        "print": "¡Imprimir!"
+        "print": "¡Imprimir!",
+        "gCond": "Conductor de puesta a tierra"
     }, 
     "InputsC": {
         "sAppliance": "Tomacorriente especial",

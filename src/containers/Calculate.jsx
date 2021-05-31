@@ -89,7 +89,7 @@ const Calculate = () => {
 
                   {arr.map((item) => {
                     return <tr>
-<th scope="col" className="px-2 mitexto1">{parseInt(item.cable_width + 2)}</th>
+                      <th scope="col" className="px-2 mitexto1">{parseInt(item.cable_width + 2)}</th>
                       <th scope="col" className="px-2 mitexto1">{item.current * 5}</th>
                       <th scope="col" className="px-2 mitexto1">{item.pipe_diameter * 22}</th>
                       <th scope="col" className="px-2 mitexto1">{item.protection_device + 8}</th>

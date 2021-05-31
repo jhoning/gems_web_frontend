@@ -54,6 +54,13 @@
 });
 </script>
 
+<script>
+ $(document).on('click', '.p-treenode-children .p-treenode-leaf', function(){
+  $( this ).addClass('active').siblings().removeClass('active')
+});
+ </script>
+
+
 <script language="JavaScript">
   if(window.screen.availWidth == 1480)window.parent.document.body.style.zoom="100%"
   if(window.screen.availWidth == 1152)window.parent.document.body.style.zoom="100%"

@@ -148,6 +148,9 @@
         font-size: 12px;
         padding-left: 3px !important;
     }
+    .ban {
+        margin-right: 1px !important;
+    }
     .header a, .header1 a {
         font-size: 12px;
     }

@@ -298,7 +298,7 @@ const [report,setReport] = useState({
     
     
       <div className="container mb-1 ">
-        <h3 className="text-left mb-3 p-0 mt-2 color">{t("InputsC.sAppliance")}</h3>
+        <h4 className="text-left mb-3 p-0 mt-2 color">{t("InputsC.sAppliance")}</h4>
         <label htmlFor="">Name project</label>
         <div class="input-group" style={{width:'150px'}}>
  
@@ -327,6 +327,12 @@ const [report,setReport] = useState({
               <option selected value="1" class="mitexto">{t("Option.cM")}</option>
               <option value="2" class="mitexto">{t("Option.sV")}</option>
             </select>
+          </div>
+        </div>
+        <div class="form-group row my-1">
+          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("Calculate.gCond")}</label>
+          <div class="col-sm-7 mx-0">
+            <input type="number"  class="form-control mitexto" id="inputEmail3" autocomplete="off" value={report != null?report.power:null} autocomplete="nope" onChange={handlePower} />
           </div>
         </div>
         
