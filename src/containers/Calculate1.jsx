@@ -33,6 +33,7 @@ const Calculate1 = () => {
     circuit: {},
   });
   const [arr, setArr] = useState([]);
+  const [nameTablero , setNameTablero] = useState("")
   const componentRef = useRef();
   const [nameProject,setNameProject] = useState(name)
   const [consultaBoard,setConsultaBoard] = useState();
@@ -104,7 +105,7 @@ const Calculate1 = () => {
           <div className="dos gb">
             {/* <MenuTree idCircuits={id1} /> */}
             <button onClick={()=>{console.log(arregloDeIdCircuitos)}}>ver reportes</button>
-            <TreeNav idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
+            <TreeNav setNameTablero={setNameTablero} idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
           </div>
           <InputsCalculate values={values} setValues={setValues} circuitActual1={circuitActual1} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
           <div className="w45 p-0 report" id="report">
@@ -124,7 +125,7 @@ const Calculate1 = () => {
                 content={() => componentRef.current}
               />
               <div class="calculo" ref={componentRef}>
-                <Report arr={arr} arregloDeIdCircuitos={arregloDeIdCircuitos} numeroDeCircuits={numeroDeCircuits} numeroReportes={arregloIdReportes} name={nameProject}/>
+                <Report nameTablero={nameTablero} arr={arr} arregloDeIdCircuitos={arregloDeIdCircuitos} numeroDeCircuits={numeroDeCircuits} numeroReportes={arregloIdReportes} name={nameProject}/>
               </div>
 
             </div>

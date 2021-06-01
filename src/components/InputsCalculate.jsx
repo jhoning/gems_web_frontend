@@ -299,10 +299,10 @@ const [report,setReport] = useState({
     
       <div className="container mb-1 ">
         <h4 className="text-left mb-3 p-0 mt-2 color">{t("InputsC.sAppliance")}</h4>
-        <label htmlFor="">Name project</label>
+        <label htmlFor="">Name circuit</label>
         <div class="input-group" style={{width:'150px'}}>
  
-          <input className='form-control' type="text" placeholder={name} onChange={e => setNameProject(e.target.value)}  aria-describedby="sizing-addon2"/>
+          <input className='form-control' type="text"/*  placeholder={name} */ /* onChange={e => setNameProject(e.target.value)} */  aria-describedby="sizing-addon2"/>
           <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" onClick={()=>{cambiarNombreProject()}}></i>
         </div>
          <hr />

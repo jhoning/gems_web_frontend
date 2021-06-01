@@ -9,7 +9,7 @@ const authAxios = axios.create({
   }
 })
 
-const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos},) => {
+const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos,nameTablero},) => {
   const [t] = useTranslation("global")
   const [consultaCircuitos,setConsultaCircuitos] = useState([])
   const [estado,setEstado] = useState([])
@@ -43,7 +43,7 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos
                 <thead class="table-secondary mitexto1"> 
                   <tr class="borde1">
                     <th scope="col-4" className="px-2 mitexto1">{t("Calculate.project")+": " +name}</th>
-                    <th scope="col-4" className="px-2 mitexto1">{"Board"+": " }</th>
+                    <th scope="col-4" className="px-2 mitexto1">{"Board: "+ nameTablero}</th>
                   </tr>
                   <tr>
                   </tr>
@@ -86,12 +86,18 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos
                             {item.pipe_material == 2?item.pipe_diameter + '"' + ' Steel':null}
                           </th>
                           <th class="mitexto1">
-                            {item.aisolation == 0 && item.feeder_include_neutral_wire == "true"?item.perPhase + ' TW' + '-CU':null}
+                          {item.aisolation == 0?item.perPhase + ' TW' + '-CU':null}
+                          { item.aisolation == 1?item.perPhase + ' THWN' + '-CU':null}
+                          { item.aisolation == 2?item.perPhase + ' THHN' + '-CU':null}
+                        {
+                        
+                    
+                        /*  {item.aisolation == 0 && item.feeder_include_neutral_wire == "true"?item.perPhase + ' TW' + '-CU':null}
                             {item.aisolation == 0 && item.feeder_include_neutral_wire == "false" ?item.perPhase + 1 + ' TW' + '-CU':null}
                             {item.aisolation == 1 && item.feeder_include_neutral_wire == "true"  ?item.perPhase + 1 + ' THWN'+'-CU':null}
                             {item.aisolation == 1 && item.feeder_include_neutral_wire == "false"  ?item.perPhase  + ' THWN'+'-CU':null}
                             {item.aisolation == 2 && item.feeder_include_neutral_wire == "true" ?item.perPhase + 1 + ' THHN'+'-CU':null}
-                            {item.aisolation == 2 && item.feeder_include_neutral_wire == "false" ?item.perPhase + ' THHN'+'-CU':null}
+                            {item.aisolation == 2 && item.feeder_include_neutral_wire == "false" ?item.perPhase + ' THHN'+'-CU':null} */}
                             
                           </th>
                           <th class="mitexto1">{item.grounding_conductor}</th>

@@ -19,7 +19,7 @@ const authAxios = axios.create({
   }
 })
 
-const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
+const TreeNav = ({setNameTablero,setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
   const [t] = useTranslation("global")
   const [proyectoData, setProyectoData] = useState()
   const [mount, setMount] = useState(false)
@@ -204,7 +204,7 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
               }
             });
           
-          }else{setCircuitActual(node.key) ;consultarBoard(node.key);console.log('oasiii') }
+          }else{setCircuitActual(node.key) ;consultarBoard(node.key);setNameTablero(node.label) }
             /* if (node.icon == 'circuit') {setCircuitActual1(node.key);consultarCircuit(node.key);console.log('tablero circuito: ',circuitActual1);consultarBoard(node.key) } */
             /* obtenerReportes(node.key) */ /* if (node.icon == 'tab') {setCircuitActual(node.key) ;consultarBoard(node.key)  }; ; console.log('tablero actual: ',circuitActual); */ /* consultarCircuit(node.key)  */
           }
@@ -222,7 +222,7 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
                 <img class="ban" src={plus} />
               </a>
 
-              {/* <div class="dropdown-menu dropdown-menu-left navbar-dropdown" aria-labelledby="LanguageDropdown">
+               <div class="dropdown-menu dropdown-menu-left navbar-dropdown" aria-labelledby="LanguageDropdown">
                 <a class="dropdown-item" id="id_es" >
                   <div class="flag-icon-holder">
                     <img class="ban" src={circuit} />
@@ -243,7 +243,7 @@ const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,
                   </div>
                 </a> 
               </div>
-              */}
+              
             </li>
           </ul>}
         </div>
