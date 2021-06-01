@@ -19,21 +19,14 @@ const authAxios = axios.create({
   }
 })
 
-const TreeNav = ({setBoardActual,setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs,setConsultaCircuitoId }) => {
+const TreeNav = ({setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
   const [t] = useTranslation("global")
   const [proyectoData, setProyectoData] = useState()
   const [mount, setMount] = useState(false)
   const [arr, setArr] = useState()
   const [tablerosP,setTablerosP] = useState([]);
-
-  useEffect(() => {
-    /* setTimeout(() => {
-      
-      let aux = document.getElementsByClassName('expandido')
-      aux[1].ariaExpanded = "true";
-      console.log('select',aux[1])
-    }, 500) */
   
+  useEffect(() => {
     obtenerTableros()
     setTimeout(() => {
       setMount(true);
@@ -41,7 +34,19 @@ const TreeNav = ({setBoardActual,setCircuitActual1,circuitActual1, idCircuits,se
   }, [mount])
 
   const consultarCircuit = async(id1)=> {
-    await authAxios.get('/circuit/'+ id1).then(res=>{setEstadoInputs(res.data.report,res.data.name);console.log(res.data.report);setConsultaCircuitoId(res.data)})
+    await authAxios.get('/circuit/'+ id1).then(res=>res.data.report != null?setEstadoInputs(res.data.report):setEstadoInputs({
+      loadType:0,
+      power: 0,
+      distance: "0",
+      powerFactor: 0,
+      voltageDrop: "0",
+      aisolation:"0",
+      temperature:0,
+      loadPhases:"0",
+      perPhase:"1",
+      feeder_include_neutral_wire:"true",
+      pipe_material:0,
+      system_voltage:"0",})).catch(err => err)
   }
   const obtenerTableros = async () => {
     let arr = await authAxios.get('/project/' + idCircuits);
@@ -79,8 +84,8 @@ const TreeNav = ({setBoardActual,setCircuitActual1,circuitActual1, idCircuits,se
       const circuitos = item.circuits.map(item => {
         return {
           "key": item.id,
-          "label": item.name,
-          "data": item.name,
+          "label": 'circuito',
+          "data": 'circuito',
           "icon": "circuit",
           "children": [],
         }
@@ -117,8 +122,8 @@ const TreeNav = ({setBoardActual,setCircuitActual1,circuitActual1, idCircuits,se
           circuitos = aux.map(item => {
             return {
               "key": item.id,
-              "label": item.name,
-              "data": item.name,
+              "label": 'circuito',
+              "data": 'circuito',
               "icon": "circuit",
               "children": [],
             }
@@ -172,20 +177,13 @@ const TreeNav = ({setBoardActual,setCircuitActual1,circuitActual1, idCircuits,se
 
     }
     console.log(aux_padre_null);
-    setArr([{
-      "key": 'board_principal',
-      "label": "Tablero Principal",
-      "data": "board_principal",
-      "icon": "tab",
-      "className": "expandido",
-      "children": [...aux_padre_null],
-    }])
+    setArr([...aux_padre_null])
   }
   const obtenerReportes = async(id1) => {
     await authAxios.get(`/board/${id1}`).then((resp)=>{setConsultaBoard(resp.data)}).catch(err => console.log(err));
   }  
   const consultarBoard = async(id1)=>{
-    await authAxios.get(`/board/${id1}`).then((resp)=>{setNumeroDeCircuits(resp.data.circuits);console.log(resp.data.circuits);setBoardActual(resp.data)}).catch(err => console.log(err));
+    await authAxios.get(`/board/${id1}`).then((resp)=>{setNumeroDeCircuits(resp.data.circuits);console.log(resp.data.circuits)}).catch(err => console.log(err));
   }
 
   const nodeTemplate = (node) => {
@@ -216,17 +214,15 @@ const TreeNav = ({setBoardActual,setCircuitActual1,circuitActual1, idCircuits,se
           node.icon == 'circuit'?null:
           <ul class="navbar-nav fr mt3 nav3">
             <li class="nav-item dropdown language-dropdown">
-              <a class="" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <img class="ban" src={plus} />
-              </a>
+            <a class="" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+              <img class="ban" src={plus} />
+            </a> 
 
               <div class="dropdown-menu dropdown-menu-left navbar-dropdown" aria-labelledby="LanguageDropdown">
                 <a class="dropdown-item" id="id_es" >
                   <div class="flag-icon-holder">
                     <img class="ban" src={circuit} />
                     <span class="text-dark" onClick={() => {
-
-                   /*    obtenerReportes(node.key)*/
                       addCircuit(node.key) 
                       setMount(false)
                     }}>{t("MenuTree.addAppliance")}
@@ -237,13 +233,13 @@ const TreeNav = ({setBoardActual,setCircuitActual1,circuitActual1, idCircuits,se
                   <div class="flag-icon-holder">
                     <img class="ban" src={tab} />
                     <span class="text-dark" onClick={() => {
-              /*         obtenerReportes(node.key) */
                       addBoard(node.key)
                       setMount(false)
                     }}>{t("MenuTree.addBoard")}</span>
                   </div>
-                </a>
+                </a> 
               </div>
+             
             </li>
           </ul>}
         </div>
@@ -258,7 +254,7 @@ const TreeNav = ({setBoardActual,setCircuitActual1,circuitActual1, idCircuits,se
         setMount(false)
 
       }}>{t("MenuTree.addBoard")}</button>
-      <Tree value={arr} nodeTemplate={nodeTemplate}  expandedKeys={['board_principal']}/>
+      <Tree value={arr} nodeTemplate={nodeTemplate} />
     </>
   )
 }
