@@ -249,11 +249,11 @@ const TreeNav = ({setNameTablero,setCircuitActual1,circuitActual1, idCircuits,se
   }
   return (
     <>
-       <button className='btn btn-primary mb-2 mt-2' onClick={() => {
+      {/*  <button className='btn btn-primary mb-2 mt-2' onClick={() => {
         registrarBoard1()
         setMount(false)
 
-      }}>{t("MenuTree.addBoard")}</button>
+      }}>{t("MenuTree.addBoard")}</button> */}
       <Tree value={arr} nodeTemplate={nodeTemplate} />
     </>
   )
