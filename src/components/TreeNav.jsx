@@ -109,7 +109,7 @@ const TreeNav = ({mount1,setMount1,setCircuitName,setNameTablero,setCircuitActua
     /* ahora debemos recorrer los tableros hijos para ir insertandolos 
     del navtree ya antes generada(solo con tablero null)*/
     console.log('Tableros hijos: ', aux_padre_id);
-    const start = (node, id, id_hijo,aux) => {
+    const start = (node, id, id_hijo,aux,name) => {
      /*  console.log('arreglo de circuitos por tablero: ',aux)
       console.log(id, id_hijo) */
       let bandera = true
@@ -142,16 +142,16 @@ const TreeNav = ({mount1,setMount1,setCircuitName,setNameTablero,setCircuitActua
         if(circuitos){
           node.children.push({
             "key": id_hijo,
-            "label": "Nuevo hijo" + id_hijo,
-            "data": "Nuevo hijo",
+            "label": name,
+            "data": name,
             "icon": "tab",
             "children": [...circuitos ],
           })
         }else {
           node.children.push({
             "key": id_hijo,
-            "label": "Nuevo hijo" + id_hijo,
-            "data": "Nuevo hijo",
+            "label": name,
+            "data": name,
             "icon": "tab",
             "children": [],
           })
@@ -172,7 +172,7 @@ const TreeNav = ({mount1,setMount1,setCircuitName,setNameTablero,setCircuitActua
       /*   console.log('help', aux_padre_id[i].id)
         console.log('Keys ', aux_padre_id[i].id, aux_padre_id[i].board_padre.id) */
       
-        start(aux_padre_null[j], aux_padre_id[i].board_padre.id, aux_padre_id[i].id,aux_padre_id[i].circuits)
+        start(aux_padre_null[j], aux_padre_id[i].board_padre.id, aux_padre_id[i].id,aux_padre_id[i].circuits,aux_padre_id[i].name)
       }
 
     }

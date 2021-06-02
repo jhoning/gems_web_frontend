@@ -40,9 +40,9 @@ const [report,setReport] = useState({
       "auth-token": `${token}`
     }
   })  
-  
+  const [projectData,setProjectData]=useState()
   useEffect(() => {
-   
+    dataProject()
     setReport({...estadoInputs})
     console.log({
       loadType:report.loadType,
@@ -59,7 +59,9 @@ const [report,setReport] = useState({
       system_voltage:report.system_voltage})
      obtenerReportes(); 
   }, [estadoInputs,mount1]);
- 
+  const dataProject = async()=> {
+    await authAxios.get('/project/'+ id).then(res => {setProjectData(res.data);console.log(res.data)})
+  }
   const obtenerReportes = async() => {
     await authAxios.get('/report').then((resp)=>{setArr(resp.data);console.log("algo23",resp.data)});
 
@@ -97,7 +99,7 @@ const [report,setReport] = useState({
     await authAxios.patch('/circuit/'+circuitActual1,{name:circuitName,board_padre:{id:circuitActual}}).then( res =>{setMount1(mount1?false:true);console.log(res)} ).catch(err => {setMount1(mount1?false:true);console.log('cambiar nombre err',err)})
   }
   const cambiarNombreTablero = async ()=> {
-    await authAxios.patch('/board/'+circuitActual,nameTablero).then( res =>{console.log(res);setMount1(mount1?false:true);} ).catch(err => {setMount1(mount1?false:true);console.log('cambiar nombre err',err)})
+    await authAxios.patch('/board/'+circuitActual,{name:nameTablero,project:projectData}).then( res =>{console.log(res);setMount1(mount1?false:true);} ).catch(err => {setMount1(mount1?false:true);console.log('cambiar nombre err',err)})
   }
 
   const actualizarCircuit2 = async(res)=>{
