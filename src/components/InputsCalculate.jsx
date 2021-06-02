@@ -349,12 +349,6 @@ const [report,setReport] = useState({
             </select>
           </div>
         </div>
-        <div class="form-group row my-1">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("Calculate.gCond")}</label>
-          <div class="col-sm-7 mx-0">
-            <input type="number"  class="form-control mitexto" id="inputEmail3" autocomplete="off" value={report != null?report.power:null} autocomplete="nope" onChange={handlePower} />
-          </div>
-        </div>
         
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.powerW")}</label>
@@ -480,6 +474,12 @@ const [report,setReport] = useState({
           <label for="inputEmail3" class="col-sm-4 col-form-label my-0 mitexto">{t("InputsC.protectionD")}</label>
           <div class="col-sm-8 my-0">
             <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,protection_device: e.target.value}) } value={parseFloat(respuesta.protection_device).toFixed(2)}/>
+          </div>
+        </div>
+        <div class="form-group row my-0">
+          <label for="inputEmail3" class="col-sm-4 col-form-label my-0 mitexto">{t("Calculate.gCond")}</label>
+          <div class="col-sm-8 my-0">
+            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,grounding_conductor: e.target.value}) } value={respuesta.grounding_conductor}/>
           </div>
         </div>
         <div class="form-group row my-1">
