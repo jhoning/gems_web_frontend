@@ -177,7 +177,17 @@ const TreeNav = ({mount1,setMount1,setCircuitName,setNameTablero,setCircuitActua
 
     }
     console.log(aux_padre_null);
-    setArr([...aux_padre_null])
+    setArr([
+      {
+        "key": "Main",
+        "label": "Principal Board",
+        "data": "Principal Board",
+        "icon": "pi pi-fw pi-home",
+        "children": [ ...aux_padre_null],
+      }
+      
+      
+     ])
   }
   const obtenerReportes = async(id1) => {
     await authAxios.get(`/board/${id1}`).then((resp)=>{setConsultaBoard(resp.data)}).catch(err => console.log(err));
@@ -217,28 +227,42 @@ const TreeNav = ({mount1,setMount1,setCircuitName,setNameTablero,setCircuitActua
             <a class="" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <img class="ban" src={plus} />
             </a> 
-
-              <div class="dropdown-menu dropdown-menu-left navbar-dropdown" aria-labelledby="LanguageDropdown">
-                <a class="dropdown-item" id="id_es" >
-                  <div class="flag-icon-holder">
-                    <img class="ban" src={circuit} />
-                    <span class="text-dark" onClick={() => {
-                      addCircuit(node.key) 
-                      setMount(false)
-                    }}>{t("MenuTree.addAppliance")}
-                    </span>
-                  </div>
-                </a>
-                <a class="dropdown-item" id="id_en" >
-                  <div class="flag-icon-holder">
-                    <img class="ban" src={tab} />
-                    <span class="text-dark" onClick={() => {
-                      addBoard(node.key)
-                      setMount(false)
-                    }}>{t("MenuTree.addBoard")}</span>
-                  </div>
-                </a> 
+            {
+              node.key == 'Main'?<div class="dropdown-menu dropdown-menu-left navbar-dropdown" aria-labelledby="LanguageDropdown"> 
+               <a class="dropdown-item" id="id_en" >
+                <div class="flag-icon-holder">
+                  <img class="ban" src={tab} />
+                  <span class="text-dark" onClick={() => {
+                    registrarBoard1()
+                    setMount(false)
+                  }}>{t("MenuTree.addBoard")}</span>
+                </div>
+              </a> 
               </div>
+              
+              : <div class="dropdown-menu dropdown-menu-left navbar-dropdown" aria-labelledby="LanguageDropdown">
+              <a class="dropdown-item" id="id_es" >
+                <div class="flag-icon-holder">
+                  <img class="ban" src={circuit} />
+                  <span class="text-dark" onClick={() => {
+                    addCircuit(node.key) 
+                    setMount(false)
+                  }}>{t("MenuTree.addAppliance")}
+                  </span>
+                </div>
+              </a>
+              <a class="dropdown-item" id="id_en" >
+                <div class="flag-icon-holder">
+                  <img class="ban" src={tab} />
+                  <span class="text-dark" onClick={() => {
+                    addBoard(node.key)
+                    setMount(false)
+                  }}>{t("MenuTree.addBoard")}</span>
+                </div>
+              </a> 
+            </div>
+            }
+             
              
             </li>
           </ul>}
@@ -249,11 +273,11 @@ const TreeNav = ({mount1,setMount1,setCircuitName,setNameTablero,setCircuitActua
   }
   return (
     <>
-        <button className='btn btn-primary mb-2 mt-2' onClick={() => {
+   {/*      <button className='btn btn-primary mb-2 mt-2' onClick={() => {
         registrarBoard1()
         setMount(false)
 
-      }}>{t("MenuTree.addBoard")}</button>  
+      }}>{t("MenuTree.addBoard")}</button>   */}
       <Tree value={arr} nodeTemplate={nodeTemplate} />
     </>
   )
