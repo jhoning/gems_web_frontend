@@ -117,7 +117,7 @@ const [report,setReport] = useState({
     console.log(respuesta)
     console.log(values)
     console.log(arr)
-    await authAxios.patch('/report',{ 
+    await authAxios.post('/report',{ 
       loadType:report.loadType,
       power: report.power,
       distance: report.distance,
