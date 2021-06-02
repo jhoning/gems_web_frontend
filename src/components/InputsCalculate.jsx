@@ -9,7 +9,7 @@ import {useState,useEffect} from 'react'
 import axios from 'axios'
 const Swal = require('sweetalert2')
 
-const InputsCalculate = ({values,setValues,setArr,arr,circuitActual,circuitActual1,estadoInputs, name,setNameProject, id}) => {
+const InputsCalculate = ({setNameTablero,nameTablero,mount1,setMount1,circuitName,setCircuitName,values,setValues,setArr,arr,circuitActual,circuitActual1,estadoInputs, name,setNameProject, id}) => {
   const [respuesta,setRespuesta] = useState({
     current: 0,
     cable_width: "0",
@@ -58,10 +58,11 @@ const [report,setReport] = useState({
       pipe_material:report.pipe_material,
       system_voltage:report.system_voltage})
      obtenerReportes(); 
-  }, [estadoInputs]);
+  }, [estadoInputs,mount1]);
  
   const obtenerReportes = async() => {
-    await authAxios.get('/report').then((resp)=>{setArr(resp.data)});
+    await authAxios.get('/report').then((resp)=>{setArr(resp.data);console.log("algo23",resp.data)});
+
   }  
   const enviarDatos = async(id1) => {
     await authAxios.post('/report/listForm',{
@@ -91,6 +92,14 @@ const [report,setReport] = useState({
      
     }).then(res => console.log(res)); */
   }
+
+  const cambiarNombreCircuito = async ()=> {
+    await authAxios.patch('/circuit/'+circuitActual1,{name:circuitName,board_padre:{id:circuitActual}}).then( res =>{setMount1(mount1?false:true);console.log(res)} ).catch(err => {setMount1(mount1?false:true);console.log('cambiar nombre err',err)})
+  }
+  const cambiarNombreTablero = async ()=> {
+    await authAxios.patch('/board/'+circuitActual,nameTablero).then( res =>{console.log(res);setMount1(mount1?false:true);} ).catch(err => {setMount1(mount1?false:true);console.log('cambiar nombre err',err)})
+  }
+
   const actualizarCircuit2 = async(res)=>{
    
       setTimeout(async()=>{      
@@ -126,7 +135,8 @@ const [report,setReport] = useState({
       voltage_drop:respuesta.voltage_drop,
       grounding_conductor: respuesta.grounding_conductor
       ,circuit:{
-       id:circuitActual1
+       id:circuitActual1,
+       name:circuitName
     }
     }).then(res=> console.log('exito!!!')).catch(err => console.log('report error: ',err/* "Error:", { 
       loadType:report.loadType,
@@ -153,6 +163,7 @@ const [report,setReport] = useState({
     
     setArr(item => [...item,{
       id:circuitActual,
+     
       loadType:report.loadType,
       power: report.power,
       distance: report.distance,
@@ -166,7 +177,7 @@ const [report,setReport] = useState({
       pipe_material:report.pipe_material,
       system_voltage:report.system_voltage,
       ...respuesta,circuit:{
-        id:circuitActual1}
+        id:circuitActual1, name:circuitName,}
     }])
   }
 
@@ -269,7 +280,7 @@ const [report,setReport] = useState({
 
   return (<>
     <div className="w30 overflow-auto calculoAlto" id="reporte">
-      <button onClick={()=>{console.log(report/* {
+    {/*   <button onClick={()=>{console.log(report {
       loadType:report.loadType,
       power: report.power,
       distance: report.distance,
@@ -281,7 +292,7 @@ const [report,setReport] = useState({
       perPhase:report.perPhase,
       feeder_include_neutral_wire:report.feeder_include_neutral_wire,
       pipe_material:report.pipe_material,
-      system_voltage:report.system_voltage} */)}}>ver result</button>
+      system_voltage:report.system_voltage} )}}>ver result</button> */}
       <div  autocomplete="off">
         <a onClick={() => amp()} class="point amp1">
         <i class="fa fa-expand mr5" aria-hidden="true"></i>
@@ -292,20 +303,29 @@ const [report,setReport] = useState({
           <div class="font-control disminuir no-seleccionable" id="font-down">A<sup>-</sup></div>
         </div>
         <div class="db">
-          <button class="mr-2" onClick={() => alert()}>Alerta cambios</button>
-          <button onClick={() => alertreport()}>Alerta reporte</button>
+       {/*    <button class="mr-2" onClick={() => alert()}>Alerta cambios</button>
+          <button onClick={() => alertreport()}>Alerta reporte</button> */}
         </div>
     
     
       <div className="container mb-1 ">
         <h4 className="text-left mb-3 p-0 mt-2 color">{t("InputsC.sAppliance")}</h4>
+        <label htmlFor="">Name Board</label>
+        <div class="input-group" style={{width:'150px'}}>
+ 
+          <input className='form-control' type="text"  value={nameTablero}  onChange={e => setNameTablero(e.target.value)}  aria-describedby="sizing-addon2"/>
+          <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" onClick={()=>{cambiarNombreTablero()}}></i>
+        </div>
+         <hr />
         <label htmlFor="">Name circuit</label>
         <div class="input-group" style={{width:'150px'}}>
  
-          <input className='form-control' type="text"/*  placeholder={name} */ /* onChange={e => setNameProject(e.target.value)} */  aria-describedby="sizing-addon2"/>
-          <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" onClick={()=>{cambiarNombreProject()}}></i>
+          <input className='form-control' type="text"  value={circuitName}  onChange={e => setCircuitName(e.target.value)}  aria-describedby="sizing-addon2"/>
+          <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" onClick={()=>{cambiarNombreCircuito()}}></i>
         </div>
          <hr />
+         {/* //////////////////////////////////////////////////////////////////////////////// */}
+       
 
         <h4 className="text-left mb-2 mt-0 bordeColor color">{t("InputsC.cSettings")}</h4>
         <div className="form-group row my-1 se">

@@ -6,9 +6,9 @@ import T_board from '../components/T_board'
 const Home_tboard = () => {
   return (
     <div>
-        <HeaderT />
-        <T_board />
-        <Footer />
+      <HeaderT />
+      <T_board />
+      <Footer />
     </div>
   )
 }

@@ -19,7 +19,7 @@ const authAxios = axios.create({
   }
 })
 
-const TreeNav = ({setNameTablero,setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
+const TreeNav = ({mount1,setMount1,setCircuitName,setNameTablero,setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
   const [t] = useTranslation("global")
   const [proyectoData, setProyectoData] = useState()
   const [mount, setMount] = useState(false)
@@ -31,10 +31,10 @@ const TreeNav = ({setNameTablero,setCircuitActual1,circuitActual1, idCircuits,se
     setTimeout(() => {
       setMount(true);
     }, 500)
-  }, [mount])
+  }, [mount,mount1])
 
   const consultarCircuit = async(id1)=> {
-    await authAxios.get('/circuit/'+ id1).then(res=>res.data.report != null?setEstadoInputs(res.data.report):setEstadoInputs({
+    await authAxios.get('/circuit/'+ id1).then(res=>{res.data.report != null?setEstadoInputs(res.data.report):setEstadoInputs({
       loadType:0,
       power: 0,
       distance: "0",
@@ -46,7 +46,7 @@ const TreeNav = ({setNameTablero,setCircuitActual1,circuitActual1, idCircuits,se
       perPhase:"1",
       feeder_include_neutral_wire:"true",
       pipe_material:0,
-      system_voltage:"0",})).catch(err => err)
+      system_voltage:"0",});setCircuitName(res.data.name);setMount1(mount1?false:true)}).catch(err => err)
   }
   const obtenerTableros = async () => {
     let arr = await authAxios.get('/project/' + idCircuits);
@@ -84,8 +84,8 @@ const TreeNav = ({setNameTablero,setCircuitActual1,circuitActual1, idCircuits,se
       const circuitos = item.circuits.map(item => {
         return {
           "key": item.id,
-          "label": 'circuito',
-          "data": 'circuito',
+          "label": item.name,
+          "data": item.name,
           "icon": "circuit",
           "children": [],
         }
@@ -122,8 +122,8 @@ const TreeNav = ({setNameTablero,setCircuitActual1,circuitActual1, idCircuits,se
           circuitos = aux.map(item => {
             return {
               "key": item.id,
-              "label": 'circuito',
-              "data": 'circuito',
+              "label": item.name,
+              "data": item.name,
               "icon": "circuit",
               "children": [],
             }
@@ -249,11 +249,11 @@ const TreeNav = ({setNameTablero,setCircuitActual1,circuitActual1, idCircuits,se
   }
   return (
     <>
-      {/*  <button className='btn btn-primary mb-2 mt-2' onClick={() => {
+        <button className='btn btn-primary mb-2 mt-2' onClick={() => {
         registrarBoard1()
         setMount(false)
 
-      }}>{t("MenuTree.addBoard")}</button> */}
+      }}>{t("MenuTree.addBoard")}</button>  
       <Tree value={arr} nodeTemplate={nodeTemplate} />
     </>
   )

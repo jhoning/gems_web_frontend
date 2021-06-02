@@ -37,7 +37,7 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos
   return (
     <>
         <div className="jumbotron calculoAltoMin ">
-          <button class="mitexto1" onClick={()=>console.log(estado)}>verrrr</button>
+      {/*     <button class="mitexto1" onClick={()=>console.log(estado)}>verrrr</button> */}
               <h2 className="text-center color">{t("Calculate.report")}</h2>
               <table border="1" class="table table-bordered table-sm table-striped calculo">
                 <thead class="table-secondary mitexto1"> 
@@ -73,7 +73,7 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos
                     {
                       arregloDeIdCircuitos.map(item => 
                         <tr>
-                          <th class="mitexto1">nombre</th>
+                          <th class="mitexto1">{item.circuit.name}</th>
                           <th class="mitexto1">
                             {item.loadType == 0?'Kitchen':null}
                             {item.loadType == 1?'Air-Conditioned':null} 

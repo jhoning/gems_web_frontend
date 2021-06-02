@@ -33,6 +33,7 @@ const Calculate1 = () => {
     circuit: {},
   });
   const [arr, setArr] = useState([]);
+  const [mount1, setMount1] = useState(true);
   const [nameTablero , setNameTablero] = useState("")
   const componentRef = useRef();
   const [nameProject,setNameProject] = useState(name)
@@ -56,6 +57,7 @@ const Calculate1 = () => {
   const [consultaReportes,setConsultaReportes] = useState();
   const [arregloIdReportes,setArrgloIdReportes] = useState([]);
   const [arregloDeIdCircuitos,setArregloDeIdCircuitos] = useState([])
+  const [circuitName,setCircuitName] = useState("")
 
   useEffect(() => {
     setTimeout(console.log('Arreglo de Reportes',arr),2000)
@@ -78,7 +80,7 @@ const Calculate1 = () => {
    console.log('este es una consulta',consultaReportes)
     
  
-  }, [numeroDeCircuits,circuitActual,arr])
+  }, [numeroDeCircuits,circuitActual,arr,mount1])
 
   
   const reporteConsulta = async(id1)=>{
@@ -104,10 +106,10 @@ const Calculate1 = () => {
         <div className="row grid">
           <div className="dos gb">
             {/* <MenuTree idCircuits={id1} /> */}
-            <button onClick={()=>{console.log(arregloDeIdCircuitos)}}>ver reportes</button>
-            <TreeNav setNameTablero={setNameTablero} idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
+          {/*   <button onClick={()=>{console.log(arregloDeIdCircuitos)}}>ver reportes</button> */}
+            <TreeNav mount1={mount1} setMount={setMount1}  setCircuitName={setCircuitName} setNameTablero={setNameTablero} idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
           </div>
-          <InputsCalculate values={values} setValues={setValues} circuitActual1={circuitActual1} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
+          <InputsCalculate setNameTablero={setNameTablero} nameTablero={nameTablero} mount1={mount1} setMount1={setMount1} circuitName={circuitName} setCircuitName={setCircuitName} values={values} setValues={setValues} circuitActual1={circuitActual1} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
           <div className="w45 p-0 report" id="report">
             <a onClick={() => amplio()} class="point amp mr70 mt10">
               <i class="fa fa-expand mr5" aria-hidden="true"></i>
@@ -119,7 +121,7 @@ const Calculate1 = () => {
             </div>
 
             <div>
-              <button onClick={()=>console.log(numeroDeCircuits)}>!!</button>
+          {/*     <button onClick={()=>console.log(numeroDeCircuits)}>!!</button> */}
               <ReactToPrint
                 trigger={() => <button class="pade btn btn-primary mt-2 gray mitexto1">{t("Calculate.print")}</button>}
                 content={() => componentRef.current}
