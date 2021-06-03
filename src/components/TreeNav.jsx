@@ -19,7 +19,7 @@ const authAxios = axios.create({
   }
 })
 
-const TreeNav = ({mount1,setMount1,setCircuitName,setNameTablero,setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
+const TreeNav = ({id,nameProject,setNameProject,mount1,setMount1,setCircuitName,setNameTablero,setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
   const [t] = useTranslation("global")
   const [proyectoData, setProyectoData] = useState()
   const [mount, setMount] = useState(false)
@@ -62,6 +62,9 @@ const TreeNav = ({mount1,setMount1,setCircuitName,setNameTablero,setCircuitActua
 
     console.log('proyecto data:', proyectoData)
 
+  }
+  const cambiarNombreProject = async()=> {
+    await authAxios.patch('/project/'+id,{name:nameProject}).then(res => alert('Nombre de proyecto cambiado de forma exitosa!'))
   }
   const registrarBoard1 = async (name1, id) => {
     await authAxios.post('/board', { name: "Nuevo*", project: proyectoData, }).then(res => console.log(res)).catch(err => console.log(err))
@@ -209,6 +212,7 @@ const TreeNav = ({mount1,setMount1,setCircuitName,setNameTablero,setCircuitActua
                   if(item.id == node.key){
                     setCircuitActual(element.id)
                     consultarBoard(element.id)
+                    setNameTablero(element.name)
                   }
                 });
               }
@@ -273,6 +277,19 @@ const TreeNav = ({mount1,setMount1,setCircuitName,setNameTablero,setCircuitActua
   }
   return (
     <>
+      <div className='container mb-2'>
+        <div className="row">
+        <label htmlFor="" className='mx-3 mt-1 text-white'>Name Project</label>  
+        <div class="input-group col-12" style={{width:'150px'}}>
+         
+            <input className='form-control bg-light' type="text" value={nameProject} onChange={(e)=>setNameProject(e.target.value)}   aria-describedby="sizing-addon2"/>
+            <button className='btn btn-primary ml-2 gray' onClick={()=>cambiarNombreProject()}>
+              <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" ></i>
+            </button>
+          </div>
+        </div>
+      </div>
+     
    {/*      <button className='btn btn-primary mb-2 mt-2' onClick={() => {
         registrarBoard1()
         setMount(false)

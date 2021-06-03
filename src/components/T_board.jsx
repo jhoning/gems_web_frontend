@@ -29,7 +29,6 @@ const T_board = () => {
    
     getProjectByID()
    
-
   }, [bandera,bandera1,bandera3])
   
   const getProjectByID = async () => {

@@ -312,23 +312,26 @@ const [report,setReport] = useState({
     
       <div className="container mb-1 ">
         <h4 className="text-left mb-3 p-0 mt-2 color">{t("InputsC.sAppliance")}</h4>
-        <label htmlFor="">Name Board</label>
-        <div class="input-group" style={{width:'150px'}}>
- 
-          <input className='form-control' type="text"  value={nameTablero}  onChange={e => setNameTablero(e.target.value)}  aria-describedby="sizing-addon2"/>
-          <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" onClick={()=>{cambiarNombreTablero()}}></i>
-        </div>
-         <hr />
-        <label htmlFor="">Name circuit</label>
-        <div class="input-group" style={{width:'150px'}}>
- 
-          <input className='form-control' type="text"  value={circuitName}  onChange={e => setCircuitName(e.target.value)}  aria-describedby="sizing-addon2"/>
-          <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" onClick={()=>{cambiarNombreCircuito()}}></i>
-        </div>
-         <hr />
-         {/* //////////////////////////////////////////////////////////////////////////////// */}
-       
+        <div className="row">
+      
+          <div class="input-group col-12" style={{width:'150px'}}>
+          <label htmlFor="" className='mx-3 mt-1'>Name Board</label>  
+            <input className='form-control' type="text"  value={nameTablero}  onChange={e => setNameTablero(e.target.value)}  aria-describedby="sizing-addon2"/>
+            <button className='btn btn-primary ml-2 gray' onClick={()=>{cambiarNombreTablero()}}>
+              <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" ></i>
+            </button>
+          </div>
 
+          <div class="input-group col-12 mt-2" style={{width:'150px'}}>
+            <label htmlFor="" className='mx-3 mt-1'>Name circuit</label>
+            <input className='form-control' type="text"  value={circuitName}  onChange={e => setCircuitName(e.target.value)}  aria-describedby="sizing-addon2"/>
+            <button className='btn btn-primary ml-2 gray' onClick={()=>{cambiarNombreCircuito()}}> 
+              <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" ></i>
+            </button>
+        </div>
+        </div>
+        <hr />
+      {/* //////////////////////////////////////////////////////////////////////////////// */}
         <h4 className="text-left mb-2 mt-0 bordeColor color">{t("InputsC.cSettings")}</h4>
         <div className="form-group row my-1 se">
           <label for="inputEmail3" class="col-sm-5 col-form-label mitexto">{t("InputsC.loadType")}</label>
