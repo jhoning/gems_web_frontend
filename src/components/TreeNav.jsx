@@ -46,7 +46,7 @@ const TreeNav = ({id,nameProject,setNameProject,mount1,setMount1,setCircuitName,
       perPhase:"1",
       feeder_include_neutral_wire:"true",
       pipe_material:0,
-      system_voltage:"0",});setCircuitName(res.data.name);setMount1(mount1?false:true)}).catch(err => err)
+      system_voltage:"0",});setCircuitName(res.data.name);console.log('mensajito',res.data.report);setMount1(mount1?false:true)}).catch(err => err)
   }
   const obtenerTableros = async () => {
     let arr = await authAxios.get('/project/' + idCircuits);

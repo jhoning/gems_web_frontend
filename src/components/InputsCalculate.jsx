@@ -57,6 +57,15 @@ const [report,setReport] = useState({
       feeder_include_neutral_wire:report.feeder_include_neutral_wire,
       pipe_material:report.pipe_material,
       system_voltage:report.system_voltage})
+    setRespuesta({
+      voltage_drop:estadoInputs.voltaje_drop,
+      current:estadoInputs.current,
+      cable_width:estadoInputs.cable_width,
+      pipe_diameter:estadoInputs.pipe_diameter,
+      protection_device:estadoInputs.protection_device,
+      grounding_conductor:estadoInputs.grounding_conductor,
+ 
+    })
      obtenerReportes(); 
   }, [estadoInputs,mount1]);
   const dataProject = async()=> {
@@ -315,7 +324,7 @@ const [report,setReport] = useState({
         <div className="row">
       
           <div class="input-group col-12" style={{width:'150px'}}>
-          <label htmlFor="" className='mx-3 mt-1'>Name Board</label>  
+            <label htmlFor="" className='mx-3 mt-1'>Name Board</label>  
             <input className='form-control' type="text"  value={nameTablero}  onChange={e => setNameTablero(e.target.value)}  aria-describedby="sizing-addon2"/>
             <button className='btn btn-primary ml-2 gray' onClick={()=>{cambiarNombreTablero()}}>
               <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" ></i>
