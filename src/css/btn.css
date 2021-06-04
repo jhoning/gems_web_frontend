@@ -223,6 +223,11 @@
     font-size: 1rem;
     float: left;
     width: 82% !important;
+    background: transparent;
+    padding-left: 30px;
+    margin-left: -30px;
+    /* position: absolute; */
+    z-index: 9;
 }
 
 .p-tree-toggler-icon {
