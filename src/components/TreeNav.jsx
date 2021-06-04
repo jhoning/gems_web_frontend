@@ -187,13 +187,9 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
     }
     console.log(aux_padre_null);
     setArr([
-      {
-        "key": "Main",
-        "label": "Principal Board",
-        "data": "Principal Board",
-        "icon": "pi pi-fw pi-home",
-        "children": [ ...aux_padre_null],
-      }
+    
+       ...aux_padre_null
+     
       
       
      ])
@@ -294,7 +290,7 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
                   </span>
                 </div>
               </a>
-              <a class="dropdown-item" id="id_en" >
+             {/*  <a class="dropdown-item" id="id_en" >
                 <div class="flag-icon-holder">
                   <img class="ban" src={tab} />
                   <span class="text-dark" onClick={() => {
@@ -302,7 +298,7 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
                     setMount(false)
                   }}>{t("MenuTree.addBoard")}</span>
                 </div>
-              </a> 
+              </a>  */}
             </div>
             }
              
@@ -329,11 +325,11 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
         </div>
       </div>
      
-   {/*      <button className='btn btn-primary mb-2 mt-2' onClick={() => {
+        <button className='btn btn-primary mb-2 mt-2' onClick={() => {
         registrarBoard1()
         setMount(false)
 
-      }}>{t("MenuTree.addBoard")}</button>   */}
+      }}>{t("MenuTree.addBoard")}</button>  
       <Tree value={arr} nodeTemplate={nodeTemplate} />
     </>
   )
