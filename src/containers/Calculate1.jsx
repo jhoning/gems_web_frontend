@@ -107,7 +107,7 @@ const Calculate1 = () => {
           <div className="dos gb">
             {/* <MenuTree idCircuits={id1} /> */}
           {/*   <button onClick={()=>{console.log(arregloDeIdCircuitos)}}>ver reportes</button> */}
-            <TreeNav id={id1} nameProject={nameProject} setNameProject={setNameProject} mount1={mount1} setMount={setMount1}  setCircuitName={setCircuitName} setNameTablero={setNameTablero} idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
+            <TreeNav id={id1} nameTablero={nameTablero} nameProject={nameProject} setNameProject={setNameProject} mount1={mount1} setMount={setMount1}  setCircuitName={setCircuitName} setNameTablero={setNameTablero} idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
           </div>
           <InputsCalculate setNameTablero={setNameTablero} nameTablero={nameTablero} mount1={mount1} setMount1={setMount1} circuitName={circuitName} setCircuitName={setCircuitName} values={values} setValues={setValues} circuitActual1={circuitActual1} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
           <div className="w45 p-0 report" id="report">

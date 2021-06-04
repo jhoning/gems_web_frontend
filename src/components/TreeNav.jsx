@@ -46,7 +46,13 @@ const TreeNav = ({id,nameProject,setNameProject,mount1,setMount1,setCircuitName,
       perPhase:"1",
       feeder_include_neutral_wire:"true",
       pipe_material:0,
-      system_voltage:"0",});setCircuitName(res.data.name);console.log('mensajito',res.data.report);setMount1(mount1?false:true)}).catch(err => err)
+      system_voltage:"0",
+      voltaje_drop:0,
+      current:0,
+      cable_width:0,
+      pipe_diameter:0,
+      protection_device:0,
+      grounding_conductor:0,});setCircuitName(res.data.name);console.log(res.data.report);setMount1(mount1?false:true)}).catch(err => err)
   }
   const obtenerTableros = async () => {
     let arr = await authAxios.get('/project/' + idCircuits);
@@ -205,7 +211,38 @@ const TreeNav = ({id,nameProject,setNameProject,mount1,setMount1,setCircuitName,
         <div style={{ height: '70px', padding: '20px 0 0 0px', margin: '0px 6px 0 0' }}>
 
           <span onClick={() => {
-            if (node.icon == 'circuit') {setCircuitActual1(node.key);consultarCircuit(node.key);console.log('tableros:',tablerosP);
+             if(node.icon == 'tab'){
+              setNameTablero(ant => {
+                if(ant != node.label){
+                  setCircuitName("")
+                  setEstadoInputs({
+                    loadType:0,
+                    power: 0,
+                    distance: "0",
+                    powerFactor: 0,
+                    voltageDrop: "0",
+                    aisolation:"0",
+                    temperature:0,
+                    loadPhases:"0",
+                    perPhase:"1",
+                    feeder_include_neutral_wire:"true",
+                    pipe_material:0,
+                    system_voltage:"0",
+                    voltaje_drop:0,
+                    current:0,
+                    cable_width:0,
+                    pipe_diameter:0,
+                    protection_device:0,
+                    grounding_conductor:0,
+                  })
+                  return node.label
+                }else{
+                  return node.label
+                }
+              })
+            }
+            
+            if (node.icon == 'circuit') {setCircuitActual1(node.key);consultarCircuit(node.key);console.log('tableros:',tablerosP);console.log(node.icon)
             tablerosP.forEach(element => {
               if(element.circuits){
                 element.circuits.forEach(item => {
@@ -218,11 +255,13 @@ const TreeNav = ({id,nameProject,setNameProject,mount1,setMount1,setCircuitName,
               }
             });
           
-          }else{setCircuitActual(node.key) ;consultarBoard(node.key);setNameTablero(node.label) }
+          }else{setCircuitActual(node.key) ;consultarBoard(node.key);setNameTablero(node.label);console.log("alerrrtt") }
             /* if (node.icon == 'circuit') {setCircuitActual1(node.key);consultarCircuit(node.key);console.log('tablero circuito: ',circuitActual1);consultarBoard(node.key) } */
             /* obtenerReportes(node.key) */ /* if (node.icon == 'tab') {setCircuitActual(node.key) ;consultarBoard(node.key)  }; ; console.log('tablero actual: ',circuitActual); */ /* consultarCircuit(node.key)  */
+            
+         
           }
-
+          
           }>{node.label}</span>
           { 
           node.icon == 'circuit'?null:
