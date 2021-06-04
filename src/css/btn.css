@@ -222,6 +222,7 @@
 .p-treenode-label > div > span {
     font-size: 1rem;
     float: left;
+    width: 82% !important;
 }
 
 .p-tree-toggler-icon {
