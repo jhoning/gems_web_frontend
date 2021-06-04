@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useState, useEffect } from 'react';
+import { useState, useEffect,useRef,useContext } from 'react';
 import axios from 'axios';
 import $ from 'jquery';
 import "../css/t-board_estilos.css"
@@ -12,6 +12,9 @@ const T_board = () => {
   }
 
   const [t] = useTranslation("global")
+ 
+  const cambioNombre = localStorage.getItem('band');
+  const [bandera4, setBandera4] = useState(true)
   const [name1, setName1] = useState([])
   const [nameProject, setNameProject] = useState()
   const [bandera, setBandera] = useState(false)
@@ -27,6 +30,7 @@ const T_board = () => {
   })
   useEffect(() => {
    
+ 
     getProjectByID()
    
   }, [bandera,bandera1,bandera3])

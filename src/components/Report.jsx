@@ -9,7 +9,7 @@ const authAxios = axios.create({
   }
 })
 
-const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos,nameTablero},) => {
+const Report = React.forwardRef(({mountReport,arr,numeroDeCircuits,name,arregloDeIdCircuitos,nameTablero},) => {
   const [t] = useTranslation("global")
   const [consultaCircuitos,setConsultaCircuitos] = useState([])
   const [estado,setEstado] = useState([])
@@ -29,7 +29,7 @@ const Report = React.forwardRef(({arr,numeroDeCircuits,name,arregloDeIdCircuitos
     
     
     console.log(estado)
-  }, [numeroDeCircuits])
+  }, [numeroDeCircuits,mountReport,arregloDeIdCircuitos])
   
   const consultarCircuit = async(id1)=> {
     await authAxios.get('/circuit/'+ id1).then(res => res.data.report.loadType != null? setEstado(estado => [...estado,{...res.data.report, name:res.data.name}]):null).catch(err => setEstado(estado => [...estado]))

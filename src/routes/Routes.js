@@ -14,6 +14,7 @@ import Code from '../containers/Code';
 export default function Routes() {
   return (
     <BrowserRouter>
+      
       <Switch>
         <Route exact path="/" component={LoginForm}/>
         <Route exact path="/register" component={Register}/>

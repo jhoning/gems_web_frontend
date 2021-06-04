@@ -19,7 +19,7 @@ const authAxios = axios.create({
   }
 })
 
-const TreeNav = ({id,nameProject,setNameProject,mount1,setMount1,setCircuitName,setNameTablero,setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
+const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1,setCircuitName,setNameTablero,setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
   const [t] = useTranslation("global")
   const [proyectoData, setProyectoData] = useState()
   const [mount, setMount] = useState(false)
@@ -52,7 +52,7 @@ const TreeNav = ({id,nameProject,setNameProject,mount1,setMount1,setCircuitName,
       cable_width:0,
       pipe_diameter:0,
       protection_device:0,
-      grounding_conductor:0,});setCircuitName(res.data.name);console.log(res.data.report);setMount1(mount1?false:true)}).catch(err => err)
+      grounding_conductor:0,});setCircuitName(res.data.name);setReportActual(res.data.report.id);setMount1(mount1?false:true)}).then(res => setReportActual(res.data.report.id)).catch(err => err)
   }
   const obtenerTableros = async () => {
     let arr = await authAxios.get('/project/' + idCircuits);
@@ -322,7 +322,7 @@ const TreeNav = ({id,nameProject,setNameProject,mount1,setMount1,setCircuitName,
         <div class="input-group col-12" style={{width:'150px'}}>
          
             <input className='form-control bg-light' type="text" value={nameProject} onChange={(e)=>setNameProject(e.target.value)}   aria-describedby="sizing-addon2"/>
-            <button className='btn btn-primary ml-2 gray' onClick={()=>cambiarNombreProject()}>
+            <button className='btn btn-primary ml-2 gray' onClick={()=>{cambiarNombreProject();localStorage.setItem('band',1);}}>
               <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" ></i>
             </button>
           </div>

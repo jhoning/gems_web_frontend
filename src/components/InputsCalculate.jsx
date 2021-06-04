@@ -9,7 +9,7 @@ import {useState,useEffect} from 'react'
 import axios from 'axios'
 const Swal = require('sweetalert2')
 
-const InputsCalculate = ({setNameTablero,nameTablero,mount1,setMount1,circuitName,setCircuitName,values,setValues,setArr,arr,circuitActual,circuitActual1,estadoInputs, name,setNameProject, id}) => {
+const InputsCalculate = ({setEstadoInputs,setCircuitActual,setNumeroDeCircuits,mountReport,setMountReport,setNameTablero,reportActual,nameTablero,mount1,setMount1,circuitName,setCircuitName,values,setValues,setArr,arr,circuitActual,circuitActual1,estadoInputs, name,setNameProject, id}) => {
   const [respuesta,setRespuesta] = useState({
     current: 0,
     cable_width: "0",
@@ -43,31 +43,55 @@ const [report,setReport] = useState({
   const [projectData,setProjectData]=useState()
   useEffect(() => {
     dataProject()
-    setReport({...estadoInputs})
-    console.log({
-      loadType:report.loadType,
-      power: report.power,
-      distance: report.distance,
-      powerFactor: report.powerFactor,
-      voltageDrop: report.voltageDrop,
-      aisolation:report.aisolation,
-      temperature:report.temperature,
-      loadPhases:report.loadPhases,
-      perPhase:report.perPhase,
-      feeder_include_neutral_wire:report.feeder_include_neutral_wire,
-      pipe_material:report.pipe_material,
-      system_voltage:report.system_voltage})
-    setRespuesta({
-      voltage_drop:estadoInputs.voltaje_drop,
-      current:estadoInputs.current,
-      cable_width:estadoInputs.cable_width,
-      pipe_diameter:estadoInputs.pipe_diameter,
-      protection_device:estadoInputs.protection_device,
-      grounding_conductor:estadoInputs.grounding_conductor,
- 
-    })
+   
      obtenerReportes(); 
-  }, [estadoInputs,mount1]);
+     setReport({...estadoInputs})
+     console.log({
+       loadType:report.loadType,
+       power: report.power,
+       distance: report.distance,
+       powerFactor: report.powerFactor,
+       voltageDrop: report.voltageDrop,
+       aisolation:report.aisolation,
+       temperature:report.temperature,
+       loadPhases:report.loadPhases,
+       perPhase:report.perPhase,
+       feeder_include_neutral_wire:report.feeder_include_neutral_wire,
+       pipe_material:report.pipe_material,
+       system_voltage:report.system_voltage})
+     setRespuesta({
+       voltage_drop:estadoInputs.voltaje_drop,
+       current:estadoInputs.current,
+       cable_width:estadoInputs.cable_width,
+       pipe_diameter:estadoInputs.pipe_diameter,
+       protection_device:estadoInputs.protection_device,
+       grounding_conductor:estadoInputs.grounding_conductor,
+  
+     })
+  
+     
+  }, [estadoInputs,mount1,mountReport]);
+  const consultarCircuit = async()=> {
+    await authAxios.get('/circuit/'+ circuitActual1).then(res=>{res.data.report != null?setEstadoInputs(res.data.report):setEstadoInputs({
+      loadType:0,
+      power: 0,
+      distance: "0",
+      powerFactor: 0,
+      voltageDrop: "0",
+      aisolation:"0",
+      temperature:0,
+      loadPhases:"0",
+      perPhase:"1",
+      feeder_include_neutral_wire:"true",
+      pipe_material:0,
+      system_voltage:"0",
+      voltaje_drop:0,
+      current:0,
+      cable_width:0,
+      pipe_diameter:0,
+      protection_device:0,
+      grounding_conductor:0,});setCircuitName(res.data.name);setMount1(mount1?false:true)}).catch(err => err)
+  }
   const dataProject = async()=> {
     await authAxios.get('/project/'+ id).then(res => {setProjectData(res.data);console.log(res.data)})
   }
@@ -122,6 +146,33 @@ const [report,setReport] = useState({
      }).then(res => console.log(res)); },1000)
 
   }
+  
+  const modificarReporte = async()=>{
+    await authAxios.patch('/report/'+reportActual,{ 
+      loadType:report.loadType,
+      power: report.power,
+      distance: report.distance,
+      powerFactor: report.powerFactor,
+      voltageDrop: report.voltageDrop,
+      aisolation:report.aisolation,
+      temperature:report.temperature,
+      loadPhases:report.loadPhases,
+      perPhase:report.perPhase,
+      feeder_include_neutral_wire:report.feeder_include_neutral_wire,
+      pipe_material:report.pipe_material,
+      system_voltage:report.system_voltage,
+      cable_width: respuesta.cable_width,
+      current:respuesta.current,
+      pipe_diameter:respuesta.pipe_diameter,
+      protection_device:respuesta.protection_device,
+      voltage_drop:respuesta.voltage_drop,
+      grounding_conductor: respuesta.grounding_conductor
+      ,circuit:{
+       id:circuitActual1,
+       name:circuitName}
+    }).then(res =>{ setMountReport(mountReport?false:true);consultarCircuit();setCircuitActual(res => res)})
+  }
+
   const reportGenerate =  async() => {
     console.log(respuesta)
     console.log(values)
@@ -149,30 +200,15 @@ const [report,setReport] = useState({
        id:circuitActual1,
        name:circuitName
     }
-    }).then(res=> console.log('exito!!!')).catch(err => console.log('report error: ',err/* "Error:", { 
-      loadType:report.loadType,
-      power: report.power,
-      distance: report.distance,
-      powerFactor: report.powerFactor,
-      voltageDrop: report.voltageDrop,
-      aisolation:report.aisolation,
-      temperature:report.temperature,
-      loadPhases:report.loadPhases,
-      perPhase:report.perPhase,
-      feeder_include_neutral_wire:report.feeder_include_neutral_wire,
-      pipe_material:report.pipe_material,
-      system_voltage:report.system_voltage,
-      cable_width: respuesta.cable_width,
-      current:respuesta.current,
-      pipe_diameter:respuesta.pipe_diameter,
-      protection_device:respuesta.protection_device,
-      voltage_drop:respuesta.voltage_drop,
-      grounding_conductor: respuesta.grounding_conductor
-      ,circuit:{
-       id:circuitActual1
-    }} */ )) 
+    }).then(res=> {setMountReport(mountReport?false:true);consultarCircuit();setCircuitActual(res => res)}).catch(()=> {
+ 
+  
+
+    }
+
+    )
     
-    setArr(item => [...item,{
+   /*  setArr(item => [...item,{
       id:circuitActual,
      
       loadType:report.loadType,
@@ -189,7 +225,7 @@ const [report,setReport] = useState({
       system_voltage:report.system_voltage,
       ...respuesta,circuit:{
         id:circuitActual1, name:circuitName,}
-    }])
+    }]) */
   }
 
   const amp = () => {
@@ -291,6 +327,7 @@ const [report,setReport] = useState({
 
   return (<>
     <div className="w30 overflow-auto calculoAlto" id="reporte">
+      <button onClick={()=>{console.log('algo mas',reportActual)}}>ver report actak</button>
     {/*   <button onClick={()=>{console.log(report {
       loadType:report.loadType,
       power: report.power,
@@ -505,7 +542,7 @@ const [report,setReport] = useState({
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>{reportGenerate().catch(err => err);console.log(report);/* actualizarCircuit() *//* actualizarCircuit2() */ }}>{t("Calculate.report")}</button></div>
+          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>{reportActual != null?modificarReporte():reportGenerate()/* actualizarCircuit() *//* actualizarCircuit2() */ }}>{t("Calculate.report")}</button></div>
         </div>
       </div>
       </div>
