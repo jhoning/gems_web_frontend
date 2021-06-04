@@ -19,11 +19,11 @@ const Header = () => {
      <h5 className="my-0 mr-md-auto text-dark ml-md-4"><a href="/"><img class="logo" src={logo}  /></a></h5>
     
       <nav className="my-2 my-md-0 mr-md-1">
-        <a className="p-2 text-dark" href="">{t("Header.plans_pricing")}</a>
-        <a className="p-2 text-dark" href="">{t("Header.help")}</a>
+        <a className="p-2 text-dark pr-3" href="/pricing">{t("Header.plans_pricing")}</a>
+        <a className="p-2 text-dark pr-3" href="">{t("Header.help")}</a>
       </nav>
 
-      <ul class="navbar-nav idioma mr-md-1">
+      <ul class="navbar-nav idioma mr-md-1 pr-2">
         <li class="nav-item dropdown language-dropdown">
           {
             idioma == "en"? <a class="nav-link dropdown-toggle d-flex align-items-center leng idioma text-dark" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">

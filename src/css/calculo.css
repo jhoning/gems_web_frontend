@@ -250,9 +250,13 @@ body {
 }
 
 .calculoAlto .form-control {
-    width: 100%;
-    height: auto !important;
-    padding: 4px 10px !important;
+    border: 2px solid #efefef;
+    height: calc(2rem + 2px);
+    font-weight: 400;
+    font-size: .875rem;
+    padding: .625rem .6875rem;
+    border-radius: 2px;
+    border-radius: .25rem;
 }
 
 .calculoAltoMin {
@@ -686,4 +690,8 @@ td {
     .dos {
         width: 86% !important;
     }
+}
+
+.pi-home {
+    width: 25px !important;
 }

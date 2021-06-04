@@ -65,12 +65,13 @@ const Header = () => {
         </li>
       </ul>
       </nav>
+      <a className="text-dark anchoHelp help mr-2" href="">{t("Header.help")}</a>
+
       {URLactual == "http://localhost:3004/user_settings"? null: <a className="btn btn-outline-light text-dark mx-1 mr-md-2 line" href="/user_settings">{t("userS.userS")}</a>}
       
       {URLactual == "http://localhost:3004/t_board"?null:<a className="btn btn-outline-light text-dark mx-1 mr-md-2 line" href="/t_board">T-board</a>}
       <a className="btn btn-outline-light mr-md-2 line text-dark"  onClick={()=>deslogear()}>{ t("HeaderT.log_out")}</a>
         
-      <a className="text-dark anchoHelp help" href="">{t("Header.help")}</a>
 
     </div>
   )

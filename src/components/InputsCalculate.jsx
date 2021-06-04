@@ -319,7 +319,7 @@ const [report,setReport] = useState({
         </div>
     
     
-      <div className="container mb-1 ">
+      <div className="container mb-1 ml-0">
         <h4 className="text-left mb-3 p-0 mt-2 color">{t("InputsC.sAppliance")}</h4>
         <div className="row">
       
@@ -465,7 +465,7 @@ const [report,setReport] = useState({
             {/* <button className="btn btn-primary mt-2 gray" onClick={()=>console.log(report)}>algo</button> */}
           </div>
         <hr />
-        <h3 className="text-left mb-1 bordeColor p-1 color">{t("InputsC.results")}</h3>
+        <h4 className="text-left mb-1 bordeColor p-1 color">{t("InputsC.results")}</h4>
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2 mitexto" >{t("InputsC.current")}</label>
           <div class="col-sm-8 mx-0">

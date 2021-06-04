@@ -46,7 +46,7 @@
 }
 
 .tbo {
-    background: #f5fbff;
+    background: #f9fafc;
     padding: 0 !important;
     overflow-y: hidden !important;
     overflow-x: hidden;
@@ -178,4 +178,112 @@
     
 }
 
+.sidebar .form-control {
+    background: white !important;
+}
 
+.wey .w2 {
+    width: 20% !important;
+}
+
+.wey .w9 {
+    width: 80% !important;
+}
+
+.sidebar .nav {
+    overflow: hidden;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    /* padding-left: 14px; */
+}
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.sidebar .nav .nav-item {
+    -webkit-transition-duration: .25s;
+    transition-duration: .25s;
+    transition-property: background;
+    -webkit-transition-property: background;
+    padding-right: 20px;
+}
+.sidebar .nav .nav-item.active>.nav-link {
+    background: #0f1015;
+    position: relative;
+}
+.sidebar .nav .nav-item .nav-link {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: .8rem 10px .8rem 1.188rem;
+    color: #6c7293;
+    -webkit-transition-duration: .45s;
+    transition-duration: .45s;
+    transition-property: color;
+    -webkit-transition-property: color;
+    height: 46px;
+    border-radius: 0 100px 100px 0;
+    cursor: pointer;
+}
+
+.nav-link {
+    display: block;
+    padding: .5rem 1rem;
+}
+
+.sidebar .nav .nav-item.active>.nav-link:before {
+    content: "";
+    width: 3px;
+    height: 100%;
+    background: #0090e7;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.sidebar .nav .nav-item .menu-icon {
+    margin-right: .5rem;
+    font-size: .8125rem;
+    line-height: 1;
+    background: rgba(255, 255, 255, 0.2);
+    width: 31px;
+    height: 31px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.sidebar .nav .menu-items:nth-child(5n+3) .nav-link .menu-icon i {
+    color: #8f5fe8;
+}
+.sidebar .nav .nav-item .menu-icon i {
+    font-size: .875rem;
+}
+.mdi-speedometer:before {
+    content: "\F4C5";
+}
+.mdi-set, .mdi:before {
+    display: inline-block;
+    font: normal normal normal 24px/1 Material Design Icons;
+    font-size: inherit;
+    text-rendering: auto;
+    line-height: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.sidebar-offcanvas {
+    background: #3d6173;
+    height: 88vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+.menu-title {
+    color: #fff;
+}

@@ -10,6 +10,7 @@ import Recover from '../containers/Recover';
 import ChangePassword from '../containers/ChangePassword';
 import MessageEmail from '../components/MessageEmail';
 import Code from '../containers/Code';
+import Pricing from '../containers/Pricing';
 
 export default function Routes() {
   return (
@@ -18,6 +19,7 @@ export default function Routes() {
         <Route exact path="/" component={LoginForm}/>
         <Route exact path="/register" component={Register}/>
         <Route exact path="/recover" component={Recover}/>
+        <Route exact path="/pricing" component={Pricing}/>
         <Route exact path="/code" component={Code}/>
         <Route path="/message/:token" component={MessageEmail}/>
         <Route path="/change/:token" children={ChangePassword}/>
