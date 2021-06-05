@@ -287,3 +287,22 @@
 .menu-title {
     color: #fff;
 }
+
+.menu-icon svg {
+    height: 14px;
+}
+.plu svg {
+    height: 17px;
+    margin-top: -6px;
+}
+
+.usuario svg {
+    height: 14px;
+    margin-right: 3px;
+}
+
+.salir svg {
+    height: 14px;
+    width: 15px;
+    margin-top: -3px;
+}
