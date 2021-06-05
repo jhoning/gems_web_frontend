@@ -187,14 +187,7 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
     }
     console.log(aux_padre_null);
     setArr([
-      {
-        "key": "Main",
-        "label": "Principal Board",
-        "data": "Principal Board",
-        "icon": "pi pi-fw pi-home",
-        "children": [ ...aux_padre_null],
-      }
-      
+    ...aux_padre_null
       
      ])
   }
@@ -272,12 +265,15 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
           { 
           node.icon == 'circuit'?null:
           <ul class="navbar-nav fr mt3 nav3">
-            <li class="nav-item dropdown language-dropdown">
-            <a class="" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+            <li class="nav-item ">
+            <a class=""  href="#"  onClick={() => {
+                    addCircuit(node.key) 
+                    setMount(false)
+                  }} >
               <img class="ban" src={plus} />
             </a> 
             {
-              node.key == 'Main'?<div class="dropdown-menu dropdown-menu-left navbar-dropdown" aria-labelledby="LanguageDropdown"> 
+        /*       node.key == 'Main'?<div class="dropdown-menu dropdown-menu-left navbar-dropdown" aria-labelledby="LanguageDropdown"> 
                <a class="dropdown-item" id="id_en" >
                 <div class="flag-icon-holder">
                   <img class="ban" src={tab} />
@@ -309,7 +305,7 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
                   }}>{t("MenuTree.addBoard")}</span>
                 </div>
               </a> 
-            </div>
+            </div> */
             }
              
              
@@ -335,11 +331,11 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
         </div>
       </div>
      
-   {/*      <button className='btn btn-primary mb-2 mt-2' onClick={() => {
+       <button className='btn btn-primary mb-2 mt-2 gray' onClick={() => {
         registrarBoard1()
         setMount(false)
 
-      }}>{t("MenuTree.addBoard")}</button>   */}
+      }}>{t("MenuTree.addBoard")} +</button>   
       <Tree value={arr} nodeTemplate={nodeTemplate} />
     </>
   )
