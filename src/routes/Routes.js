@@ -15,6 +15,7 @@ import Pricing from '../containers/Pricing';
 export default function Routes() {
   return (
     <BrowserRouter>
+      
       <Switch>
         <Route exact path="/" component={LoginForm}/>
         <Route exact path="/register" component={Register}/>

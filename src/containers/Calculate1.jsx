@@ -33,7 +33,9 @@ const Calculate1 = () => {
     circuit: {},
   });
   const [arr, setArr] = useState([]);
+  const [reportActual,setReportActual] = useState("")
   const [mount1, setMount1] = useState(true);
+  const [mountReport, setMountReport] = useState(true);
   const [nameTablero , setNameTablero] = useState("")
   const componentRef = useRef();
   const [nameProject,setNameProject] = useState(name)
@@ -80,7 +82,7 @@ const Calculate1 = () => {
    console.log('este es una consulta',consultaReportes)
     
  
-  }, [numeroDeCircuits,circuitActual,arr,mount1])
+  }, [numeroDeCircuits,circuitActual,arr,mount1,mountReport])
 
   
   const reporteConsulta = async(id1)=>{
@@ -107,9 +109,9 @@ const Calculate1 = () => {
           <div className="dos gb">
             {/* <MenuTree idCircuits={id1} /> */}
           {/*   <button onClick={()=>{console.log(arregloDeIdCircuitos)}}>ver reportes</button> */}
-            <TreeNav id={id1} nameProject={nameProject} setNameProject={setNameProject} mount1={mount1} setMount={setMount1}  setCircuitName={setCircuitName} setNameTablero={setNameTablero} idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
+            <TreeNav setReportActual={setReportActual} id={id1} nameTablero={nameTablero} nameProject={nameProject} setNameProject={setNameProject} mount1={mount1} setMount={setMount1}  setCircuitName={setCircuitName} setNameTablero={setNameTablero} idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
           </div>
-          <InputsCalculate setNameTablero={setNameTablero} nameTablero={nameTablero} mount1={mount1} setMount1={setMount1} circuitName={circuitName} setCircuitName={setCircuitName} values={values} setValues={setValues} circuitActual1={circuitActual1} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
+          <InputsCalculate setEstadoInputs={setEstadoInputs} setCircuitActual={setCircuitActual} setNumeroDeCircuits={setNumeroDeCircuits} mountReport={mountReport} setMountReport={setMountReport} reportActual={reportActual} setNameTablero={setNameTablero} nameTablero={nameTablero} mount1={mount1} setMount1={setMount1} circuitName={circuitName} setCircuitName={setCircuitName} values={values} setValues={setValues} circuitActual1={circuitActual1} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
           <div className="w45 p-0 report" id="report">
             <a onClick={() => amplio()} class="point amp mr70 mt10">
               <i class="fa fa-expand mr5" aria-hidden="true"></i>
@@ -127,7 +129,7 @@ const Calculate1 = () => {
                 content={() => componentRef.current}
               />
               <div class="calculo" ref={componentRef}>
-                <Report nameTablero={nameTablero} numero arr={arr} arregloDeIdCircuitos={arregloDeIdCircuitos} numeroDeCircuits={numeroDeCircuits} numeroReportes={arregloIdReportes} name={nameProject}/>
+                <Report mountReport={mountReport} setMountReport={setMountReport} nameTablero={nameTablero} numero arr={arr} arregloDeIdCircuitos={arregloDeIdCircuitos} numeroDeCircuits={numeroDeCircuits} numeroReportes={arregloIdReportes} name={nameProject}/>
               </div>
 
             </div>

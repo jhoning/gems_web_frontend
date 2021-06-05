@@ -19,7 +19,7 @@ const authAxios = axios.create({
   }
 })
 
-const TreeNav = ({id,nameProject,setNameProject,mount1,setMount1,setCircuitName,setNameTablero,setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
+const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1,setCircuitName,setNameTablero,setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
   const [t] = useTranslation("global")
   const [proyectoData, setProyectoData] = useState()
   const [mount, setMount] = useState(false)
@@ -46,7 +46,13 @@ const TreeNav = ({id,nameProject,setNameProject,mount1,setMount1,setCircuitName,
       perPhase:"1",
       feeder_include_neutral_wire:"true",
       pipe_material:0,
-      system_voltage:"0",});setCircuitName(res.data.name);console.log('mensajito',res.data.report);setMount1(mount1?false:true)}).catch(err => err)
+      system_voltage:"0",
+      voltaje_drop:0,
+      current:0,
+      cable_width:0,
+      pipe_diameter:0,
+      protection_device:0,
+      grounding_conductor:0,});setCircuitName(res.data.name);setReportActual(res.data.report.id);setMount1(mount1?false:true)}).then(res => setReportActual(res.data.report.id)).catch(err => err)
   }
   const obtenerTableros = async () => {
     let arr = await authAxios.get('/project/' + idCircuits);
@@ -181,13 +187,9 @@ const TreeNav = ({id,nameProject,setNameProject,mount1,setMount1,setCircuitName,
     }
     console.log(aux_padre_null);
     setArr([
-      {
-        "key": "Main",
-        "label": "Principal Board",
-        "data": "Principal Board",
-        "icon": "pi pi-fw pi-home",
-        "children": [ ...aux_padre_null],
-      }
+    
+       ...aux_padre_null
+     
       
       
      ])
@@ -205,7 +207,38 @@ const TreeNav = ({id,nameProject,setNameProject,mount1,setMount1,setCircuitName,
         <div style={{ height: '70px', padding: '20px 0 0 0px', margin: '0px 6px 0 0' }}>
 
           <span onClick={() => {
-            if (node.icon == 'circuit') {setCircuitActual1(node.key);consultarCircuit(node.key);console.log('tableros:',tablerosP);
+             if(node.icon == 'tab'){
+              setNameTablero(ant => {
+                if(ant != node.label){
+                  setCircuitName("")
+                  setEstadoInputs({
+                    loadType:0,
+                    power: 0,
+                    distance: "0",
+                    powerFactor: 0,
+                    voltageDrop: "0",
+                    aisolation:"0",
+                    temperature:0,
+                    loadPhases:"0",
+                    perPhase:"1",
+                    feeder_include_neutral_wire:"true",
+                    pipe_material:0,
+                    system_voltage:"0",
+                    voltaje_drop:0,
+                    current:0,
+                    cable_width:0,
+                    pipe_diameter:0,
+                    protection_device:0,
+                    grounding_conductor:0,
+                  })
+                  return node.label
+                }else{
+                  return node.label
+                }
+              })
+            }
+            
+            if (node.icon == 'circuit') {setCircuitActual1(node.key);consultarCircuit(node.key);console.log('tableros:',tablerosP);console.log(node.icon)
             tablerosP.forEach(element => {
               if(element.circuits){
                 element.circuits.forEach(item => {
@@ -218,11 +251,13 @@ const TreeNav = ({id,nameProject,setNameProject,mount1,setMount1,setCircuitName,
               }
             });
           
-          }else{setCircuitActual(node.key) ;consultarBoard(node.key);setNameTablero(node.label) }
+          }else{setCircuitActual(node.key) ;consultarBoard(node.key);setNameTablero(node.label);console.log("alerrrtt") }
             /* if (node.icon == 'circuit') {setCircuitActual1(node.key);consultarCircuit(node.key);console.log('tablero circuito: ',circuitActual1);consultarBoard(node.key) } */
             /* obtenerReportes(node.key) */ /* if (node.icon == 'tab') {setCircuitActual(node.key) ;consultarBoard(node.key)  }; ; console.log('tablero actual: ',circuitActual); */ /* consultarCircuit(node.key)  */
+            
+         
           }
-
+          
           }>{node.label}</span>
           { 
           node.icon == 'circuit'?null:
@@ -255,7 +290,7 @@ const TreeNav = ({id,nameProject,setNameProject,mount1,setMount1,setCircuitName,
                   </span>
                 </div>
               </a>
-              <a class="dropdown-item" id="id_en" >
+             {/*  <a class="dropdown-item" id="id_en" >
                 <div class="flag-icon-holder">
                   <img class="ban" src={tab} />
                   <span class="text-dark" onClick={() => {
@@ -263,7 +298,7 @@ const TreeNav = ({id,nameProject,setNameProject,mount1,setMount1,setCircuitName,
                     setMount(false)
                   }}>{t("MenuTree.addBoard")}</span>
                 </div>
-              </a> 
+              </a>  */}
             </div>
             }
              
@@ -283,18 +318,18 @@ const TreeNav = ({id,nameProject,setNameProject,mount1,setMount1,setCircuitName,
         <div class="input-group col-12" style={{width:'150px'}}>
          
             <input className='form-control bg-light' type="text" value={nameProject} onChange={(e)=>setNameProject(e.target.value)}   aria-describedby="sizing-addon2"/>
-            <button className='btn btn-primary ml-2 gray' onClick={()=>cambiarNombreProject()}>
+            <button className='btn btn-primary ml-2 gray' onClick={()=>{cambiarNombreProject();localStorage.setItem('band',1);}}>
               <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" ></i>
             </button>
           </div>
         </div>
       </div>
      
-   {/*      <button className='btn btn-primary mb-2 mt-2' onClick={() => {
+        <button className='btn btn-primary mb-2 mt-2' onClick={() => {
         registrarBoard1()
         setMount(false)
 
-      }}>{t("MenuTree.addBoard")}</button>   */}
+      }}>{t("MenuTree.addBoard")}</button>  
       <Tree value={arr} nodeTemplate={nodeTemplate} />
     </>
   )
