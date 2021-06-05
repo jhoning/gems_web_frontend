@@ -299,6 +299,7 @@
 .usuario svg {
     height: 14px;
     margin-right: 3px;
+    margin-top: -2px;
 }
 
 .salir svg {
