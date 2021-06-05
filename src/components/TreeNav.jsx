@@ -198,6 +198,12 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
       
      ])
   }
+  const handleKeyDownProject = (event) => {
+    if (event.key === 'Enter') {
+      cambiarNombreProject()()
+      console.log('do validate')
+    }
+  }
   const obtenerReportes = async(id1) => {
     await authAxios.get(`/board/${id1}`).then((resp)=>{setConsultaBoard(resp.data)}).catch(err => console.log(err));
   }  
@@ -321,7 +327,7 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
         <label htmlFor="" className='mx-3 mt-1 text-white'>Name Project</label>  
         <div class="input-group col-12" style={{width:'150px'}}>
          
-            <input className='form-control bg-light' type="text" value={nameProject} onChange={(e)=>setNameProject(e.target.value)}   aria-describedby="sizing-addon2"/>
+            <input className='form-control bg-light' type="text" value={nameProject} onKeyDown={(e) =>handleKeyDownProject(e)} onChange={(e)=>setNameProject(e.target.value)}   aria-describedby="sizing-addon2"/>
             <button className='btn btn-primary ml-2 gray' onClick={()=>{cambiarNombreProject();localStorage.setItem('band',1);}}>
               <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" ></i>
             </button>

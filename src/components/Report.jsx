@@ -86,9 +86,9 @@ const Report = React.forwardRef(({mountReport,arr,numeroDeCircuits,name,arregloD
                             {item.pipe_material == 2?item.pipe_diameter + '"' + ' Steel':null}
                           </th>
                           <th class="mitexto1">
-                          {item.aisolation == 0?item.perPhase + ' TW' + '-CU':null}
-                          { item.aisolation == 1?item.perPhase + ' THWN' + '-CU':null}
-                          { item.aisolation == 2?item.perPhase + ' THHN' + '-CU':null}
+                          {item.aisolation == 0?item.perPhase + 'x' + item.cable_width + ' TW' + '-CU':null}
+                          { item.aisolation == 1?item.perPhase +  'x' + item.cable_width +' THWN' + '-CU':null}
+                          { item.aisolation == 2?item.perPhase + + 'x' + item.cable_width +' THHN' + '-CU':null}
                         {
                         
                     
@@ -100,7 +100,7 @@ const Report = React.forwardRef(({mountReport,arr,numeroDeCircuits,name,arregloD
                             {item.aisolation == 2 && item.feeder_include_neutral_wire == "false" ?item.perPhase + ' THHN'+'-CU':null} */}
                             
                           </th>
-                          <th class="mitexto1">{item.grounding_conductor}</th>
+                          <th class="mitexto1">{item.grounding_conductor} AWG</th>
                           <th class="mitexto1">{  item.perPhase + `x ${item.protection_device}` + "-A"}</th>
                           <th class="mitexto1">{  item.power}</th>
                         </tr>

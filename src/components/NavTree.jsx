@@ -52,7 +52,7 @@ const NavTree = ({setCircuitActual1,circuitActual1, idCircuits,setArr,setConsult
   const consultarBoard = async(id1)=>{
     await authAxios.get(`/board/${id1}`).then((resp)=>{setNumeroDeCircuits(resp.data.circuits)}).catch(err => console.log(err));
   }
-
+  
 
   const addBoard = async(id1)=>{
     await authAxios.post('/board',{name:'nuevo_',project:arrBoards,board_padre:{id:id1}}).then(res=>console.log(res)).catch(err=>console.log(err))

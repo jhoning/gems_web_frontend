@@ -112,7 +112,7 @@ const [report,setReport] = useState({
     perPhase:report.perPhase,
     feeder_include_neutral_wire:report.feeder_include_neutral_wire,
     pipe_material:report.pipe_material,
-    system_voltage:report.system_voltage}).then(res=>{setRespuesta({...res.data });console.log('ListForm',res)}).catch(err=>console.log(err))
+    system_voltage:report.system_voltage}).then(res=>{setRespuesta({...res.data });console.log('ListForm',res)}).catch(err=>alert('Error: verificar datos ingresados'))
   }
   const cambiarNombreProject = async()=> {
     await authAxios.patch('/project/'+id,{name:name}).then(res=>{console.log(res)}).catch(err => console.log(err))
@@ -240,7 +240,7 @@ const [report,setReport] = useState({
       }
   }
 
-  const alert = () => {
+  /* const alert = () => {
     Swal.fire({
       title: `${t("Alerts.mCal")}`,
       icon: 'warning',
@@ -250,8 +250,8 @@ const [report,setReport] = useState({
       confirmButtonText: `${t("Option.accept")}`,
       cancelButtonText: `${t("Option.cancel")}`
     })
-  }
-  const alertreport = () => {
+  } */
+/*   const alertreport = () => {
     Swal.fire({
       title: `${t("Alerts.mReport")}`,
       icon: 'warning',
@@ -261,7 +261,7 @@ const [report,setReport] = useState({
       confirmButtonText: `${t("Option.accept")}`,
       cancelButtonText: `${t("Option.cancel")}`
     })
-  }
+  } */
 
   const handlePipe_material = (e) => {
     
@@ -322,12 +322,23 @@ const [report,setReport] = useState({
   const handleFeeder_include_neutral_wire = (e) => {
     setReport({...report, feeder_include_neutral_wire:e.target.value});
   }
-
+  const handleKeyDownBoard = (event) => {
+    if (event.key === 'Enter') {
+      cambiarNombreTablero()
+      console.log('do validate')
+    }
+  }
+  const handleKeyDownCircuit = (event) => {
+    if (event.key === 'Enter') {
+      cambiarNombreCircuito()
+      console.log('do validate')
+    }
+  }
   
 
   return (<>
     <div className="w30 overflow-auto calculoAlto" id="reporte">
-      <button onClick={()=>{console.log('algo mas',reportActual)}}>ver report actak</button>
+     {/*  <button onClick={()=>{console.log('algo mas',reportActual)}}>ver report actak</button> */}
     {/*   <button onClick={()=>{console.log(report {
       loadType:report.loadType,
       power: report.power,
@@ -362,7 +373,7 @@ const [report,setReport] = useState({
       
           <div class="input-group col-12" style={{width:'150px'}}>
             <label htmlFor="" className='mx-3 mt-1'>Name Board</label>  
-            <input className='form-control' type="text"  value={nameTablero}  onChange={e => setNameTablero(e.target.value)}  aria-describedby="sizing-addon2"/>
+            <input className='form-control' type="text"  value={nameTablero} onKeyDown={(e) =>handleKeyDownBoard(e)} onChange={e => setNameTablero(e.target.value)}  aria-describedby="sizing-addon2"/>
             <button className='btn btn-primary ml-2 gray' onClick={()=>{cambiarNombreTablero()}}>
               <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" ></i>
             </button>
@@ -370,7 +381,7 @@ const [report,setReport] = useState({
 
           <div class="input-group col-12 mt-2" style={{width:'150px'}}>
             <label htmlFor="" className='mx-3 mt-1'>Name circuit</label>
-            <input className='form-control' type="text"  value={circuitName}  onChange={e => setCircuitName(e.target.value)}  aria-describedby="sizing-addon2"/>
+            <input className='form-control' type="text"  value={circuitName} onKeyDown={(e) =>handleKeyDownCircuit(e)}  onChange={e => setCircuitName(e.target.value)}  aria-describedby="sizing-addon2"/>
             <button className='btn btn-primary ml-2 gray' onClick={()=>{cambiarNombreCircuito()}}> 
               <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" ></i>
             </button>
@@ -528,7 +539,7 @@ const [report,setReport] = useState({
           </div>
         </div>
         <div class="form-group row my-0">
-          <label for="inputEmail3" class="col-sm-4 col-form-label my-0 mitexto">{t("Calculate.gCond")}</label>
+          <label for="inputEmail3" class="col-sm-4 col-form-label my-0 mitexto">{t("Calculate.gCond")}(AWG)</label>
           <div class="col-sm-8 my-0">
             <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,grounding_conductor: e.target.value}) } value={respuesta.grounding_conductor}/>
           </div>
