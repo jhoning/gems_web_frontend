@@ -86,9 +86,9 @@ const Report = React.forwardRef(({mountReport,arr,numeroDeCircuits,name,arregloD
                             {item.pipe_material == 2?item.pipe_diameter + '"' + ' Steel':null}
                           </th>
                           <th class="mitexto1">
-                          {item.aisolation == 0?item.perPhase + 'x ' + item.cable_width + " AWG" + ' TW' + '-CU':null}
-                          { item.aisolation == 1?item.perPhase +  'x ' + item.cable_width + " AWG" +' THWN' + '-CU':null}
-                          { item.aisolation == 2?item.perPhase + + 'x ' + item.cable_width + " AWG" +' THHN' + '-CU':null}
+                          {item.aisolation == 0?item.loadPhases + '# ' + item.cable_width + " AWG" + ' TW' + '-CU':null}
+                          { item.aisolation == 1?item.loadPhases +  '# ' + item.cable_width + " AWG" +' THWN' + '-CU':null}
+                          { item.aisolation == 2?item.loadPhases+ + '# ' + item.cable_width + " AWG" +' THHN' + '-CU':null}
                         {
                         
                     
