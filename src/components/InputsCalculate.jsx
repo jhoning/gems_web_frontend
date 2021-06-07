@@ -386,7 +386,7 @@ const [reportAux, setReportAux] = useState()
 
   return (<>
     <div className="w30 overflow-auto calculoAlto" id="reporte">
-      <button onClick={()=>{   console.log(mreport)}}>ver report actak</button> 
+     {/*  <button onClick={()=>{   console.log(mreport)}}>ver report actak</button>  */}
     {/*   <button onClick={()=>{console.log(report {
       loadType:report.loadType,
       power: report.power,
