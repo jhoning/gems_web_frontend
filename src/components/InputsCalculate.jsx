@@ -9,7 +9,7 @@ import {useState,useEffect} from 'react'
 import axios from 'axios'
 const Swal = require('sweetalert2')
 
-const InputsCalculate = ({setEstadoInputs,setCircuitActual,setNumeroDeCircuits,mountReport,setMountReport,setNameTablero,reportActual,nameTablero,mount1,setMount1,circuitName,setCircuitName,values,setValues,setArr,arr,circuitActual,circuitActual1,estadoInputs, name,setNameProject, id}) => {
+const InputsCalculate = ({setMreport,setMreport2, setMreport1,mreport1,mreport,setEstadoInputs,setCircuitActual,setNumeroDeCircuits,mountReport,setMountReport,setNameTablero,reportActual,nameTablero,mount1,setMount1,circuitName,setCircuitName,values,setValues,setArr,arr,circuitActual,circuitActual1,estadoInputs, name,setNameProject, id}) => {
   const [respuesta,setRespuesta] = useState({
     current: 0,
     cable_width: "0",
@@ -32,6 +32,7 @@ const [report,setReport] = useState({
   pipe_material:0,
   system_voltage:0,
 })
+const [reportAux, setReportAux] = useState()
   const [t] = useTranslation("global")
   const token = localStorage.getItem('token')
   const authAxios = axios.create({
@@ -46,6 +47,7 @@ const [report,setReport] = useState({
    
      obtenerReportes(); 
      setReport({...estadoInputs})
+     setReportAux({...estadoInputs})
      console.log({
        loadType:report.loadType,
        power: report.power,
@@ -68,9 +70,19 @@ const [report,setReport] = useState({
        grounding_conductor:estadoInputs.grounding_conductor,
   
      })
-  
+     console.log('comparacion de estdos:')
+     console.log(JSON.stringify( report ) === JSON.stringify( reportAux ))
+     if(mreport1){
+      enviarDatos(circuitActual)
+      modificarReporte();
+      reportGenerate()
+      setMreport1(false)
+      setMreport(false)
+      setMreport2(res => !res)
      
-  }, [estadoInputs,mount1,mountReport]);
+     }
+     
+  }, [estadoInputs,mount1,mountReport,mreport1]);
   const consultarCircuit = async()=> {
     await authAxios.get('/circuit/'+ circuitActual1).then(res=>{res.data.report != null?setEstadoInputs(res.data.report):setEstadoInputs({
       loadType:0,
@@ -240,7 +252,7 @@ const [report,setReport] = useState({
       }
   }
 
-  /* const alert = () => {
+  const alert1 = () => {
     Swal.fire({
       title: `${t("Alerts.mCal")}`,
       icon: 'warning',
@@ -250,7 +262,7 @@ const [report,setReport] = useState({
       confirmButtonText: `${t("Option.accept")}`,
       cancelButtonText: `${t("Option.cancel")}`
     })
-  } */
+  } 
 /*   const alertreport = () => {
     Swal.fire({
       title: `${t("Alerts.mReport")}`,
@@ -267,22 +279,37 @@ const [report,setReport] = useState({
     
     setReport({...report,pipe_material:parseInt(e.target.value)});
     console.log(report)
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handleLoadType = (e) => {
     setReport({...report,loadType:parseInt(e.target.value)});
     console.log(report)
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handleSystem_voltage = (e) => {
     setReport({...report,system_voltage:parseInt(e.target.value)});
     console.log(report)
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handleAisolation = (e) => {
     setReport({...report,aisolation:parseInt(e.target.value)});
     console.log(report)
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handleLoadPhases = (e) => {
     setReport({...report,loadPhases:parseInt(e.target.value)});
     console.log(report)
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handlePower = (e) => {
     /* if(e.target.value > 8000){
@@ -292,19 +319,32 @@ const [report,setReport] = useState({
     } */
  
     setReport({...report,power:parseInt(e.target.value)});
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
  
   const handleDistance = (e) => {
     setReport({...report,distance:parseInt(e.target.value)});
     console.log(report)
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handleVoltageDrop = (e) => {
     setReport({...report,voltageDrop:parseInt(e.target.value)});
     console.log(report)
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handlePowerFactor = (e) => {
       
       setReport({...report,powerFactor: e.target.value});
+      if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+        setMreport(true)
+      }
+      
     
   }
   const handlePerPhases = (e) => {
@@ -313,14 +353,22 @@ const [report,setReport] = useState({
     } else {
       setReport({...report,perPhase:parseInt(e.target.value)});
     } 
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handleTemperature = (e) => {
    
-      setReport({...report,temperature:parseInt(e.target.value)});
-   
+    setReport({...report,temperature:parseInt(e.target.value)});
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handleFeeder_include_neutral_wire = (e) => {
     setReport({...report, feeder_include_neutral_wire:e.target.value});
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handleKeyDownBoard = (event) => {
     if (event.key === 'Enter') {
@@ -334,11 +382,11 @@ const [report,setReport] = useState({
       console.log('do validate')
     }
   }
-  
+ 
 
   return (<>
     <div className="w30 overflow-auto calculoAlto" id="reporte">
-     {/*  <button onClick={()=>{console.log('algo mas',reportActual)}}>ver report actak</button> */}
+      <button onClick={()=>{   console.log(mreport)}}>ver report actak</button> 
     {/*   <button onClick={()=>{console.log(report {
       loadType:report.loadType,
       power: report.power,
