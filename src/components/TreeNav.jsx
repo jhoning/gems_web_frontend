@@ -47,6 +47,10 @@ const TreeNav = ({setMreport2,mreport,mreport2,setMreport,setMreport1,id,setRepo
         setMreport1(true)
         setMreport(false)
         setMreport2( res=>!res)
+      }else{
+        setMreport1(false)
+        setMreport(true)
+        setMreport2( res=>res)
       }
     })
   } 
