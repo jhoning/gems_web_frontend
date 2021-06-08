@@ -98,29 +98,43 @@ $(".aumentar").on("click", function() {
 </script>
 
 <script>
-$(document).ready(function(){
-  
-  // Donde queremos cambiar el tamaño de la fuente
-  var donde = $('.mitexto1');
-  var sizeFuenteOriginal = donde.css('font-size');
+  (function ($) {
+    $.fn.fontResize = function(options){
+    var increaseCount = 0;
+    var self = this;
 
-  // Aumentar Font Size
-  $(".aumentarFont").click(function(){
-    var sizeFuenteActual = donde.css('font-size');
-   var sizeFuenteActualNum = parseFloat(sizeFuenteActual, 12);
-    var sizeFuenteNuevo = sizeFuenteActualNum*1.2;
-  donde.css('font-size', sizeFuenteNuevo);
-  return false;
+    var changeFont = function(element, amount){
+      var baseFontSize = parseInt(element.css('font-size'), 10);
+      var baseLineHeight = parseInt(element.css('line-height'), 10);
+      element.css('font-size', (baseFontSize + amount) + 'px');
+      element.css('line-height', (baseLineHeight + amount) + 'px');
+    };
+
+    options.increaseBtn.on('click', function (e) {
+      e.preventDefault();
+      if(increaseCount === 3){ return; }
+      self.each(function(index, element){
+        changeFont($(element), 2);
+      });
+      increaseCount++;
+        });
+
+    options.decreaseBtn.on('click', function (e) {
+      e.preventDefault();
+      if(increaseCount === 0){ return; }
+      self.each(function(index, element){
+        changeFont($(element), -2);
+      });
+      increaseCount--;
+    });
+  }
+})(jQuery);
+
+$(function () {
+    $('.mitexto1').fontResize({
+    increaseBtn: $('#font-up1'),
+    decreaseBtn: $('#font-down1')
   });
-  // Disminuir Font Size
-  $(".disminuirFont").click(function(){
-    var sizeFuenteActual = donde.css('font-size');
-   var sizeFuenteActualNum = parseFloat(sizeFuenteActual, 12);
-    var sizeFuenteNuevo = sizeFuenteActualNum*0.8;
-  donde.css('font-size', sizeFuenteNuevo);
-  return false;
-  });
-  
 });
 </script>
 
