@@ -256,7 +256,6 @@ const [reportAux, setReportAux] = useState()
     Swal.fire({
       title: `${t("Alerts.check")}`,
       icon: 'warning',
-      showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: `${t("Option.accept")}`
