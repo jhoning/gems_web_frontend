@@ -10,6 +10,7 @@ import plus from '../img/plus.svg';
 import '../css/tree-nav.css'
 import '../../node_modules/react-simple-tree-menu/dist/main.css';
 import { Tree } from 'primereact/tree';
+const Swal = require('sweetalert2')
 
 const token = localStorage.getItem('token')
 const authAxios = axios.create({
@@ -19,7 +20,7 @@ const authAxios = axios.create({
   }
 })
 
-const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1,setCircuitName,setNameTablero,setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
+const TreeNav = ({setMreport2,mreport,mreport2,setMreport,setMreport1,id,setReportActual,nameProject,setNameProject,mount1,setMount1,setCircuitName,setNameTablero,setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
   const [t] = useTranslation("global")
   const [proyectoData, setProyectoData] = useState()
   const [mount, setMount] = useState(false)
@@ -31,8 +32,28 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
     setTimeout(() => {
       setMount(true);
     }, 500)
-  }, [mount,mount1])
-
+  }, [mount,mount1,mreport2])
+  const alert1 = () => {
+    Swal.fire({
+      title: `${t("Alerts.mCal")}`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: `${t("Option.accept")}`,
+      cancelButtonText: `${t("Option.cancel")}`
+    }).then( res => {
+      if(res.isConfirmed){
+        setMreport1(true)
+        setMreport(false)
+        setMreport2( res=>!res)
+      }else{
+        setMreport1(false)
+        setMreport(true)
+        setMreport2( res=>res)
+      }
+    })
+  } 
   const consultarCircuit = async(id1)=> {
     await authAxios.get('/circuit/'+ id1).then(res=>{res.data.report != null?setEstadoInputs(res.data.report):setEstadoInputs({
       loadType:0,
@@ -187,12 +208,15 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
     }
     console.log(aux_padre_null);
     setArr([
-    
-       ...aux_padre_null
-     
-      
+    ...aux_padre_null
       
      ])
+  }
+  const handleKeyDownProject = (event) => {
+    if (event.key === 'Enter') {
+      cambiarNombreProject()()
+      console.log('do validate')
+    }
   }
   const obtenerReportes = async(id1) => {
     await authAxios.get(`/board/${id1}`).then((resp)=>{setConsultaBoard(resp.data)}).catch(err => console.log(err));
@@ -205,9 +229,13 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
     if (node.label) {
       return (
         <div style={{ height: '70px', padding: '20px 0 0 0px', margin: '0px 6px 0 0' }}>
-
+        
           <span onClick={() => {
-             if(node.icon == 'tab'){
+           if(mreport){
+             alert1()
+           }else {
+                     
+             if(node.icon == 'tab' && !mreport){
               setNameTablero(ant => {
                 if(ant != node.label){
                   setCircuitName("")
@@ -238,7 +266,7 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
               })
             }
             
-            if (node.icon == 'circuit') {setCircuitActual1(node.key);consultarCircuit(node.key);console.log('tableros:',tablerosP);console.log(node.icon)
+            if (node.icon == 'circuit' && !mreport) {setCircuitActual1(node.key);consultarCircuit(node.key);console.log('tableros:',tablerosP);console.log(node.icon)
             tablerosP.forEach(element => {
               if(element.circuits){
                 element.circuits.forEach(item => {
@@ -252,22 +280,29 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
             });
           
           }else{setCircuitActual(node.key) ;consultarBoard(node.key);setNameTablero(node.label);console.log("alerrrtt") }
+           }   
+              
+              
+    
             /* if (node.icon == 'circuit') {setCircuitActual1(node.key);consultarCircuit(node.key);console.log('tablero circuito: ',circuitActual1);consultarBoard(node.key) } */
             /* obtenerReportes(node.key) */ /* if (node.icon == 'tab') {setCircuitActual(node.key) ;consultarBoard(node.key)  }; ; console.log('tablero actual: ',circuitActual); */ /* consultarCircuit(node.key)  */
             
          
-          }
-          
+        }
+        
           }>{node.label}</span>
           { 
           node.icon == 'circuit'?null:
           <ul class="navbar-nav fr mt3 nav3">
-            <li class="nav-item dropdown language-dropdown">
-            <a class="" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+            <li class="nav-item ">
+            <a class=""  href="#"  onClick={() => {
+                    addCircuit(node.key) 
+                    setMount(false)
+                  }} >
               <img class="ban" src={plus} />
             </a> 
             {
-              node.key == 'Main'?<div class="dropdown-menu dropdown-menu-left navbar-dropdown" aria-labelledby="LanguageDropdown"> 
+        /*       node.key == 'Main'?<div class="dropdown-menu dropdown-menu-left navbar-dropdown" aria-labelledby="LanguageDropdown"> 
                <a class="dropdown-item" id="id_en" >
                 <div class="flag-icon-holder">
                   <img class="ban" src={tab} />
@@ -298,8 +333,8 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
                     setMount(false)
                   }}>{t("MenuTree.addBoard")}</span>
                 </div>
-              </a>  */}
-            </div>
+              </a> 
+            </div> */
             }
              
              
@@ -317,7 +352,7 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
         <label htmlFor="" className='mx-3 mt-1 text-white'>Name Project</label>  
         <div class="input-group col-12" style={{width:'150px'}}>
          
-            <input className='form-control bg-light' type="text" value={nameProject} onChange={(e)=>setNameProject(e.target.value)}   aria-describedby="sizing-addon2"/>
+            <input className='form-control bg-light' type="text" value={nameProject} onKeyDown={(e) =>handleKeyDownProject(e)} onChange={(e)=>setNameProject(e.target.value)}   aria-describedby="sizing-addon2"/>
             <button className='btn btn-primary ml-2 gray' onClick={()=>{cambiarNombreProject();localStorage.setItem('band',1);}}>
               <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" ></i>
             </button>
@@ -325,11 +360,11 @@ const TreeNav = ({id,setReportActual,nameProject,setNameProject,mount1,setMount1
         </div>
       </div>
      
-        <button className='btn btn-primary mb-2 mt-2' onClick={() => {
+       <button className='btn btn-primary mb-2 mt-2 gray' onClick={() => {
         registrarBoard1()
         setMount(false)
 
-      }}>{t("MenuTree.addBoard")}</button>  
+      }}>{t("MenuTree.addBoard")} +</button>   
       <Tree value={arr} nodeTemplate={nodeTemplate} />
     </>
   )

@@ -9,7 +9,7 @@ import {useState,useEffect} from 'react'
 import axios from 'axios'
 const Swal = require('sweetalert2')
 
-const InputsCalculate = ({setEstadoInputs,setCircuitActual,setNumeroDeCircuits,mountReport,setMountReport,setNameTablero,reportActual,nameTablero,mount1,setMount1,circuitName,setCircuitName,values,setValues,setArr,arr,circuitActual,circuitActual1,estadoInputs, name,setNameProject, id}) => {
+const InputsCalculate = ({setMreport,setMreport2, setMreport1,mreport1,mreport,setEstadoInputs,setCircuitActual,setNumeroDeCircuits,mountReport,setMountReport,setNameTablero,reportActual,nameTablero,mount1,setMount1,circuitName,setCircuitName,values,setValues,setArr,arr,circuitActual,circuitActual1,estadoInputs, name,setNameProject, id}) => {
   const [respuesta,setRespuesta] = useState({
     current: 0,
     cable_width: "0",
@@ -32,6 +32,7 @@ const [report,setReport] = useState({
   pipe_material:0,
   system_voltage:0,
 })
+const [reportAux, setReportAux] = useState()
   const [t] = useTranslation("global")
   const token = localStorage.getItem('token')
   const authAxios = axios.create({
@@ -46,6 +47,7 @@ const [report,setReport] = useState({
    
      obtenerReportes(); 
      setReport({...estadoInputs})
+     setReportAux({...estadoInputs})
      console.log({
        loadType:report.loadType,
        power: report.power,
@@ -68,9 +70,19 @@ const [report,setReport] = useState({
        grounding_conductor:estadoInputs.grounding_conductor,
   
      })
-  
+     console.log('comparacion de estdos:')
+     console.log(JSON.stringify( report ) === JSON.stringify( reportAux ))
+     if(mreport1){
+      enviarDatos(circuitActual)
+      modificarReporte();
+      reportGenerate()
+      setMreport1(false)
+      setMreport(false)
+      setMreport2(res => !res)
      
-  }, [estadoInputs,mount1,mountReport]);
+     }
+     
+  }, [estadoInputs,mount1,mountReport,mreport1]);
   const consultarCircuit = async()=> {
     await authAxios.get('/circuit/'+ circuitActual1).then(res=>{res.data.report != null?setEstadoInputs(res.data.report):setEstadoInputs({
       loadType:0,
@@ -112,7 +124,7 @@ const [report,setReport] = useState({
     perPhase:report.perPhase,
     feeder_include_neutral_wire:report.feeder_include_neutral_wire,
     pipe_material:report.pipe_material,
-    system_voltage:report.system_voltage}).then(res=>{setRespuesta({...res.data });console.log('ListForm',res)}).catch(err=>console.log(err))
+    system_voltage:report.system_voltage}).then(res=>{setRespuesta({...res.data });console.log('ListForm',res)}).catch(err=>alert('Error: verificar datos ingresados'))
   }
   const cambiarNombreProject = async()=> {
     await authAxios.patch('/project/'+id,{name:name}).then(res=>{console.log(res)}).catch(err => console.log(err))
@@ -240,7 +252,7 @@ const [report,setReport] = useState({
       }
   }
 
-  const alert = () => {
+  const alert1 = () => {
     Swal.fire({
       title: `${t("Alerts.mCal")}`,
       icon: 'warning',
@@ -250,8 +262,8 @@ const [report,setReport] = useState({
       confirmButtonText: `${t("Option.accept")}`,
       cancelButtonText: `${t("Option.cancel")}`
     })
-  }
-  const alertreport = () => {
+  } 
+/*   const alertreport = () => {
     Swal.fire({
       title: `${t("Alerts.mReport")}`,
       icon: 'warning',
@@ -261,28 +273,43 @@ const [report,setReport] = useState({
       confirmButtonText: `${t("Option.accept")}`,
       cancelButtonText: `${t("Option.cancel")}`
     })
-  }
+  } */
 
   const handlePipe_material = (e) => {
     
     setReport({...report,pipe_material:parseInt(e.target.value)});
     console.log(report)
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handleLoadType = (e) => {
     setReport({...report,loadType:parseInt(e.target.value)});
     console.log(report)
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handleSystem_voltage = (e) => {
     setReport({...report,system_voltage:parseInt(e.target.value)});
     console.log(report)
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handleAisolation = (e) => {
     setReport({...report,aisolation:parseInt(e.target.value)});
     console.log(report)
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handleLoadPhases = (e) => {
     setReport({...report,loadPhases:parseInt(e.target.value)});
     console.log(report)
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handlePower = (e) => {
     /* if(e.target.value > 8000){
@@ -292,19 +319,32 @@ const [report,setReport] = useState({
     } */
  
     setReport({...report,power:parseInt(e.target.value)});
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
  
   const handleDistance = (e) => {
     setReport({...report,distance:parseInt(e.target.value)});
     console.log(report)
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handleVoltageDrop = (e) => {
     setReport({...report,voltageDrop:parseInt(e.target.value)});
     console.log(report)
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handlePowerFactor = (e) => {
       
       setReport({...report,powerFactor: e.target.value});
+      if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+        setMreport(true)
+      }
+      
     
   }
   const handlePerPhases = (e) => {
@@ -313,21 +353,40 @@ const [report,setReport] = useState({
     } else {
       setReport({...report,perPhase:parseInt(e.target.value)});
     } 
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handleTemperature = (e) => {
    
-      setReport({...report,temperature:parseInt(e.target.value)});
-   
+    setReport({...report,temperature:parseInt(e.target.value)});
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
   const handleFeeder_include_neutral_wire = (e) => {
     setReport({...report, feeder_include_neutral_wire:e.target.value});
+    if( JSON.stringify( report ) === JSON.stringify( reportAux )){
+      setMreport(true)
+    }
   }
-
-  
+  const handleKeyDownBoard = (event) => {
+    if (event.key === 'Enter') {
+      cambiarNombreTablero()
+      console.log('do validate')
+    }
+  }
+  const handleKeyDownCircuit = (event) => {
+    if (event.key === 'Enter') {
+      cambiarNombreCircuito()
+      console.log('do validate')
+    }
+  }
+ 
 
   return (<>
     <div className="w30 overflow-auto calculoAlto" id="reporte">
-     {/*  <button onClick={()=>{console.log('algo mas',reportActual)}}>ver report actak</button> */}
+     {/*  <button onClick={()=>{   console.log(mreport)}}>ver report actak</button>  */}
     {/*   <button onClick={()=>{console.log(report {
       loadType:report.loadType,
       power: report.power,
@@ -362,7 +421,7 @@ const [report,setReport] = useState({
       
           <div class="input-group col-12" style={{width:'150px'}}>
             <label htmlFor="" className='mx-3 mt-1'>Name Board</label>  
-            <input className='form-control' type="text"  value={nameTablero}  onChange={e => setNameTablero(e.target.value)}  aria-describedby="sizing-addon2"/>
+            <input className='form-control' type="text"  value={nameTablero} onKeyDown={(e) =>handleKeyDownBoard(e)} onChange={e => setNameTablero(e.target.value)}  aria-describedby="sizing-addon2"/>
             <button className='btn btn-primary ml-2 gray' onClick={()=>{cambiarNombreTablero()}}>
               <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" ></i>
             </button>
@@ -370,7 +429,7 @@ const [report,setReport] = useState({
 
           <div class="input-group col-12 mt-2" style={{width:'150px'}}>
             <label htmlFor="" className='mx-3 mt-1'>Name circuit</label>
-            <input className='form-control' type="text"  value={circuitName}  onChange={e => setCircuitName(e.target.value)}  aria-describedby="sizing-addon2"/>
+            <input className='form-control' type="text"  value={circuitName} onKeyDown={(e) =>handleKeyDownCircuit(e)}  onChange={e => setCircuitName(e.target.value)}  aria-describedby="sizing-addon2"/>
             <button className='btn btn-primary ml-2 gray' onClick={()=>{cambiarNombreCircuito()}}> 
               <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" ></i>
             </button>
@@ -528,7 +587,7 @@ const [report,setReport] = useState({
           </div>
         </div>
         <div class="form-group row my-0">
-          <label for="inputEmail3" class="col-sm-4 col-form-label my-0 mitexto">{t("Calculate.gCond")}</label>
+          <label for="inputEmail3" class="col-sm-4 col-form-label my-0 mitexto">{t("Calculate.gCond")}(AWG)</label>
           <div class="col-sm-8 my-0">
             <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,grounding_conductor: e.target.value}) } value={respuesta.grounding_conductor}/>
           </div>
@@ -542,7 +601,7 @@ const [report,setReport] = useState({
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>{reportActual != null?modificarReporte():reportGenerate()/* actualizarCircuit() *//* actualizarCircuit2() */ }}>{t("Calculate.report")}</button></div>
+          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>{modificarReporte();reportGenerate(); setMreport(false)/* actualizarCircuit() *//* actualizarCircuit2() */ }}>{t("Calculate.report")}</button></div>
         </div>
       </div>
       </div>

@@ -9,7 +9,7 @@ const authAxios = axios.create({
   }
 })
 
-const Report = React.forwardRef(({mountReport,arr,numeroDeCircuits,name,arregloDeIdCircuitos,nameTablero},) => {
+const Report = React.forwardRef(({mreport2,mountReport,arr,numeroDeCircuits,name,arregloDeIdCircuitos,nameTablero},) => {
   const [t] = useTranslation("global")
   const [consultaCircuitos,setConsultaCircuitos] = useState([])
   const [estado,setEstado] = useState([])
@@ -29,7 +29,7 @@ const Report = React.forwardRef(({mountReport,arr,numeroDeCircuits,name,arregloD
     
     
     console.log(estado)
-  }, [numeroDeCircuits,mountReport,arregloDeIdCircuitos])
+  }, [numeroDeCircuits,mountReport,arregloDeIdCircuitos,mreport2])
   
   const consultarCircuit = async(id1)=> {
     await authAxios.get('/circuit/'+ id1).then(res => res.data.report.loadType != null? setEstado(estado => [...estado,{...res.data.report, name:res.data.name}]):null).catch(err => setEstado(estado => [...estado]))
@@ -86,9 +86,9 @@ const Report = React.forwardRef(({mountReport,arr,numeroDeCircuits,name,arregloD
                             {item.pipe_material == 2?item.pipe_diameter + '"' + ' Steel':null}
                           </th>
                           <th class="mitexto1">
-                          {item.aisolation == 0?item.perPhase + ' TW' + '-CU':null}
-                          { item.aisolation == 1?item.perPhase + ' THWN' + '-CU':null}
-                          { item.aisolation == 2?item.perPhase + ' THHN' + '-CU':null}
+                          {item.aisolation == 0?item.loadPhases + '# ' + item.cable_width + " AWG" + ' TW' + '-CU':null}
+                          { item.aisolation == 1?item.loadPhases +  '# ' + item.cable_width + " AWG" +' THWN' + '-CU':null}
+                          { item.aisolation == 2?item.loadPhases+ + '# ' + item.cable_width + " AWG" +' THHN' + '-CU':null}
                         {
                         
                     
@@ -100,7 +100,7 @@ const Report = React.forwardRef(({mountReport,arr,numeroDeCircuits,name,arregloD
                             {item.aisolation == 2 && item.feeder_include_neutral_wire == "false" ?item.perPhase + ' THHN'+'-CU':null} */}
                             
                           </th>
-                          <th class="mitexto1">{item.grounding_conductor}</th>
+                          <th class="mitexto1">{item.grounding_conductor} AWG</th>
                           <th class="mitexto1">{  item.perPhase + `x ${item.protection_device}` + "-A"}</th>
                           <th class="mitexto1">{  item.power}</th>
                         </tr>
