@@ -75,20 +75,20 @@ const Report = React.forwardRef(({mreport2,mountReport,arr,numeroDeCircuits,name
                         <tr>
                           <th class="mitexto1">{item.circuit.name}</th>
                           <th class="mitexto1">
-                            {item.loadType == 0?'Kitchen':null}
-                            {item.loadType == 1?'Air-Conditioned':null} 
+                            {item.loadType == 0?t("InputsC.kitchen"):null}
+                            {item.loadType == 1?t("InputsC.aCond"):null} 
                             {item.loadType == 2?'Motor':null}
                             {item.loadType == 3?'motor':null}
                           </th>
                           <th class="mitexto1">
-                            {item.pipe_material == 0?item.pipe_diameter + '"' + ' PVC':null}
-                            {item.pipe_material == 1?item.pipe_diameter + '"' + ' Aluminum':null}
-                            {item.pipe_material == 2?item.pipe_diameter + '"' + ' Steel':null}
+                            {item.pipe_material == 0?item.pipe_diameter + '"' + t("Option.PVC"):null}
+                            {item.pipe_material == 1?item.pipe_diameter + '"' + t("Option.aluminum"):null}
+                            {item.pipe_material == 2?item.pipe_diameter + '"' + t("Option.steel"):null}
                           </th>
                           <th class="mitexto1">
-                          {item.aisolation == 0?item.loadPhases + '# ' + item.cable_width + " AWG" + ' TW' + '-CU':null}
+                          {item.aisolation == 0? item.loadPhases + '# ' + item.cable_width + " AWG" + ' TW' + '-CU':null}
                           { item.aisolation == 1?item.loadPhases +  '# ' + item.cable_width + " AWG" +' THWN' + '-CU':null}
-                          { item.aisolation == 2?item.loadPhases+ + '# ' + item.cable_width + " AWG" +' THHN' + '-CU':null}
+                          { item.aisolation == 2?item.loadPhases + '# ' + item.cable_width + " AWG" +' THHN' + '-CU':null}
                         {
                         
                     
@@ -101,7 +101,7 @@ const Report = React.forwardRef(({mreport2,mountReport,arr,numeroDeCircuits,name
                             
                           </th>
                           <th class="mitexto1">{item.grounding_conductor} AWG</th>
-                          <th class="mitexto1">{  item.perPhase + `x ${item.protection_device}` + "-A"}</th>
+                          <th class="mitexto1">{  item.loadPhases  + `x ${item.protection_device}` + "-A"}</th>
                           <th class="mitexto1">{  item.power}</th>
                         </tr>
             

@@ -52,7 +52,7 @@ const TreeNav = ({setMreport2,mreport,mreport2,setMreport,setMreport1,id,setRepo
         setMreport(true)
         setMreport2( res=>res)
       }
-    })
+    }).catch(err =>  setMreport(false))
   } 
   const consultarCircuit = async(id1)=> {
     await authAxios.get('/circuit/'+ id1).then(res=>{res.data.report != null?setEstadoInputs(res.data.report):setEstadoInputs({
