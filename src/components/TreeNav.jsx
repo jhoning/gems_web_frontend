@@ -20,7 +20,7 @@ const authAxios = axios.create({
   }
 })
 
-const TreeNav = ({setMreport2,setArr1 ,setMount1,mreport,mreport2,setMreport,setMreport1,id,setReportActual,nameProject,setNameProject,mount1,setCircuitName,setNameTablero,setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
+const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,mreport,mreport2,setMreport,setMreport1,id,setReportActual,nameProject,setNameProject,mount1,setCircuitName,setNameTablero,setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
   const [t] = useTranslation("global")
   const [proyectoData, setProyectoData] = useState()
   const [mount, setMount] = useState(false)
@@ -35,6 +35,22 @@ const TreeNav = ({setMreport2,setArr1 ,setMount1,mreport,mreport2,setMreport,set
       setMount(true);
     }, 500)
   }, [mount,mount1,mreport2])
+
+  const alertreport = () => {
+    Swal.fire({
+      title: `${t("Alerts.mReport")}`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: `${t("Option.accept")}`,
+      cancelButtonText: `${t("Option.cancel")}`
+    }).then( res => {
+      if(res.isConfirmed){
+        setRespuestaBand(false)
+      }})
+  }
+
   const alert1 = () => {
     Swal.fire({
       title: `${t("Alerts.mCal")}`,
@@ -239,6 +255,9 @@ const TreeNav = ({setMreport2,setArr1 ,setMount1,mreport,mreport2,setMreport,set
         <div style={{ height: '70px', padding: '20px 0 0 0px', margin: '0px 6px 0 0' }}>
         
           <span onClick={() => {
+            if(respuestaBand){
+              alertreport()
+            }
            if(mreport){
              alert1()
            }else {

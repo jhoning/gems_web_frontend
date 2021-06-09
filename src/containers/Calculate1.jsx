@@ -72,6 +72,7 @@ const Calculate1 = () => {
   const [mreport,setMreport] = useState()
   const [mreport1,setMreport1] = useState()
   const [mreport2,setMreport2] = useState(false)
+  const [respuestaBand,setRespuestaBand] = useState(false)
 
   useEffect(() => {
     setTimeout(console.log('Arreglo de Reportes',arr),2000)
@@ -121,9 +122,10 @@ const Calculate1 = () => {
           <div className="dos gb">
             {/* <MenuTree idCircuits={id1} /> */}
           {/*   <button onClick={()=>{console.log(arregloDeIdCircuitos)}}>ver reportes</button> */}
-            <TreeNav setMount1={setMount1} setArr1={setArr} mreport2={mreport2} setMreport2={setMreport2} mreport={mreport} setMreport1={setMreport1}  setMreport={setMreport} setReportActual={setReportActual} id={id1} nameTablero={nameTablero} nameProject={nameProject} setNameProject={setNameProject} mount1={mount1} setMount={setMount1}  setCircuitName={setCircuitName} setNameTablero={setNameTablero} idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
+            <TreeNav respuestaBand={respuestaBand} setRespuestaBand={setRespuestaBand} setMount1={setMount1} setArr1={setArr} mreport2={mreport2} setMreport2={setMreport2} mreport={mreport} setMreport1={setMreport1}  setMreport={setMreport} setReportActual={setReportActual} id={id1} nameTablero={nameTablero} nameProject={nameProject} setNameProject={setNameProject} mount1={mount1} setMount={setMount1}  setCircuitName={setCircuitName} setNameTablero={setNameTablero} idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
           </div>
-          <InputsCalculate mreport2={mreport2}   setMreport2={setMreport2} mreport1={mreport1} mreport={mreport}  setMreport1={setMreport1} setMreport={setMreport} setEstadoInputs={setEstadoInputs} setCircuitActual={setCircuitActual} setNumeroDeCircuits={setNumeroDeCircuits} mountReport={mountReport} setMountReport={setMountReport} reportActual={reportActual} setNameTablero={setNameTablero} nameTablero={nameTablero} mount1={mount1} setMount1={setMount1} circuitName={circuitName} setCircuitName={setCircuitName} values={values} setValues={setValues} circuitActual1={circuitActual1} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
+        {/*   <button onClick={()=> console.log(respuestaBand)}>ver respuesta2</button> */} 
+          <InputsCalculate setRespuestaBand={setRespuestaBand} mreport2={mreport2}   setMreport2={setMreport2} mreport1={mreport1} mreport={mreport}  setMreport1={setMreport1} setMreport={setMreport} setEstadoInputs={setEstadoInputs} setCircuitActual={setCircuitActual} setNumeroDeCircuits={setNumeroDeCircuits} mountReport={mountReport} setMountReport={setMountReport} reportActual={reportActual} setNameTablero={setNameTablero} nameTablero={nameTablero} mount1={mount1} setMount1={setMount1} circuitName={circuitName} setCircuitName={setCircuitName} values={values} setValues={setValues} circuitActual1={circuitActual1} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
           <div className="w45 p-0 report" id="report">
             <a onClick={() => amplio()} class="no-seleccionable point amp mr70 mt10">
               <i class="fa fa-expand mr5" aria-hidden="true"></i>

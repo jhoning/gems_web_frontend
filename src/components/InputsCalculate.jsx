@@ -9,7 +9,7 @@ import {useState,useEffect} from 'react'
 import axios from 'axios'
 const Swal = require('sweetalert2')
 
-const InputsCalculate = ({setMreport,setMreport2, setMreport1,mreport1,mreport,setEstadoInputs,setCircuitActual,setNumeroDeCircuits,mountReport,setMountReport,setNameTablero,reportActual,nameTablero,mount1,setMount1,circuitName,setCircuitName,values,setValues,setArr,arr,circuitActual,circuitActual1,estadoInputs, name,setNameProject, id}) => {
+const InputsCalculate = ({setRespuestaBand,setMreport,setMreport2, setMreport1,mreport1,mreport,setEstadoInputs,setCircuitActual,setNumeroDeCircuits,mountReport,setMountReport,setNameTablero,reportActual,nameTablero,mount1,setMount1,circuitName,setCircuitName,values,setValues,setArr,arr,circuitActual,circuitActual1,estadoInputs, name,setNameProject, id}) => {
   const [respuesta,setRespuesta] = useState({
     current: "0",
     cable_width: "0",
@@ -134,7 +134,7 @@ const [reportAux, setReportAux] = useState()
     perPhase:report.perPhase,
     feeder_include_neutral_wire:report.feeder_include_neutral_wire,
     pipe_material:report.pipe_material,
-    system_voltage:report.system_voltage}).then(res=>{setRespuesta({...res.data });console.log('ListForm',res)}).catch(err=>alertCamp())
+    system_voltage:report.system_voltage}).then(res=>{setRespuesta({...res.data });if(JSON.stringify( respuesta ) === JSON.stringify( respuesta2 )){setRespuestaBand(true)};console.log('ListForm',res)}).catch(err=>alertCamp())
   }
   const cambiarNombreProject = async()=> {
     await authAxios.patch('/project/'+id,{name:name}).then(res=>{console.log(res)}).catch(err => console.log(err))
@@ -581,37 +581,37 @@ const [reportAux, setReportAux] = useState()
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2 mitexto" >{t("InputsC.current")}</label>
           <div class="col-sm-8 mx-0">
-            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3" placeholder="0"  autocomplete="off" onChange={ e => setValues({...values,current: e.target.value}) } value={parseFloat(respuesta.current).toFixed(2)}/>
+            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3" placeholder="0"  autocomplete="off" onChange={ e => {setValues({...values,current: e.target.value});if(JSON.stringify( respuesta) === JSON.stringify( respuesta2 )){setRespuestaBand(true)}} } value={parseFloat(respuesta.current).toFixed(2)}/>
           </div>
         </div>
         <div class="form-group row my-3">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2 mitexto" >{t("InputsC.cable")}(AWG)</label>
           <div class="col-sm-8 mx-0">
-            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,cable_width: e.target.value}) } value={parseInt(respuesta.cable_width)}/>
+            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => {setValues({...values,cable_width: e.target.value});if(JSON.stringify( respuesta ) === JSON.stringify( respuesta2 )){setRespuestaBand(true)}} } value={parseInt(respuesta.cable_width)}/>
           </div>
         </div>
         <div class="form-group row my-0">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mitexto">{t("InputsC.pipeD")}</label>
           <div class="col-sm-8 mx-0">
-            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,pipe_diameter: e.target.value}) } value={respuesta.pipe_diameter}/>
+            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => {setValues({...values,pipe_diameter: e.target.value});if(JSON.stringify( respuesta ) === JSON.stringify( respuesta2 )){setRespuestaBand(true)}} } value={respuesta.pipe_diameter}/>
           </div>
         </div>
         <div class="form-group row my-0">
           <label for="inputEmail3" class="col-sm-4 col-form-label my-0 mitexto">{t("InputsC.protectionD")}</label>
           <div class="col-sm-8 my-0">
-            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,protection_device: e.target.value}) } value={parseFloat(respuesta.protection_device).toFixed(2)}/>
+            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => {setValues({...values,protection_device: e.target.value});;if(JSON.stringify( respuesta ) === JSON.stringify( respuesta2 )){setRespuestaBand(true)}} } value={parseFloat(respuesta.protection_device).toFixed(2)}/>
           </div>
         </div>
         <div class="form-group row my-0">
           <label for="inputEmail3" class="col-sm-4 col-form-label my-0 mitexto">{t("Calculate.gCond")}(AWG)</label>
           <div class="col-sm-8 my-0">
-            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,grounding_conductor: e.target.value}) } value={respuesta.grounding_conductor}/>
+            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => {setValues({...values,grounding_conductor: e.target.value});;if(JSON.stringify( respuesta ) === JSON.stringify( respuesta2  )){setRespuestaBand(true)}} } value={respuesta.grounding_conductor}/>
           </div>
         </div>
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mitexto">{t("InputsC.voltage")}(%)</label>
           <div class="col-sm-8 mx-0">
-            <input type="text" class="form-control text-right mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,voltaje_drop: e.target.value}) } value={respuesta.voltage_drop}/>
+            <input type="text" class="form-control text-right mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => {setValues({...values,voltaje_drop: e.target.value});if(JSON.stringify( respuesta ) === JSON.stringify( respuesta2 )){setRespuestaBand(true)}} } value={respuesta.voltage_drop}/>
           </div>
         </div>
         <div className="row mx-1">
