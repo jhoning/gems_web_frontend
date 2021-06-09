@@ -11,13 +11,14 @@ const Swal = require('sweetalert2')
 
 const InputsCalculate = ({setMreport,setMreport2, setMreport1,mreport1,mreport,setEstadoInputs,setCircuitActual,setNumeroDeCircuits,mountReport,setMountReport,setNameTablero,reportActual,nameTablero,mount1,setMount1,circuitName,setCircuitName,values,setValues,setArr,arr,circuitActual,circuitActual1,estadoInputs, name,setNameProject, id}) => {
   const [respuesta,setRespuesta] = useState({
-    current: 0,
+    current: "0",
     cable_width: "0",
     pipe_diameter: "0",
-    protection_device: 0,
-    voltage_drop: 0,
-    grounding_conductor:0
+    protection_device: "0",
+    voltage_drop: "0",
+    grounding_conductor:"0"
 })
+const [respuesta2,setRespuesta2] = useState()
 const [report,setReport] = useState({
   loadType:0,
   power: 0,
@@ -70,12 +71,21 @@ const [reportAux, setReportAux] = useState()
        grounding_conductor:estadoInputs.grounding_conductor,
   
      })
+     setRespuesta2({
+      voltage_drop:estadoInputs.voltaje_drop,
+      current:estadoInputs.current,
+      cable_width:estadoInputs.cable_width,
+      pipe_diameter:estadoInputs.pipe_diameter,
+      protection_device:estadoInputs.protection_device,
+      grounding_conductor:estadoInputs.grounding_conductor,
+ 
+    })
      console.log('comparacion de estdos:')
      console.log(JSON.stringify( report ) === JSON.stringify( reportAux ))
      if(mreport1){
       enviarDatos(circuitActual)
-      modificarReporte();
-      reportGenerate()
+     /*  modificarReporte(); */
+     /*  reportGenerate() */
       setMreport1(false)
       setMreport(false)
       setMreport2(res => !res)
@@ -601,7 +611,7 @@ const [reportAux, setReportAux] = useState()
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mitexto">{t("InputsC.voltage")}(%)</label>
           <div class="col-sm-8 mx-0">
-            <input type="text" class="form-control text-right mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,voltaje_drop: e.target.value}) } value={parseFloat(respuesta.voltage_drop).toFixed(2)}/>
+            <input type="text" class="form-control text-right mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => setValues({...values,voltaje_drop: e.target.value}) } value={respuesta.voltage_drop}/>
           </div>
         </div>
         <div className="row mx-1">

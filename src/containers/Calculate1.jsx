@@ -54,7 +54,16 @@ const Calculate1 = () => {
     perPhase:"1",
     feeder_include_neutral_wire:"true",
     pipe_material:0,
-    system_voltage:"0",});
+    system_voltage:"0",
+    voltage_drop:0,
+    current:0,
+    cable_width:0,
+    pipe_diameter:0,
+    protection_device:0,
+    grounding_conductor:0,
+  
+  
+  });
   const [numeroDeCircuits,setNumeroDeCircuits] = useState([]);
   const [consultaReportes,setConsultaReportes] = useState();
   const [arregloIdReportes,setArrgloIdReportes] = useState([]);
@@ -112,7 +121,7 @@ const Calculate1 = () => {
           <div className="dos gb">
             {/* <MenuTree idCircuits={id1} /> */}
           {/*   <button onClick={()=>{console.log(arregloDeIdCircuitos)}}>ver reportes</button> */}
-            <TreeNav  mreport2={mreport2} setMreport2={setMreport2} mreport={mreport} setMreport1={setMreport1}  setMreport={setMreport} setReportActual={setReportActual} id={id1} nameTablero={nameTablero} nameProject={nameProject} setNameProject={setNameProject} mount1={mount1} setMount={setMount1}  setCircuitName={setCircuitName} setNameTablero={setNameTablero} idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
+            <TreeNav setMount1={setMount1} setArr1={setArr} mreport2={mreport2} setMreport2={setMreport2} mreport={mreport} setMreport1={setMreport1}  setMreport={setMreport} setReportActual={setReportActual} id={id1} nameTablero={nameTablero} nameProject={nameProject} setNameProject={setNameProject} mount1={mount1} setMount={setMount1}  setCircuitName={setCircuitName} setNameTablero={setNameTablero} idCircuits={id1} setArr={setArr} circuitActual1={circuitActual1} setCircuitActual1={setCircuitActual1} setNumeroDeCircuits={setNumeroDeCircuits} setEstadoInputs={setEstadoInputs} setConsultaBoard={setConsultaBoard} setCircuitActual={setCircuitActual} circuitActual={circuitActual}  />
           </div>
           <InputsCalculate mreport2={mreport2}   setMreport2={setMreport2} mreport1={mreport1} mreport={mreport}  setMreport1={setMreport1} setMreport={setMreport} setEstadoInputs={setEstadoInputs} setCircuitActual={setCircuitActual} setNumeroDeCircuits={setNumeroDeCircuits} mountReport={mountReport} setMountReport={setMountReport} reportActual={reportActual} setNameTablero={setNameTablero} nameTablero={nameTablero} mount1={mount1} setMount1={setMount1} circuitName={circuitName} setCircuitName={setCircuitName} values={values} setValues={setValues} circuitActual1={circuitActual1} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
           <div className="w45 p-0 report" id="report">

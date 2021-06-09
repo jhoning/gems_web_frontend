@@ -20,7 +20,7 @@ const authAxios = axios.create({
   }
 })
 
-const TreeNav = ({setMreport2,mreport,mreport2,setMreport,setMreport1,id,setReportActual,nameProject,setNameProject,mount1,setMount1,setCircuitName,setNameTablero,setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
+const TreeNav = ({setMreport2,setArr1 ,setMount1,mreport,mreport2,setMreport,setMreport1,id,setReportActual,nameProject,setNameProject,mount1,setCircuitName,setNameTablero,setCircuitActual1,circuitActual1, idCircuits,setCircuitActual,circuitActual,setNumeroDeCircuits,setConsultaBoard,setEstadoInputs }) => {
   const [t] = useTranslation("global")
   const [proyectoData, setProyectoData] = useState()
   const [mount, setMount] = useState(false)
@@ -28,7 +28,9 @@ const TreeNav = ({setMreport2,mreport,mreport2,setMreport,setMreport1,id,setRepo
   const [tablerosP,setTablerosP] = useState([]);
   
   useEffect(() => {
+   /*  registrarBoard1() */
     obtenerTableros()
+  
     setTimeout(() => {
       setMount(true);
     }, 500)
@@ -47,12 +49,15 @@ const TreeNav = ({setMreport2,mreport,mreport2,setMreport,setMreport1,id,setRepo
         setMreport1(true)
         setMreport(false)
         setMreport2( res=>!res)
-      }else{
+      } else{
+        setMreport(false)
         setMreport1(false)
-        setMreport(true)
         setMreport2( res=>res)
+       /*  setMreport(true)
+        setMreport2( res=>res)   */
       }
-    }).catch(err =>  setMreport(false))
+  
+    })/* .catch(err =>  setMreport(true)) */
   } 
   const consultarCircuit = async(id1)=> {
     await authAxios.get('/circuit/'+ id1).then(res=>{res.data.report != null?setEstadoInputs(res.data.report):setEstadoInputs({
@@ -208,7 +213,7 @@ const TreeNav = ({setMreport2,mreport,mreport2,setMreport,setMreport1,id,setRepo
     }
     console.log(aux_padre_null);
     setArr([
-    ...aux_padre_null
+   ...aux_padre_null
       
      ])
   }
@@ -223,6 +228,9 @@ const TreeNav = ({setMreport2,mreport,mreport2,setMreport,setMreport1,id,setRepo
   }  
   const consultarBoard = async(id1)=>{
     await authAxios.get(`/board/${id1}`).then((resp)=>{setNumeroDeCircuits(resp.data.circuits);console.log(resp.data.circuits)}).catch(err => console.log(err));
+  }
+  const deleteCircuit = async(a) =>{
+    await authAxios.delete('/circuit/'+a)
   }
 
   const nodeTemplate = (node) => {
@@ -292,9 +300,38 @@ const TreeNav = ({setMreport2,mreport,mreport2,setMreport,setMreport1,id,setRepo
         
           }>{node.label}</span>
           { 
-          node.icon == 'circuit'?null:
+          node.icon == 'circuit'?   <a className="ml-5" onClick={()=>{deleteCircuit(node.key);setMount(false);setMount1(res =>!res);
+            if(circuitActual == node.key){
+              setEstadoInputs({
+                loadType:0,
+                power: 0,
+                distance: "0",
+                powerFactor: 0,
+                voltageDrop: "0",
+                aisolation:"0",
+                temperature:0,
+                loadPhases:"0",
+                perPhase:"1",
+                feeder_include_neutral_wire:"true",
+                pipe_material:0,
+                system_voltage:"0",
+                voltaje_drop:0,
+                current:0,
+                cable_width:0,
+                pipe_diameter:0,
+                protection_device:0,
+                grounding_conductor:0,})
+            }
+          
+          
+          
+          
+          }}>
+          <i class="fa fa-trash" ></i>
+          </a>:
           <ul class="navbar-nav fr mt3 nav3">
             <li class="nav-item ">
+         
             <a class=""  href="#"  onClick={() => {
                     addCircuit(node.key) 
                     setMount(false)
@@ -360,7 +397,9 @@ const TreeNav = ({setMreport2,mreport,mreport2,setMreport,setMreport1,id,setRepo
         </div>
       </div>
      
-       <button className='btn btn-primary mb-2 mt-2 gray' onClick={() => {
+       <button className='btn btn-primary mb-2 mt-2 gray' id='buttonReport1' onClick={() => {
+         
+        document.getElementById('buttonReport1').classList.add('d-none');
         registrarBoard1()
         setMount(false)
 
