@@ -222,13 +222,30 @@
 .p-treenode-label > div > span {
     font-size: 1rem;
     float: left;
-    width: 82% !important;
+    width: 100% !important;
     background: transparent;
-    padding-left: 30px;
-    margin-left: -30px;
+    padding-left: 36px;
+    margin-left: -36px;
     /* position: absolute; */
     z-index: 9;
 }
+
+.p-treenode-children .p-treenode-label > div > span {
+    font-size: 1rem;
+    float: left;
+    width: 130% !important;
+    background: transparent;
+    /* position: absolute; */
+    z-index: 9;
+}
+
+.p-treenode-label .ml-5 {
+margin-left: 0 !important;
+}
+
+.p-treenode-label .fa-trash {
+    margin-left: -20px !important;
+    }
 
 .p-tree-toggler-icon {
     font-size: 12px !important;
