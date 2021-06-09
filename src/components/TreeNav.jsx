@@ -325,7 +325,7 @@ const TreeNav = ({setMreport2,mreport,mreport2,setMreport,setMreport1,id,setRepo
                   </span>
                 </div>
               </a>
-              <a class="dropdown-item" id="id_en" >
+             {/*  <a class="dropdown-item" id="id_en" >
                 <div class="flag-icon-holder">
                   <img class="ban" src={tab} />
                   <span class="text-dark" onClick={() => {

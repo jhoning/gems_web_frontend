@@ -115,7 +115,7 @@
         "addT": "Agregar tablero",
         "addAppliance": "Agregar circuito",
         "addBoard": "Agregar tablero"
-    },
+    }, 
     "Alerts": {
         "login": "Usuario o contraseña incorrectos",
         "register": "Registro exitoso",
@@ -128,10 +128,13 @@
         "exist": "Datos actualizados de forma exitosa",
         "delete": "Eliminado",
         "mCal": "¿Desea calcular esos cambios?",
-        "mReport": "¿Desea agregar el circuito calculado al reporte?"
+        "mReport": "¿Desea agregar el circuito calculado al reporte?",
+        "check": "Error: verificar datos ingresados"
     },
     "Board": {
-        "nTab": "Nueva pestaña"
+        "nTab": "Nueva pestaña",
+        "nBoard": "Nombre del tablero",
+        "nCir": "Nombre del circuito"
     },
     "Option": {
         "yes": "Sí",

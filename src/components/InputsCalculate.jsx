@@ -124,7 +124,7 @@ const [reportAux, setReportAux] = useState()
     perPhase:report.perPhase,
     feeder_include_neutral_wire:report.feeder_include_neutral_wire,
     pipe_material:report.pipe_material,
-    system_voltage:report.system_voltage}).then(res=>{setRespuesta({...res.data });console.log('ListForm',res)}).catch(err=>alert('Error: verificar datos ingresados'))
+    system_voltage:report.system_voltage}).then(res=>{setRespuesta({...res.data });console.log('ListForm',res)}).catch(err=>alertCamp())
   }
   const cambiarNombreProject = async()=> {
     await authAxios.patch('/project/'+id,{name:name}).then(res=>{console.log(res)}).catch(err => console.log(err))
@@ -251,6 +251,16 @@ const [reportAux, setReportAux] = useState()
 
       }
   }
+
+  const alertCamp = () => {
+    Swal.fire({
+      title: `${t("Alerts.check")}`,
+      icon: 'warning',
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: `${t("Option.accept")}`
+    })
+  } 
 
   const alert1 = () => {
     Swal.fire({
@@ -401,10 +411,6 @@ const [reportAux, setReportAux] = useState()
       pipe_material:report.pipe_material,
       system_voltage:report.system_voltage} )}}>ver result</button> */}
       <div  autocomplete="off">
-        <a onClick={() => amp()} class="point amp1">
-        <i class="fa fa-expand mr5" aria-hidden="true"></i>
-        {t("Calculate.amp")}
-        </a>
         <div class="font-controls btn-toolbar f-r mt5" role="toolbar" aria-label="Botones">
           <div class="font-control aumentar no-seleccionable" id="font-up">A<sup>+</sup></div>
           <div class="font-control disminuir no-seleccionable" id="font-down">A<sup>-</sup></div>
@@ -415,12 +421,12 @@ const [reportAux, setReportAux] = useState()
         </div>
     
     
-      <div className="container mb-1 ">
+      <div className="container mb-1 ml-0">
         <h4 className="text-left mb-3 p-0 mt-2 color">{t("InputsC.sAppliance")}</h4>
         <div className="row">
       
           <div class="input-group col-12" style={{width:'150px'}}>
-            <label htmlFor="" className='mx-3 mt-1'>Name Board</label>  
+            <label htmlFor="" className='mx-3 mt-1'>{t("Board.nBoard")}</label>  
             <input className='form-control' type="text"  value={nameTablero} onKeyDown={(e) =>handleKeyDownBoard(e)} onChange={e => setNameTablero(e.target.value)}  aria-describedby="sizing-addon2"/>
             <button className='btn btn-primary ml-2 gray' onClick={()=>{cambiarNombreTablero()}}>
               <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" ></i>
@@ -428,7 +434,7 @@ const [reportAux, setReportAux] = useState()
           </div>
 
           <div class="input-group col-12 mt-2" style={{width:'150px'}}>
-            <label htmlFor="" className='mx-3 mt-1'>Name circuit</label>
+            <label htmlFor="" className='mx-3 mt-1'>{t("Board.nCir")}</label>
             <input className='form-control' type="text"  value={circuitName} onKeyDown={(e) =>handleKeyDownCircuit(e)}  onChange={e => setCircuitName(e.target.value)}  aria-describedby="sizing-addon2"/>
             <button className='btn btn-primary ml-2 gray' onClick={()=>{cambiarNombreCircuito()}}> 
               <i className="pi pi-pencil mt-1 ml-1" id="sizing-addon2" ></i>
@@ -561,7 +567,7 @@ const [reportAux, setReportAux] = useState()
             {/* <button className="btn btn-primary mt-2 gray" onClick={()=>console.log(report)}>algo</button> */}
           </div>
         <hr />
-        <h3 className="text-left mb-1 bordeColor p-1 color">{t("InputsC.results")}</h3>
+        <h4 className="text-left mb-1 bordeColor p-1 color">{t("InputsC.results")}</h4>
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mt-2 mitexto" >{t("InputsC.current")}</label>
           <div class="col-sm-8 mx-0">

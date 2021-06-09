@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.header .btn-outline-light {
+    padding: 3px 12px !important;
+}
+
 html {
     height: 100vh;
 }
@@ -16,12 +20,12 @@ html {
     padding-top: 10px !important;
     padding-bottom: 10px !important;
     /* background: #1d262d  !important; */
-    background: #e7e7e7  !important;
+    background: #ebebeb  !important;
 }
 
 
 .foot {
-    background: #e7e7e7  !important;
+    background: #ebebeb  !important;
     padding-top: 10px !important;
     padding-bottom: 10px !important;
     position: fixed;
@@ -376,3 +380,20 @@ html {
   .ml50 {
     margin-left: 60%;
   }
+
+/*   .p-treenode-content {
+    background: #434756;
+    position: relative;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: .8rem 10px .8rem 1.188rem;
+    color: white;
+    -webkit-transition-duration: .45s;
+    transition-duration: .45s;
+    transition-property: color;
+    -webkit-transition-property: color;
+    height: 46px;
+    border-radius: 0 100px 100px 0;
+    cursor: pointer;
+    } */

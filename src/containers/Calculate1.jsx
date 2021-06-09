@@ -116,13 +116,13 @@ const Calculate1 = () => {
           </div>
           <InputsCalculate mreport2={mreport2}   setMreport2={setMreport2} mreport1={mreport1} mreport={mreport}  setMreport1={setMreport1} setMreport={setMreport} setEstadoInputs={setEstadoInputs} setCircuitActual={setCircuitActual} setNumeroDeCircuits={setNumeroDeCircuits} mountReport={mountReport} setMountReport={setMountReport} reportActual={reportActual} setNameTablero={setNameTablero} nameTablero={nameTablero} mount1={mount1} setMount1={setMount1} circuitName={circuitName} setCircuitName={setCircuitName} values={values} setValues={setValues} circuitActual1={circuitActual1} estadoInputs={estadoInputs} setEstadoInputs={setEstadoInputs} setArr={setArr} arr={arr} circuitActual={circuitActual} name={nameProject} setNameProject={setNameProject} id={id1}/>
           <div className="w45 p-0 report" id="report">
-            <a onClick={() => amplio()} class="point amp mr70 mt10">
+            <a onClick={() => amplio()} class="no-seleccionable point amp mr70 mt10">
               <i class="fa fa-expand mr5" aria-hidden="true"></i>
               {t("Calculate.amp")}
             </a>
             <div class="font-controls btn-toolbar f-r mt5 aumentarFont" role="toolbar" aria-label="Botones">
-              <div class="font-control aumentarFont no-seleccionable" id="font-up">A<sup>+</sup></div>
-              <div class="font-control disminuirFont no-seleccionable" id="font-down">A<sup>-</sup></div>
+              <div class="font-control aumentarFont no-seleccionable" id="font-up1">A<sup>+</sup></div>
+              <div class="font-control disminuirFont no-seleccionable" id="font-down1">A<sup>-</sup></div>
             </div>
 
             <div>
@@ -131,7 +131,7 @@ const Calculate1 = () => {
                 trigger={() => <button class="pade btn btn-primary mt-2 gray mitexto1">{t("Calculate.print")}</button>}
                 content={() => componentRef.current}
               />
-              <div class="calculo" ref={componentRef}>
+              <div class="calculo mitexto1" ref={componentRef}>
                 <Report mreport2={mreport2} mountReport={mountReport} mreport1={mreport1} setMountReport={setMountReport} nameTablero={nameTablero} numero arr={arr} arregloDeIdCircuitos={arregloDeIdCircuitos} numeroDeCircuits={numeroDeCircuits} numeroReportes={arregloIdReportes} name={nameProject}/>
               </div>
 

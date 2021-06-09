@@ -17,7 +17,13 @@
 
 .anchoHelp {
     display: inline-block;
-    width: 50px;
+    width: 83px;
+}
+
+.anchoHelp svg {
+    margin-right: 1px;
+    height: 15px;
+    margin-top: -3px;
 }
 
 .anchoButton {
@@ -63,8 +69,9 @@
 }
 
 .line {
-    border: 1px solid #343a40 !important;
+    border: 1px solid #757a80 !important;
 }
+
 .anchoButton {
     width: 200px;
 }
@@ -215,6 +222,12 @@
 .p-treenode-label > div > span {
     font-size: 1rem;
     float: left;
+    width: 82% !important;
+    background: transparent;
+    padding-left: 30px;
+    margin-left: -30px;
+    /* position: absolute; */
+    z-index: 9;
 }
 
 .p-tree-toggler-icon {

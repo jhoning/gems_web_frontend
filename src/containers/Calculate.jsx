@@ -51,8 +51,8 @@ const Calculate = () => {
             {t("Calculate.amp")}
           </a>
           <div class="font-controls btn-toolbar f-r mt5 aumentarFont" role="toolbar" aria-label="Botones">
-              <div class="font-control aumentarFont no-seleccionable" id="font-up">A<sup>+</sup></div>
-              <div class="font-control disminuirFont no-seleccionable" id="font-down">A<sup>-</sup></div>
+              <div class="font-control aumentarFont no-seleccionable" id="font-up1">A<sup>+</sup></div>
+              <div class="font-control disminuirFont no-seleccionable" id="font-down1">A<sup>-</sup></div>
             </div>
             <div className="jumbotron calculoAltoMin ">
               <h2 className="text-center color">{t("Calculate.report")}</h2>
