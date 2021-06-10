@@ -283,7 +283,7 @@ const [reportAux, setReportAux] = useState()
       cancelButtonText: `${t("Option.cancel")}`
     })
   } 
-  const alertreport = () => {
+/*   const alertreport = () => {
     Swal.fire({
       title: `${t("Alerts.mReport")}`,
       icon: 'warning',
@@ -293,7 +293,7 @@ const [reportAux, setReportAux] = useState()
       confirmButtonText: `${t("Option.accept")}`,
       cancelButtonText: `${t("Option.cancel")}`
     })
-  }
+  } */
 
   const handlePipe_material = (e) => {
     
