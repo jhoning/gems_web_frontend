@@ -38,7 +38,7 @@ const Report = React.forwardRef(({mreport2,mountReport,arr,numeroDeCircuits,name
     <>
         <div className="jumbotron calculoAltoMin ">
       {/*     <button class="mitexto1" onClick={()=>console.log(estado)}>verrrr</button> */}
-              <h2 className="text-center color mitexto1">{t("Calculate.report")}</h2>
+              <h4 className="text-center color mitexto1">{t("Calculate.report")}</h4>
 
             <table class="data-table table mb-0 tbl-server-info dataTable no-footer wh" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
               <thead class="bg-g mitexto1">
@@ -56,7 +56,7 @@ const Report = React.forwardRef(({mreport2,mountReport,arr,numeroDeCircuits,name
               </tbody>
             </table>
 
-              <h2 className="text-center color mitexto1 mt-2">{t("Calculate.bCircuits")}</h2>
+              <h4 className="text-center color mitexto1 mt-2">{t("Calculate.bCircuits")}</h4>
               <table class="data-table table mb-0 tbl-server-info dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                 <thead class="bg-g mitexto1">
                   <tr class="ligth ligth-data" role="row">

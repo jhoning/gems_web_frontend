@@ -50,6 +50,8 @@ const UserSettings = () => {
               <h5 className="mb-2 mx-0">{t("userS.userS")}</h5>
             </div>
 
+            {/* <ul class="nav nav-tabs m20"><li class="nav-item"><a href="" class="active nav-link">{t("userS.userS")}</a></li></ul> */}
+
             <div class="white">
             <label class="mt-2 p">{t("userS.companyI")}</label>
             <div className="row mt-2">
@@ -75,8 +77,10 @@ const UserSettings = () => {
             </div>
             </div>
 
-            <div class="conte">
-            <h6 className="mb-3 mt-2">{t("userS.updateU")}</h6>
+            <ul class="nav nav-tabs m21"><li class="nav-item"><a href="" class="active nav-link">{t("userS.updateU")}</a></li></ul>
+
+            <div class="conte user">
+            {/* <h6 className="mb-3 mt-2">{t("userS.updateU")}</h6> */}
             <div className="row ml">
               <div className="col-6">
                 <div className="form-group">
