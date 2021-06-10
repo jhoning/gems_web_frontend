@@ -528,6 +528,15 @@ td {
         width: 30px;
         height: 30px;
     }
+
+    .p-treenode-children .p-treenode-label > div > span {
+        font-size: 1rem;
+        float: left;
+        width: 130% !important;
+        background: transparent;
+        z-index: 9;
+    }
+
     
     /*Este icono es el circuito de 3 puntos */
     .circuit {
