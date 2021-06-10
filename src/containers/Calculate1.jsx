@@ -139,7 +139,7 @@ const Calculate1 = () => {
             <div>
           {/*     <button onClick={()=>console.log(numeroDeCircuits)}>!!</button> */}
               <ReactToPrint
-                trigger={() => <button class="pade btn btn-primary mt-2 gray mitexto1">{t("Calculate.print")}</button>}
+                trigger={() => <button class="pade btn btn-primary mt-2 gray mitexto1 pre">{t("Calculate.print")}</button>}
                 content={() => componentRef.current}
               />
               <div class="calculo mitexto1" ref={componentRef}>

@@ -38,114 +38,89 @@ const Report = React.forwardRef(({mreport2,mountReport,arr,numeroDeCircuits,name
     <>
         <div className="jumbotron calculoAltoMin ">
       {/*     <button class="mitexto1" onClick={()=>console.log(estado)}>verrrr</button> */}
-              <h2 className="text-center color">{t("Calculate.report")}</h2>
-              <table border="1" class="table table-bordered table-sm table-striped calculo">
-                <thead class="table-secondary mitexto1"> 
-                  <tr class="borde1">
-                    <th scope="col-4" className="px-2 mitexto1">{t("Calculate.project")+": " +name}</th>
-                    <th scope="col-4" className="px-2 mitexto1">{"Board: "+ nameTablero}</th>
-                  </tr>
-                  <tr>
+              <h2 className="text-center color mitexto1">{t("Calculate.report")}</h2>
+
+            <table class="data-table table mb-0 tbl-server-info dataTable no-footer wh" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+              <thead class="bg-g mitexto1">
+                <tr class="ligth ligth-data" role="row">
+                  <th class="sorting mitexto1" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" >
+                    {t("Calculate.project")+": " +name}
+                  </th>
+                  <th class="sorting mitexto1" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" >
+                    {"Board: "+ nameTablero}
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="ligth-body mitexto1">
+                     
+              </tbody>
+            </table>
+
+              <h2 className="text-center color mitexto1 mt-2">{t("Calculate.bCircuits")}</h2>
+              <table class="data-table table mb-0 tbl-server-info dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                <thead class="bg-g mitexto1">
+                  <tr class="ligth ligth-data" role="row">
+                    <th class="sorting mitexto1" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" >
+                      {t("Calculate.branch")}
+                    </th>
+                    <th class="sorting mitexto1" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" >
+                      {t("Calculate.bType")}
+                    </th>
+                    <th class="sorting mitexto1" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" >
+                      {t("Calculate.canalization")}
+                    </th>
+                    <th class="sorting mitexto1" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" >
+                      {t("Calculate.fases")}
+                    </th>
+                    <th class="sorting mitexto1" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" >
+                      {t("Calculate.ground")}
+                    </th>
+                    <th class="sorting mitexto1" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" >
+                      {t("Calculate.breaker")}
+                    </th>
+                    <th class="sorting mitexto1" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" >
+                      {t("Calculate.power")}
+                    </th>
                   </tr>
                 </thead>
-                <br />
-                <tbody>
-
-
-                </tbody>
-              </table>
-              <h2 className="text-center color mitexto1">{t("Calculate.bCircuits")}</h2>
-              <table class="table table-bordered mx-0 table-sm">
-                <thead class="table-secondary">
-                  <tr class="borde">
-                    <th scope="col" className="px-2 mitexto1">{t("Calculate.branch")}</th>
-                    <th scope="col" className="px-2 mitexto1">{t("Calculate.bType")}</th>
-                    <th scope="col" className="px-2 mitexto1">{t("Calculate.canalization")}</th>
-                    <th scope="col" className="px-2 mitexto1">{t("Calculate.fases")}</th>
-                    <th scope="col" className="px-2 mitexto1">{t("Calculate.ground")}</th>
-                    <th scope="col" className="px-2 mitexto1">{t("Calculate.breaker")}</th>
-                    <th scope="col" className="px-2 mitexto1">{t("Calculate.power")}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  
-                 
-                    {
+                <tbody class="ligth-body">
+                {
                       arregloDeIdCircuitos.map(item => 
-                        <tr>
-                          <th class="mitexto1">{item.circuit.name}</th>
-                          <th class="mitexto1">
-                            {item.loadType == 0?t("InputsC.kitchen"):null}
-                            {item.loadType == 1?t("InputsC.aCond"):null} 
-                            {item.loadType == 2?'Motor':null}
-                            {item.loadType == 3?'motor':null}
-                          </th>
-                          <th class="mitexto1">
-                            {item.pipe_material == 0?item.pipe_diameter + '"' + t("Option.PVC"):null}
-                            {item.pipe_material == 1?item.pipe_diameter + '"' + t("Option.aluminum"):null}
-                            {item.pipe_material == 2?item.pipe_diameter + '"' + t("Option.steel"):null}
-                          </th>
-                          <th class="mitexto1">
-                          {item.aisolation == 0? item.loadPhases + '# ' + item.cable_width + " AWG" + ' TW' + '-CU':null}
-                          { item.aisolation == 1?item.loadPhases +  '# ' + item.cable_width + " AWG" +' THWN' + '-CU':null}
-                          { item.aisolation == 2?item.loadPhases + '# ' + item.cable_width + " AWG" +' THHN' + '-CU':null}
-                        {
-                        
-                    
-                        /*  {item.aisolation == 0 && item.feeder_include_neutral_wire == "true"?item.perPhase + ' TW' + '-CU':null}
-                            {item.aisolation == 0 && item.feeder_include_neutral_wire == "false" ?item.perPhase + 1 + ' TW' + '-CU':null}
-                            {item.aisolation == 1 && item.feeder_include_neutral_wire == "true"  ?item.perPhase + 1 + ' THWN'+'-CU':null}
-                            {item.aisolation == 1 && item.feeder_include_neutral_wire == "false"  ?item.perPhase  + ' THWN'+'-CU':null}
-                            {item.aisolation == 2 && item.feeder_include_neutral_wire == "true" ?item.perPhase + 1 + ' THHN'+'-CU':null}
-                            {item.aisolation == 2 && item.feeder_include_neutral_wire == "false" ?item.perPhase + ' THHN'+'-CU':null} */}
-                            
-                          </th>
-                          <th class="mitexto1">{item.grounding_conductor} AWG</th>
-                          <th class="mitexto1">{  item.loadPhases  + `x ${item.protection_device}` + "-A"}</th>
-                          <th class="mitexto1">{  item.power}</th>
-                        </tr>
-            
-                      )
-                    }
-               
-                {/* 
-                        branch:
-                          es el nombre del circuito;
-                        Luminaries:
-                          el tipo de carga
-                        canalization:
-                          1/2,3/4,1,1 1/2,2,3,4,5,6 inch"
-                          material de la tuberia: pvc, aluminio o acero;
-                          fases:
-                          return (neutralWire?cablePerphases:cablePherfases + 1) + aisolation.state + "- CU"
-                        ground:
-                          es un output falta crearlo;
-                        breaker:
-                          cablePerphases  `x +${protection_device}` + "-A"
-                        power:
-                         toInt(power.value) 
-
-
-                      */} 
-
-
-         
-
-            
-                  
-
-
-
+                  <tr role="row" class="even">
+                    <td class="mitexto1">{item.circuit.name}</td>
+                    <td class="mitexto1">
+                      {item.loadType == 0?t("InputsC.kitchen"):null}
+                      {item.loadType == 1?t("InputsC.aCond"):null} 
+                      {item.loadType == 2?'Motor':null}
+                      {item.loadType == 3?'motor':null}
+                    </td>
+                    <td class="mitexto1">
+                      {item.pipe_material == 0?item.pipe_diameter + '"' + t("Option.PVC"):null}
+                      {item.pipe_material == 1?item.pipe_diameter + '"' + t("Option.aluminum"):null}
+                      {item.pipe_material == 2?item.pipe_diameter + '"' + t("Option.steel"):null}
+                    </td>
+                    <td class="mitexto1">
+                      {item.aisolation == 0? item.loadPhases + '# ' + item.cable_width + " AWG" + ' TW' + '-CU':null}
+                      { item.aisolation == 1?item.loadPhases +  '# ' + item.cable_width + " AWG" +' THWN' + '-CU':null}
+                      { item.aisolation == 2?item.loadPhases + '# ' + item.cable_width + " AWG" +' THHN' + '-CU':null}
+                    </td>
+                    <td class="mitexto1">{item.grounding_conductor} AWG</td>
+                    <td class="mitexto1">{  item.loadPhases  + `x ${item.protection_device}` + "-A"}</td>
+                    <td class="mitexto1">{  item.power}</td>
+                  </tr>
+                  )
+                }
                 </tbody>
               </table>
 
-              <table class="table table-bordered mx-0 mitexto1">
-                <thead class="table-secondary">
-                  <tr class="borde1">
-                    <th scope="col" colspan="1" className="px-2 mitexto1">{t("Calculate.branch")}</th>
-                    <th scope="col" class="mitexto1" colspan="3"></th>
-                  </tr>
-                </thead>
+              <table class="data-table table mb-0 tbl-server-info dataTable no-footer wh mt-3" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+              <thead class="bg-g mitexto1">
+                <tr class="ligth ligth-data" role="row">
+                  <th class="sorting mitexto1" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" >
+                    {t("Calculate.branch")}
+                  </th>
+                </tr>
+              </thead>
                 <tbody>
 
 

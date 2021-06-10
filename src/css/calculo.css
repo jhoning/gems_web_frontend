@@ -437,16 +437,48 @@ hr {
 }
 
 .calculo thead {
-    background: transparent !important;
-    border: transparent !important;
+    font-size: 14px;
+    line-height: 10px;
+    background: #f4f5fa !important;
+    color: #110A57;
+    border: 0px;
+    font-weight: 700 !important;
+    vertical-align: bottom;
+    border-bottom: 2px solid #e6e6e6 !important;
+}
+
+.calculo .wh thead {
+    font-size: 14px;
+    line-height: 10px;
+    background: #f4f5fa !important;
+    color: #110A57;
+    border: 0px;
+    font-weight: 700 !important;
+    vertical-align: bottom;
+    border-bottom: transparent !important;
+}
+
+tbody tr {
+    vertical-align: bottom;
+    border-top: 2px solid #f7f7f7 !important;
+}
+
+.calculo tbody tr:nth-of-type(odd) {
+    background-color: #fbfdff;
 }
 
 .calculo th {
-    border: 1px solid #fafafa !important;
+    padding: .65rem !important;
+    border: transparent !important;
     background: transparent !important;
 }
 
+.pre {
+    font-size: 14px !important;
+}
+
 .calculo td {
+    padding: .25rem .75rem !important;
     border: 1px solid #fafafa !important;
     background: transparent !important;
 }
@@ -511,6 +543,15 @@ td {
     margin-bottom: 15px;
     margin-right: 3px;
     }
+
+    .p-treenode-children .p-treenode-label > div > span {
+        font-size: 1rem;
+        float: left;
+        width: 155% !important;
+        background: transparent;
+        z-index: 9;
+    }
+
     .w45 {
         width: 41%;
         background: white;

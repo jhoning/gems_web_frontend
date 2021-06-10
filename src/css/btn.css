@@ -226,16 +226,6 @@
     background: transparent;
     padding-left: 36px;
     margin-left: -36px;
-    /* position: absolute; */
-    z-index: 9;
-}
-
-.p-treenode-children .p-treenode-label > div > span {
-    font-size: 1rem;
-    float: left;
-    width: 130% !important;
-    background: transparent;
-    /* position: absolute; */
     z-index: 9;
 }
 
@@ -301,6 +291,13 @@ h3 {
 
 .mb2 {
     margin-bottom: 1.4rem;
+}
+.p-treenode-children .p-treenode-label > div > span {
+    font-size: 1rem;
+    float: left;
+    width: 134% !important;
+    background: transparent;
+    z-index: 9;
 }
 
 @media (max-width: 500px) {
