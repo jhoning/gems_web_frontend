@@ -417,3 +417,8 @@ html {
         border-radius: .25rem;
         transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     }
+    .help svg {
+        margin-right: 1px;
+        height: 15px;
+        margin-top: -3px;
+    }
