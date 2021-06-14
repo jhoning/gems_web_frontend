@@ -73,6 +73,7 @@ const Calculate1 = () => {
   const [mreport1,setMreport1] = useState()
   const [mreport2,setMreport2] = useState(false)
   const [respuestaBand,setRespuestaBand] = useState(false)
+  const [circuitActual2,setCircuitActual2] = useState()
 
   useEffect(() => {
     setTimeout(console.log('Arreglo de Reportes',arr),2000)
@@ -81,7 +82,7 @@ const Calculate1 = () => {
     
       for (let i = 0; i < numeroDeCircuits.length; i++) {
         for (let j = 0; j < arr.length; j++) {
-          if(numeroDeCircuits[i].id == arr[j].circuit.id){
+          if(numeroDeCircuits[i]?.id == arr[j]?.circuit?.id){
             setArregloDeIdCircuitos(res => [...res,arr[j]])
           }
           

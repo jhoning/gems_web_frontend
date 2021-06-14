@@ -26,6 +26,7 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
   const [mount, setMount] = useState(false)
   const [arr, setArr] = useState()
   const [tablerosP,setTablerosP] = useState([]);
+  const [circuitActual2,setCircuitActual2] = useState();
   
   useEffect(() => {
    /*  registrarBoard1() */
@@ -69,6 +70,7 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
         setMreport(false)
         setMreport1(false)
         setMreport2( res=>res)
+        document.getElementById(`test${circuitActual2}`).click()
        /*  setMreport(true)
         setMreport2( res=>res)   */
       }
@@ -254,12 +256,14 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
       return (
         <div style={{ height: '70px', padding: '20px 0 0 0px', margin: '0px 6px 0 0' }}>
         
-          <span onClick={() => {
+          <span id={`test${node.key}`} onClick={() => {
             if(respuestaBand){
               alertreport()
+              setCircuitActual2(node.key)
             }
            if(mreport){
              alert1()
+             setCircuitActual2(node.key)
            }else {
                      
              if(node.icon == 'tab' && !mreport){

@@ -611,7 +611,7 @@ const [reportAux, setReportAux] = useState()
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mitexto">{t("InputsC.voltage")}(%)</label>
           <div class="col-sm-8 mx-0">
-            <input type="text" class="form-control text-right mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => {setValues({...values,voltaje_drop: e.target.value});if(JSON.stringify( respuesta ) === JSON.stringify( respuesta2 )){setRespuestaBand(true)}} } value={respuesta.voltage_drop}/>
+            <input type="text" class="form-control text-right mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => {setValues({...values,voltaje_drop: e.target.value});if(JSON.stringify( respuesta ) === JSON.stringify( respuesta2 )){setRespuestaBand(true)}} } value={parseFloat(respuesta.voltage_drop).toFixed(2) }/>
           </div>
         </div>
         <div className="row mx-1">
