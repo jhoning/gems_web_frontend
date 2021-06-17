@@ -49,6 +49,8 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
     }).then( res => {
       if(res.isConfirmed){
         setRespuestaBand(false)
+      }else {
+        setRespuestaBand(false)
       }})
   }
 
@@ -66,11 +68,12 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
         setMreport1(true)
         setMreport(false)
         setMreport2( res=>!res)
+        document.getElementById(`test${circuitActual1}`)?.click()
       } else{
         setMreport(false)
         setMreport1(false)
         setMreport2( res=>res)
-        document.getElementById(`test${circuitActual2}`).click()
+        document.getElementById(`test${circuitActual2}`)?.click()
        /*  setMreport(true)
         setMreport2( res=>res)   */
       }
@@ -237,7 +240,7 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
   }
   const handleKeyDownProject = (event) => {
     if (event.key === 'Enter') {
-      cambiarNombreProject()()
+      cambiarNombreProject()
       console.log('do validate')
     }
   }
@@ -256,16 +259,22 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
       return (
         <div style={{ height: '70px', padding: '20px 0 0 0px', margin: '0px 6px 0 0' }}>
         
-          <span id={`test${node.key}`} onClick={() => {
+          <span id={`test${node.key}`} onMouseOver={()=>{setCircuitActual2(node.key)}} onClick={() => {
+            setCircuitActual2(node.key)
             if(respuestaBand){
-              alertreport()
-              setCircuitActual2(node.key)
+        
+                alertreport()
+         
+             
+           
             }
            if(mreport){
-             alert1()
-             setCircuitActual2(node.key)
+            setCircuitActual2(node.key)
+            console.log('circuito 2 seleccionandos:',circuitActual2)
+              alert1()
+           
            }else {
-                     
+            setCircuitActual2(node.key)       
              if(node.icon == 'tab' && !mreport){
               setNameTablero(ant => {
                 if(ant != node.label){
@@ -408,6 +417,7 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
   return (
     <>
       <div className='container mb-2'>
+    {/*     <button onClick={()=>{console.log(circuitActual2)}}>VER 2</button> */}
         <div className="row">
         <label htmlFor="" className='mx-3 mt-1 text-white'>Name Project</label>  
         <div class="input-group col-12" style={{width:'150px'}}>

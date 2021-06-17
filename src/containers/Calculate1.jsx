@@ -73,7 +73,7 @@ const Calculate1 = () => {
   const [mreport1,setMreport1] = useState()
   const [mreport2,setMreport2] = useState(false)
   const [respuestaBand,setRespuestaBand] = useState(false)
-  const [circuitActual2,setCircuitActual2] = useState()
+  
 
   useEffect(() => {
     setTimeout(console.log('Arreglo de Reportes',arr),2000)

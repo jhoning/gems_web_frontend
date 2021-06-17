@@ -84,8 +84,8 @@ const [reportAux, setReportAux] = useState()
      console.log(JSON.stringify( report ) === JSON.stringify( reportAux ))
      if(mreport1){
       enviarDatos(circuitActual)
-     /*  modificarReporte(); */
-     /*  reportGenerate() */
+      modificarReporte(); 
+      reportGenerate() 
       setMreport1(false)
       setMreport(false)
       setMreport2(res => !res)
@@ -611,13 +611,13 @@ const [reportAux, setReportAux] = useState()
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-4 col-form-label mx-0 mitexto">{t("InputsC.voltage")}(%)</label>
           <div class="col-sm-8 mx-0">
-            <input type="text" class="form-control text-right mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => {setValues({...values,voltaje_drop: e.target.value});if(JSON.stringify( respuesta ) === JSON.stringify( respuesta2 )){setRespuestaBand(true)}} } value={parseFloat(respuesta.voltage_drop).toFixed(2) }/>
+            <input type="text" class="form-control text-right mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => {setValues({...values,voltaje_drop: e.target.value});if(JSON.stringify( respuesta ) === JSON.stringify( respuesta2 )){setRespuestaBand(true)}} } value={respuesta.voltage_drop?parseFloat(respuesta.voltage_drop).toFixed(2):0 }/>
           </div>
         </div>
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>{modificarReporte();reportGenerate(); setMreport(false)/* actualizarCircuit() *//* actualizarCircuit2() */ }}>{t("Calculate.report")}</button></div>
+          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>{ modificarReporte();reportGenerate();   setRespuestaBand(false); setMreport(false);/* actualizarCircuit() *//* actualizarCircuit2() */ }}>{t("Calculate.report")}</button></div>
         </div>
       </div>
       </div>
