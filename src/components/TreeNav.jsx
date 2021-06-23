@@ -79,6 +79,7 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
         setRespuestaBand(false)
       }else {
         setRespuestaBand(false)
+        
       }})
   }
 
@@ -96,14 +97,13 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
         setMreport1(true)
         setMreport(false)
         setMreport2( res=>!res)
-        setTimeout( ()=> {
-          document.getElementById(`test${circuitActual2}`)?.click()
-        }, 3000)
+     
      
       } else{
         setMreport(false)
         setMreport1(false)
         setMreport2( res=>res)
+        document.getElementById(`test${circuitActual2}`)?.click()
      
        /*  setMreport(true)
         setMreport2( res=>res)   */
@@ -302,7 +302,7 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
            if(mreport){
             setCircuitActual2(node.key)
             console.log('circuito 2 seleccionandos:',circuitActual2)
-           /*    alert1() */
+              alert1() 
            
            }else {
             setCircuitActual2(node.key)       
