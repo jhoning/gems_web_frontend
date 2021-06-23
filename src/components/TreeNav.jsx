@@ -27,7 +27,35 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
   const [arr, setArr] = useState()
   const [tablerosP,setTablerosP] = useState([]);
   const [circuitActual2,setCircuitActual2] = useState();
-  
+  ///////////////////Funcion para expandir nav//////////////////////////
+  const [expandedKeys, setExpandedKeys] = useState({});
+
+  const expandAll = () => {
+    let _expandedKeys = {};
+
+    const expandNode = (node, _expandedKeys) => {
+      if (node.children && node.children.length) {
+          _expandedKeys[node.key] = true;
+
+          for (let child of node.children) {
+              expandNode(child, _expandedKeys);
+          }
+      }
+    }
+    for (let node of arr) {
+        expandNode(node, _expandedKeys);
+    }
+
+    setExpandedKeys(_expandedKeys);
+
+    const collapseAll = () => {
+      setExpandedKeys({});
+    }
+
+   
+}
+
+  /////////////////////////////////////////////////////////////////////
   useEffect(() => {
    /*  registrarBoard1() */
     obtenerTableros()
@@ -68,12 +96,15 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
         setMreport1(true)
         setMreport(false)
         setMreport2( res=>!res)
-        document.getElementById(`test${circuitActual1}`)?.click()
+        setTimeout( ()=> {
+          document.getElementById(`test${circuitActual2}`)?.click()
+        }, 3000)
+     
       } else{
         setMreport(false)
         setMreport1(false)
         setMreport2( res=>res)
-        document.getElementById(`test${circuitActual2}`)?.click()
+     
        /*  setMreport(true)
         setMreport2( res=>res)   */
       }
@@ -257,13 +288,13 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
   const nodeTemplate = (node) => {
     if (node.label) {
       return (
-        <div style={{ height: '70px', padding: '20px 0 0 0px', margin: '0px 6px 0 0' }}>
+        <div id={`area${node.key}`} style={{ height: '70px', padding: '20px 0 0 0px', margin: '0px 6px 0 0' }}>
         
           <span id={`test${node.key}`} onMouseOver={()=>{setCircuitActual2(node.key)}} onClick={() => {
             setCircuitActual2(node.key)
             if(respuestaBand){
         
-                alertreport()
+         /*        alertreport() */
          
              
            
@@ -271,7 +302,7 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
            if(mreport){
             setCircuitActual2(node.key)
             console.log('circuito 2 seleccionandos:',circuitActual2)
-              alert1()
+           /*    alert1() */
            
            }else {
             setCircuitActual2(node.key)       
@@ -367,6 +398,7 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
             <a class=""  href="#"  onClick={() => {
                     addCircuit(node.key) 
                     setMount(false)
+                    expandAll()
                   }} >
               <img class="ban" src={plus} />
             </a> 
@@ -437,7 +469,7 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
         setMount(false)
 
       }}>{t("MenuTree.addBoard")} +</button>   
-      <Tree value={arr} nodeTemplate={nodeTemplate} />
+      <Tree value={arr} nodeTemplate={nodeTemplate} expandedKeys={expandedKeys} onToggle={e => setExpandedKeys(e.value)}/>
     </>
   )
 }

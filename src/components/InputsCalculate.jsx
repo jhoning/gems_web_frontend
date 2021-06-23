@@ -7,8 +7,9 @@ import max from '../img/ampliar-texto.png';
 import min from '../img/disminuir.png';
 import {useState,useEffect} from 'react'
 import axios from 'axios'
+import {cargasPredeterminadas } from '../helpers/predeterminadoInputs';
 const Swal = require('sweetalert2')
-
+const [airConditioned, spaceHeater, dishWasher, waterHeaterTankless,oven,electricPan,clothesDryer1,clothesDryer2,crushingMachine,electricPump,toaster,microWaveOven, moto3hp,kitchen] = cargasPredeterminadas
 const InputsCalculate = ({setRespuestaBand,setMreport,setMreport2, setMreport1,mreport1,mreport,setEstadoInputs,setCircuitActual,setNumeroDeCircuits,mountReport,setMountReport,setNameTablero,reportActual,nameTablero,mount1,setMount1,circuitName,setCircuitName,values,setValues,setArr,arr,circuitActual,circuitActual1,estadoInputs, name,setNameProject, id}) => {
   const [respuesta,setRespuesta] = useState({
     current: "0",
@@ -84,13 +85,14 @@ const [reportAux, setReportAux] = useState()
      console.log(JSON.stringify( report ) === JSON.stringify( reportAux ))
      if(mreport1){
       enviarDatos(circuitActual)
-      modificarReporte(); 
-      reportGenerate() 
+       modificarReporte(); 
+      reportGenerate(); 
       setMreport1(false)
       setMreport(false)
       setMreport2(res => !res)
      
      }
+     
      
   }, [estadoInputs,mount1,mountReport,mreport1]);
   const consultarCircuit = async()=> {
@@ -434,7 +436,7 @@ const [reportAux, setReportAux] = useState()
       <div className="container mb-1 ml-0">
         <h4 className="text-left mb-3 p-0 mt-2 color">{t("InputsC.sAppliance")}</h4>
         <div className="row">
-      
+
           <div class="input-group col-12" style={{width:'150px'}}>
             <label htmlFor="" className='mx-3 mt-1'>{t("Board.nBoard")}</label>  
             <input className='form-control' type="text"  value={nameTablero} onKeyDown={(e) =>handleKeyDownBoard(e)} onChange={e => setNameTablero(e.target.value)}  aria-describedby="sizing-addon2"/>
@@ -455,7 +457,98 @@ const [reportAux, setReportAux] = useState()
       {/* //////////////////////////////////////////////////////////////////////////////// */}
         <h4 className="text-left mb-2 mt-0 bordeColor color">{t("InputsC.cSettings")}</h4>
         <div className="form-group row my-1 se">
-          <label for="inputEmail3" class="col-sm-5 col-form-label mitexto">{t("InputsC.loadType")}</label>
+          <div className="form-group row my-1 se">
+            <label for="inputEmail3" class="col-sm-5 col-form-label mitexto " style={{'padding-left':'28px'}}>Load Type</label>
+            <div class="col-sm-7 span4" id="selDiv" >
+         
+              <select style={{'width':'200px'}} name="id_tipo_contacto" id="id_tipo_contacto" class="custom-select custom-select mitexto SelectOptions"  autocomplete="off"
+                onChange={ (e)=>{
+                  console.log(e.currentTarget.value)
+                  switch (e.currentTarget.value) {
+                    case '0':
+                      console.log('hola1')
+                      setReport(r => { return {...r,...airConditioned}});
+                      break;
+                    case '1':
+                      console.log('hola2')
+                      setReport(r => { return {...r,...spaceHeater}});
+                      break;
+                  
+                    case '2':
+                      console.log('hola2')
+                      setReport(r => { return {...r,...dishWasher}});
+                      break;
+                    case '3':
+                      console.log('hola2')
+                      setReport(r => { return {...r,...waterHeaterTankless}});
+                      break;
+                  
+                    case '4':
+                      console.log('hola2')
+                      setReport(r => { return {...r,...oven}});
+                      break;
+                    case '5':
+                      console.log('hola2')
+                      setReport(r => { return {...r,...clothesDryer1}});
+                      break;
+                    case '6':
+                      console.log('hola2')
+                      setReport(r => { return {...r,...clothesDryer2}});
+                      break;
+                    case '7':
+                      console.log('hola2')
+                      setReport(r => { return {...r,...crushingMachine}});
+                      break;
+                    case '8':
+                      console.log('hola2')
+                      setReport(r => { return {...r,...electricPump}});
+                      break;
+                    case '9':
+                      console.log('hola2')
+                      setReport(r => { return {...r,...toaster}});
+                      break;
+                    case '10':
+                      console.log('hola2')
+                      setReport(r => { return {...r,...microWaveOven}});
+                      break;
+                  
+                    case '11':
+                      console.log('hola2')
+                      setReport(r => { return {...r,...moto3hp}});
+                      break;
+                  
+                    case '12':
+                      console.log('hola2')
+                      setReport(r => { return {...r,...kitchen}});
+                      break;
+                  
+                    default:
+                      console.log('adios')
+                      break;
+                  }
+                }}
+              >
+                <option selected class="mitexto">{t("InputsC.choose")}</option>
+                <option value='0' class="mitexto">Air Conditioned12000 BTU/Hr</option>
+                <option value='1' class="mitexto">Space Heater</option>
+                <option value='2' class="mitexto">Dish Washer</option>
+                <option value='3' class="mitexto">Water Heater Tankless</option>
+                <option value='4' class="mitexto">Oven</option>
+                <option value='5' class="mitexto">Clothes Dryer 1</option>
+                <option value='6' class="mitexto">Clothes Dryer 2</option>
+                <option value='7' class="mitexto">Crushing machine</option>
+                <option value='8' class="mitexto">Electric pump 1 HP 1 Phase</option>
+                <option value='9' class="mitexto">Toaster</option>
+                <option value='10' class="mitexto">Microwave oven</option>
+                <option value='11' class="mitexto">Motor 3HP 3 Phases</option>
+                <option value='12' class="mitexto">Kitchen</option>
+              
+            
+              
+              </select>
+            </div>
+          </div>
+         {/*  <label for="inputEmail3" class="col-sm-5 col-form-label mitexto">{t("InputsC.loadType")}</label>
           <div class="col-sm-7 span4" id="selDiv">
             <select name="id_tipo_contacto" id="id_tipo_contacto" class="custom-select custom-select mitexto SelectOptions"  autocomplete="off" onChange={handleLoadType} value={report != null?report.loadType:null}>
               <option selected  class="mitexto">{t("InputsC.choose")}</option>
@@ -463,7 +556,7 @@ const [reportAux, setReportAux] = useState()
               <option value="1" class="mitexto">{t("InputsC.aCond")}</option>
               <option value="2" class="mitexto">Motor</option>
             </select>
-          </div>
+          </div> */}
         </div>
 
         <div id="2" class="formulario none mt-1 p15 bgg">
@@ -571,7 +664,7 @@ const [reportAux, setReportAux] = useState()
         <div className="row mx-1">
           <div className="col-4"></div>
           <div className="col-4"></div>
-          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>enviarDatos(circuitActual)}>{t("InputsC.compute")}</button></div>
+          <div className="col-4"><button className="btn btn-primary mt-2 gray mitexto" onClick={()=>{enviarDatos(circuitActual);setMreport1(false)}}>{t("InputsC.compute")}</button></div>
         </div> 
         <div className="col-4">
             {/* <button className="btn btn-primary mt-2 gray" onClick={()=>console.log(report)}>algo</button> */}
