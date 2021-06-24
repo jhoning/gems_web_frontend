@@ -398,7 +398,9 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
             <a class=""  href="#"  onClick={() => {
                     addCircuit(node.key) 
                     setMount(false)
-                    expandAll()
+                    setTimeout( ()=>{
+                      expandAll()
+                    },1000)
                   }} >
               <img class="ban" src={plus} />
             </a> 
@@ -469,7 +471,12 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
         setMount(false)
 
       }}>{t("MenuTree.addBoard")} +</button>   
-      <Tree value={arr} nodeTemplate={nodeTemplate} expandedKeys={expandedKeys} onToggle={e => setExpandedKeys(e.value)}/>
+      <Tree value={arr} nodeTemplate={nodeTemplate} expandedKeys={expandedKeys} onToggle={e => 
+        
+     
+          setExpandedKeys(e.value)
+   
+        }/>
     </>
   )
 }

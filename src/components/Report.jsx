@@ -89,10 +89,19 @@ const Report = React.forwardRef(({mreport2,mountReport,arr,numeroDeCircuits,name
                   <tr role="row" class="even">
                     <td class="mitexto1">{item.circuit.name}</td>
                     <td class="mitexto1">
-                      {item.loadType == 0?t("InputsC.kitchen"):null}
-                      {item.loadType == 1?t("InputsC.aCond"):null} 
+                      {item.loadType == 0?'Air Conditioned12000 BTU/Hr':null}
+                      {item.loadType == 1?'Space Heater':null} 
                       {item.loadType == 2?'Motor':null}
-                      {item.loadType == 3?'motor':null}
+                      {item.loadType == 3?'Water Heater Tankless':null}
+                      {item.loadType == 4?'Oven':null}
+                      {item.loadType == 5?'Clothes Dryer 1':null}
+                      {item.loadType == 6?'Clothes Dryer 2':null}
+                      {item.loadType == 7?'Crushing Machine':null}
+                      {item.loadType == 8?'Electric pump 1 hp 1 Phase':null}
+                      {item.loadType == 9?'Toaster':null}
+                      {item.loadType == 10?'Microwave oven':null}
+                      {item.loadType == 11?'Dish Heater':null}
+                      {item.loadType == 12?'Kitchen':null}
                     </td>
                     <td class="mitexto1">
                       {item.pipe_material == 0?item.pipe_diameter + '"' + t("Option.PVC"):null}

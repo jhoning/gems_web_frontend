@@ -531,7 +531,7 @@ const [reportAux, setReportAux] = useState()
                 <option selected class="mitexto">{t("InputsC.choose")}</option>
                 <option value='0' class="mitexto">Air Conditioned12000 BTU/Hr</option>
                 <option value='1' class="mitexto">Space Heater</option>
-                <option value='2' class="mitexto">Dish Washer</option>
+                <option value='2' class="mitexto">Motor</option>
                 <option value='3' class="mitexto">Water Heater Tankless</option>
                 <option value='4' class="mitexto">Oven</option>
                 <option value='5' class="mitexto">Clothes Dryer 1</option>
@@ -540,7 +540,7 @@ const [reportAux, setReportAux] = useState()
                 <option value='8' class="mitexto">Electric pump 1 HP 1 Phase</option>
                 <option value='9' class="mitexto">Toaster</option>
                 <option value='10' class="mitexto">Microwave oven</option>
-                <option value='11' class="mitexto">Motor 3HP 3 Phases</option>
+                <option value='11' class="mitexto">Dish Washer</option>
                 <option value='12' class="mitexto">Kitchen</option>
               
             
@@ -559,7 +559,7 @@ const [reportAux, setReportAux] = useState()
           </div> */}
         </div>
 
-        <div id="2" class="formulario none mt-1 p15 bgg">
+        <div id="2" class={`formulario ${report.loadType == 2?null:'none'} mt-1 p15 bgg`}>
           <label for="inputEmail3" class="col-sm-5 col-form-label mitexto f-l p0">{t("InputsC.choose")}</label>
           <div class="col-sm-7 span4 f-l m4 mu">
             <select class="custom-select custom-select mitexto"  autocomplete="off" onChange={handleLoadPhases} value={report != null?report.loadPhases:null}>
