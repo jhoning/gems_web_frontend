@@ -102,6 +102,7 @@ const Report = React.forwardRef(({mreport2,mountReport,arr,numeroDeCircuits,name
                       {item.loadType == 10?'Microwave oven':null}
                       {item.loadType == 11?'Dish Heater':null}
                       {item.loadType == 12?'Kitchen':null}
+                      {item.loadType == 13?'Other':null}
                     </td>
                     <td class="mitexto1">
                       {item.pipe_material == 0?item.pipe_diameter + '"' + t("Option.PVC"):null}

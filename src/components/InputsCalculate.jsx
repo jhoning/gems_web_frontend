@@ -521,6 +521,10 @@ const [reportAux, setReportAux] = useState()
                       console.log('hola2')
                       setReport(r => { return {...r,...kitchen}});
                       break;
+                    case '13':
+                      console.log('hola2')
+                      setReport(r => { return {...r}});
+                      break;
                   
                     default:
                       console.log('adios')
@@ -542,6 +546,8 @@ const [reportAux, setReportAux] = useState()
                 <option value='10' class="mitexto">Microwave oven</option>
                 <option value='11' class="mitexto">Dish Washer</option>
                 <option value='12' class="mitexto">Kitchen</option>
+                <option value='13' class="mitexto">Other</option>
+              
               
             
               
