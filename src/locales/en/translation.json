@@ -108,7 +108,22 @@
         "thhn": "This option includes all temperatures and all insulation with a maximum temperature of 90°C",
         "neutral": "Feeder include neutral wire?",
         "conduit": "Conduit material",
-        "sVoltage": "System Voltage"       
+        "sVoltage": "System Voltage",
+        "airConditioned": "Air Conditioned", 
+        "spaceHeater":"Space Heater", 
+        "dishWasher": "Dish Washer",
+        "waterHeaterTankless":"waterHeaterTankless",
+        "oven": "Oven",
+        "electricPan": "Electric Pan",
+        "clothesDryer1":"clothesDryer1",
+        "clothesDryer2":"clothesDryer2",
+        "crushingMachine":"Crushing Machine",
+        "electricPump":"Electric Pump",
+        "toaster": "Toaster",
+        "microWaveOven": "Microwave oven", 
+        "moto3hp": "Motor",
+        "kitchen": "Kitchen"   ,
+        "other": "Other"    
     }, 
     "MenuTree": {
         "tableN": "Enter table name",

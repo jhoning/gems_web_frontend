@@ -113,7 +113,7 @@ const TreeNav = ({respuestaBand,setRespuestaBand,setMreport2,setArr1 ,setMount1,
   } 
   const consultarCircuit = async(id1)=> {
     await authAxios.get('/circuit/'+ id1).then(res=>{res.data.report != null?setEstadoInputs(res.data.report):setEstadoInputs({
-      loadType:0,
+      loadType:-1,
       power: 0,
       distance: "0",
       powerFactor: 0,

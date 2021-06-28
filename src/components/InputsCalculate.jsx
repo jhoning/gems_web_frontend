@@ -404,6 +404,61 @@ const [reportAux, setReportAux] = useState()
       console.log('do validate')
     }
   }
+  const handleKeyDownNext1 = (event) => {
+    if (event.key === 'Enter') {
+     document.getElementsByClassName('input2')[0].focus();
+    }
+  }
+  const handleKeyDownNext2 = (event) => {
+    if (event.key === 'Enter') {
+     document.getElementsByClassName('input3')[0].focus();
+    }
+  }
+  const handleKeyDownNext3 = (event) => {
+    if (event.key === 'Enter') {
+     document.getElementsByClassName('input4')[0].focus();
+    }
+  }
+  const handleKeyDownNext4 = (event) => {
+    if (event.key === 'Enter') {
+     document.getElementsByClassName('input5')[0].focus();
+    }
+  }
+  const handleKeyDownNext5 = (event) => {
+    if (event.key === 'Enter') {
+     document.getElementsByClassName('input6')[0].focus();
+    }
+  }
+  const handleKeyDownNext6 = (event) => {
+    if (event.key === 'Enter') {
+     document.getElementsByClassName('input7')[0].focus();
+    }
+  }
+  const handleKeyDownNext7 = (event) => {
+    if (event.key === 'Enter') {
+     document.getElementsByClassName('input8')[0].focus();
+    }
+  }
+  const handleKeyDownNext8 = (event) => {
+    if (event.key === 'Enter') {
+     document.getElementsByClassName('input9')[0].focus();
+    }
+  }
+  const handleKeyDownNext9 = (event) => {
+    if (event.key === 'Enter') {
+     document.getElementsByClassName('input10')[0].focus();
+    }
+  }
+  const handleKeyDownNext10 = (event) => {
+    if (event.key === 'Enter') {
+     document.getElementsByClassName('input11')[0].focus();
+    }
+  }
+  const handleKeyDownNext11 = (event) => {
+    if (event.key === 'Enter') {
+     document.getElementsByClassName('input12')[0].focus();
+    }
+  }
  
 
   return (<>
@@ -458,11 +513,12 @@ const [reportAux, setReportAux] = useState()
         <h4 className="text-left mb-2 mt-0 bordeColor color">{t("InputsC.cSettings")}</h4>
         <div className="form-group row my-1 se">
           <div className="form-group row my-1 se">
-            <label for="inputEmail3" class="col-sm-5 col-form-label mitexto " style={{'padding-left':'28px'}}>Load Type</label>
+            <label for="inputEmail3" class="col-sm-5 col-form-label mitexto " style={{'padding-left':'28px'}}>{ t("InputsC.loadType")}</label>
             <div class="col-sm-7 span4" id="selDiv" >
          
-              <select style={{'width':'200px'}} name="id_tipo_contacto" id="id_tipo_contacto" class="custom-select custom-select mitexto SelectOptions"  autocomplete="off"
+              <select style={{'width':'200px'}} name="id_tipo_contacto" id="id_tipo_contacto" onKeyDown={(e) =>handleKeyDownNext1(e)} class="custom-select custom-select mitexto SelectOptions input1"  autocomplete="off" value={report.loadType}
                 onChange={ (e)=>{
+                  setMreport(true)
                   console.log(e.currentTarget.value)
                   switch (e.currentTarget.value) {
                     case '0':
@@ -532,21 +588,21 @@ const [reportAux, setReportAux] = useState()
                   }
                 }}
               >
-                <option selected class="mitexto">{t("InputsC.choose")}</option>
-                <option value='0' class="mitexto">Air Conditioned12000 BTU/Hr</option>
-                <option value='1' class="mitexto">Space Heater</option>
-                <option value='2' class="mitexto">Motor</option>
-                <option value='3' class="mitexto">Water Heater Tankless</option>
-                <option value='4' class="mitexto">Oven</option>
-                <option value='5' class="mitexto">Clothes Dryer 1</option>
-                <option value='6' class="mitexto">Clothes Dryer 2</option>
-                <option value='7' class="mitexto">Crushing machine</option>
-                <option value='8' class="mitexto">Electric pump 1 HP 1 Phase</option>
-                <option value='9' class="mitexto">Toaster</option>
-                <option value='10' class="mitexto">Microwave oven</option>
-                <option value='11' class="mitexto">Dish Washer</option>
-                <option value='12' class="mitexto">Kitchen</option>
-                <option value='13' class="mitexto">Other</option>
+                <option selected class="mitexto" value='-1'>{t("InputsC.choose")}</option>
+                <option value='0' class="mitexto">{t("InputsC.airConditioned")}</option>
+                <option value='1' class="mitexto">{t("InputsC.spaceHeater")}</option>
+                <option value='2' class="mitexto">{t("InputsC.moto3hp")}</option>
+                <option value='3' class="mitexto">{t("InputsC.waterHeaterTankless")}</option>
+                <option value='4' class="mitexto">{t("InputsC.oven")}</option>
+                <option value='5' class="mitexto">{t("InputsC.clothesDryer1")}</option>
+                <option value='6' class="mitexto">{t("InputsC.clothesDryer2")}</option>
+                <option value='7' class="mitexto">{t("InputsC.crushingMachine")}</option>
+                <option value='8' class="mitexto">{t("InputsC.electricPump")}</option>
+                <option value='9' class="mitexto">{t("InputsC.toaster")}</option>
+                <option value='10' class="mitexto">{t("InputsC.microWaveOven")}</option>
+                <option value='11' class="mitexto">{t("InputsC.dishWasher")}</option>
+                <option value='12' class="mitexto">{t("InputsC.kitchen")}</option>
+                <option value='13' class="mitexto">{t("InputsC.other")}</option>
               
               
             
@@ -578,13 +634,13 @@ const [reportAux, setReportAux] = useState()
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.powerW")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="number"  class="form-control mitexto" id="inputEmail3" autocomplete="off" value={report != null?report.power:null} autocomplete="nope" onChange={handlePower} />
+            <input type="number"  class="form-control mitexto input2" onKeyDown={(e) =>handleKeyDownNext2(e)} id="inputEmail3" autocomplete="off" value={report != null?report.power:null} autocomplete="nope" onChange={handlePower} />
           </div>
         </div>
         <div class="form-group row my-1 se">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.loadP")}</label>
           <div class="col-sm-7 mx-0">
-          <select class="custom-select custom-select mitexto"  autocomplete="off" onChange={handleLoadPhases} value={report != null?report.loadPhases:null}>
+          <select class="custom-select custom-select mitexto input3" onKeyDown={(e) =>handleKeyDownNext3(e)}  autocomplete="off" onChange={handleLoadPhases} value={report != null?report.loadPhases:null}>
               <option selected class="mitexto">{t("InputsC.choose")}</option>
               <option value="1" class="mitexto">1</option>
               <option value="2" class="mitexto">2</option>
@@ -595,31 +651,31 @@ const [reportAux, setReportAux] = useState()
         <div class="form-group row my-0">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.cablesP")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="number" class="form-control mitexto" id="inputEmail3" autocomplete="off" value={report != null?report.perPhase:null} onChange={handlePerPhases}/>
+            <input type="number" class="form-control mitexto input4" onKeyDown={(e) =>handleKeyDownNext4(e)} id="inputEmail3" autocomplete="off" value={report != null?report.perPhase:null} onChange={handlePerPhases}/>
           </div>
         </div>
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.distance")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="number" class="form-control mitexto" id="inputEmail3"  autocomplete="off" value={report != null?report.distance:null} onChange={handleDistance}/>
+            <input type="number" class="form-control mitexto input5" onKeyDown={(e) =>handleKeyDownNext5(e)} id="inputEmail3"  autocomplete="off" value={report != null?report.distance:null} onChange={handleDistance}/>
           </div>
         </div>
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.powerF")}</label>
           <div class="col-sm-7 mx-0">
-            <input type="number" step=".1" min="0" max="100" class="form-control mitexto" id="inputEmail3" value={report != null?report.powerFactor:null} autocomplete="off" onChange={handlePowerFactor} />
+            <input type="number" step=".1" min="0" max="100" onKeyDown={(e) =>handleKeyDownNext6(e)} class="form-control mitexto input6" id="inputEmail3" value={report != null?report.powerFactor:null} autocomplete="off" onChange={handlePowerFactor} />
           </div>
         </div>
         <div class="form-group row my-1">
           <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.voltage")} (%)</label>
           <div class="col-sm-7 mx-0">
-            <input type="number" class="form-control mitexto" id="inputEmail3" autocomplete="off" onChange={handleVoltageDrop} value={report != null?report.voltageDrop:null} />
+            <input type="number" class="form-control mitexto input7" onKeyDown={(e) =>handleKeyDownNext7(e)} id="inputEmail3" autocomplete="off" onChange={handleVoltageDrop} value={report != null?report.voltageDrop:null} />
           </div>
         </div>
         <div class="form-group row my-1">
         <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.sVoltage")} (V)</label>
         <div class="col-sm-7">
-            <select class="custom-select custom-select mitexto"  autocomplete="off" value={report != null?report.system_voltage:null}onChange={handleSystem_voltage}>
+            <select class="custom-select custom-select mitexto input8" onKeyDown={(e) =>handleKeyDownNext8(e)}  autocomplete="off" value={report != null?report.system_voltage:null}onChange={handleSystem_voltage}>
               <option selected class="mitexto">{t("InputsC.choose")}</option>
               <option value="120" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title="120">120</option>
               <option value="208" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title="208">208</option>
@@ -630,25 +686,25 @@ const [reportAux, setReportAux] = useState()
         <div className="form-group row my-1 se">
           <label for="inputEmail3" class="col-sm-5 col-form-label mitexto">{t("InputsC.aisolation")}</label>
           <div class="col-sm-7">
-            <select class="custom-select custom-select mitexto"  autocomplete="off" value={report != null?report.aisolation:null} onChange={handleAisolation}>
+            <select class="custom-select custom-select mitexto input9" onKeyDown={(e) =>handleKeyDownNext9(e)}  autocomplete="off" value={report != null?report.aisolation:null} onChange={handleAisolation}>
               <option selected class="mitexto">{t("InputsC.choose")}</option>
               <option value="0" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.tw")}>TW</option>
-              <option value="1" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.thwn")}>THWN</option>
-              <option value="2" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.thhn")}>THHN</option>
+{/*               <option value="1" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.thwn")}>THWN</option>
+              <option value="2" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("InputsC.thhn")}>THHN</option> */}
             </select>
           </div>
         </div>
         <div class="form-group row my-1">
         <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.temperature")} (°C)</label>
           <div class="col-sm-7 mx-0">
-          <input type="number" class="form-control mitexto" id="inputEmail3"  autocomplete="off" value={report != null?report.temperature:null} onChange={handleTemperature}/>
+          <input type="number" class="form-control mitexto input10" id="inputEmail3" onKeyDown={(e) =>handleKeyDownNext10(e)}  autocomplete="off" value={report != null?report.temperature:null} onChange={handleTemperature}/>
           </div>
         </div>
 
         <div class="form-group row my-1">
         <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.neutral")}</label>
         <div class="col-sm-7">
-            <select class="custom-select custom-select mitexto"  autocomplete="off" value={report != null?report.feeder_include_neutral_wire:true} onChange={handleFeeder_include_neutral_wire}>
+            <select class="custom-select custom-select mitexto input11" onKeyDown={(e) =>handleKeyDownNext11(e)}  autocomplete="off" value={report != null?report.feeder_include_neutral_wire:true} onChange={handleFeeder_include_neutral_wire}>
               <option class="mitexto" value={true} selected data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.yes")}>{t("Option.yes")}</option>
               <option class="mitexto" value={false} data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.no")}>{t("Option.no")}</option>
             </select>
@@ -658,7 +714,7 @@ const [reportAux, setReportAux] = useState()
         <div class="form-group row my-1">
         <label for="inputEmail3" class="col-sm-5 col-form-label mx-0 mitexto">{t("InputsC.conduit")}</label>
           <div class="col-sm-7 mx-0">
-            <select class="custom-select custom-select"  autocomplete="off" value={report != null?report.pipe_material:0} onChange={handlePipe_material}>
+            <select class="custom-select custom-select input input12"  autocomplete="off" value={report != null?report.pipe_material:0} onChange={handlePipe_material}>
               <option value="0" selected class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.PVC")}>{t("Option.PVC")}</option>
               <option value="1" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.aluminum")}>{t("Option.aluminum")}</option>
               <option value="2" class="mitexto" data-bs-toggle="tooltip" data-bs-placement="right" title={t("Option.steel")}>{t("Option.steel")}</option>
@@ -698,7 +754,7 @@ const [reportAux, setReportAux] = useState()
         <div class="form-group row my-0">
           <label for="inputEmail3" class="col-sm-4 col-form-label my-0 mitexto">{t("InputsC.protectionD")}</label>
           <div class="col-sm-8 my-0">
-            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => {setValues({...values,protection_device: e.target.value});;if(JSON.stringify( respuesta ) === JSON.stringify( respuesta2 )){setRespuestaBand(true)}} } value={parseFloat(respuesta.protection_device).toFixed(2)}/>
+            <input type="text" class="form-control text-right mt-2 mitexto" id="inputEmail3"  autocomplete="off" onChange={ e => {setValues({...values,protection_device: e.target.value});;if(JSON.stringify( respuesta ) === JSON.stringify( respuesta2 )){setRespuestaBand(true)}} } value={parseFloat(respuesta.protection_device).toFixed(0)}/>
           </div>
         </div>
         <div class="form-group row my-0">
